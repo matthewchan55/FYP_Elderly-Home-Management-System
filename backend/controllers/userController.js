@@ -40,7 +40,7 @@ const signupUser = async (req, res) => {
   }
 };
 
-// fetch profile
+// fetch user profile
 const updateProfileUser = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -61,4 +61,11 @@ const updateProfileUser = async (req, res) => {
   res.status(200).json(updatedUser);
 }
 
-module.exports = { loginUser, signupUser, updateProfileUser };
+
+// fetch staffs data
+const fetchStaff = async(req, res) => {
+  const staffs = await User.find().or([{userType: "admin"}, {userType: "caregivers"}]).sort({staffID: 1});
+  res.status(200).json(staffs);
+}
+
+module.exports = { loginUser, signupUser, updateProfileUser, fetchStaff };
