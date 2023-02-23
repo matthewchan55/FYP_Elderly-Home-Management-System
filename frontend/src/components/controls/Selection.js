@@ -6,7 +6,7 @@ export default function Selection(props) {
   return (
     <FormControl sx={{ width: "80%", margin: 1 }}>
       <InputLabel>{inputLabelName}</InputLabel>
-      <Select name={name} label={label} value={value} onChange={onChange}>
+      <Select name={name} label={label} value={value} defaultValue="" onChange={onChange}>
 
         {items.map((item) => (
           <MenuItem name={item.name} key={item.value} value={item.value}>

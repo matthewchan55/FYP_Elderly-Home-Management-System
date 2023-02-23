@@ -1,7 +1,6 @@
 // MUI import
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
-import {
-  Paper,
+import { Paper,
   TableBody,
   TableRow,
   TableCell,
@@ -9,14 +8,18 @@ import {
   InputAdornment,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 // react import
 import { useState, useEffect } from "react";
 import useTable from "../../hook/useTable";
 import PageHeader from "../../components/PageHeader";
+import Popup from "../../components/Popup";
 import { Controls } from "../../components/controls/Controls";
+import EmptyForm from "../../components/EmptyForm";
 
 const ManagementStaff = () => {
+
   useEffect(() => {
     const fetchStaff = async () => {
       const resp = await fetch("/api/user/management/staff");
@@ -64,8 +67,7 @@ const ManagementStaff = () => {
     filters
   );
 
-  console.log(staffData);
-
+  const [openPopUp, setOpenPopUp] = useState(false)
   return (
     <>
       <PageHeader
@@ -75,12 +77,15 @@ const ManagementStaff = () => {
           <ManageAccountsIcon sx={{ fontSize: 60, justifyContent: "center" }} />
         }
       />
+
       <Paper>
-        {/* Search bar */}
+        {/* Tool bar */}
         <Toolbar>
+          {/* Search bar */}
           <Controls.OutlinedInput
             label="Search staff"
             onChange={handleSearch}
+            sx={{ width: "20%", margin: 1 }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -89,7 +94,16 @@ const ManagementStaff = () => {
               ),
             }}
           />
+          {/* Add button */}
+          <Controls.Buttons
+          text="Add new staff"
+          color="deepBlue"
+          onClick={() => setOpenPopUp(true)}
+          variant="outlined"
+          startIcon={<PlaylistAddIcon/>} 
+          />
         </Toolbar>
+
         {/* Staff Table */}
         <TableContainer>
           <TableHeader />
@@ -97,6 +111,7 @@ const ManagementStaff = () => {
             {staffData &&
               pagedRecords().map((staff) => (
                 <TableRow key={staff._id}>
+                  {/* **object.value(staff).filter().map() */}
                   <TableCell>{staff.staffID}</TableCell>
                   <TableCell>{staff.lastName}</TableCell>
                   <TableCell>{staff.firstName}</TableCell>
@@ -111,6 +126,10 @@ const ManagementStaff = () => {
         </TableContainer>
         <TablePaging />
       </Paper>
+      {/* pop up */}
+      <Popup title="Add a staff" open={openPopUp} setOpen={setOpenPopUp}>
+        <EmptyForm/>
+      </Popup>
     </>
   );
 };

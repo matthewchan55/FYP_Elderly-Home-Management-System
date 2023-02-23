@@ -11,7 +11,7 @@ import { useState } from "react";
 
 // CSS for tables
 const StyledTable = styled(Table)(({ theme }) => ({
-  width: "70%",
+  width: "100%",
   "& thead th": {
     backgroundColor: "#757575",
     fontWeight: "bold",
@@ -66,7 +66,7 @@ export default function useTable(data, headers, filter) {
     );
   };
 
-  // Table pagination 
+  // Table pagination ( ** maybe need refactor it =])
 
   // Table pagination logic
   const handleChangePage = (event, newPage) => {

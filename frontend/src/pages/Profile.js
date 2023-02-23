@@ -11,7 +11,7 @@ const Profile = () => {
   }))
 
   return (
-    <div>
+    <>
       <PageHeader
         title="Profile"
         subtitle="View or update personal information"
@@ -20,9 +20,7 @@ const Profile = () => {
       <ProfilePaper>
         <ProfileForm />
       </ProfilePaper>
-
-
-    </div>
+    </>
   );
 };
 

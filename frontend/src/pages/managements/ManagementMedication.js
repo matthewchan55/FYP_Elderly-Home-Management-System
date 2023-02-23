@@ -1,10 +1,10 @@
 import VaccinesIcon from "@mui/icons-material/Vaccines";
-import PageHeader
+import PageHeader from "../../components/PageHeader";
 
-from "../../components/PageHeader";
+// confirmatino Dialog from MUI
 const ManagementMedication = () => {
   return (
-    <div>
+    <>
       <PageHeader
         title="Medication Management"
         subtitle="Manage medicines or define default medicine for residents"
@@ -12,7 +12,7 @@ const ManagementMedication = () => {
           <VaccinesIcon sx={{ fontSize: 60, justifyContent: "center" }} />
         }
       />
-    </div>
+    </>
   )
 }
 

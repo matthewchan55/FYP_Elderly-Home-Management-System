@@ -9,6 +9,7 @@ export default function OutlinedInput(props) {
       name={name}
       value={value}
       onChange={onChange}
+      sx={{ width: "80%", margin: 1 }}
       {...other}
     />
   );

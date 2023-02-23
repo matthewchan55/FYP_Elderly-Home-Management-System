@@ -13,6 +13,9 @@ export default function Buttons(props) {
         main: "#64748B",
         contrastText: "#fff",
       },
+      deepBlue: {
+        main: "#3f51b5"
+      }
     },
   });
   
@@ -24,7 +27,7 @@ export default function Buttons(props) {
         size={size || "medium"}
         onClick={onClick}
         {...other}
-        sx={{margin: 1}}
+        sx={{margin: 1, textTransform: "none"}}
       >
         {text}
       </Button>
