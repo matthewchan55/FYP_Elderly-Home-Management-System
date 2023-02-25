@@ -2,7 +2,7 @@ import { Alert, Snackbar, LinearProgress } from "@mui/material";
 
 const SmallAlert = (props) => {
   //const [progress, setProgress] = useState(100);
-  const { open, onClose } = props;
+  const { error, open, onClose, title } = props;
 
   //  useEffect(() => {
   //    const timer = setInterval(() => {
@@ -19,13 +19,13 @@ const SmallAlert = (props) => {
     <Snackbar
       anchorOrigin={{
         vertical: "top",
-        horizontal: "center",
+        horizontal: "right",
       }}
       open={open}
       onClose={onClose}
       autoHideDuration={3000}
     >
-      <Alert onClose={onClose}>Updated Successfully!</Alert>
+      <Alert onClose={onClose} severity={error? "error": "success"}>{title}</Alert>
       {/* <LinearProgress variant="determinate" color="success" value={progress} /> */}
     </Snackbar>
   );

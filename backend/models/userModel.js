@@ -29,7 +29,8 @@ const userSchema = new Schema({
         //required: true
     },
     staffID: {
-        type: Number, 
+        type: Number,
+        unique: true
         //required: true
     },
     address: {
@@ -48,11 +49,13 @@ const userSchema = new Schema({
         type: String, 
         //required: true
     }
-}, {timestamp: true})
+}, {timestamps: true})
 
 // static signup method 
-userSchema.statics.signup = async function (account, password, userType, staffID){
+userSchema.statics.signup = async function (userInfo){
     // Validation
+    const {account, password, staffID} = userInfo
+
     if(!account || !password){
         throw Error('All fields must be filled')
     }
@@ -63,11 +66,16 @@ userSchema.statics.signup = async function (account, password, userType, staffID
         throw Error('Account already in use')
     }
 
+    const existStaffID = await this.findOne({staffID})
+    if(existStaffID){
+        throw Error('This staff already owns a account')
+    }
+
     // Hashing (mern authentication #3)
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt)
 
-    const user = await this.create({account, password: hash, userType, lastName: '', firstName: '', staffID, address: '', phoneNum:'', sex: '',  HKID:''})
+    const user = await this.create({...userInfo, password: hash})
 
     return user
 }

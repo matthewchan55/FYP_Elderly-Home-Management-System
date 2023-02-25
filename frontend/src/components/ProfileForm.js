@@ -5,13 +5,15 @@ import { Grid, Typography } from "@mui/material";
 import { useAuthContext } from "../hook/useAuthContext";
 import { useForm, Form } from "../hook/useForm";
 import { Controls } from "../components/controls/Controls";
+import { useSubmit } from "../hook/useSubmit";
 import useAlert from "../hook/useAlert";
 import SmallAlert from "./SmallAlert";
 
-const ProfileForm = () => {
+const ProfileForm = ({selectedUser}) => {
   const { user, dispatch } = useAuthContext();
-  const { userData, handleInputChanges } = useForm(user);
+  const { userData, handleInputChanges } = useForm(selectedUser ? selectedUser : user);
   const { open, setOpen, handleClose } = useAlert();
+  const { submit, error } = useSubmit();
 
   const genderSelection = [
     { name: "sex", value: "M", label: "M" },
@@ -21,28 +23,26 @@ const ProfileForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const resp = await fetch("/api/user/profile/" + user._id, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userData),
-    });
+    await submit("/api/user/profile/" + (selectedUser? selectedUser._id: user._id), userData, "PATCH");
+    setOpen(true);
 
-    const respData = await resp.json();
-
-    if (resp.ok) {
-      dispatch({ type: "UPDATE", payload: respData });
+    if(!selectedUser || selectedUser._id===user._id){
+      dispatch({ type: "UPDATE", payload: userData });
     }
-  };
 
+  };
 
   return (
     // **improvement/suggestion: all disabled -> toggle to allow changes?
-    // ** outlinedInput now define css here (because size vary between different input) -> need check check think think
-    // ** alert now only work on reset button -> how to call function another function
     <>
-      <SmallAlert open={open} onClose={handleClose} />
+      <SmallAlert
+        error={error}
+        open={open}
+        onClose={handleClose}
+        title="Update successfully!"
+      />
       <Form>
-        <Typography variant="h4" sx={{ marginBottom: 2 }}>
+        <Typography variant="h5" sx={{ marginBottom: 2 }}>
           Personal information
         </Typography>
         <Grid container>
@@ -114,7 +114,7 @@ const ProfileForm = () => {
             text="Save changes"
             onClick={handleSubmit}
           />
-          <Controls.Buttons text="Reset" color="neutral" onClick={() => setOpen(true)}/>
+          <Controls.Buttons text="Reset" color="neutral" />
         </Grid>
       </Form>
     </>

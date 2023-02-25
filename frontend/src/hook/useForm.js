@@ -5,7 +5,7 @@ import { useState } from "react"
 export const useForm = (user) => {
 
   const [userData, setUserData] = useState(user)
-  const [newUserData, setNewUserData] = useState([]);
+  const [newData, setNewUserData] = useState([]);
 
   const handleInputChanges = (e) => {
     const { name, value } = e.target;
@@ -18,12 +18,12 @@ export const useForm = (user) => {
   const handleEmptyInputChanges = (e) => {
     const {name, value} = e.target;
     setNewUserData({
-      ...newUserData,
+      ...newData,
       [name]: value
     })
   }
 
-  return {userData, setUserData, handleInputChanges, handleEmptyInputChanges}
+  return {userData, newData, setUserData, handleInputChanges, handleEmptyInputChanges}
 }
 
 export function Form(props){

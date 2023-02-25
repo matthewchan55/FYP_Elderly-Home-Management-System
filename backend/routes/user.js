@@ -1,5 +1,5 @@
 const express = require('express')
-const { loginUser, signupUser, updateProfileUser, fetchStaff } = require('../controllers/userController')
+const { loginUser, signupUser, updateProfileUser, fetchStaff, deleteStaff } = require('../controllers/userController')
 
 const router = express.Router()
 
@@ -14,6 +14,9 @@ router.patch('/profile/:id', updateProfileUser)
 
 // fetch staffs data
 router.get('/management/staff', fetchStaff)
+
+// delete a staff data
+router.delete('/management/staff/:id', deleteStaff)
 
 
 module.exports = router

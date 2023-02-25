@@ -26,10 +26,10 @@ const loginUser = async (req, res) => {
 
 // signup user
 const signupUser = async (req, res) => {
-  const { account, password, userType, staffID } = req.body;
+  const userInfo = {...req.body}
  
   try {
-    const user = await User.signup(account, password, userType, staffID);
+    const user = await User.signup(userInfo);
 
     const userID = user._id
     const token = createToken(userID)
@@ -68,4 +68,20 @@ const fetchStaff = async(req, res) => {
   res.status(200).json(staffs);
 }
 
-module.exports = { loginUser, signupUser, updateProfileUser, fetchStaff };
+// delete staff
+const deleteStaff = async(req, res) => {
+  const {id} = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such staff" });
+  }
+
+  const staff = await User.findOneAndDelete({_id: id});
+
+  if (!staff) {
+    return res.status(404).json({ error: "No such staff" });
+  }
+  res.status(200).json(staff);
+}
+
+module.exports = { loginUser, signupUser, updateProfileUser, fetchStaff, deleteStaff };
