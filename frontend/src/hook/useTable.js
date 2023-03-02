@@ -4,7 +4,7 @@ import {
   TableHead,
   TableCell,
   TablePagination,
-  TableSortLabel,
+  TableSortLabel
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
@@ -35,7 +35,7 @@ export default function useTable(data, headers, filter) {
   const [orderBy, setOrderBy] = useState();
 
   // Table
-  const TableContainer = (props) => <StyledTable>{props.children}</StyledTable>;
+  const TableContainer = (props) => <StyledTable options={{columnsButton:true}}>{props.children}</StyledTable>;
 
   // Table Head
   const TableHeader = (props) => {
@@ -48,19 +48,23 @@ export default function useTable(data, headers, filter) {
     return (
       <TableHead>
         <TableRow>
-          {headers.map((head) => (
-            <TableCell key={head.id} sortDirection={orderBy===head.id ? order:false}>
-              <TableSortLabel
-                active={orderBy === head.id}
-                direction={orderBy === head.id ? order : "asc"}
-                onClick={() => {
-                  handleSort(head.id);
-                }}
+          {headers
+            .map((head) => (
+              <TableCell
+                key={head.id}
+                sortDirection={orderBy === head.id ? order : false}
               >
-                {head.label}
-              </TableSortLabel>
-            </TableCell>
-          ))}
+                <TableSortLabel
+                  active={orderBy === head.id}
+                  direction={orderBy === head.id ? order : "asc"}
+                  onClick={() => {
+                    handleSort(head.id);
+                  }}
+                >
+                  {head.label}
+                </TableSortLabel>
+              </TableCell>
+            ))}
         </TableRow>
       </TableHead>
     );
@@ -88,15 +92,15 @@ export default function useTable(data, headers, filter) {
       return a[1] - b[1];
     });
     return stabilizedThis.map((el) => el[0]);
-  }
+  };
 
-  const getComparator= (order, orderBy) => {
-    return order === 'desc'
+  const getComparator = (order, orderBy) => {
+    return order === "desc"
       ? (a, b) => descendingComparator(a, b, orderBy)
       : (a, b) => -descendingComparator(a, b, orderBy);
-  }
+  };
 
-  const descendingComparator= (a, b, orderBy)=> {
+  const descendingComparator = (a, b, orderBy) => {
     if (b[orderBy] < a[orderBy]) {
       return -1;
     }
@@ -104,25 +108,28 @@ export default function useTable(data, headers, filter) {
       return 1;
     }
     return 0;
-  }
+  };
 
   const TablePaging = (props) =>
-  data && (
-    <TablePagination
-      component="div"
-      page={page}
-      rowsPerPageOptions={pages}
-      rowsPerPage={rowsPerPage}
-      count={filter.filtering(data).length}
-      onPageChange={handleChangePage}
-      onRowsPerPageChange={handleChangeRowsPerPage}
-      sx={{display: "flex", justifyContent: "left"}}
-    />
-  );
+    data && (
+      <TablePagination
+        component="div"
+        page={page}
+        rowsPerPageOptions={pages}
+        rowsPerPage={rowsPerPage}
+        count={filter.filtering(data).length}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        sx={{ display: "flex", justifyContent: "left" }}
+      />
+    );
 
   const pagedRecords = () => {
     // use filtered data for sorting and slicing as well
-    return sort(filter.filtering(data), getComparator(order, orderBy)).slice(page * rowsPerPage, (page + 1) * rowsPerPage);
+    return sort(filter.filtering(data), getComparator(order, orderBy)).slice(
+      page * rowsPerPage,
+      (page + 1) * rowsPerPage
+    );
   };
 
   return { TableContainer, TableHeader, TablePaging, pagedRecords };

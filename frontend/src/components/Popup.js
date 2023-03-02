@@ -11,7 +11,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function Popup(props) {
-  const { title, children, open, setOpen, hideBackdrop} = props;
+  const { title, children, open, setOpen, hideBackdrop, center} = props;
 
   const handleClose = () => {
     setOpen(!open);
@@ -26,13 +26,13 @@ export default function Popup(props) {
       PaperProps={{ sx: { position: "fixed", top: 10, p: 2 } }}
     >
       <DialogTitle>
-        <Box sx={{ display: "flex"}}>
-          <Typography variant="h6" component="div">
+        <Box sx={center? { display: "flex", justifyContent:"center"}: { display: "flex"}}>
+          <Typography variant="h6" component="div" sx={center? {}: {flexGrow: 1}}>
             {title}
           </Typography>
-          <IconButton disableRipple onClick={() => handleClose()} sx={{ bottom: 5 }}>
+          {!center && <IconButton disableRipple onClick={() => handleClose()} sx={{ bottom: 5 }}>
             <CloseIcon />
-          </IconButton>
+          </IconButton>}
         </Box>
         <Divider variant="middle"/>
         <DialogContent>{children}</DialogContent>

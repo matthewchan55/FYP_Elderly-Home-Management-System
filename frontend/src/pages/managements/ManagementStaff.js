@@ -1,17 +1,14 @@
 // MUI import
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import { Paper, Toolbar, IconButton, Typography, Stack } from "@mui/material";
 import {
-  Paper,
-  TableBody,
-  TableRow,
-  TableCell,
-  Toolbar,
-  InputAdornment,
-  IconButton,
-  Typography,
-  Stack,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+  DataGrid,
+  GridToolbarContainer,
+  GridToolbarExport,
+  GridToolbarColumnsButton,
+  GridToolbarFilterButton,
+} from "@mui/x-data-grid";
+
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
@@ -20,36 +17,85 @@ import CloseIcon from "@mui/icons-material/Close";
 
 // react import
 import { useState, useEffect } from "react";
-import useTable from "../../hook/useTable";
-import { useSubmit } from "../../hook/useSubmit";
 import PageHeader from "../../components/PageHeader";
 import Popup from "../../components/Popup";
 import { Controls } from "../../components/controls/Controls";
 import EmptyForm from "../../components/EmptyForm";
 import ProfileForm from "../../components/ProfileForm";
+import { useGetOrDelete } from "../../hook/useGetOrDelete";
+import useAlert from "../../hook/useAlert";
+import SmallAlert from "../../components/SmallAlert";
+import { useAuthContext } from "../../hook/useAuthContext";
+import moment from "moment";
 
 const ManagementStaff = () => {
+  // popup state
   const [openPopUp, setOpenPopUp] = useState(false);
   const [openStaffPopup, setOpenStaffPopup] = useState(false);
   const [openDeletePopup, setOpenDeletePopup] = useState(false);
 
+  // table state
   const [staffData, setStaffData] = useState(null);
   const [staffProfile, setStaffProfile] = useState();
   const [staffIDforDelete, setStaffIDforDelete] = useState();
+  const [pageSize, setPageSize] = useState(10);
 
-  //const {submit, error}= useSubmit();
-
+  const { user } = useAuthContext();
+  const { getOrDelete, error, setError } = useGetOrDelete();
+  const { open, setOpen, handleClose } = useAlert();
 
   const tableHeaders = [
-    { id: "staffID", label: "Staff ID" },
-    { id: "lastName", label: "Last Name" },
-    { id: "firstName", label: "First Name" },
-    { id: "account", label: "Account" },
-    { id: "userType", label: "Staff Type" },
-    { id: "address", label: "Address" },
-    { id: "phoneNum", label: "Phone Number" },
-    { id: "HKID", label: "HKID" },
-    { id: "actions", label: "", disableSorting: true },
+    {
+      headerName: "ID",
+      field: "_id",
+      hide: true,
+      hideable: false,
+      editable: false,
+      filterable: false,
+    },
+    {
+      headerName: "Staff ID",
+      field: "staffID",
+      hideable: false,
+      editable: false,
+    },
+    { headerName: "Account", field: "account", width: "150", hideable: false },
+    { headerName: "Last Name", field: "lastName", width: "150" },
+    { headerName: "First Name", field: "firstName", width: "150" },
+    { headerName: "Gender", field: "sex" },
+    { headerName: "Staff Type", field: "userType" },
+    { headerName: "Address", field: "address", width: "300" },
+    { headerName: "Phone Number", field: "phoneNum" },
+    { headerName: "HKID", field: "HKID" },
+    {
+      headerName: "Employment Date",
+      field: "createdAt",
+      width: "150",
+      renderCell: (params) => moment(params.row.createdAt).format("YYYY-MM-DD"),
+    },
+    {
+      headerName: "Last updated at",
+      field: "updatedAt",
+      width: "150",
+      renderCell: (params) =>
+        moment(params.row.updatedAt).format("YYYY-MM-DD HH:MM"),
+    },
+    {
+      headerName: "Actions",
+      field: "actions",
+      filterable: false,
+      sortable: false,
+      renderCell: (params) => (
+        <>
+          <IconButton onClick={() => handleEditClick(params.row)}>
+            <EditOutlinedIcon />
+          </IconButton>
+          <IconButton onClick={() => handleDeleteClick(params.row)}>
+            <DeleteOutlineOutlinedIcon />
+          </IconButton>
+        </>
+      ),
+    },
   ];
 
   useEffect(() => {
@@ -61,45 +107,66 @@ const ManagementStaff = () => {
         setStaffData(respData);
       }
     };
-
     fetchStaff();
   }, [openPopUp, openStaffPopup, openDeletePopup]);
 
-  const [filters, setFilters] = useState({
-    filtering: (items) => {
-      return items;
-    },
-  });
-
-  const handleSearch = (e) => {
-    let target = e.target;
-    setFilters({
-      filtering: (items) => {
-        if (target.value === "") return items;
-        else return items.filter((x) => x.account.includes(target.value));
-      },
-    });
-  };
-
+  // handle when edit button is clicked
   const handleEditClick = (staff) => {
     setStaffProfile(staff);
     setOpenStaffPopup(true);
   };
 
-  // setdeletepopup false + usealert
-  const handleDelete = async() => {
-    const resp = await fetch("/api/user/management/staff/" + staffIDforDelete, {
-      method: "DELETE"
-    })
+  // handle when delete button is clicked
+  const handleDeleteClick = (staff) => {
+    if (staff._id === user._id) {
+      setError("You cannot delete your own account");
+      setOpen(true);
+    } else {
+      setStaffIDforDelete(staff._id);
+      setOpenDeletePopup(true);
+    }
+  };
 
-    const respData = await resp.json();
+  // open the alert message and close the dialog
+  const handleDelete = async () => {
+    await getOrDelete(
+      "/api/user/management/staff/" + staffIDforDelete,
+      "DELETE"
+    );
+    setOpen(true);
+    setOpenDeletePopup(false);
+  };
+
+  function CustomToolbar() {
+    return (
+      <Toolbar>
+        <Stack
+          direction="row"
+          sx={{ width: "100%", justifyContent: "flex-start" }}
+        >
+          <GridToolbarContainer>
+            <GridToolbarFilterButton />
+            <GridToolbarColumnsButton />
+            <GridToolbarExport />
+          </GridToolbarContainer>
+        </Stack>
+
+        <Stack
+          direction="row"
+          sx={{ width: "100%", justifyContent: "flex-end" }}
+        >
+          <Controls.Buttons
+            text="Add new staff"
+            color="deepBlue"
+            onClick={() => setOpenPopUp(true)}
+            variant="outlined"
+            size="large"
+            startIcon={<PlaylistAddIcon />}
+          />
+        </Stack>
+      </Toolbar>
+    );
   }
-
-  const { TableContainer, TableHeader, TablePaging, pagedRecords } = useTable(
-    staffData,
-    tableHeaders,
-    filters
-  );
 
   return (
     <>
@@ -110,62 +177,33 @@ const ManagementStaff = () => {
           <ManageAccountsIcon sx={{ fontSize: 60, justifyContent: "center" }} />
         }
       />
-      <Paper>
-        {/* Tool bar */}
-        <Toolbar>
-          {/* Search bar */}
-          <Controls.OutlinedInput
-            label="Search staff"
-            onChange={handleSearch}
-            sx={{ width: "20%", margin: 1 }}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
+      <Paper sx={{ m: 3 }}>
+        {staffData && (
+          <DataGrid
+            columns={tableHeaders}
+            rows={staffData}
+            getRowId={(row) => row._id}
+            pageSize={pageSize}
+            rowsPerPageOptions={[10, 25, 50]}
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            localeText={{
+              toolbarColumns: "Columns",
+              toolbarFilters: "Search by",
+              toolbarExport: "Export",
             }}
+            components={{
+              Toolbar: CustomToolbar,
+            }}
+            componentsProps={{
+              panel: {
+                sx: {
+                  top: "-70px !important",
+                },
+              },
+            }}
+            sx={{ height: "700px", width: "100%" }}
           />
-          {/* Add button */}
-          <Controls.Buttons
-            text="Add new staff"
-            color="deepBlue"
-            onClick={() => setOpenPopUp(true)}
-            variant="outlined"
-            startIcon={<PlaylistAddIcon />}
-          />
-        </Toolbar>
-
-        {/* Staff Table */}
-        <TableContainer>
-          <TableHeader />
-          <TableBody>
-            {staffData &&
-              pagedRecords().map((staff) => (
-                <TableRow key={staff._id}>
-                  {/* **object.value(staff).filter().map() */}
-                  {/* may need to add more info of staff e.g. email/active or disable/hiredate (createdAt).../ last working date*/}
-                  <TableCell>{staff.staffID}</TableCell>
-                  <TableCell>{staff.lastName}</TableCell>
-                  <TableCell>{staff.firstName}</TableCell>
-                  <TableCell>{staff.account}</TableCell>
-                  <TableCell>{staff.userType}</TableCell>
-                  <TableCell>{staff.address}</TableCell>
-                  <TableCell>{staff.phoneNum}</TableCell>
-                  <TableCell>{staff.HKID}</TableCell>
-                  <TableCell>
-                    <IconButton onClick={() => handleEditClick(staff)}>
-                      <EditOutlinedIcon />
-                    </IconButton>
-                    <IconButton onClick={() => {setStaffIDforDelete(staff._id); setOpenDeletePopup(true)}}>
-                      <DeleteOutlineOutlinedIcon />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </TableContainer>
-        <TablePaging />
+        )}
       </Paper>
 
       {/* pop up */}
@@ -177,7 +215,6 @@ const ManagementStaff = () => {
       >
         <EmptyForm path={"/api/user/signup"} />
       </Popup>
-
       <Popup
         title="Staff profile"
         open={openStaffPopup}
@@ -186,7 +223,12 @@ const ManagementStaff = () => {
       >
         <ProfileForm selectedUser={staffProfile} />
       </Popup>
-
+      <SmallAlert
+        error={error}
+        open={open}
+        onClose={handleClose}
+        title={error ? error : "Delete successfully!"}
+      />
       <Popup
         title={
           <ErrorOutlineIcon
@@ -201,6 +243,7 @@ const ManagementStaff = () => {
         }
         open={openDeletePopup}
         setOpen={setOpenDeletePopup}
+        center
       >
         <Stack sx={{ alignItems: "center" }}>
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>

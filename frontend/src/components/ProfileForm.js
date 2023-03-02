@@ -9,9 +9,11 @@ import { useSubmit } from "../hook/useSubmit";
 import useAlert from "../hook/useAlert";
 import SmallAlert from "./SmallAlert";
 
-const ProfileForm = ({selectedUser}) => {
+const ProfileForm = ({ selectedUser }) => {
   const { user, dispatch } = useAuthContext();
-  const { userData, handleInputChanges } = useForm(selectedUser ? selectedUser : user);
+  const { userData, handleInputChanges } = useForm(
+    selectedUser ? selectedUser : user
+  );
   const { open, setOpen, handleClose } = useAlert();
   const { submit, error } = useSubmit();
 
@@ -23,13 +25,16 @@ const ProfileForm = ({selectedUser}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await submit("/api/user/profile/" + (selectedUser? selectedUser._id: user._id), userData, "PATCH");
+    await submit(
+      "/api/user/profile/" + (selectedUser ? selectedUser._id : user._id),
+      userData,
+      "PATCH"
+    );
     setOpen(true);
 
-    if(!selectedUser || selectedUser._id===user._id){
+    if (!selectedUser || selectedUser._id === user._id) {
       dispatch({ type: "UPDATE", payload: userData });
     }
-
   };
 
   return (
@@ -50,30 +55,30 @@ const ProfileForm = ({selectedUser}) => {
             <Controls.DisabledInput
               label="Account"
               name="account"
-              value={userData.account}
+              value={userData.account || ''}
               onChange={handleInputChanges}
             />
             <Controls.DisabledInput
               label="Staff Type"
               name="userType"
-              value={userData.userType}
+              value={userData.userType|| ''}
               onChange={handleInputChanges}
             />
             <Controls.DisabledInput
               label="Staff ID"
               name="staffID"
-              value={userData.staffID}
+              value={userData.staffID|| ''}
               onChange={handleInputChanges}
             />
             <Controls.OutlinedInput
               name="lastName"
               label="Last Name"
-              value={userData.lastName}
+              value={userData.lastName|| ''}
               onChange={handleInputChanges}
             />
             <Controls.OutlinedInput
               name="firstName"
-              value={userData.firstName}
+              value={userData.firstName|| ''}
               label="First Name"
               onChange={handleInputChanges}
             />
@@ -83,7 +88,8 @@ const ProfileForm = ({selectedUser}) => {
             <Controls.Selection
               name="sex"
               label="Gender"
-              value={userData.sex}
+              value={userData.sex || ''}
+              defaultValue=""
               onChange={handleInputChanges}
               inputLabelName="Gender"
               items={genderSelection}
@@ -91,19 +97,19 @@ const ProfileForm = ({selectedUser}) => {
 
             <Controls.OutlinedInput
               name="address"
-              value={userData.address}
+              value={userData.address|| ''}
               label="Address"
               onChange={handleInputChanges}
             />
             <Controls.OutlinedInput
               name="phoneNum"
-              value={userData.phoneNum}
+              value={userData.phoneNum|| ''}
               label="Phone Number"
               onChange={handleInputChanges}
             />
             <Controls.OutlinedInput
               name="HKID"
-              value={userData.HKID}
+              value={userData.HKID|| ''}
               label="HKID"
               onChange={handleInputChanges}
             />

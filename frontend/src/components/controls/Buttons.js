@@ -20,6 +20,9 @@ export default function Buttons(props) {
         main: "#ef5350",
         contrastText: "#fff",
       },
+      whiteGrey: {
+        main: "#fafafa",
+      }
     },
   });
 
