@@ -13,7 +13,9 @@ app.use((req, res, next) => {
 
 // routes
 const userRoutes = require('./routes/user')
+const managementRoutes = require('./routes/management')
 app.use('/api/user', userRoutes)
+app.use('/api/management', managementRoutes)
 
 
 // connect to db

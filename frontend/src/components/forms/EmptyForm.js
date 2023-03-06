@@ -1,9 +1,9 @@
 import { Grid, Box } from "@mui/material";
-import { Controls } from "./controls/Controls";
-import { useForm, Form } from "../hook/useForm";
-import { useSubmit } from "../hook/useSubmit";
-import useAlert from "../hook/useAlert";
-import SmallAlert from "./SmallAlert";
+import { Controls } from "../controls/Controls";
+import { useForm, Form } from "../../hook/useForm";
+import { useSubmit } from "../../hook/useSubmit";
+import useAlert from "../../hook/useAlert";
+import SmallAlert from "../SmallAlert";
 
 const EmptyForm = ({ path }) => {
   const { newData, handleEmptyInputChanges } = useForm();
@@ -99,11 +99,16 @@ const EmptyForm = ({ path }) => {
               inputLabelName="Gender"
               items={genderSelection}
             />
-
             <Controls.OutlinedInput
               name="address"
               defaultValue=""
               label="Address"
+              onChange={handleEmptyInputChanges}
+            />
+            <Controls.OutlinedInput
+              name="email"
+              defaultValue=""
+              label="Email Address"
               onChange={handleEmptyInputChanges}
             />
             <Controls.OutlinedInput

@@ -23,7 +23,7 @@ export default function Popup(props) {
       onClose={handleClose}
       hideBackdrop={hideBackdrop}
       maxWidth="md"
-      PaperProps={{ sx: { position: "fixed", top: 10, p: 2 } }}
+      PaperProps={{ sx: { position: "fixed", top: 10, p: 2, borderRadius: 2 } }}
     >
       <DialogTitle>
         <Box sx={center? { display: "flex", justifyContent:"center"}: { display: "flex"}}>

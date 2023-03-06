@@ -2,12 +2,12 @@
 import { Grid, Typography } from "@mui/material";
 
 // React import
-import { useAuthContext } from "../hook/useAuthContext";
-import { useForm, Form } from "../hook/useForm";
-import { Controls } from "../components/controls/Controls";
-import { useSubmit } from "../hook/useSubmit";
-import useAlert from "../hook/useAlert";
-import SmallAlert from "./SmallAlert";
+import { useAuthContext } from "../../hook/useAuthContext";
+import { useForm, Form } from "../../hook/useForm";
+import { Controls } from "../controls/Controls";
+import { useSubmit } from "../../hook/useSubmit";
+import useAlert from "../../hook/useAlert";
+import SmallAlert from "../SmallAlert";
 
 const ProfileForm = ({ selectedUser }) => {
   const { user, dispatch } = useAuthContext();
@@ -30,11 +30,12 @@ const ProfileForm = ({ selectedUser }) => {
       userData,
       "PATCH"
     );
-    setOpen(true);
 
     if (!selectedUser || selectedUser._id === user._id) {
+      setOpen(true)
       dispatch({ type: "UPDATE", payload: userData });
     }
+    setOpen(true);
   };
 
   return (
@@ -70,6 +71,17 @@ const ProfileForm = ({ selectedUser }) => {
               value={userData.staffID|| ''}
               onChange={handleInputChanges}
             />
+            {selectedUser && <Controls.Selection
+              name="active"
+              label="Active"
+              value={userData.active || ''}
+              defaultValue=""
+              onChange={handleInputChanges}
+              inputLabelName="Active"
+              items={[{ name: "active", value: true, label: "Yes" },
+              { name: "active", value: false, label: "No" }]}
+            />}
+            
             <Controls.OutlinedInput
               name="lastName"
               label="Last Name"
@@ -99,6 +111,12 @@ const ProfileForm = ({ selectedUser }) => {
               name="address"
               value={userData.address|| ''}
               label="Address"
+              onChange={handleInputChanges}
+            />
+            <Controls.OutlinedInput
+              name="email"
+              value={userData.email|| ''}
+              label="Email Address"
               onChange={handleInputChanges}
             />
             <Controls.OutlinedInput

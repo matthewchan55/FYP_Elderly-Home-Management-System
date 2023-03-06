@@ -1,4 +1,4 @@
-import ProfileForm from "../components/ProfileForm";
+import ProfileForm from "../components/forms/ProfileForm";
 import PageHeader from "../components/PageHeader";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { Paper } from "@mui/material";

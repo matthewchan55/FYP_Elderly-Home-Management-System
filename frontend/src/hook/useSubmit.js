@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useAuthContext } from "../hook/useAuthContext";
 
 export const useSubmit = () => {
   const [error, setError] = useState(null);
+  const {user} = useAuthContext();
  // const [isLoading, setIsLoading] = useState(null);
 
   // for patch and post
@@ -11,7 +13,7 @@ export const useSubmit = () => {
     const resp = await fetch(path, {
       method: method,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({...data}),
+      body: JSON.stringify({...data, updatedBy: `${user.account} (${user.firstName} ${user.lastName})`}),
     });
 
     const respData = await resp.json();

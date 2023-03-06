@@ -61,27 +61,4 @@ const updateProfileUser = async (req, res) => {
   res.status(200).json(updatedUser);
 }
 
-
-// fetch staffs data
-const fetchStaff = async(req, res) => {
-  const staffs = await User.find().or([{userType: "admin"}, {userType: "caregivers"}]).sort({staffID: 1});
-  res.status(200).json(staffs);
-}
-
-// delete staff
-const deleteStaff = async(req, res) => {
-  const {id} = req.params;
-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such staff" });
-  }
-
-  const staff = await User.findOneAndDelete({_id: id});
-
-  if (!staff) {
-    return res.status(404).json({ error: "No such staff" });
-  }
-  res.status(200).json(staff);
-}
-
-module.exports = { loginUser, signupUser, updateProfileUser, fetchStaff, deleteStaff };
+module.exports = { loginUser, signupUser, updateProfileUser };
