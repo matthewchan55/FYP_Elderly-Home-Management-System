@@ -1,24 +1,14 @@
 // MUI import
-import {
-  Paper,
-  Tooltip,
-  IconButton,
-  Typography,
-  Stack,
-  Box,
-} from "@mui/material";
+import { Paper, Typography, Stack, Box } from "@mui/material";
 import { useGridApiRef } from "@mui/x-data-grid";
 
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import CloseIcon from "@mui/icons-material/Close";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import CoPresentIcon from "@mui/icons-material/CoPresent";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
-import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import CheckIcon from "@mui/icons-material/Check";
 
 // react import
@@ -31,28 +21,41 @@ import ProfileForm from "../../components/forms/ProfileForm";
 import { useGetOrDelete } from "../../hook/useGetOrDelete";
 import useAlert from "../../hook/useAlert";
 import SmallAlert from "../../components/SmallAlert";
-import { useAuthContext } from "../../hook/useAuthContext";
 import moment from "moment";
 import useDataGrid from "../../hook/useDataGrid";
 import DragAndDropForm from "../../components/forms/DragAndDropForm";
+import PageOverviewHeader from "../../components/PageOverviewHeader";
+import TableActionButton from "../../components/TableActionButton";
 
 const ManagementStaff = () => {
-  // popup state
-  const [openPopUp, setOpenPopUp] = useState(false);
-  const [openStaffPopup, setOpenStaffPopup] = useState(false);
-  const [openDeletePopup, setOpenDeletePopup] = useState(false);
-  const [openImportPopup, setOpenImportPopup] = useState(false);
-
   // table state
   const [staffData, setStaffData] = useState(null);
-  const [staffProfile, setStaffProfile] = useState();
-  const [staffDelete, setStaffDelete] = useState(null);
-  const [staffIDforDelete, setStaffIDforDelete] = useState();
   const apiRef = useGridApiRef();
 
   // react import
-  const { user } = useAuthContext();
-  const { getOrDelete, error, setError } = useGetOrDelete();
+  const {
+    OverviewHeader,
+    openAddPopup,
+    setOpenAddPopup,
+    openImportPopup,
+    setOpenImportPopup,
+  } = PageOverviewHeader();
+
+  const {
+    ActionButton,
+    openEditPopup,
+    setOpenEditPopup,
+    openDeletePopup,
+    setOpenDeletePopup,
+    openDeleteErrorAlert,
+    setOpenDeleteErrorAlert,
+    rowData,
+    rowDelete,
+    deleteID,
+    deleteError,
+  } = TableActionButton();
+
+  const { getOrDelete, error } = useGetOrDelete();
   const { open, setOpen, handleClose } = useAlert();
 
   const tableHeaders = [
@@ -68,23 +71,30 @@ const ManagementStaff = () => {
       field: "staffID",
       hideable: false,
       editable: false,
-      width: "85",
+      width: "80",
     },
-    { headerName: "Account", field: "account", width: "125", hideable: false },
+    {
+      headerName: "Account",
+      field: "account",
+      width: "125",
+      hideable: false,
+    },
     {
       headerName: "Last Name",
+      flex: 1,
+      minWidth: 100,
       field: "lastName",
-      width: "100",
     },
     {
       headerName: "First Name",
+      flex: 1,
+      minWidth: 100,
       field: "firstName",
-      width: "100",
     },
     {
       headerName: "Gender",
       field: "sex",
-      width: "75",
+      width: "70",
       renderCell: (params) =>
         params.value === "Not available" ? "N/A" : params.value,
     },
@@ -97,14 +107,15 @@ const ManagementStaff = () => {
       headerName: "Active",
       field: "active",
       type: "boolean",
-      width: "60",
+      width: "70",
       renderCell: (params) => (params.value ? <CheckIcon /> : <CloseIcon />),
     },
-    { headerName: "Address", field: "address", width: "200" },
+    { headerName: "Address", field: "address", flex: 1, minWidth: 200 },
     {
       headerName: "Email Address",
       field: "email",
-      width: "200",
+      flex: 1,
+      minWidth: 200,
     },
     {
       headerName: "Phone Number",
@@ -116,6 +127,7 @@ const ManagementStaff = () => {
       headerName: "Employment Date",
       field: "createdAt",
       width: "130",
+      flex: 1,
       type: "date",
       valueFormatter: (params) => moment(params?.value).format("YYYY/MM/DD"),
       renderCell: (params) => moment(params.row.createdAt).format("YYYY-MM-DD"),
@@ -124,33 +136,21 @@ const ManagementStaff = () => {
       headerName: "Last updated at",
       field: "updatedAt",
       width: "130",
+      flex: 1,
       type: "dateTime",
       valueFormatter: (params) =>
         moment(params?.value).format("YYYY/MM/DD HH:MM"),
       renderCell: (params) =>
         moment(params.row.updatedAt).format("YYYY-MM-DD HH:MM"),
     },
-    { headerName: "Updated By", field: "updatedBy", width: "200" },
+    { headerName: "Updated By", field: "updatedBy", flex: 1, width: "200" },
     {
       headerName: "Actions",
       field: "actions",
       filterable: false,
       sortable: false,
       disableExport: true,
-      renderCell: (params) => (
-        <>
-          <Tooltip title="Edit user">
-            <IconButton onClick={() => handleEditClick(params.row)}>
-              <EditOutlinedIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Delete user">
-            <IconButton onClick={() => handleDeleteClick(params.row)}>
-              <DeleteOutlineOutlinedIcon />
-            </IconButton>
-          </Tooltip>
-        </>
-      ),
+      renderCell: (params) => <ActionButton row={params.row} />,
     },
   ];
 
@@ -164,31 +164,13 @@ const ManagementStaff = () => {
       }
     };
     fetchStaff();
-  }, [openPopUp, openStaffPopup, openDeletePopup]);
+  }, [openAddPopup, openEditPopup, openDeletePopup]);
 
   const { CustomDataGrid } = useDataGrid(apiRef, tableHeaders, staffData);
 
-  // handle when edit button is clicked
-  const handleEditClick = (staff) => {
-    setStaffProfile(staff);
-    setOpenStaffPopup(true);
-  };
-
-  // handle when delete button is clicked
-  const handleDeleteClick = (staff) => {
-    if (staff._id === user._id) {
-      setError("You cannot delete your own account");
-      setOpen(true);
-    } else {
-      setStaffDelete(staff);
-      setStaffIDforDelete(staff._id);
-      setOpenDeletePopup(true);
-    }
-  };
-
   // open the alert message and close the dialog
   const handleDelete = async () => {
-    await getOrDelete("/api/management/staff/" + staffIDforDelete, "DELETE");
+    await getOrDelete("/api/management/staff/" + deleteID, "DELETE");
     setOpen(true);
     setOpenDeletePopup(false);
   };
@@ -204,28 +186,7 @@ const ManagementStaff = () => {
       />
       {/* Management overview  */}
       <Stack sx={{ mt: 3, mr: 3 }}>
-        <Stack direction="row">
-          <Typography variant="h5" sx={{ flexGrow: 1, mt: 1, ml: 5 }}>
-            Staff Overview
-          </Typography>
-          <Controls.Buttons
-            text="Import"
-            color="whiteGrey"
-            variant="contained"
-            onClick={() => setOpenImportPopup(true)}
-            size="large"
-            startIcon={<CloudUploadOutlinedIcon />}
-          ></Controls.Buttons>
-
-          <Controls.Buttons
-            text="Add new staff"
-            color="deepBlue"
-            onClick={() => setOpenPopUp(true)}
-            variant="outlined"
-            size="large"
-            startIcon={<PlaylistAddIcon />}
-          />
-        </Stack>
+        <OverviewHeader title="Staff Overview" addButtonTitle="Add new staff" />
         <Box
           id="staffchart"
           flex={1}
@@ -298,25 +259,33 @@ const ManagementStaff = () => {
       {/* pop up */}
       <Popup
         title="Add a staff"
-        open={openPopUp}
-        setOpen={setOpenPopUp}
+        open={openAddPopup}
+        setOpen={setOpenAddPopup}
         hideBackdrop
       >
         <EmptyForm path={"/api/user/signup"} />
       </Popup>
+
       <Popup
         title="Staff profile"
-        open={openStaffPopup}
-        setOpen={setOpenStaffPopup}
+        open={openEditPopup}
+        setOpen={setOpenEditPopup}
         hideBackdrop
       >
-        <ProfileForm selectedUser={staffProfile} />
+        <ProfileForm selectedUser={rowData} />
       </Popup>
+
       <SmallAlert
         error={error}
         open={open}
         onClose={handleClose}
         title={error ? error : "Delete successfully!"}
+      />
+      <SmallAlert
+        error={deleteError}
+        open={openDeleteErrorAlert}
+        onClose={() => setOpenDeleteErrorAlert(false)}
+        title={deleteError}
       />
       <Popup
         title={
@@ -335,21 +304,25 @@ const ManagementStaff = () => {
         center
       >
         <Stack sx={{ alignItems: "center" }}>
-          <Typography variant="h6" sx={{ fontWeight: "bold", mb:1 }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             You are about to delete this record
           </Typography>
-          <Stack sx={{mb: 2, gap: 0.5}}>
+          <Stack sx={{ mb: 2, gap: 0.5 }}>
             <Typography>
-              {staffDelete && `Staff ID: ${staffDelete.staffID}`}
+              {rowDelete && `Staff ID: ${rowDelete.staffID}`}
             </Typography>
             <Typography>
-              {staffDelete && `Account: ${staffDelete.account}`}
+              {rowDelete && `Account: ${rowDelete.account}`}
             </Typography>
             <Typography>
-              {staffDelete && `Last Name: ${staffDelete.lastName}`}
+              {rowDelete && rowDelete.lastName
+                ? `Last Name: ${rowDelete.lastName}`
+                : "Last Name: /"}
             </Typography>
             <Typography>
-              {staffDelete && `First Name: ${staffDelete.firstName}`}
+              {rowDelete && rowDelete.firstName
+                ? `First Name: ${rowDelete.firstName}`
+                : "First Name: /"}
             </Typography>
           </Stack>
 
