@@ -25,7 +25,7 @@ const SmallAlert = (props) => {
       onClose={onClose}
       autoHideDuration={3000}
     >
-      <Alert onClose={onClose} elevation={6} variant="filled" severity={error? "error": "success"} sx={{ width: '80%' }}>{title}</Alert>
+      <Alert onClose={onClose} elevation={4} variant="filled" severity={error? "error": "success"} sx={{ width: '80%' }}>{title}</Alert>
       {/* <LinearProgress variant="determinate" color="success" value={progress} /> */}
     </Snackbar>
   );

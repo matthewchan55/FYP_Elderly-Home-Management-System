@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+//const autoIncrement = require("mongoose-sequence")(mongoose)
 const Schema = mongoose.Schema;
 
 const residentInfoSchema = new Schema(
@@ -26,6 +26,9 @@ const residentInfoSchema = new Schema(
     relativesHKID: { type: String, },
     relativesAddress: {
       type: String,
+    },    
+    relativesEmail: {
+      type: String,
     },
     active: {
       type: Boolean,
@@ -38,5 +41,21 @@ const residentInfoSchema = new Schema(
   },
   { timestamps: true }
 );
+
+residentInfoSchema.statics.checkCreateResident = async function (resInfo){
+  const {residentID} = resInfo;
+
+  if(!residentID){throw Error("An ID for the elderly is needed")}
+
+  const exists = await this.findOne({residentID})
+
+  if(exists){
+    throw Error("This resident ID has already been registered")
+  }
+
+  const resident = await this.create(resInfo);
+  return resident;
+}
+
 
 module.exports = mongoose.model("residentInfo", residentInfoSchema);

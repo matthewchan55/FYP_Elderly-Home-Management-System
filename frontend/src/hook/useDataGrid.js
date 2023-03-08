@@ -8,8 +8,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Stack, Tooltip } from "@mui/material";
 import { useState } from "react";
 
-export default function useDataGrid(apiRef, th, data) {
+export default function useDataGrid(apiRef, th, data, exportFileName) {
+
   const customToolbar = (props) => {
+    const date = new Date().toLocaleDateString().replaceAll("/", "_");
     return (
       <Stack direction="row">
         <GridToolbarContainer {...props} sx={{ m: 1, gap: 2, flexGrow: 1 }}>
@@ -22,7 +24,7 @@ export default function useDataGrid(apiRef, th, data) {
           <Tooltip title="Export as CSV or print data">
             <GridToolbarExport
               csvOptions={{
-                fileName: "StaffTable",
+                fileName: `${date}${exportFileName}`
               }}
               printOptions={{
                 hideFooter: true,
@@ -45,6 +47,8 @@ export default function useDataGrid(apiRef, th, data) {
           getRowId={(row) => row._id}
           pageSize={pageSize}
           rowsPerPageOptions={[10, 25, 50]}
+          getEstimatedRowHeight={() => 100}
+          getRowHeight={() => 'auto'}
           labelRowsPerPage
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           apiRef={apiRef}
@@ -67,11 +71,10 @@ export default function useDataGrid(apiRef, th, data) {
           sx={{
             height: "700px",
             width: "100%",
+            wordBreak: "break-word",
             "@media print": {
               "& .MuiDataGrid-main": {
-                overflow: "visible",
-                width: "fit-content",
-                height: "fit-content",
+                minWidth: 2500,
               },
             },
           }}

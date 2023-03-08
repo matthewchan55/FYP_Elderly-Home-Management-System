@@ -1,26 +1,19 @@
-import { Grid, Box } from "@mui/material";
-import { Controls } from "../controls/Controls";
-import { useForm, Form } from "../../hook/useForm";
-import { useSubmit } from "../../hook/useSubmit";
-import useAlert from "../../hook/useAlert";
-import SmallAlert from "../SmallAlert";
+import { Grid, Alert, AlertTitle } from "@mui/material";
+import { Controls } from "../../controls/Controls";
+import { useForm, Form } from "../../../hook/useForm";
+import { useSubmit } from "../../../hook/useSubmit";
+import useAlert from "../../../hook/useAlert";
+import SmallAlert from "../../SmallAlert";
 
-const EmptyForm = ({ path }) => {
+const EmptyResidentForm = ({ path }) => {
   const { newData, handleEmptyInputChanges } = useForm();
   const { open, setOpen, handleClose } = useAlert();
   const { submit, error } = useSubmit();
 
-  //duplicate with profile form, consider change to component (Constant.js)
   const genderSelection = [
     { name: "sex", value: "M", label: "M" },
     { name: "sex", value: "F", label: "F" },
     { name: "sex", value: "Not available", label: "Not available" },
-  ];
-
-  // duplicate with signup, consider change to component (Constant.js)
-  const userTypeSelection = [
-    { name: "userType", value: "admin", label: "Administrator" },
-    { name: "userType", value: "caregivers", label: "Caregivers" },
   ];
 
   const handleSubmit = async (e) => {
@@ -38,41 +31,27 @@ const EmptyForm = ({ path }) => {
         title={
           error
             ? "Failed - Please check your information again"
-            : "Success - Added successfully!"
+            : "Success - Added resident successfully!"
         }
       />
       <Form>
         <Grid container>
-          <Grid item xs={12} md={6} sx={{ marginBottom: 3 }}>
-            <Controls.OutlinedInput
-              required
-              label="Account"
-              name="account"
-              defaultValue=""
-              onChange={handleEmptyInputChanges}
-            />
-            <Controls.OutlinedInput
-              required
-              label="Password"
-              name="password"
-              type="password"
-              defaultValue=""
-              onChange={handleEmptyInputChanges}
-            />
-            <Controls.Selection
-              required
-              label="Staff Type"
-              name="userType"
-              defaultValue=""
-              onChange={handleEmptyInputChanges}
-              inputLabelName="Staff Type"
-              items={userTypeSelection}
-            />
+          <Grid item xs={12} md={12} sx={{ mb: 3 }}>
+            {error && (
+              <Alert severity="warning">
+                <AlertTitle>
+                  <strong>{error}</strong>
+                </AlertTitle>
+                Please confirm your information
+              </Alert>
+            )}
+          </Grid>
 
+          <Grid item xs={12} md={6} sx={{ mb: 3 }}>
             <Controls.OutlinedInput
               required
-              label="Staff ID"
-              name="staffID"
+              label="Resident ID"
+              name="residentID"
               defaultValue=""
               onChange={handleEmptyInputChanges}
             />
@@ -88,9 +67,6 @@ const EmptyForm = ({ path }) => {
               label="First Name"
               onChange={handleEmptyInputChanges}
             />
-          </Grid>
-
-          <Grid item xs={12} md={6} sx={{ marginBottom: 3 }}>
             <Controls.Selection
               name="sex"
               label="Gender"
@@ -100,40 +76,55 @@ const EmptyForm = ({ path }) => {
               items={genderSelection}
             />
             <Controls.OutlinedInput
-              name="address"
-              defaultValue=""
-              label="Address"
-              onChange={handleEmptyInputChanges}
-            />
-            <Controls.OutlinedInput
-              name="email"
-              defaultValue=""
-              label="Email Address"
-              onChange={handleEmptyInputChanges}
-            />
-            <Controls.OutlinedInput
-              name="phoneNum"
-              defaultValue=""
-              label="Phone Number"
-              onChange={handleEmptyInputChanges}
-            />
-            <Controls.OutlinedInput
               name="HKID"
               defaultValue=""
               label="HKID"
               onChange={handleEmptyInputChanges}
             />
-            <Controls.Buttons
-              type="submit"
-              text="Add new staff"
-              onClick={handleSubmit}
+          </Grid>
+
+          <Grid item xs={12} md={6} sx={{ mb: 3 }}>
+            <Controls.OutlinedInput
+              name="relativesName"
+              defaultValue=""
+              label="Relatives Name"
+              onChange={handleEmptyInputChanges}
             />
-            {error && <Box>{error}</Box>}
+            <Controls.OutlinedInput
+              name="relativesPhone"
+              defaultValue=""
+              label="Relatives Phone"
+              onChange={handleEmptyInputChanges}
+            />
+            <Controls.OutlinedInput
+              name="relativesHKID"
+              defaultValue=""
+              label="Relatives HKID"
+              onChange={handleEmptyInputChanges}
+            />
+            <Controls.OutlinedInput
+              name="relativesAddress"
+              defaultValue=""
+              label="Relatives Address"
+              onChange={handleEmptyInputChanges}
+            />
+            <Controls.OutlinedInput
+              name="relativesEmail"
+              defaultValue=""
+              label="Relatives Email"
+              onChange={handleEmptyInputChanges}
+            />
           </Grid>
         </Grid>
+        <Controls.Buttons
+          type="submit"
+          text="Add new resident"
+          onClick={handleSubmit}
+          fullWidth
+        />
       </Form>
     </>
   );
 };
 
-export default EmptyForm;
+export default EmptyResidentForm;

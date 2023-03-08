@@ -5,7 +5,7 @@ import Color from "../Color";
 export default function Buttons(props) {
   // if there are more property, they will be stored all in other
   const {theme} = Color();
-  const { variant, color, text, size, onClick, ...other } = props;
+  const { variant, color, text, size, onClick, fullWidth, ...other } = props;
 
   return (
     <ThemeProvider theme={theme}>
@@ -15,7 +15,7 @@ export default function Buttons(props) {
         size={size || "medium"}
         onClick={onClick}
         {...other}
-        sx={{ margin: 1, textTransform: "none" }}
+        sx={fullWidth? { width:"90%",margin: 1, textTransform: "none" }:{ margin: 1, textTransform: "none" }}
       >
         {text}
       </Button>

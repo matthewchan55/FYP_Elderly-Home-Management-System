@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import Popup from "../../components/Popup";
 import { Controls } from "../../components/controls/Controls";
-import EmptyForm from "../../components/forms/EmptyForm";
+import EmptyStaffForm from "../../components/forms/emptyForm/EmptyStaffForm";
 import ProfileForm from "../../components/forms/ProfileForm";
 import { useGetOrDelete } from "../../hook/useGetOrDelete";
 import useAlert from "../../hook/useAlert";
@@ -71,30 +71,34 @@ const ManagementStaff = () => {
       field: "staffID",
       hideable: false,
       editable: false,
-      width: "80",
+      flex: 1,
+      minWidth: 90,
+      maxWidth: 90,
     },
     {
       headerName: "Account",
       field: "account",
-      width: "125",
+      flex: 1,
       hideable: false,
     },
     {
       headerName: "Last Name",
       flex: 1,
-      minWidth: 100,
       field: "lastName",
     },
     {
       headerName: "First Name",
       flex: 1,
-      minWidth: 100,
       field: "firstName",
     },
     {
       headerName: "Gender",
       field: "sex",
-      width: "70",
+      type: "singleSelect",
+      valueOptions: ["M", "F", "Not available"],
+      flex: 1,
+      minWidth: 80,
+      maxWidth: 80,
       renderCell: (params) =>
         params.value === "Not available" ? "N/A" : params.value,
     },
@@ -102,31 +106,43 @@ const ManagementStaff = () => {
       headerName: "Staff Type",
       field: "userType",
       type: "singleSelect",
+      valueOptions: ["admin", "caregivers"],
+      flex: 1,
+      minWidth: 90,
+      maxWidth: 90,
     },
     {
       headerName: "Active",
       field: "active",
       type: "boolean",
-      width: "70",
+      flex: 1,
+      minWidth: 80,
+      maxWidth: 80,
       renderCell: (params) => (params.value ? <CheckIcon /> : <CloseIcon />),
     },
-    { headerName: "Address", field: "address", flex: 1, minWidth: 200 },
+    {
+      headerName: "Address",
+      field: "address",
+      flex: 1,
+      minWidth: 150,
+      maxWidth: 170,
+    },
     {
       headerName: "Email Address",
       field: "email",
+      minWidth: 130,
+      maxWidth: 130,
       flex: 1,
-      minWidth: 200,
     },
     {
       headerName: "Phone Number",
       field: "phoneNum",
-      width: "125",
+      flex: 1,
     },
-    { headerName: "HKID", field: "HKID" },
+    { headerName: "HKID", field: "HKID", minWidth: 100, maxWidth: 100 },
     {
       headerName: "Employment Date",
       field: "createdAt",
-      width: "130",
       flex: 1,
       type: "date",
       valueFormatter: (params) => moment(params?.value).format("YYYY/MM/DD"),
@@ -135,22 +151,30 @@ const ManagementStaff = () => {
     {
       headerName: "Last updated at",
       field: "updatedAt",
-      width: "130",
       flex: 1,
+      minWidth: 150,
+      maxWidth: 150,
       type: "dateTime",
       valueFormatter: (params) =>
         moment(params?.value).format("YYYY/MM/DD HH:MM"),
       renderCell: (params) =>
         moment(params.row.updatedAt).format("YYYY-MM-DD HH:MM"),
     },
-    { headerName: "Updated By", field: "updatedBy", flex: 1, width: "200" },
+    { headerName: "Updated By", field: "updatedBy", flex: 1 },
     {
       headerName: "Actions",
       field: "actions",
       filterable: false,
       sortable: false,
       disableExport: true,
-      renderCell: (params) => <ActionButton row={params.row} />,
+      flex: 1,
+      renderCell: (params) => (
+        <ActionButton
+          row={params.row}
+          editTitle="Edit user"
+          deleteTitle="Delete user"
+        />
+      ),
     },
   ];
 
@@ -166,7 +190,13 @@ const ManagementStaff = () => {
     fetchStaff();
   }, [openAddPopup, openEditPopup, openDeletePopup]);
 
-  const { CustomDataGrid } = useDataGrid(apiRef, tableHeaders, staffData);
+
+  const { CustomDataGrid } = useDataGrid(
+    apiRef,
+    tableHeaders,
+    staffData,
+    "_Staff Table"
+  );
 
   // open the alert message and close the dialog
   const handleDelete = async () => {
@@ -263,7 +293,7 @@ const ManagementStaff = () => {
         setOpen={setOpenAddPopup}
         hideBackdrop
       >
-        <EmptyForm path={"/api/user/signup"} />
+        <EmptyStaffForm path={"/api/user/signup"} />
       </Popup>
 
       <Popup

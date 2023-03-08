@@ -39,7 +39,7 @@ const createResident = async(req, res) => {
   const resInfo = {...req.body}
   
   try{
-    const resident = await ResInfo.create(resInfo);
+    const resident = await ResInfo.checkCreateResident(resInfo);
     res.status(200).json(resident);
   } catch (error){
     res.status(400).json({error: error.message});

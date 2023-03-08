@@ -38,15 +38,15 @@ export default function TableActionButton() {
   };
 
 
-  const ActionButton = ({row}) => {
+  const ActionButton = ({row, editTitle, deleteTitle}) => {
     return (
       <>
-        <Tooltip title="Edit user">
+        <Tooltip title={editTitle}>
           <IconButton onClick={() => handleEditClick(row)}>
             <EditOutlinedIcon />
           </IconButton>
         </Tooltip>
-        <Tooltip title="Delete user">
+        <Tooltip title={deleteTitle}>
           <IconButton onClick={() => handleDeleteClick(row)}>
             <DeleteOutlineOutlinedIcon />
           </IconButton>
