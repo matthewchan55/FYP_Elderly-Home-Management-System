@@ -23,5 +23,5 @@ export const useSubmit = () => {
     } 
   };
 
-  return { submit, error};
+  return { submit, error, setError};
 };

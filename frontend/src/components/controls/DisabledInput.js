@@ -1,7 +1,7 @@
 import {TextField} from "@mui/material"
 
 export default function DisabledInput(props) {
-  const { name, label, value, onChange} = props;
+  const { name, label, value, onChange, ...other} = props;
   return (
     <TextField
       disabled
@@ -11,6 +11,7 @@ export default function DisabledInput(props) {
       value={value}
       onChange={onChange}
       sx={{ width: "80%", margin: 1 }}
+      {...other}
     />
   );
 }

@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import Popup from "../../components/Popup";
 import { Controls } from "../../components/controls/Controls";
-import EmptyStaffForm from "../../components/forms/emptyForm/EmptyStaffForm";
+import StaffForm from "../../components/forms/ManagementForm/StaffForm";
 import ProfileForm from "../../components/forms/ProfileForm";
 import { useGetOrDelete } from "../../hook/useGetOrDelete";
 import useAlert from "../../hook/useAlert";
@@ -47,12 +47,12 @@ const ManagementStaff = () => {
     setOpenEditPopup,
     openDeletePopup,
     setOpenDeletePopup,
-    openDeleteErrorAlert,
-    setOpenDeleteErrorAlert,
+    openDeleteErrorAlert,          //only needed for staff delete own account
+    setOpenDeleteErrorAlert,       //only needed for staff delete own account
+    deleteError,                   //only needed for staff delete own account
     rowData,
     rowDelete,
     deleteID,
-    deleteError,
   } = TableActionButton();
 
   const { getOrDelete, error } = useGetOrDelete();
@@ -293,7 +293,7 @@ const ManagementStaff = () => {
         setOpen={setOpenAddPopup}
         hideBackdrop
       >
-        <EmptyStaffForm path={"/api/user/signup"} />
+        <StaffForm path={"/api/user/signup"} />
       </Popup>
 
       <Popup

@@ -69,7 +69,7 @@ export default function useDataGrid(apiRef, th, data, exportFileName) {
             },
           }}
           sx={{
-            height: "700px",
+            height: "750px",
             width: "100%",
             wordBreak: "break-word",
             "@media print": {

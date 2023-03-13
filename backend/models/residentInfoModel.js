@@ -21,6 +21,19 @@ const residentInfoSchema = new Schema(
     HKID: {
       type: String,
     },
+    age:{
+      type: Number,
+    },
+    height: {
+      type: Number,
+    },
+    weight: {
+      type: Number,
+    },
+    address:{
+      type: String,
+    },
+    // relative info
     relativesName: { type: String, },
     relativesPhone: { type: String, },
     relativesHKID: { type: String, },
@@ -30,11 +43,23 @@ const residentInfoSchema = new Schema(
     relativesEmail: {
       type: String,
     },
+    // room info
+    floor: {
+      type: String,
+    },
+    zone: {
+      type: String,
+    },
+    room: {
+      type: String,
+    },
+    bed: {
+      type: String,
+    },
     active: {
       type: Boolean,
       default: true,
     },
-
     updatedBy: {
       type: String,
     },

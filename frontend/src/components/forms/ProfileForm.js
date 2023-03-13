@@ -74,8 +74,8 @@ const ProfileForm = ({ selectedUser }) => {
             {selectedUser && <Controls.Selection
               name="active"
               label="Active"
-              value={userData.active || ''}
-              defaultValue=""
+              value={userData.active}
+              defaultValue={userData.active? userData.active: !userData.active}
               onChange={handleInputChanges}
               inputLabelName="Active"
               items={[{ name: "active", value: true, label: "Yes" },

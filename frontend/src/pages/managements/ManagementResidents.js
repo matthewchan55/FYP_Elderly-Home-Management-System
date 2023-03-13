@@ -1,15 +1,10 @@
-import {
-  Stack,
-  Typography,
-  Box,
-  Tab,
-  Paper,
-} from "@mui/material";
+import { Stack, Box, Tab, Paper } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { useGridApiRef } from "@mui/x-data-grid";
 import ElderlyIcon from "@mui/icons-material/Elderly";
 import CloseIcon from "@mui/icons-material/Close";
 import CheckIcon from "@mui/icons-material/Check";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 import { useState, useEffect } from "react";
 import moment from "moment";
@@ -18,7 +13,11 @@ import PageOverviewHeader from "../../components/PageOverviewHeader";
 import useDataGrid from "../../hook/useDataGrid";
 import TableActionButton from "../../components/TableActionButton";
 import Popup from "../../components/Popup";
-import EmptyResidentForm from "../../components/forms/emptyForm/EmptyResidentForm";
+import ResidentForm from "../../components/forms/ManagementForm/ResidentForm";
+import { useGetOrDelete } from "../../hook/useGetOrDelete";
+import useAlert from "../../hook/useAlert";
+import TableDelete from "../../components/TableDelete";
+import SmallAlert from "../../components/SmallAlert";
 
 const ManagementResidents = () => {
   // Data
@@ -29,8 +28,8 @@ const ManagementResidents = () => {
     OverviewHeader,
     openAddPopup,
     setOpenAddPopup,
-    openImportPopup,
-    setOpenImportPopup,
+    //openImportPopup,
+    //setOpenImportPopup,
   } = PageOverviewHeader();
 
   const apiRef = useGridApiRef();
@@ -61,6 +60,14 @@ const ManagementResidents = () => {
       hideable: false,
     },
     {
+      headerName: "Active",
+      field: "active",
+      type: "boolean",
+      minWidth: 60,
+      maxWidth: 80,
+      renderCell: (params) => (params.value ? <CheckIcon /> : <CloseIcon />),
+    },
+    {
       headerName: "Gender",
       field: "sex",
       type: "singleSelect",
@@ -72,15 +79,12 @@ const ManagementResidents = () => {
         params.value === "Not available" ? "N/A" : params.value,
     },
     { headerName: "HKID", field: "HKID", minWidth: 100, maxWidth: 100 },
-    {
-      headerName: "Active",
-      field: "active",
-      type: "boolean",
-      flex: 1,
-      minWidth: 80,
-      maxWidth: 80,
-      renderCell: (params) => (params.value ? <CheckIcon /> : <CloseIcon />),
-    },
+
+    {headerName: "Age", field: "age", minWidth: 50, maxWidth: 50},
+    {headerName: "Height (cm)", field: "height", minWidth: 90, maxWidth: 90},
+    {headerName: "Weight (kg)", field: "weight", minWidth: 90, maxWidth: 90},
+    {headerName: "Address", field: "address",       flex: 1,
+    minWidth: 150},
     {
       headerName: "Relatives Name",
       field: "relativesName",
@@ -91,15 +95,15 @@ const ManagementResidents = () => {
     {
       headerName: "Relatives Phone",
       field: "relativesPhone",
-      minWidth: 125,
-      maxWidth: 125,
+      minWidth: 120,
+      maxWidth: 120,
       flex: 1,
     },
     {
       headerName: "Relatives HKID",
       field: "relativesHKID",
-      minWidth: 125,
-      maxWidth: 125,
+      minWidth: 120,
+      maxWidth: 120,
       flex: 1,
     },
     {
@@ -108,11 +112,21 @@ const ManagementResidents = () => {
       flex: 1,
       minWidth: 150,
     },
-
+    {
+      headerName: "Relatives Email",
+      field: "relativesEmail",
+      flex: 1,
+      minWidth: 150,
+    },
+    {headerName: "Floor", field: "floor", minWidth: 50, maxWidth: 50},
+    {headerName: "Zone", field: "zone", minWidth: 50, maxWidth: 50},
+    {headerName: "Room", field: "room", minWidth: 60, maxWidth: 60},
+    {headerName: "Bed No.", field: "bed", minWidth: 65, maxWidth: 65},
     {
       headerName: "Enrollment Date",
       field: "createdAt",
       flex: 1,
+      minWidth: 120,
       maxWidth: 120,
       type: "date",
       valueFormatter: (params) => moment(params?.value).format("YYYY/MM/DD"),
@@ -140,6 +154,7 @@ const ManagementResidents = () => {
       headerName: "Actions",
       field: "actions",
       flex: 1,
+      minWidth: 100,
       filterable: false,
       sortable: false,
       disableExport: true,
@@ -153,19 +168,20 @@ const ManagementResidents = () => {
     },
   ];
 
+
   const {
     ActionButton,
     openEditPopup,
     setOpenEditPopup,
     openDeletePopup,
     setOpenDeletePopup,
-    openDeleteErrorAlert,
-    setOpenDeleteErrorAlert,
     rowData,
     rowDelete,
     deleteID,
-    deleteError,
   } = TableActionButton();
+
+
+  const { TableDeleteDialog, open, handleClose, error } = TableDelete();
 
   useEffect(() => {
     const fetchResInfoData = async () => {
@@ -185,8 +201,13 @@ const ManagementResidents = () => {
     setTabValue(newValue);
   };
 
-  const { CustomDataGrid } = useDataGrid(apiRef, tableHeaders, resInfoData, "_Resident Table");
-  
+  const { CustomDataGrid } = useDataGrid(
+    apiRef,
+    tableHeaders,
+    resInfoData,
+    "_Resident Table"
+  );
+
   return (
     <>
       <PageHeader
@@ -222,6 +243,7 @@ const ManagementResidents = () => {
               <Tab label="Profile Overview" value="1" />
               <Tab label="Routine records" value="2" />
               <Tab label="Medication records" value="3" />
+              <Tab label="Resident Overview" value="4" />
             </TabList>
           </Box>
 
@@ -232,6 +254,8 @@ const ManagementResidents = () => {
           </TabPanel>
           <TabPanel value="2">Item Two</TabPanel>
           <TabPanel value="3">Item Three</TabPanel>
+          <TabPanel value="4">
+          </TabPanel>
         </TabContext>
       </Box>
 
@@ -242,8 +266,55 @@ const ManagementResidents = () => {
         setOpen={setOpenAddPopup}
         hideBackdrop
       >
-        <EmptyResidentForm path={"/api/management/residents"} />
+        <ResidentForm path={"/api/management/residents"} method="POST" />
       </Popup>
+
+      <Popup
+        title="Elderly profile"
+        open={openEditPopup}
+        setOpen={setOpenEditPopup}
+        hideBackdrop
+      >
+        {rowData && (
+          <ResidentForm
+            path={"/api/management/residents/" + rowData._id}
+            method="PATCH"
+            rowData={rowData}
+          />
+        )}
+      </Popup>
+
+      <Popup
+        title={
+          <ErrorOutlineIcon
+            sx={{
+              backgroundColor: "rgba(255, 0, 0, 0.1);",
+              color: "#ef5350",
+              borderRadius: "50%",
+              fontSize: "4rem",
+              padding: 2,
+            }}
+          />
+        }
+        open={openDeletePopup}
+        setOpen={setOpenDeletePopup}
+        center
+      >
+        <TableDeleteDialog
+          row={rowDelete}
+          rowName={["residentID", "lastName", "firstName", "active"]}
+          rowLabel={["Resident ID", "Last Name", "First Name", "Active"]}
+          deleteID={deleteID}
+          closePopup={setOpenDeletePopup}
+          path={"/api/management/residents/"}
+        />
+      </Popup>
+      <SmallAlert
+        error={error}
+        open={open}
+        onClose={handleClose}
+        title={error ? error : "Delete successfully!"}
+      />
     </>
   );
 };
