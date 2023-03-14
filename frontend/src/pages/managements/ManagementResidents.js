@@ -14,8 +14,7 @@ import useDataGrid from "../../hook/useDataGrid";
 import TableActionButton from "../../components/TableActionButton";
 import Popup from "../../components/Popup";
 import ResidentForm from "../../components/forms/ManagementForm/ResidentForm";
-import { useGetOrDelete } from "../../hook/useGetOrDelete";
-import useAlert from "../../hook/useAlert";
+import ResidentPreview from "../../components/managements/ResidentPreview";
 import TableDelete from "../../components/TableDelete";
 import SmallAlert from "../../components/SmallAlert";
 
@@ -80,11 +79,10 @@ const ManagementResidents = () => {
     },
     { headerName: "HKID", field: "HKID", minWidth: 100, maxWidth: 100 },
 
-    {headerName: "Age", field: "age", minWidth: 50, maxWidth: 50},
-    {headerName: "Height (cm)", field: "height", minWidth: 90, maxWidth: 90},
-    {headerName: "Weight (kg)", field: "weight", minWidth: 90, maxWidth: 90},
-    {headerName: "Address", field: "address",       flex: 1,
-    minWidth: 150},
+    { headerName: "Age", field: "age", minWidth: 50, maxWidth: 50 },
+    { headerName: "Height (cm)", field: "height", minWidth: 90, maxWidth: 90 },
+    { headerName: "Weight (kg)", field: "weight", minWidth: 90, maxWidth: 90 },
+    { headerName: "Address", field: "address", flex: 1, minWidth: 150 },
     {
       headerName: "Relatives Name",
       field: "relativesName",
@@ -118,10 +116,10 @@ const ManagementResidents = () => {
       flex: 1,
       minWidth: 150,
     },
-    {headerName: "Floor", field: "floor", minWidth: 50, maxWidth: 50},
-    {headerName: "Zone", field: "zone", minWidth: 50, maxWidth: 50},
-    {headerName: "Room", field: "room", minWidth: 60, maxWidth: 60},
-    {headerName: "Bed No.", field: "bed", minWidth: 65, maxWidth: 65},
+    { headerName: "Floor", field: "floor", minWidth: 50, maxWidth: 50 },
+    { headerName: "Zone", field: "zone", minWidth: 50, maxWidth: 50 },
+    { headerName: "Room", field: "room", minWidth: 60, maxWidth: 60 },
+    { headerName: "Bed No.", field: "bed", minWidth: 65, maxWidth: 65 },
     {
       headerName: "Enrollment Date",
       field: "createdAt",
@@ -168,7 +166,6 @@ const ManagementResidents = () => {
     },
   ];
 
-
   const {
     ActionButton,
     openEditPopup,
@@ -180,8 +177,11 @@ const ManagementResidents = () => {
     deleteID,
   } = TableActionButton();
 
-
   const { TableDeleteDialog, open, handleClose, error } = TableDelete();
+  const [floorInfo, setFloorInfo] = useState([]);
+  const { ResidentOverview, openClickElderlyPopup} =
+  ResidentPreview(resInfoData, floorInfo);
+
 
   useEffect(() => {
     const fetchResInfoData = async () => {
@@ -190,10 +190,37 @@ const ManagementResidents = () => {
 
       if (resp.ok) {
         setResInfoData(respData);
+        createRoom(respData)
       }
+
     };
+
+    const createRoom = (data) => {
+      const uniqueStringsSet = new Set();
+      const roomElderly = {};
+
+      for (let i = 0; i < data.length; i++) {
+        const { floor, zone, room, bed, lastName, firstName, sex, residentID } =
+        data[i];
+        const roomStr = `${floor} - ${zone} - ${room}`;
+        if (!uniqueStringsSet.has(roomStr)) {
+          uniqueStringsSet.add(roomStr);
+          roomElderly[roomStr] = [];
+        }
+
+        roomElderly[roomStr] = [
+          ...roomElderly[roomStr],
+          [bed, lastName, firstName, residentID, sex],
+        ];
+        roomElderly[roomStr].sort();
+      }
+      setFloorInfo(roomElderly);
+    }
+
+
     fetchResInfoData();
-  }, [openAddPopup, openEditPopup, openDeletePopup]);
+  }, [openAddPopup, openEditPopup, openDeletePopup, openClickElderlyPopup]);
+
 
   // Tab
   const [tabValue, setTabValue] = useState("1");
@@ -207,6 +234,8 @@ const ManagementResidents = () => {
     resInfoData,
     "_Resident Table"
   );
+
+
 
   return (
     <>
@@ -240,22 +269,24 @@ const ManagementResidents = () => {
                 },
               }}
             >
-              <Tab label="Profile Overview" value="1" />
-              <Tab label="Routine records" value="2" />
-              <Tab label="Medication records" value="3" />
-              <Tab label="Resident Overview" value="4" />
+              <Tab label="Resident overview" value="1" />
+              <Tab label="Resident records" value="2" />
+              <Tab label="Routine records" value="3" />
+              <Tab label="Medication records" value="4" />
             </TabList>
           </Box>
 
           {/* Content */}
           <TabPanel value="1">
+            {/* Preview */}
+            {resInfoData && <ResidentOverview />}
+          </TabPanel>
+          <TabPanel value="2">
             {/* Table */}
             <Paper sx={{ m: 3 }}>{resInfoData && <CustomDataGrid />}</Paper>
           </TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
           <TabPanel value="3">Item Three</TabPanel>
-          <TabPanel value="4">
-          </TabPanel>
+          <TabPanel value="4">Item Four</TabPanel>
         </TabContext>
       </Box>
 

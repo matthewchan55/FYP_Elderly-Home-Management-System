@@ -28,6 +28,7 @@ const ResidentElderly = ({
           required
           label="Resident ID"
           name="residentID"
+          disabled={method==="PATCH"}
           value={residentID}
           onChange={(e) => updateField({ residentID: e.target.value })}
         />

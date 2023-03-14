@@ -57,8 +57,7 @@ const ResidentForm = ({ path, method, rowData }) => {
       return { ...prev, ...INITIAL_DATA };
     });
   }
-
-  console.log(data);
+  
   const { currentStepIndex, step, next, back, goTo, isLastStep } =
     useMultiStepForm([
       <ResidentElderly {...data} method={method} updateField={updateField} />,
