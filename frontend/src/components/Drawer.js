@@ -1,20 +1,28 @@
 // MUI compoenent
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
+import {
+  Box,
+  Drawer,
+  CssBaseline,
+  Toolbar,
+  List,
+  IconButton,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  Collapse,
+  Avatar,
+  Button,
+  ListSubheader,
+  Divider,
+  Tooltip,
+  AppBar as MuiAppBar,
+} from "@mui/material";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import LogoutIcon from "@mui/icons-material/Logout";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import Diversity3Icon from "@mui/icons-material/Diversity3";
@@ -25,7 +33,6 @@ import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import Collapse from "@mui/material/Collapse";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import ElderlyIcon from "@mui/icons-material/Elderly";
 import WorkIcon from "@mui/icons-material/Work";
@@ -34,16 +41,17 @@ import VaccinesIcon from "@mui/icons-material/Vaccines";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { Avatar, Button, ListSubheader } from "@mui/material";
 
 // React import
 import { useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import { useLogout } from "../hook/useLogout";
 import { useAuthContext } from "../hook/useAuthContext";
+import { useDrawerContext } from  "../hook/useDrawerContext"
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
-const drawerWidth = 300;
+const drawerWidth = 280;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -96,9 +104,16 @@ export default function PersistentDrawerLeft({ main }) {
   const [managementOpen, setManagementOpen] = useState(false);
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const { dispatch} = useDrawerContext();
 
   const handleDrawerOpen = () => {
-    setOpen(!open);
+    setOpen(true);
+    dispatch({type: "OPEN", payload: open})
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+    dispatch({type: "CLOSE", payload: open})
   };
 
   const handleManagementOpen = () => {
@@ -109,7 +124,7 @@ export default function PersistentDrawerLeft({ main }) {
     logout();
   };
 
-  //const handleAvatarOpen = () => {};
+  const [search, setSearch] = useState();
 
   return (
     // ** improvement: 1. Link to change to a component/ also each list item
@@ -135,41 +150,47 @@ export default function PersistentDrawerLeft({ main }) {
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <Typography variant="h6" noWrap component="div">
-              Elderly home management system
+              Kwun Tong On Tai Elderly Home
             </Typography>
           </Link>
+
+          <Searchbar title={"Search profile by name..."} onChange={(e) => setSearch(e.target.value)}/>
+          <Box sx={{ flex: "1 1 auto" }} />
 
           <Link
             to="/profile"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
-            <Button sx={{ width: 300 }}>
-              <Avatar src="/broken-image.jpg" sx={{ mr: 1 }}></Avatar>
-              <Box sx={{ width: 200 }}>
-                <Typography
-                  color="white"
+            <Tooltip title={"View your profile"}>
+              <Button sx={{mr: 5}}>
+                <Avatar src="/broken-image.jpg" sx={{ mr: 2 }}></Avatar>
+                <Box
                   sx={{
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    textTransform: "lowercase",
+                    "& .MuiTypography-root": {
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      textTransform: "none",
+                    },
                   }}
                 >
-                  {user.account}
-                </Typography>
-                <Typography color="white">{user.userType}</Typography>
-              </Box>
-            </Button>
+                  <Typography color="#e8eaf6">{user.account}</Typography>
+                  <Typography color="#e8eaf6">{`Type: ${user.userType}`}</Typography>
+                </Box>
+              </Button>
+            </Tooltip>
           </Link>
 
-          <IconButton
-            variant="contained"
-            color="inherit"
-            onClick={() => {
-              handleLogoutClick();
-            }}
-          >
-            <LogoutIcon />
-          </IconButton>
+          <Tooltip title={"Logout"}>
+            <IconButton
+              variant="contained"
+              color="inherit"
+              onClick={() => {
+                handleLogoutClick();
+              }}
+            >
+              <LogoutIcon />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar>
 
@@ -187,7 +208,7 @@ export default function PersistentDrawerLeft({ main }) {
         open={open}
       >
         <DrawerHeader>
-          <IconButton onClick={handleDrawerOpen}>
+          <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (

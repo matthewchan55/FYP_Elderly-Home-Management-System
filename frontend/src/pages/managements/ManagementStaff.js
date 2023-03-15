@@ -26,6 +26,10 @@ import useDataGrid from "../../hook/useDataGrid";
 import DragAndDropForm from "../../components/forms/DragAndDropForm";
 import PageOverviewHeader from "../../components/PageOverviewHeader";
 import TableActionButton from "../../components/TableActionButton";
+import PageOverview from "../../components/PageOverview";
+
+
+
 
 const ManagementStaff = () => {
   // table state
@@ -205,6 +209,11 @@ const ManagementStaff = () => {
     setOpenDeletePopup(false);
   };
 
+  // PageOverview
+  const icon = [ <PeopleAltIcon />, <CoPresentIcon />,  <AccessibilityNewIcon />];
+  const title = ["Total staff", "Active staff", "Incomplete staff information"];
+  const titleValue = [staffData && staffData.length, staffData && staffData.filter((sd) => sd.active === true).length, staffData && staffData.filter((sd) => Object.keys(sd).length < 17).length]
+
   return (
     <>
       <PageHeader
@@ -215,72 +224,9 @@ const ManagementStaff = () => {
         }
       />
       {/* Management overview  */}
-      <Stack sx={{ mt: 3, mr: 3 }}>
+      <Stack sx={{ mt: 3, mr: 5 }}>
         <OverviewHeader title="Staff Overview" addButtonTitle="Add new staff" />
-        <Box
-          id="staffchart"
-          flex={1}
-          display="flex"
-          pl={5}
-          py={2}
-          gap={8}
-          width="80%"
-        >
-          <Stack
-            sx={{
-              width: "25%",
-              border: 1,
-              borderRadius: "5px",
-              borderColor: "#bdbdbd",
-              p: 2,
-            }}
-          >
-            <PeopleAltIcon />
-            <Typography fontSize={18} color="#808191">
-              Total staff
-            </Typography>
-            <Typography fontSize={24} color="#11142d" fontWeight={700} mt={1}>
-              {staffData && staffData.length}
-            </Typography>
-          </Stack>
-
-          <Stack
-            sx={{
-              width: "25%",
-              border: 1,
-              borderRadius: "5px",
-              borderColor: "#bdbdbd",
-              p: 2,
-            }}
-          >
-            <CoPresentIcon />
-            <Typography fontSize={18} color="#808191">
-              Active staff
-            </Typography>
-            <Typography fontSize={24} color="#11142d" fontWeight={700} mt={1}>
-              {staffData && staffData.filter((sd) => sd.active === true).length}
-            </Typography>
-          </Stack>
-
-          <Stack
-            sx={{
-              width: "25%",
-              border: 1,
-              borderRadius: "5px",
-              borderColor: "#bdbdbd",
-              p: 2,
-            }}
-          >
-            <AccessibilityNewIcon />
-            <Typography fontSize={18} color="#808191">
-              Incomplete staff information
-            </Typography>
-            <Typography fontSize={24} color="#11142d" fontWeight={700} mt={1}>
-              {staffData &&
-                staffData.filter((sd) => Object.keys(sd).length < 17).length}
-            </Typography>
-          </Stack>
-        </Box>
+        <PageOverview icon={icon} title={title} titleValue={titleValue}/>
       </Stack>
 
       {/* Table */}

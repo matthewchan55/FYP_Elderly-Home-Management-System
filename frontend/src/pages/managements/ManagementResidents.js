@@ -21,6 +21,7 @@ import SmallAlert from "../../components/SmallAlert";
 const ManagementResidents = () => {
   // Data
   const [resInfoData, setResInfoData] = useState(null);
+  const [floorInfo, setFloorInfo] = useState([]);
 
   // Table
   const {
@@ -176,12 +177,21 @@ const ManagementResidents = () => {
     rowDelete,
     deleteID,
   } = TableActionButton();
-
   const { TableDeleteDialog, open, handleClose, error } = TableDelete();
-  const [floorInfo, setFloorInfo] = useState([]);
-  const { ResidentOverview, openClickElderlyPopup} =
-  ResidentPreview(resInfoData, floorInfo);
 
+  // Tab
+  const [tabValue, setTabValue] = useState("1");
+  const handleChange = (event, newValue) => {
+    setTabValue(newValue);
+  };
+
+  // First Tab
+  const {
+    ResidentOverview,
+    openClickElderlyPopup,
+    setOpenClickElderlyPopup,
+    clickedProfile,
+  } = ResidentPreview(resInfoData, floorInfo);
 
   useEffect(() => {
     const fetchResInfoData = async () => {
@@ -190,9 +200,8 @@ const ManagementResidents = () => {
 
       if (resp.ok) {
         setResInfoData(respData);
-        createRoom(respData)
+        createRoom(respData);
       }
-
     };
 
     const createRoom = (data) => {
@@ -201,7 +210,7 @@ const ManagementResidents = () => {
 
       for (let i = 0; i < data.length; i++) {
         const { floor, zone, room, bed, lastName, firstName, sex, residentID } =
-        data[i];
+          data[i];
         const roomStr = `${floor} - ${zone} - ${room}`;
         if (!uniqueStringsSet.has(roomStr)) {
           uniqueStringsSet.add(roomStr);
@@ -215,27 +224,18 @@ const ManagementResidents = () => {
         roomElderly[roomStr].sort();
       }
       setFloorInfo(roomElderly);
-    }
-
+    };
 
     fetchResInfoData();
   }, [openAddPopup, openEditPopup, openDeletePopup, openClickElderlyPopup]);
 
-
-  // Tab
-  const [tabValue, setTabValue] = useState("1");
-  const handleChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
-
+  // Second Tab
   const { CustomDataGrid } = useDataGrid(
     apiRef,
     tableHeaders,
     resInfoData,
     "_Resident Table"
   );
-
-
 
   return (
     <>
@@ -246,7 +246,7 @@ const ManagementResidents = () => {
       />
 
       {/* Residents Overview */}
-      <Stack sx={{ mt: 3, mr: 3 }}>
+      <Stack sx={{ mt: 3, mr: 5 }}>
         <OverviewHeader
           title="Residents Overview"
           addButtonTitle="Add new residents"
@@ -254,7 +254,7 @@ const ManagementResidents = () => {
       </Stack>
 
       {/* Residents Tab */}
-      <Box sx={{ width: "100%", typography: "body1" }}>
+      <Box sx={{ width: "100%"}}>
         <TabContext value={tabValue}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList
@@ -276,17 +276,19 @@ const ManagementResidents = () => {
             </TabList>
           </Box>
 
-          {/* Content */}
-          <TabPanel value="1">
-            {/* Preview */}
+          {/* Tab Content */}
+          <TabPanel value="1" sx={{p:0}}>
+            {/* 1. Preview */}
             {resInfoData && <ResidentOverview />}
           </TabPanel>
-          <TabPanel value="2">
-            {/* Table */}
+          <TabPanel value="2" sx={{p:0}}>
+            {/* 2. Table */}
             <Paper sx={{ m: 3 }}>{resInfoData && <CustomDataGrid />}</Paper>
           </TabPanel>
-          <TabPanel value="3">Item Three</TabPanel>
-          <TabPanel value="4">Item Four</TabPanel>
+          {/* 3. Routine Record */}
+          <TabPanel value="3" sx={{p:0}}>Routine Record</TabPanel>
+          {/* 4. Medication Record */}
+          <TabPanel value="4" sx={{p:0}}>Medication Record</TabPanel>
         </TabContext>
       </Box>
 
@@ -315,6 +317,12 @@ const ManagementResidents = () => {
         )}
       </Popup>
 
+      <SmallAlert
+        error={error}
+        open={open}
+        onClose={handleClose}
+        title={error ? error : "Delete successfully!"}
+      />
       <Popup
         title={
           <ErrorOutlineIcon
@@ -340,12 +348,21 @@ const ManagementResidents = () => {
           path={"/api/management/residents/"}
         />
       </Popup>
-      <SmallAlert
-        error={error}
-        open={open}
-        onClose={handleClose}
-        title={error ? error : "Delete successfully!"}
-      />
+
+      <Popup
+        title="Elderly profile"
+        open={openClickElderlyPopup}
+        setOpen={setOpenClickElderlyPopup}
+        hideBackdrop
+      >
+        {clickedProfile && (
+          <ResidentForm
+            path={"/api/management/residents/" + clickedProfile._id}
+            method="PATCH"
+            rowData={clickedProfile}
+          />
+        )}
+      </Popup>
     </>
   );
 };
