@@ -5,7 +5,6 @@ import {
   Paper,
   Box,
   Button,
-  InputBase,
 } from "@mui/material";
 import ElderlyIcon from "@mui/icons-material/Elderly";
 import DataThresholdingOutlinedIcon from "@mui/icons-material/DataThresholdingOutlined";
@@ -88,7 +87,7 @@ export default function ResidentPreview(data, floorInfo) {
 
         {/* Preview table */}
         <Paper sx={{ p: 2 }}>
-          <Stack sx={{ m: 3, width: "80%" }}>
+          <Stack sx={{ m: 1, width: "80%" }}>
             <Searchbar
               title={"Search elderly..."}
             />

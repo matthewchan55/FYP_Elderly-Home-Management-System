@@ -329,7 +329,7 @@ export default function PersistentDrawerLeft({ main }) {
                   <ListItemIcon>
                     <RoomPreferencesIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Facility Management" />
+                  <ListItemText primary="Facility and Inventory Management" />
                 </ListItemButton>
               </Link>
 

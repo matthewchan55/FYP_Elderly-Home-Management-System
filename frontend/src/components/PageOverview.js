@@ -8,7 +8,7 @@ const PageOverview = ({ icon, title, titleValue }) => {
       display="flex"
       pl={5}
       py={3}
-      pb={5}
+      pb={3}
       gap={8}
       width="90%"
     >

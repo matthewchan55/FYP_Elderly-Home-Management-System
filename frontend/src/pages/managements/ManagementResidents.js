@@ -254,7 +254,7 @@ const ManagementResidents = () => {
       </Stack>
 
       {/* Residents Tab */}
-      <Box sx={{ width: "100%"}}>
+      <Box sx={{ width: "95%", pl:3, pt:2}}>
         <TabContext value={tabValue}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList

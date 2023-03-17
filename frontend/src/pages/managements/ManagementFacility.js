@@ -1,11 +1,33 @@
-import { Button, Avatar, Grid, Typography } from "@mui/material";
+import {
+  FormControlLabel,
+  IconButton,
+  Avatar,
+  Typography,
+  Tooltip,
+  Divider,
+  Grid,
+  Stack,
+  Checkbox,
+  Icon,
+  Box,
+  Paper,
+  AvatarGroup,
+} from "@mui/material";
 import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
-
-import { useState } from "react";
+import FemaleElderly from "../../assets/female_elderly.png";
+import MaleElderly from "../../assets/male_elderly.png";
+import { useState, useEffect } from "react";
+import { useDrawerContext } from "../../hook/useDrawerContext";
 import PageHeader from "../../components/PageHeader";
+import { Controls } from "../../components/controls/Controls";
 import Floorplan from "../../assets/floorplan.png";
-import {useDrawerContext} from "../../hook/useDrawerContext"
+import { useSubmit } from "../../hook/useSubmit";
+import useAlert from "../../hook/useAlert";
+import SmallAlert from "../../components/SmallAlert";
 
 const ManagementFacility = () => {
   // const [editRoom, setEditRoom] = useState(false);
@@ -28,137 +50,6 @@ const ManagementFacility = () => {
   //   }
   // };
 
-  const points = [
-    { name: "101A", x: 15, y: 625 },
-    { name: "101B", x: 45, y: 638 },
-    { name: "110C", x: 75, y: 652 },
-    { name: "101D", x: 40, y: 580 },
-
-    { name: "102A", x: 130, y: 683 },
-    { name: "102B", x: 168, y: 700 },
-    { name: "102C", x: 150, y: 652 },
-    { name: "102D", x: 183, y: 665 },
-
-    { name: "103A", x: 75, y: 510 },
-    { name: "103A", x: 55, y: 552 },
-    { name: "103A", x: 110, y: 575 },
-    { name: "103A", x: 130, y: 540 },
-
-    { name: "104A", x: 176, y: 588 },
-    { name: "104B", x: 160, y: 632},
-    { name: "104C", x: 190, y: 642},
-    { name: "104D", x: 210, y: 600},
-
-    { name: "105A", x: 88 , y: 482},
-    { name: "105B", x: 102, y: 425},
-    { name: "105C", x: 130, y: 438},
-    { name: "105D", x: 160, y: 450},
-
-    { name: "106A", x: 235, y: 555},
-    { name: "106B", x: 201, y: 470},
-    { name: "106C", x: 250, y: 510},
-    { name: "106D", x: 225, y: 500},
-
-    { name: "107A", x: 310, y: 253},
-    { name: "107B", x: 310, y: 284},
-    { name: "107C", x: 310, y: 315},
-    { name: "107D", x: 370, y: 253},
-
-    { name: "108A", x: 310, y: 375},
-    { name: "108B", x: 310, y: 406},
-    { name: "108C", x: 310, y: 437},
-    { name: "108D", x: 370, y: 437},
-
-
-    { name: "109A", x: 400, y: 253},
-    { name: "109B", x: 442, y: 253},
-    { name: "109C", x: 442, y: 284},
-    { name: "109D", x: 442, y: 315},
-    
-    { name: "110A", x: 408, y: 375},
-    { name: "110B", x: 438, y: 394},
-    { name: "110C", x: 438, y: 437},
-    { name: "110D", x: 398, y: 437},
-
-    { name: "111A", x: 470, y: 253},
-    { name: "111B", x: 499, y: 253},
-    { name: "111C", x: 530, y: 253},
-    { name: "111D", x: 470, y: 315},
-
-    { name: "112A", x: 465, y: 394},
-    { name: "112B", x: 465, y: 437},
-    { name: "112C", x: 506, y: 394},
-    { name: "112D", x: 506, y: 437},
-
-    { name: "113A", x: 559, y: 253},
-    { name: "113B", x: 585, y: 253},
-    { name: "113C", x: 612, y: 253},
-    { name: "113D", x: 612, y: 295},
-
-    { name: "114A", x: 550, y: 437},
-    { name: "114B", x: 581, y: 437},
-    { name: "114C", x: 612, y: 437},
-    { name: "114D", x: 612, y: 389},
-
-    { name: "115A", x: 640, y: 253},
-    { name: "115B", x: 640, y: 284},
-    { name: "115C", x: 640, y: 315},
-    { name: "115D", x: 674, y: 253},
-
-    { name: "116A", x: 643, y: 381},
-    { name: "116B", x: 675, y: 381},
-    { name: "116C", x: 644, y: 437},
-    { name: "116D", x: 675, y: 437},
-
-
-    { name: "117A", x: 705, y: 253},
-    { name: "117B", x: 736, y: 253},
-    { name: "117C", x: 767, y: 253},
-    { name: "117D", x: 767, y: 315},
-
-    { name: "118A", x: 705, y: 437},
-    { name: "118B", x: 736, y: 437},
-    { name: "118C", x: 767, y: 437},
-    { name: "118D", x: 767, y: 396},
-
-
-    { name: "119A", x: 785, y: 545},
-    { name: "119B", x: 785, y: 585},
-    { name: "119C", x: 815, y: 525},
-    { name: "119D", x: 846, y: 525},
-
-
-    { name: "120A", x: 919, y: 460},
-    { name: "120B", x: 955, y: 460},
-    { name: "120C", x: 919, y: 500},
-    { name: "120D", x: 955, y: 500},
-
-    { name: "121A", x: 919, y: 530},
-    { name: "121B", x: 955, y: 530},
-    { name: "121C", x: 930, y: 580},
-    { name: "121D", x: 955, y: 580},
-
-    { name: "122A", x: 785, y: 620},
-    { name: "122B", x: 815, y: 610},
-    { name: "122C", x: 785, y: 660},
-    { name: "122D", x: 846, y: 610},
-
-    { name: "123A", x: 919, y: 610},
-    { name: "123B", x: 950, y: 610},
-    { name: "123C", x: 919, y: 660},
-    { name: "123D", x: 952, y: 660},
-
-    { name: "124A", x: 785, y: 688},
-    { name: "124B", x: 785, y: 719},
-    { name: "124C", x: 785, y: 750},
-    { name: "124D", x: 845, y: 750},
-
-    { name: "125A", x: 900, y: 750},
-    { name: "125B", x: 950, y: 690},
-    { name: "125C", x: 950, y: 721},
-    { name: "125D", x: 950, y: 750},
-  ]
-
   // document.onmouseup = getXYPosition;
   // var myX, myY, xyOn, myMouseX, myMouseY;
   // xyOn = true;
@@ -171,74 +62,348 @@ const ManagementFacility = () => {
   //   }
   // }
 
-  const {open} = useDrawerContext();
-  const drawerWidth = 280;
-
+  const [bedPoints, setBedPoints] = useState([]);
+  const [roomPoints, setRoomPoints] = useState([]);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [showBedPoints, setShowBedPoints] = useState(false);
+  const [clickedPoint, setClickedPoint] = useState();
+  const [floor, setFloor] = useState(1);
+  const [reason, setReason] = useState(null);
+  const [requiredError, setRequiredError] = useState(false);
+
+  const drawerWidth = 280;
+  const { open: openDrawer } = useDrawerContext();
+  const { submit, error } = useSubmit();
+  const { open, setOpen, handleClose } = useAlert();
+
+  useEffect(() => {
+    const fetchFacility = async () => {
+      const resp = await fetch("/api/management/facility");
+      const respData = await resp.json();
+
+      if (resp.ok) {
+        const roomData = respData.filter(
+          (item) =>
+            !isNaN(item.roomNumber) || typeof item.roomNumber === "undefined"
+        );
+        const bedData = respData.filter(
+          (item) =>
+            typeof item.roomNumber === "string" && isNaN(item.roomNumber)
+        );
+
+        setRoomPoints(roomData);
+        setBedPoints(bedData);
+      }
+    };
+    fetchFacility();
+  }, [open]);
 
   const handleImageLoad = () => {
     setIsImageLoaded(true);
   };
-  
+
+  const handleShow = () => {
+    setShowBedPoints(!showBedPoints);
+  };
+
+  const handlePointClick = (pt) => {
+    setClickedPoint(pt);
+  };
+
+  const checkUndefined = (rn) => {
+    if (rn === undefined) return "";
+    return rn;
+  };
+
+  const changeActive = (pt, e) => {
+    setClickedPoint({ ...pt, active: e.target.value });
+  };
+
+  const changeFloor = (e) => {
+    setFloor(e.target.value);
+  };
+
+  const handleReason = (e) => {
+    setReason((e) => e.target.value);
+  };
+
+  const handleSave = async () => {
+    if (clickedPoint.active === false && reason === null) {
+      setRequiredError(true);
+    } else {
+      const reasoned = { ...clickedPoint, disableReason: reason };
+      await submit(
+        "/api/management/facility/" + clickedPoint._id,
+        reasoned,
+        "PATCH"
+      );
+      setOpen(true);
+
+      setRequiredError(false);
+    }
+    setReason(null);
+  };
+
   return (
     <>
       <PageHeader
-        title="Facility Management"
-        subtitle="View facility vacancy or manage rooms status"
+        title="Facility and Inventory Management"
+        subtitle="View facility and inventory vacancy or manage rooms status"
         icon={
           <RoomPreferencesIcon
             sx={{ fontSize: 60, justifyContent: "center" }}
           />
         }
       />
+      {/* Floor plan */}
+      <Stack sx={{ ml: 5 }}>
+        <Typography variant="h5" sx={{ flexGrow: 1, mt: 4, mr: 5, mb: 4.5 }}>
+          Room status
+        </Typography>
 
-      <div>
-        <img
-          style={{ width: 1000, height: 600, position: "relative" }}
-          src={Floorplan}
-          alt="Floorplan"
-          onLoad={handleImageLoad}/>
-      </div>
-
-      {isImageLoaded && points.map((pt, idx) => (
-          <Avatar
-            key={idx}
-            sx={{
-              position: "absolute",
-              left: open===true ? pt.x + drawerWidth: pt.x,
-              top: pt.y,
-              width: 30,
-              height: 30,
-            }}>
-              <Typography variant="subtitle2" color="black">{pt.name}
-                </Typography>
-            </Avatar>
-
-      ))}
-
-      {/* <Grid container spacing={2}>
-        <Grid item>
-          {!editRoom && <Button onClick={handleStartClick}>Start</Button> }
-          {editRoom && <Button onClick={handleFinishClick}>Finish</Button> }
-        </Grid>
-        <Grid item>
-          <div onClick={handleClickOnImage}>
+        <Grid container>
+          <Grid item>
             <img
-              style={{ width: 1000, height: 600 }}
+              style={{ width: 1000, height: 600, position: "relative" }}
               src={Floorplan}
               alt="Floorplan"
-              size="100"
+              onLoad={handleImageLoad}
             />
-            {editRoom && plotCoordinates.map((plot, index) => (
-              <Avatar key={index} sx={{position: 'absolute', width: 30, height: 30, top: plot.y -14, left: plot.x-15}}>
-                A
-              </Avatar>
-            ))}
 
-          </div>
+            {isImageLoaded &&
+              roomPoints.map((pt, idx) => (
+                <Tooltip
+                  title={`${pt.roomFloor}/F ${pt.roomName} ${checkUndefined(
+                    pt.roomNumber
+                  )}`}
+                  placement="top"
+                  key={`${pt.floor}/F ${pt.roomName} ${checkUndefined(
+                    pt.roomNumber
+                  )} `}
+                >
+                  <IconButton
+                    disableRipple
+                    onClick={() => handlePointClick(pt)}
+                    sx={{
+                      position: "absolute",
+                      left: openDrawer === true ? pt.x + drawerWidth : pt.x,
+                      top: pt.y,
+                      color: pt.active === true ? "#26a69a" : "#ef5350",
+                    }}
+                  >
+                    {pt.active === true ? (
+                      <CheckCircleIcon
+                        fontSize="large"
+                        sx={{ "&:hover": { fontSize: "45px" } }}
+                      />
+                    ) : (
+                      <CancelIcon
+                        fontSize="large"
+                        sx={{ "&:hover": { fontSize: "45px" } }}
+                      />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              ))}
+
+            {isImageLoaded &&
+              showBedPoints &&
+              bedPoints.map((pt, idx) => (
+                <Avatar
+                  key={idx}
+                  onClick={() => handlePointClick(pt)}
+                  sx={{
+                    position: "absolute",
+                    left: openDrawer === true ? pt.x + drawerWidth : pt.x,
+                    top: pt.y,
+                    width: 30,
+                    height: 30,
+                    "&:hover": {
+                      width: 40,
+                      height: 40,
+                      left:
+                        openDrawer === true
+                          ? pt.x + drawerWidth - 10
+                          : pt.x - 10,
+                      top: pt.y - 10,
+                    },
+                  }}
+                >
+                  <IconButton>
+                    <Typography variant="subtitle2" color="black">
+                      {`${pt.roomName}${checkUndefined(pt.roomNumber)}`}
+                    </Typography>
+                  </IconButton>
+                </Avatar>
+              ))}
+          </Grid>
+
+          <Divider orientation="vertical" flexItem />
+
+          <Grid item>
+            <Stack sx={{ ml: 2 }}>
+              <Typography>Options</Typography>
+              <Controls.Selection
+                name="floor"
+                label="Floor"
+                value={floor}
+                inputLabelName="Floor"
+                items={[
+                  { name: "floor", value: "1", label: "1/F" },
+                  { name: "floor", value: "2", label: "2/F" },
+                  { name: "floor", value: "3", label: "3/F" },
+                ]}
+                onChange={changeFloor}
+              />
+              <FormControlLabel
+                label="Bed Details"
+                control={
+                  <Checkbox checked={showBedPoints} onChange={handleShow} />
+                }
+              />
+              {clickedPoint ? (
+                <Stack gap={4}>
+                  <Typography>{`Selected Room: ${clickedPoint.roomFloor}/F ${
+                    clickedPoint.roomName
+                  } ${checkUndefined(clickedPoint.roomNumber)}
+                  `}</Typography>
+
+                  <Paper sx={{ p: 2 }}>
+                    <Stack direction="row">
+                      {clickedPoint.active === true ? (
+                        <CheckCircleIcon sx={{ color: "#26a69a" }} />
+                      ) : (
+                        <CancelIcon sx={{ color: "#ef5350" }} />
+                      )}
+                      <Typography
+                        variant="h6"
+                        sx={{ fontWeight: "bold", mb: 2 }}
+                      >
+                        Active
+                      </Typography>
+                    </Stack>
+
+                    <Stack direction="row">
+                      <Controls.Selection
+                        name="active"
+                        label="Active"
+                        value={clickedPoint.active}
+                        inputLabelName="Active"
+                        items={[
+                          { name: "active", value: true, label: "Yes" },
+                          { name: "active", value: false, label: "No" },
+                        ]}
+                        onChange={(e) => changeActive(clickedPoint, e)}
+                      />
+                      {clickedPoint.active === false && (
+                        <Controls.OutlinedInput
+                          error={requiredError}
+                          name="disableReason"
+                          label="Reason"
+                          variant="standard"
+                          defaultValue={clickedPoint.disableReason ? clickedPoint.disableReason: ""}
+                          onChange={handleReason}
+                          helperText={
+                            requiredError &&
+                            "The reason to unactive is required"
+                          }
+                        />
+                      )}
+                    </Stack>
+                    <Controls.Buttons
+                      text="Save changes"
+                      onClick={handleSave}
+                    />
+                  </Paper>
+
+                  <Paper sx={{ p: 2 }}>
+                    <Stack direction="row">
+                      <CheckCircleIcon sx={{ color: "#26a69a" }} />
+                      <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                        Booked for use
+                      </Typography>
+                    </Stack>
+
+                    <Typography variant="subtitle2">Activity</Typography>
+                    <Typography variant="subtitle2">
+                      Please proceed to Activity Management for room reservation
+                    </Typography>
+                    <Typography>Involved caregivers</Typography>
+                    <AvatarGroup total={10}>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="https://mui.com/static/images/avatar/1.jpg"
+                      />
+                      <Avatar
+                        alt="Travis Howard"
+                        src="https://mui.com/static/images/avatar/2.jpg"
+                      />
+                      <Avatar
+                        alt="Agnes Walker"
+                        src="https://mui.com/static/images/avatar/4.jpg"
+                      />
+                      <Avatar
+                        alt="Trevor Henderson"
+                        src="https://mui.com/static/images/avatar/5.jpg"
+                      />
+                    </AvatarGroup>
+
+                    <Typography>Involved residents</Typography>
+                    <AvatarGroup total={50}>
+                      <Avatar alt="Remy Sharp" src={MaleElderly} />
+                      <Avatar alt="Travis Howard" src={MaleElderly} />
+                      <Avatar alt="Agnes Walker" src={FemaleElderly} />
+                      <Avatar alt="Trevor Henderson" src={MaleElderly} />
+                    </AvatarGroup>
+                  </Paper>
+                </Stack>
+              ) : (
+                <Box sx={{ p: 10, mt: 2, border: "2px dashed #2c387e" }}>
+                  <Stack sx={{ alignItems: "center" }}>
+                    <Icon>
+                      <ErrorOutlineIcon />
+                    </Icon>
+                    <Typography sx={{ mt: 1 }}>
+                      Click on a room to view its status
+                    </Typography>
+                  </Stack>
+                </Box>
+              )}
+            </Stack>
+          </Grid>
         </Grid>
-      </Grid> */}
+      </Stack>
+
+      <SmallAlert
+        error={error}
+        open={open}
+        onClose={handleClose}
+        title={"Update successfully"}
+      />
     </>
+
+    // <Grid container spacing={2}>
+    //     <Grid item>
+    //       {!editRoom && <Button onClick={handleStartClick}>Start</Button> }
+    //       {editRoom && <Button onClick={handleFinishClick}>Finish</Button> }
+    //     </Grid>
+    //     <Grid item>
+    //       <div onClick={handleClickOnImage}>
+    //         <img
+    //           style={{ width: 1000, height: 600 }}
+    //           src={Floorplan}
+    //           alt="Floorplan"
+    //           size="100"
+    //         />
+    //         {editRoom && plotCoordinates.map((plot, index) => (
+    //           <Avatar key={index} sx={{position: 'absolute', width: 30, height: 30, top: plot.y -14, left: plot.x-15}}>
+    //             A
+    //           </Avatar>
+    //         ))}
+
+    //       </div>
+    //     </Grid>
+    //   </Grid>
   );
 };
 

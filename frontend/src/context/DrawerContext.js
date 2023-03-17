@@ -22,8 +22,6 @@ export const DrawerContextProvider = ({ children }) => {
     open: false,
   });
 
-  console.log("DrawerContext state: ", state);
-
   return (
     <DrawerContext.Provider value={{ ...state, dispatch }}>
       {children}

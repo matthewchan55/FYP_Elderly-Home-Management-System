@@ -93,3 +93,21 @@ x: 906, y: 760
 x: 936, y: 762
 x: 964, y: 704
 x: 963, y: 743
+
+
+
+
+
+    { name: "1/F-Activity Room 1", x: 180, y: 428, active: true },
+    { name: "1/F-Activity Room 2", x: 955, y: 368, active: true },
+    { name: "1/F-Lounge 1", x: 190, y: 503, active: true },
+    { name: "1/F-Lounge 2", x: 940, y: 428, active: true },
+    { name: "1/F-Staff Lounge", x: 970, y: 518, active: true },
+    { name: "1/F-Common Toilet 1", x: 300, y: 508, active: true },
+    { name: "1/F-Common Toilet 2", x: 865, y: 533, active: true },
+    { name: "1/F-Common Toilet 3", x: 935, y: 468, active: true },
+    { name: "1/F-Nurse Station 1", x: 275, y: 474, active: true },
+    { name: "1/F-Nurse Station 2", x: 835, y: 488, active: true },
+    { name: "1/F-Pharmacy", x: 825, y: 533, active: true },
+    { name: "1/F-E/V 1", x: 275, y: 368, active: true },
+    { name: "1/F-E/V 2", x: 820, y: 398, active: true },

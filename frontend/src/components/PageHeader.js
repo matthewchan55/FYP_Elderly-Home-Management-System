@@ -33,7 +33,7 @@ const PageHeader = ({ title, subtitle, icon }) => {
         </Icon>
       </PageHeadPaper>
 
-      <Box className="pageInfo">
+      <Box className="pageInfo" sx={{pt:1}}>
         <Typography variant="h4">{title}</Typography>
         <Typography variant="h6">{subtitle}</Typography>
       </Box>
