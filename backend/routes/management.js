@@ -10,6 +10,7 @@ const {
   createFacility,
   updateFacility,
   deleteFacility,
+  findBed,
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -37,6 +38,9 @@ router.delete("/residents/:id", deleteResident);
 // facilityManagement
 // fetch resident data
 router.get("/facility", fetchFacility);
+
+// update prev and new bed information
+router.patch("/facility/bed", findBed);
 
 // fetch resident data
 router.post("/facility", createFacility);

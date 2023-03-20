@@ -48,7 +48,6 @@ export default function ResidentPreview(data, floorInfo) {
 
         setFilteredFloor(filtered);
       }
-      console.log(filteredFloor);
     };
 
     const changeFloor = (e) => {
@@ -127,9 +126,9 @@ export default function ResidentPreview(data, floorInfo) {
                     </Box>
 
                     <Stack key={k} direction="row" spacing={5} sx={{ p: 2 }}>
-                      {filteredFloor[k].map((info) => (
+                      {filteredFloor[k].map((info, idx) => (
                         <Button
-                          key={info}
+                          key={idx}
                           disableRipple
                           onClick={() => findProfile(info[3])}
                           sx={{
@@ -140,11 +139,11 @@ export default function ResidentPreview(data, floorInfo) {
                             },
                           }}
                         >
-                          <Stack key={info} sx={{ maxWidth: "150px" }}>
+                          <Stack key={idx} sx={{ maxWidth: "150px" }}>
                             <>
                               {info[info.length - 1] === "F" ? (
                                 <img
-                                  key={info}
+                                  key={idx}
                                   src={FemaleElderly}
                                   alt="Female"
                                   width="150"
@@ -152,7 +151,7 @@ export default function ResidentPreview(data, floorInfo) {
                                 />
                               ) : (
                                 <img
-                                  key={info}
+                                  key={idx}
                                   src={MaleElderly}
                                   alt="Male"
                                   width="150"
@@ -161,10 +160,10 @@ export default function ResidentPreview(data, floorInfo) {
                               )}
                               <Stack>
                                 <Typography
-                                  key={info[0]}
+                                  key={`info[0]${idx}`}
                                 >{`Bed: ${info[0]}`}</Typography>
                                 <Typography
-                                  key={info[1]}
+                                  key={`info[1]${idx}`}
                                 >{`Name: ${info[1]}, ${info[2]}`}</Typography>
                               </Stack>
                             </>

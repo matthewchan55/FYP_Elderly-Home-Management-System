@@ -52,12 +52,19 @@ const ResidentForm = ({ path, method, rowData }) => {
     "Room Information",
   ];
 
+  const reset = () => {
+    goTo(0);
+    setComplete(false);
+    setError(null);
+    setData(null);
+  };
+
   function updateField(INITIAL_DATA) {
     setData((prev) => {
       return { ...prev, ...INITIAL_DATA };
     });
   }
-  
+
   const { currentStepIndex, step, next, back, goTo, isLastStep } =
     useMultiStepForm([
       <ResidentElderly {...data} method={method} updateField={updateField} />,
@@ -70,15 +77,45 @@ const ResidentForm = ({ path, method, rowData }) => {
     if (!isLastStep) return next();
 
     await submit(path, data, method);
+
     setOpen(true);
     setComplete(true);
+    updateFacility(data.floor, data.room, data.bed);
   }
 
-  const reset = () => {
-    goTo(0);
-    setComplete(false);
-    setError(null);
-    setData(null);
+  async function updatePrev(nfloor, nroom, nbed) {
+    const { floor, room, bed } = rowData;
+    if (nfloor === floor && nroom === room && nbed === bed) return;
+
+    await fetch(
+      `/api/management/facility/bed?roomFloor=${floor}&roomName=${room}&roomNumber=${bed}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bedInUse: false }),
+      }
+    );
+  }
+
+  async function updateNew(nfloor, nroom, nbed) {
+    await fetch(
+      `/api/management/facility/bed?roomFloor=${nfloor}&roomName=${nroom}&roomNumber=${nbed}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bedInUse: true }),
+      }
+    );
+  }
+
+  const updateFacility = async (nfloor, nroom, nbed) => {
+    //const [prevResult, newResult]=
+    rowData
+      ? await Promise.allSettled([
+          updatePrev(nfloor, nroom, nbed),
+          updateNew(nfloor, nroom, nbed),
+        ])
+      : updateNew(nfloor, nroom, nbed);
   };
 
   return (
