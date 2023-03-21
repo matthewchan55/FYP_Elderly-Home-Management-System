@@ -11,6 +11,7 @@ const {
   updateFacility,
   deleteFacility,
   findBed,
+  createResidentAccountSummary,
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -50,5 +51,9 @@ router.patch("/facility/:id", updateFacility);
 
 // fetch resident data
 router.delete("/facility/:id", deleteFacility);
+
+// financialManagement
+router.post("/finance/ras", createResidentAccountSummary)
+
 
 module.exports = router;

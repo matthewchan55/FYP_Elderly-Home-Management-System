@@ -13,6 +13,7 @@ import {
   Paper,
   AvatarGroup,
   TextField,
+  Grow,
 } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
@@ -33,6 +34,7 @@ import { useSubmit } from "../../hook/useSubmit";
 import useAlert from "../../hook/useAlert";
 import SmallAlert from "../../components/SmallAlert";
 import parseISO from "date-fns/parseISO";
+import PageOverviewHeader from "../../components/PageOverviewHeader";
 
 const ManagementFacility = () => {
   // const [editRoom, setEditRoom] = useState(false);
@@ -173,11 +175,13 @@ const ManagementFacility = () => {
     }
   };
 
+  const { OverviewHeader } = PageOverviewHeader();
+
   return (
     <>
       <PageHeader
-        title="Facility and Inventory Management"
-        subtitle="View facility and inventory vacancy or manage rooms status"
+        title="Facility Management"
+        subtitle="View facility vacancy or manage rooms status"
         icon={
           <RoomPreferencesIcon
             sx={{ fontSize: 60, justifyContent: "center" }}
@@ -185,11 +189,12 @@ const ManagementFacility = () => {
         }
       />
       {/* Floor plan */}
-      <Stack sx={{ ml: 5 }}>
-        <Typography variant="h5" sx={{ flexGrow: 1, mt: 4, mr: 5, mb: 4.5 }}>
-          Room status
-        </Typography>
 
+      <Stack sx={{ mt: 3, mr: 5, mb: 4.5 }}>
+        <OverviewHeader title="Room status" />
+      </Stack>
+
+      <Stack sx={{ ml: 5 }}>
         <Grid container direction={"row"}>
           <Grid item sx={{ mr: 5 }}>
             <img
@@ -238,33 +243,37 @@ const ManagementFacility = () => {
             {isImageLoaded &&
               showBedPoints &&
               filteredBedPoints.map((pt, idx) => (
-                <Avatar
-                  key={idx}
-                  onClick={() => handlePointClick(pt)}
-                  sx={{
-                    position: "absolute",
-                    left: openDrawer === true ? pt.x + drawerWidth : pt.x,
-                    top: pt.y,
-                    width: 30,
-                    height: 30,
-                    bgcolor: pt.active ? pt.bedInUse && "green" : "red",
-                    "&:hover": {
-                      width: 40,
-                      height: 40,
-                      left:
-                        openDrawer === true
-                          ? pt.x + drawerWidth - 10
-                          : pt.x - 10,
-                      top: pt.y - 10,
-                    },
-                  }}
-                >
-                  <IconButton>
-                    <Typography variant="subtitle2" color="black">
-                      {`${pt.roomName}${checkUndefined(pt.roomNumber)}`}
-                    </Typography>
-                  </IconButton>
-                </Avatar>
+                <Grow key={idx} in={showBedPoints}>
+                  {
+                    <Avatar
+                      key={idx}
+                      onClick={() => handlePointClick(pt)}
+                      sx={{
+                        position: "absolute",
+                        left: openDrawer === true ? pt.x + drawerWidth : pt.x,
+                        top: pt.y,
+                        width: 30,
+                        height: 30,
+                        bgcolor: pt.active ? pt.bedInUse && "green" : "red",
+                        "&:hover": {
+                          width: 40,
+                          height: 40,
+                          left:
+                            openDrawer === true
+                              ? pt.x + drawerWidth - 10
+                              : pt.x - 10,
+                          top: pt.y - 10,
+                        },
+                      }}
+                    >
+                      <IconButton>
+                        <Typography variant="subtitle2" color="black">
+                          {`${pt.roomName}${checkUndefined(pt.roomNumber)}`}
+                        </Typography>
+                      </IconButton>
+                    </Avatar>
+                  }
+                </Grow>
               ))}
           </Grid>
 
@@ -304,6 +313,7 @@ const ManagementFacility = () => {
                 } ${checkUndefined(clickedPoint.roomNumber)}
                   `}</Typography>
 
+                {/* Active */}
                 <Stack gap={4}>
                   <Paper sx={{ p: 2 }}>
                     <Stack direction="row" alignItems={"center"} mb={1}>
@@ -386,12 +396,13 @@ const ManagementFacility = () => {
                     />
                   </Paper>
 
+                  {/* Assign bed/room */}
                   <Paper sx={{ p: 2 }}>
                     {roomPoints.some((p) => p._id === clickedPoint._id) ? (
                       // RoomPoints
                       <>
                         <Stack direction="row" alignItems={"center"}>
-                          {clickedPoint.allowBook ? (
+                          {clickedPoint.allowBook && clickedPoint.active ? (
                             <CheckCircleIcon sx={{ color: "#26a69a" }} />
                           ) : (
                             <CancelIcon sx={{ color: "#ef5350" }} />
@@ -405,61 +416,65 @@ const ManagementFacility = () => {
                           </Typography>
                         </Stack>
 
-                        {/* RoomPoints allowBook */}
-                        {clickedPoint.allowBook ? (
+                        {/* RoomPoints allowBook and active */}
+                        {clickedPoint.allowBook && clickedPoint.active ? (
                           <Typography variant="subtitle2">
                             Please proceed to Activity Management for room
                             reservation
                           </Typography>
+                        ) : // Room points booked and active
+                        clickedPoint.active ? (
+                          <Stack>
+                            <Typography variant="subtitle2">
+                              Activity
+                            </Typography>
+
+                            <Typography>Involved caregivers</Typography>
+                            <AvatarGroup total={10}>
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://mui.com/static/images/avatar/1.jpg"
+                              />
+                              <Avatar
+                                alt="Travis Howard"
+                                src="https://mui.com/static/images/avatar/2.jpg"
+                              />
+                              <Avatar
+                                alt="Agnes Walker"
+                                src="https://mui.com/static/images/avatar/4.jpg"
+                              />
+                              <Avatar
+                                alt="Trevor Henderson"
+                                src="https://mui.com/static/images/avatar/5.jpg"
+                              />
+                            </AvatarGroup>
+
+                            <Typography>Involved residents</Typography>
+                            <AvatarGroup total={50}>
+                              <Avatar alt="Remy Sharp" src={MaleElderly} />
+                              <Avatar alt="Travis Howard" src={MaleElderly} />
+                              <Avatar alt="Agnes Walker" src={FemaleElderly} />
+                              <Avatar
+                                alt="Trevor Henderson"
+                                src={MaleElderly}
+                              />
+                            </AvatarGroup>
+                          </Stack>
                         ) : (
-                          {
-                            /* RoomPoints booked */
-                          }(
-                            <Stack>
-                              <Typography variant="subtitle2">
-                                Activity
-                              </Typography>
-
-                              <Typography>Involved caregivers</Typography>
-                              <AvatarGroup total={10}>
-                                <Avatar
-                                  alt="Remy Sharp"
-                                  src="https://mui.com/static/images/avatar/1.jpg"
-                                />
-                                <Avatar
-                                  alt="Travis Howard"
-                                  src="https://mui.com/static/images/avatar/2.jpg"
-                                />
-                                <Avatar
-                                  alt="Agnes Walker"
-                                  src="https://mui.com/static/images/avatar/4.jpg"
-                                />
-                                <Avatar
-                                  alt="Trevor Henderson"
-                                  src="https://mui.com/static/images/avatar/5.jpg"
-                                />
-                              </AvatarGroup>
-
-                              <Typography>Involved residents</Typography>
-                              <AvatarGroup total={50}>
-                                <Avatar alt="Remy Sharp" src={MaleElderly} />
-                                <Avatar alt="Travis Howard" src={MaleElderly} />
-                                <Avatar
-                                  alt="Agnes Walker"
-                                  src={FemaleElderly}
-                                />
-                                <Avatar
-                                  alt="Trevor Henderson"
-                                  src={MaleElderly}
-                                />
-                              </AvatarGroup>
-                            </Stack>
-                          )
+                          // Room points not active
+                          <Typography
+                            variant="subtitle2"
+                            fontStyle={"italic"}
+                            color="#808191"
+                          >
+                            Reason: Status unactive
+                          </Typography>
                         )}
                       </>
-                    ) : // Bed points
-                    // In Use
-                    clickedPoint.bedInUse ? (
+                    ) : 
+                    // Bed points
+                    // Active and inuse
+                    clickedPoint.bedInUse && clickedPoint.active ? (
                       <>
                         <Stack direction="row" alignItems={"center"}>
                           <BedOutlinedIcon sx={{ color: "#26a69a" }} />
@@ -467,12 +482,16 @@ const ManagementFacility = () => {
                             variant="h6"
                             sx={{ fontWeight: "bold", ml: 1 }}
                           >
-                            Bed has been assigned to Elderly
+                            Bed has been assigned to elderly
                           </Typography>
                         </Stack>
                         {clickedPointElderly && (
                           <>
-                            <Typography variant="subtitle2" fontStyle={"italic"} color="#808191">
+                            <Typography
+                              variant="subtitle2"
+                              fontStyle={"italic"}
+                              color="#808191"
+                            >
                               {`Room: ${clickedPoint.roomName}, Bed: ${clickedPoint.roomNumber}`}
                             </Typography>
                             <Stack my={1} gap={0.2}>
@@ -489,8 +508,8 @@ const ManagementFacility = () => {
                           </>
                         )}
                       </>
-                    ) : (
-                      //Not in use
+                    ) : clickedPoint.active ? (
+                      // Not in use and active
                       <>
                         <Stack direction="row" alignItems={"center"}>
                           <BedOutlinedIcon sx={{ color: "#26a69a" }} />
@@ -504,6 +523,26 @@ const ManagementFacility = () => {
                         <Typography variant="subtitle2">
                           Please proceed to Residents Management for assigning
                           bed
+                        </Typography>
+                      </>
+                    ) : (
+                      // Not active
+                      <>
+                        <Stack direction="row" alignItems={"center"}>
+                          <CancelIcon sx={{ color: "#ef5350" }} />
+                          <Typography
+                            variant="h6"
+                            sx={{ fontWeight: "bold", ml: 1 }}
+                          >
+                            Bed cannot be assigned
+                          </Typography>
+                        </Stack>
+                        <Typography
+                          variant="subtitle2"
+                          fontStyle={"italic"}
+                          color="#808191"
+                        >
+                          Reason: Status unactive
                         </Typography>
                       </>
                     )}

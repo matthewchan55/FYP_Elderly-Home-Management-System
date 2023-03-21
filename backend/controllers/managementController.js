@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const ResInfo = require("../models/residentInfoModel");
 const Facility = require("../models/facility");
+const Ras = require("../models/residentAccountSummary")
 
 const mongoose = require("mongoose");
 
@@ -155,6 +156,20 @@ const deleteFacility = async (req, res) => {
   res.status(200).json(facility);
 };
 
+// Financial Management
+const createResidentAccountSummary = async (req, res) => {
+  const rasInfo = {...req.body};
+
+  try {
+    const ras = await Ras.create(rasInfo);
+    res.status(200).json(ras);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
+
 module.exports = {
   fetchStaff,
   deleteStaff,
@@ -167,4 +182,5 @@ module.exports = {
   updateFacility,
   deleteFacility,
   findBed,
+  createResidentAccountSummary
 };
