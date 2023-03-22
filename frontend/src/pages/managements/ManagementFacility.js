@@ -9,10 +9,8 @@ import {
   Stack,
   Checkbox,
   Icon,
-  Box,
   Paper,
   AvatarGroup,
-  TextField,
   Grow,
 } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -471,8 +469,7 @@ const ManagementFacility = () => {
                           </Typography>
                         )}
                       </>
-                    ) : 
-                    // Bed points
+                    ) : // Bed points
                     // Active and inuse
                     clickedPoint.bedInUse && clickedPoint.active ? (
                       <>

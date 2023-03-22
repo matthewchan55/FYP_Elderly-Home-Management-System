@@ -2,14 +2,53 @@ import { Typography, Stack, Box, Tab, Paper } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import PageOverviewHeader from "../../components/PageOverviewHeader";
-import ResidentAccountSummary from "../../components/managements/ResidentAccountSummary"
-
+import ResidentAccountSummary from "../../components/managements/ResidentAccountSummary";
+import ResidentCost from "../../components/managements/ResidentCost";
 
 const ManagementFinance = () => {
   const { OverviewHeader } = PageOverviewHeader();
+  // Fetch Data
+  const [elderlyList, setElderlyList] = useState();
+  const [rasList, setRasList] = useState();
+
+  function sortRoomBed(data) {
+    const sortList = data.sort((a, b) => {
+      if (a.room === b.room) {
+        return a.bed > b.bed ? 1 : -1;
+      } else {
+        return a.room > b.room ? 1 : -1;
+      }
+    });
+    return sortList;
+  }
+
+  const fetchElderlyList = async () => {
+    const resp = await fetch("/api/management/residents");
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      const sortList = sortRoomBed(respData);
+      setElderlyList(sortList);
+    }
+  };
+
+  const fetchRasList = async () => {
+    const resp = await fetch("/api/management/finance/ras");
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      const sortList = sortRoomBed(respData);
+      setRasList(sortList);
+    }
+  };
+
+  useEffect(() => {
+    fetchElderlyList();
+    fetchRasList();
+  }, []);
 
   // Tab
   const [tabValue, setTabValue] = useState("1");
@@ -48,7 +87,7 @@ const ManagementFinance = () => {
             >
               <Tab label="Statistics" value="1" />
               <Tab label="Resident account summary" value="2" />
-              <Tab label="Additional cost to elderly" value="3" />
+              <Tab label="Resident cost management" value="3" />
               <Tab label="Staff payroll" value="4" />
               <Tab label="Manage inventory cost" value="5" />
               <Tab label="Manage services cost" value="6" />
@@ -62,11 +101,11 @@ const ManagementFinance = () => {
           </TabPanel>
           <TabPanel value="2" sx={{ p: 0 }}>
             {/* 2. Table */}
-            <ResidentAccountSummary/>
+            <ResidentAccountSummary eld={elderlyList} fin={rasList}/>
           </TabPanel>
           {/* 3. Routine Record */}
           <TabPanel value="3" sx={{ p: 0 }}>
-            3
+            <ResidentCost eld={elderlyList} fin={rasList}/>
           </TabPanel>
           {/* 4. Medication Record */}
           <TabPanel value="4" sx={{ p: 0 }}>

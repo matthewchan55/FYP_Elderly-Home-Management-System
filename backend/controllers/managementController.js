@@ -157,6 +157,15 @@ const deleteFacility = async (req, res) => {
 };
 
 // Financial Management
+
+
+// GET ras
+const fetchResidentAccountSummary = async(req, res) => {
+  const ras = await Ras.find(req.query).sort({ residentID: 1 });
+  res.status(200).json(ras);
+}
+
+// POST ras
 const createResidentAccountSummary = async (req, res) => {
   const rasInfo = {...req.body};
 
@@ -182,5 +191,6 @@ module.exports = {
   updateFacility,
   deleteFacility,
   findBed,
+  fetchResidentAccountSummary,
   createResidentAccountSummary
 };

@@ -12,18 +12,19 @@ const {
   deleteFacility,
   findBed,
   createResidentAccountSummary,
+  fetchResidentAccountSummary,
 } = require("../controllers/managementController");
 
 const router = express.Router();
 
-// staffManagement
+// StaffManagement
 // fetch staffs data
 router.get("/staff", fetchStaff);
 
 // delete a staff data
 router.delete("/staff/:id", deleteStaff);
 
-// residentManagement
+// ResidentManagement
 // fetch resident data
 router.get("/residents", fetchResident);
 
@@ -36,24 +37,27 @@ router.patch("/residents/:id", updateResident);
 // fetch resident data
 router.delete("/residents/:id", deleteResident);
 
-// facilityManagement
-// fetch resident data
+// FacilityManagement
+// fetch facility data
 router.get("/facility", fetchFacility);
 
 // update prev and new bed information
 router.patch("/facility/bed", findBed);
 
-// fetch resident data
+// post facility data
 router.post("/facility", createFacility);
 
-// fetch resident data
+// update facility data
 router.patch("/facility/:id", updateFacility);
 
-// fetch resident data
+// delete facility data
 router.delete("/facility/:id", deleteFacility);
 
-// financialManagement
-router.post("/finance/ras", createResidentAccountSummary)
-
+// FinancialManagement
+// 1. Ras
+// fetch ras data
+router.get("/finance/ras", fetchResidentAccountSummary);
+// post ras data
+router.post("/finance/ras", createResidentAccountSummary);
 
 module.exports = router;

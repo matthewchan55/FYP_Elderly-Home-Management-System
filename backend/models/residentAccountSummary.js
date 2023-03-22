@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const rasSchema = new Schema(
   {
     residentID: {
-      type: String,
+      type: Number,
     },
     payDate: {
       type: Date,
@@ -46,7 +46,6 @@ const rasSchema = new Schema(
     total: {
       type: Array,
     },
-
     paid:{
       type: Boolean,
       default: false,
