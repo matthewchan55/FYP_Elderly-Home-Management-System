@@ -17,14 +17,19 @@ const ResidentAccountSummary = ({ eld, fin }) => {
     return format(dateObj, dateFormat);
   }
 
-  function sumUpColumns(array) {
-    return array.reduce((partialSum, a) => partialSum + a, 0);
+  function sumUpColumns(obj, field) {
+    let totalCost = 0;
+    for (let i = 0; i < obj.length; i++) {
+      totalCost += obj[i][field];
+    }
+    return totalCost;
   }
 
   function calculateBalance(a, b) {
     return parseFloat(a - b).toFixed(2);
   }
 
+  console.log(selectedElderlyFinance.itemSubscription);
   return (
     <Grid container direction="row">
       {/* Left: elderly list */}
@@ -72,11 +77,16 @@ const ResidentAccountSummary = ({ eld, fin }) => {
                     >
                       <Controls.Bold>Amount Due:</Controls.Bold>
                       <Typography>
-                        {selectedElderlyFinance &&
-                          calculateBalance(
-                            selectedElderlyFinance.total[0],
-                            selectedElderlyFinance.total[1]
-                          )}
+                        {calculateBalance(
+                          sumUpColumns(
+                            selectedElderlyFinance.itemSubscription,
+                            "charge"
+                          ),
+                          sumUpColumns(
+                            selectedElderlyFinance.itemSubscription,
+                            "payment"
+                          )
+                        )}
                       </Typography>
                     </Box>
                     <Box
@@ -132,12 +142,17 @@ const ResidentAccountSummary = ({ eld, fin }) => {
                 {/* Item: basic info */}
                 <Grid item xs={12} md={4}>
                   <Stack>
-                  <Stack direction="row">
+                    <Stack direction="row">
                       <Controls.GridBox>
                         <Controls.Bold>Deadline Pay Date</Controls.Bold>
                       </Controls.GridBox>
 
-                      <Controls.Bold color="red">{stringDate(selectedElderlyFinance.deadlinePayDate, "dateTime")}</Controls.Bold>
+                      <Controls.Bold color="red">
+                        {stringDate(
+                          selectedElderlyFinance.deadlinePayDate,
+                          "dateTime"
+                        )}
+                      </Controls.Bold>
                     </Stack>
                     <Stack direction="row">
                       <Controls.GridBox>
@@ -234,11 +249,11 @@ const ResidentAccountSummary = ({ eld, fin }) => {
 
                     {/* Item loop here */}
                     <Grid container>
-                      {selectedElderlyFinance.itemDescription.map(
+                      {selectedElderlyFinance.itemSubscription.map(
                         (item, idx) => (
                           <Grid container diretion="row" key={idx}>
                             <Grid item xs={5} md={5}>
-                              <Typography>{item}</Typography>
+                              <Typography>{item.item}</Typography>
                             </Grid>
                             <Grid item xs={2} md={2}>
                               <Typography>
@@ -249,14 +264,10 @@ const ResidentAccountSummary = ({ eld, fin }) => {
                               </Typography>
                             </Grid>
                             <Grid item xs md>
-                              <Typography>
-                                {selectedElderlyFinance.charge[idx]}
-                              </Typography>
+                              <Typography>{item.charge}</Typography>
                             </Grid>
                             <Grid item xs md>
-                              <Typography>
-                                {selectedElderlyFinance.payment[idx]}
-                              </Typography>
+                              <Typography>{item.payment}</Typography>
                             </Grid>
                             <Grid item xs md>
                               <Typography></Typography>
@@ -276,14 +287,20 @@ const ResidentAccountSummary = ({ eld, fin }) => {
                       <Grid item xs md>
                         <Controls.GridBox py={2}>
                           <Typography>
-                            {sumUpColumns(selectedElderlyFinance.charge)}
+                            {sumUpColumns(
+                              selectedElderlyFinance.itemSubscription,
+                              "charge"
+                            )}
                           </Typography>
                         </Controls.GridBox>
                       </Grid>
                       <Grid item xs md>
                         <Controls.GridBox py={2}>
                           <Typography>
-                            {sumUpColumns(selectedElderlyFinance.payment)}
+                            {sumUpColumns(
+                              selectedElderlyFinance.itemSubscription,
+                              "payment"
+                            )}
                           </Typography>
                         </Controls.GridBox>
                       </Grid>
@@ -291,8 +308,14 @@ const ResidentAccountSummary = ({ eld, fin }) => {
                         <Controls.GridBox py={2} textAlign="end">
                           <Typography>
                             {calculateBalance(
-                              sumUpColumns(selectedElderlyFinance.charge),
-                              sumUpColumns(selectedElderlyFinance.payment)
+                              sumUpColumns(
+                                selectedElderlyFinance.itemSubscription,
+                                "charge"
+                              ),
+                              sumUpColumns(
+                                selectedElderlyFinance.itemSubscription,
+                                "payment"
+                              )
                             )}
                           </Typography>
                         </Controls.GridBox>
@@ -311,8 +334,14 @@ const ResidentAccountSummary = ({ eld, fin }) => {
                         <Controls.GridBox textAlign="end" py={2}>
                           <Typography>
                             {calculateBalance(
-                              selectedElderlyFinance.total[0],
-                              selectedElderlyFinance.total[1]
+                              sumUpColumns(
+                                selectedElderlyFinance.itemSubscription,
+                                "charge"
+                              ),
+                              sumUpColumns(
+                                selectedElderlyFinance.itemSubscription,
+                                "payment"
+                              )
                             )}
                           </Typography>
                         </Controls.GridBox>

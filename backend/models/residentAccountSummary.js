@@ -31,29 +31,20 @@ const rasSchema = new Schema(
     payDescription: {
       type: String,
     },
-    itemDescription: {
+    itemSubscription: {
       type: Array,
     },
-    transDate:{
-      type:Date,
+    transDate: {
+      type: Date,
     },
-    charge: {
-      type: Array,
-    },
-    payment: {
-      type: Array,
-    },
-    total: {
-      type: Array,
-    },
-    paid:{
+    paid: {
       type: Boolean,
       default: false,
     },
     received: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   { timestamps: true }
 );

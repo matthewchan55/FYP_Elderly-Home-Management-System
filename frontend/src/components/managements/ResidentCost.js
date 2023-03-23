@@ -1,12 +1,25 @@
 import { Grid, Divider, Stack, Typography, Box } from "@mui/material";
 
 import ResidentList from "./ResidentList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Controls } from "../controls/Controls";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 const ResidentCost = ({ eld, fin }) => {
+  useEffect(() => {
+    const fetchServiceCost = async () => {
+      const resp = await fetch("/api/management/finance/servicecost");
+      const respData = await resp.json();
+
+      if (resp.ok) {
+        setServiceCost(respData);
+      }
+    }
+    fetchServiceCost();
+  }, []);
+  
+  const [serviceCost, setServiceCost] = useState();
   const [selectedElderly, setSelectedElderly] = useState(eld[0]);
   const [selectedElderlyFinance, setSelectedElderlyFinance] = useState(fin[0]);
 
@@ -53,9 +66,7 @@ const ResidentCost = ({ eld, fin }) => {
                     }}
                   >
                     <Controls.Bold>Amount Due:</Controls.Bold>
-                    <Typography>
-                      .
-                    </Typography>
+                    <Typography>.</Typography>
                   </Box>
                   <Box
                     sx={{
@@ -79,6 +90,18 @@ const ResidentCost = ({ eld, fin }) => {
               <Divider style={{ width: "100%" }} flexItem />
             </Grid>
           </Grid>
+
+          <Grid item xs={12} md={7}>
+            {serviceCost && (
+              <Controls.Transfer
+                total={serviceCost}
+                subscribedItems={selectedElderlyFinance.itemSubscription}
+                path={`/api/management/finance/ras/${selectedElderlyFinance._id}`}
+              />
+            )}
+          </Grid>
+          <Divider orientation="vertical" flexItem />
+          <Grid></Grid>
         </Grid>
       </Grid>
     </Grid>

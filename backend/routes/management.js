@@ -13,6 +13,9 @@ const {
   findBed,
   createResidentAccountSummary,
   fetchResidentAccountSummary,
+  createServiceCost,
+  fetchServiceCost,
+  updateResidentAccountSummary,
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -54,10 +57,14 @@ router.patch("/facility/:id", updateFacility);
 router.delete("/facility/:id", deleteFacility);
 
 // FinancialManagement
+
 // 1. Ras
-// fetch ras data
 router.get("/finance/ras", fetchResidentAccountSummary);
-// post ras data
 router.post("/finance/ras", createResidentAccountSummary);
+router.patch("/finance/ras/:id", updateResidentAccountSummary)
+
+// 2. Service cost
+router.get("/finance/servicecost", fetchServiceCost)
+router.post("/finance/servicecost", createServiceCost)
 
 module.exports = router;

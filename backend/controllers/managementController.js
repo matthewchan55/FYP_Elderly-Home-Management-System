@@ -2,6 +2,8 @@ const User = require("../models/userModel");
 const ResInfo = require("../models/residentInfoModel");
 const Facility = require("../models/facility");
 const Ras = require("../models/residentAccountSummary")
+const ServiceCost = require("../models/serviceCostModel")
+
 
 const mongoose = require("mongoose");
 
@@ -177,6 +179,49 @@ const createResidentAccountSummary = async (req, res) => {
   }
 };
 
+// PATCH ras
+const updateResidentAccountSummary = async(req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such resident account summary" });
+  }
+
+  const updatedRas = await Ras.findOneAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    },
+    { new: true }
+  );
+
+  if (!updatedRas) {
+    return res.status(404).json({ error: "No such resident account summary" });
+  }
+  res.status(200).json(updatedRas);
+}
+
+// GET servicecost
+const fetchServiceCost = async(req, res) => {
+  const sc = await ServiceCost.find(req.query).sort({ serviceCategory: 1 });
+  res.status(200).json(sc);
+}
+
+// POST servicecost
+const createServiceCost = async (req, res) => {
+  const serviceCostArray = req.body;
+
+  try {
+    const serviceCosts = await Promise.all(
+      serviceCostArray.map(async (serviceCost) => {
+        const cost = await ServiceCost.create(serviceCost);
+        return cost;
+      })
+    );
+    res.status(200).json(serviceCosts);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 
 module.exports = {
@@ -192,5 +237,8 @@ module.exports = {
   deleteFacility,
   findBed,
   fetchResidentAccountSummary,
-  createResidentAccountSummary
+  createResidentAccountSummary,
+  updateResidentAccountSummary,
+  createServiceCost,
+  fetchServiceCost
 };
