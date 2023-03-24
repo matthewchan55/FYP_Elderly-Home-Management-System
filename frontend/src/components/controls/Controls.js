@@ -5,7 +5,6 @@ import Buttons from "./Buttons"
 import DateTime from "./DateTime"
 import GridBox from "./GridBox"
 import Bold from "./Bold"
-import Transfer from "./Transfer"
 
 
 export const Controls = {
@@ -16,5 +15,4 @@ export const Controls = {
     DateTime,
     GridBox,
     Bold,
-    Transfer
 }

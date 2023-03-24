@@ -12,7 +12,7 @@ const ManagementFinance = () => {
   const { OverviewHeader } = PageOverviewHeader();
   // Fetch Data
   const [elderlyList, setElderlyList] = useState();
-  const [rasList, setRasList] = useState();
+  //const [rasList, setRasList] = useState();
 
   function sortRoomBed(data) {
     const sortList = data.sort((a, b) => {
@@ -35,19 +35,10 @@ const ManagementFinance = () => {
     }
   };
 
-  const fetchRasList = async () => {
-    const resp = await fetch("/api/management/finance/ras");
-    const respData = await resp.json();
 
-    if (resp.ok) {
-      const sortList = sortRoomBed(respData);
-      setRasList(sortList);
-    }
-  };
 
   useEffect(() => {
     fetchElderlyList();
-    fetchRasList();
   }, []);
 
   // Tab
@@ -101,11 +92,11 @@ const ManagementFinance = () => {
           </TabPanel>
           <TabPanel value="2" sx={{ p: 0 }}>
             {/* 2. Table */}
-            <ResidentAccountSummary eld={elderlyList} fin={rasList}/>
+            <ResidentAccountSummary eld={elderlyList}/>
           </TabPanel>
           {/* 3. Routine Record */}
           <TabPanel value="3" sx={{ p: 0 }}>
-            <ResidentCost eld={elderlyList} fin={rasList}/>
+            <ResidentCost eld={elderlyList}/>
           </TabPanel>
           {/* 4. Medication Record */}
           <TabPanel value="4" sx={{ p: 0 }}>

@@ -1,19 +1,24 @@
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import List from "@mui/material/List";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
+import {
+  Grid,
+  List,
+  Card,
+  CardHeader,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Checkbox,
+  Button,
+  Divider,
+  Typography,
+  IconButton,
+} from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
 import { CardActions, CardContent } from "@mui/material";
 import { useState } from "react";
 import { useSubmit } from "../../hook/useSubmit";
 import useAlert from "../../hook/useAlert";
 import SmallAlert from "../SmallAlert";
+import { Controls } from "../controls/Controls";
 
 function not(a, b) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -27,7 +32,7 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-export default function Transfer({ total, subscribedItems, path }) {
+const ResidentCostTransfer = ({ total, subscribedItems, path, setService }) => {
   const [checked, setChecked] = useState([]);
   const [left, setLeft] = useState(total);
   const [right, setRight] = useState(subscribedItems);
@@ -111,8 +116,8 @@ export default function Transfer({ total, subscribedItems, path }) {
       <CardContent>
         <List
           sx={{
-            width: 250,
-            height: "36vh",
+            width: items===left ? 320: 280,
+            height: items === left ? "40vh" : "36vh",
             bgcolor: "background.paper",
             overflow: "auto",
           }}
@@ -130,6 +135,12 @@ export default function Transfer({ total, subscribedItems, path }) {
                   role="listitem"
                   button
                   onClick={handleToggle(value)}
+                  secondaryAction={
+                    items===left && 
+                    <IconButton edge="end" aria-label="delete" onClick={() => setService(value)}>
+                      <EditIcon />
+                    </IconButton>
+                  }
                 >
                   <ListItemIcon key={idx}>
                     <Checkbox
@@ -152,11 +163,11 @@ export default function Transfer({ total, subscribedItems, path }) {
         </List>
       </CardContent>
 
-      {items === right && (
-        <CardActions>
+      <CardActions>
+        {items === right && (
           <Button onClick={saveServicesItems}>Save change</Button>
-        </CardActions>
-      )}
+        )}
+      </CardActions>
     </Card>
   );
 
@@ -200,4 +211,6 @@ export default function Transfer({ total, subscribedItems, path }) {
       />
     </>
   );
-}
+};
+
+export default ResidentCostTransfer;

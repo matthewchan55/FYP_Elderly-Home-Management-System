@@ -7,6 +7,9 @@ const rasSchema = new Schema(
     residentID: {
       type: Number,
     },
+    month: {
+      type: String
+    },
     payDate: {
       type: Date,
     },

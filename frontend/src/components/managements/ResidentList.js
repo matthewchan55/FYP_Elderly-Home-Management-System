@@ -3,13 +3,8 @@ import { Box, Stack, Button, Typography } from "@mui/material";
 import FemaleElderly2 from "../../assets/female_elderly2.png";
 import MaleElderly2 from "../../assets/male_elderly2.png";
 
-const ResidentList = ({ data, finData, eld, setEld, setEldFin }) => {
-  const selectElderly = (el) => {
-    const finance = finData.filter((ras) => ras.residentID === el.residentID);
-    setEld(el);
-    setEldFin(...finance);
-  };
-
+const ResidentList = ({ data, eld, setEld }) => {
+  
   return (
     <>
       <Box
@@ -42,13 +37,13 @@ const ResidentList = ({ data, finData, eld, setEld, setEldFin }) => {
         )}
       </Box>
 
-      <Stack maxHeight="36vh" overflow="auto">
+      <Stack maxHeight="40vh" overflow="auto">
         {data &&
           data.map((el, idx) => (
             <Button
               key={idx}
               variant="text"
-              onClick={() => selectElderly(el)}
+              onClick={() => setEld(el)}
               sx={{
                 minHeight: 50,
                 minWidth: 220,

@@ -1,37 +1,49 @@
-import { Grid, Divider, Stack, Typography, Box } from "@mui/material";
-
+import { Grid, Divider, Stack, Typography } from "@mui/material";
 import ResidentList from "./ResidentList";
 import { useState, useEffect } from "react";
-import { Controls } from "../controls/Controls";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
+import ResidentCostTransfer from "./ResidentCostTransfer";
+import FinanceServiceCost from "../forms/ManagementForm/FinanceServiceCost";
 
-const ResidentCost = ({ eld, fin }) => {
-  useEffect(() => {
-    const fetchServiceCost = async () => {
-      const resp = await fetch("/api/management/finance/servicecost");
-      const respData = await resp.json();
-
-      if (resp.ok) {
-        setServiceCost(respData);
-      }
-    }
-    fetchServiceCost();
-  }, []);
-  
+const ResidentCost = ({ eld }) => {
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [serviceCost, setServiceCost] = useState();
   const [selectedElderly, setSelectedElderly] = useState(eld[0]);
-  const [selectedElderlyFinance, setSelectedElderlyFinance] = useState(fin[0]);
+  const [selectedElderlyFinance, setSelectedElderlyFinance] = useState();
+  const [selectedServiceCost, setSelectedServiceCost] = useState();
+
+  const fetchServiceCost = async () => {
+    const resp = await fetch("/api/management/finance/servicecost");
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      setServiceCost(respData);
+      setSelectedServiceCost(respData[0])
+    }
+  };
+
+  const fetchCurrentRas = async (id, month) => {
+    const resp = await fetch(
+      `/api/management/finance/ras?residentID=${id}&month=${month}`
+    );
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      setSelectedElderlyFinance(respData[0]);
+    }
+  };
+
+  useEffect(() => {
+    fetchServiceCost();
+    fetchCurrentRas(selectedElderly.residentID, currentDate.getMonth() + 1);
+  }, []);
 
   return (
     <Grid container direction="row">
       <Grid item xs={12} md={2} minWidth="220px">
         <ResidentList
           data={eld}
-          finData={fin}
           eld={selectedElderly}
           setEld={setSelectedElderly}
-          setEldFin={setSelectedElderlyFinance}
         />
       </Grid>
 
@@ -54,54 +66,27 @@ const ResidentCost = ({ eld, fin }) => {
                 </Stack>
               </Grid>
 
-              <Grid item md xs={12} mb={2}>
-                <Stack direction="row" gap={4}>
-                  <Box
-                    sx={{
-                      width: "180px",
-                      border: "1px solid grey",
-                      borderRadius: "10px",
-                      py: 3,
-                      pl: 5,
-                    }}
-                  >
-                    <Controls.Bold>Amount Due:</Controls.Bold>
-                    <Typography>.</Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      width: "180px",
-                      border: "1px solid grey",
-                      borderRadius: "10px",
-                      py: 3,
-                      pl: 9,
-                    }}
-                  >
-                    <Controls.Bold>Paid:</Controls.Bold>
-                    {selectedElderlyFinance && selectedElderlyFinance.paid ? (
-                      <CheckCircleIcon sx={{ color: "#26a69a" }} />
-                    ) : (
-                      <CancelIcon sx={{ color: "#ef5350" }} />
-                    )}
-                  </Box>
-                </Stack>
-              </Grid>
-
               <Divider style={{ width: "100%" }} flexItem />
             </Grid>
           </Grid>
 
-          <Grid item xs={12} md={7}>
-            {serviceCost && (
-              <Controls.Transfer
+          <Grid item xs={12} md={8}>
+            {serviceCost && selectedElderlyFinance && (
+              <ResidentCostTransfer
                 total={serviceCost}
                 subscribedItems={selectedElderlyFinance.itemSubscription}
                 path={`/api/management/finance/ras/${selectedElderlyFinance._id}`}
+                setService={setSelectedServiceCost}
               />
             )}
           </Grid>
+
           <Divider orientation="vertical" flexItem />
-          <Grid></Grid>
+          <Grid item xs={12} md>
+            {selectedServiceCost && (
+              <FinanceServiceCost service={selectedServiceCost}/>
+            )}
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
