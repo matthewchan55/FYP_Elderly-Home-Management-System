@@ -1,10 +1,9 @@
-import { Box, Stack, Button, Typography } from "@mui/material";
-
+import { Box, Stack, Button, Typography, Icon } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import FemaleElderly2 from "../../assets/female_elderly2.png";
 import MaleElderly2 from "../../assets/male_elderly2.png";
 
 const ResidentList = ({ data, eld, setEld }) => {
-  
   return (
     <>
       <Box
@@ -55,7 +54,10 @@ const ResidentList = ({ data, eld, setEld }) => {
                 },
               }}
             >
-              <Typography>{`${el.room}-${el.bed} | ${
+              <Icon >
+                <CheckCircleIcon sx={{color: "#26a69a", mb:2, mr:2}}/>
+              </Icon>
+              <Typography noWrap>{`${el.room}-${el.bed} | ${
                 el.sex === "Not available" ? "N/A" : el.sex
               } | ${el.age} | ${el.lastName}, ${el.firstName}`}</Typography>
             </Button>

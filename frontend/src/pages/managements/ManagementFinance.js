@@ -7,6 +7,7 @@ import PageHeader from "../../components/PageHeader";
 import PageOverviewHeader from "../../components/PageOverviewHeader";
 import ResidentAccountSummary from "../../components/managements/ResidentAccountSummary";
 import ResidentCost from "../../components/managements/ResidentCost";
+import StaffPayroll from "../../components/managements/StaffPayroll";
 
 const ManagementFinance = () => {
   const { OverviewHeader } = PageOverviewHeader();
@@ -81,7 +82,7 @@ const ManagementFinance = () => {
               <Tab label="Resident cost management" value="3" />
               <Tab label="Staff payroll" value="4" />
               <Tab label="Manage inventory cost" value="5" />
-              <Tab label="Manage services cost" value="6" />
+
             </TabList>
           </Box>
 
@@ -100,13 +101,10 @@ const ManagementFinance = () => {
           </TabPanel>
           {/* 4. Medication Record */}
           <TabPanel value="4" sx={{ p: 0 }}>
-            4
+            <StaffPayroll/>
           </TabPanel>
           <TabPanel value="5" sx={{ p: 0 }}>
             5
-          </TabPanel>
-          <TabPanel value="6" sx={{ p: 0 }}>
-            6
           </TabPanel>
         </TabContext>
       </Box>

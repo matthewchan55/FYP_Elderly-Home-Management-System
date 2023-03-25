@@ -9,16 +9,16 @@ import {
   Checkbox,
   Button,
   Divider,
-  Typography,
   IconButton,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { CardActions, CardContent } from "@mui/material";
-import { useState } from "react";
+import { useState, useMemo, useEffect} from "react";
 import { useSubmit } from "../../hook/useSubmit";
+
 import useAlert from "../../hook/useAlert";
 import SmallAlert from "../SmallAlert";
-import { Controls } from "../controls/Controls";
+import FinanceServiceCost from "../forms/ManagementForm/FinanceServiceCost";
 
 function not(a, b) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -32,10 +32,28 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-const ResidentCostTransfer = ({ total, subscribedItems, path, setService }) => {
+const ResidentCostTransfer = ({ subscribedItems, path}) => {
   const [checked, setChecked] = useState([]);
-  const [left, setLeft] = useState(total);
+  const [left, setLeft] = useState();
   const [right, setRight] = useState(subscribedItems);
+  const [createService, setCreateService] = useState(false);
+  const [selectedServiceCost, setSelectedServiceCost] = useState("");
+  const [show, setShow] = useState(false)
+
+  const fetchServiceCost = async () => {
+    // left items
+    const resp = await fetch("/api/management/finance/servicecost");
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      setLeft(respData);
+      selectedServiceCost==="" && setSelectedServiceCost(respData[0]);
+    }
+  };
+
+  useEffect(() => {
+    fetchServiceCost();
+  }, []);
 
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
@@ -84,10 +102,22 @@ const ResidentCostTransfer = ({ total, subscribedItems, path, setService }) => {
   const { submit, error } = useSubmit();
   const { open, setOpen, handleClose } = useAlert();
 
-  const saveServicesItems = async () => {
-    await submit(path, { itemSubscription: right }, "PATCH");
-    setOpen(true);
+  const handlePenClick = (value) => {
+    setSelectedServiceCost(value);
+    setCreateService(false);
+
   };
+
+  const saveServicesItems = async () => {
+    // update servicecost
+    await submit(path, { itemSubscription: right }, "PATCH");
+    show && setOpen(true);
+  };
+
+  useMemo(() => {
+    saveServicesItems()
+    setShow(true)
+  }, [right])
 
   const customList = (title, items) => (
     <Card>
@@ -116,8 +146,8 @@ const ResidentCostTransfer = ({ total, subscribedItems, path, setService }) => {
       <CardContent>
         <List
           sx={{
-            width: items===left ? 320: 280,
-            height: items === left ? "40vh" : "36vh",
+            width: "295px",
+            height: "36vh",
             bgcolor: "background.paper",
             overflow: "auto",
           }}
@@ -136,10 +166,15 @@ const ResidentCostTransfer = ({ total, subscribedItems, path, setService }) => {
                   button
                   onClick={handleToggle(value)}
                   secondaryAction={
-                    items===left && 
-                    <IconButton edge="end" aria-label="delete" onClick={() => setService(value)}>
-                      <EditIcon />
-                    </IconButton>
+                    items === left && (
+                      <IconButton
+                        edge="end"
+                        aria-label="delete"
+                        onClick={() => handlePenClick(value)}
+                      >
+                        <EditIcon />
+                      </IconButton>
+                    )
                   }
                 >
                   <ListItemIcon key={idx}>
@@ -163,53 +198,82 @@ const ResidentCostTransfer = ({ total, subscribedItems, path, setService }) => {
         </List>
       </CardContent>
 
-      <CardActions>
-        {items === right && (
+      <CardActions sx={{ justifyContent: "flex-end" }}>
+        {items === right ? (
           <Button onClick={saveServicesItems}>Save change</Button>
+        ) : (
+          <Button
+            size="small"
+            variant="contained"
+            onClick={() => setCreateService(true)}
+            sx={{ borderRadius: "50%", fontSize: 20 }}
+          >
+            +
+          </Button>
         )}
       </CardActions>
     </Card>
   );
 
   return (
-    <>
-      <Grid container spacing={2} alignItems={"center"}>
-        <Grid item>{customList("Total Services", left)}</Grid>
-        <Grid item>
-          <Grid container direction="column" alignItems="center">
-            <Button
-              sx={{ my: 0.5 }}
-              variant="outlined"
-              size="small"
-              onClick={handleCheckedRight}
-              disabled={leftChecked.length === 0 || rightChecked.length > 0}
-              aria-label="move selected right"
-            >
-              &gt;
-            </Button>
-            <Button
-              sx={{ my: 0.5 }}
-              variant="outlined"
-              size="small"
-              color="error"
-              onClick={handleCheckedDelete}
-              disabled={rightChecked.length === 0}
-              aria-label="move selected left"
-            >
-              x
-            </Button>
+    left && right && (
+      <>
+        <Grid container alignItems={"center"}>
+          <Grid item xs={5} md={3}>
+            {customList("Total Services", left)}
+          </Grid>
+          <Grid item xs md={1}>
+            <Grid container direction="column" alignItems="center">
+              <Button
+                sx={{ my: 0.5 }}
+                variant="outlined"
+                size="small"
+                onClick={handleCheckedRight}
+                disabled={leftChecked.length === 0 || rightChecked.length > 0}
+                aria-label="move selected right"
+              >
+                &gt;
+              </Button>
+              <Button
+                sx={{ my: 0.5 }}
+                variant="outlined"
+                size="small"
+                color="error"
+                onClick={handleCheckedDelete}
+                disabled={rightChecked.length === 0}
+                aria-label="move selected left"
+              >
+                x
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid item xs={5} md={3}>
+            {customList("Selected services for elderly", right)}
+          </Grid>
+          <Divider orientation="vertical"  width="5%" flexItem/>
+          <Grid item xs={12} md={4} ml={3}>
+            {createService ? (
+              <FinanceServiceCost service={""} />
+            ) : (
+              selectedServiceCost && (
+                <FinanceServiceCost
+                  service={selectedServiceCost}
+                  right={right}
+                  setRight={setRight}
+                />
+              )
+            )}
           </Grid>
         </Grid>
-        <Grid item>{customList("Selected services for elderly", right)}</Grid>
-      </Grid>
 
-      <SmallAlert
-        error={error}
-        open={open}
-        onClose={handleClose}
-        title="Update elderly service items successfully!"
-      />
-    </>
+        <SmallAlert
+          error={error}
+          open={open}
+          onClose={handleClose}
+          title="Update service items for elderly successfully!"
+        />
+      </>
+    )
   );
 };
 

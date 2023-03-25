@@ -208,19 +208,52 @@ const fetchServiceCost = async(req, res) => {
 
 // POST servicecost
 const createServiceCost = async (req, res) => {
-  const serviceCostArray = req.body;
+  const serviceCost = {...req.body};
 
   try {
-    const serviceCosts = await Promise.all(
-      serviceCostArray.map(async (serviceCost) => {
-        const cost = await ServiceCost.create(serviceCost);
-        return cost;
-      })
-    );
-    res.status(200).json(serviceCosts);
+    const sc = await ServiceCost.create(serviceCost);
+    res.status(200).json(sc);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+};
+
+// PATCH servicecost
+const updateServiceCost = async(req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such service cost"});
+  }
+
+  const updatedSc = await ServiceCost.findOneAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    },
+    { new: true }
+  );
+
+  if (!updatedSc) {
+    return res.status(404).json({ error: "No such service cost"});
+  }
+  res.status(200).json(updatedSc);
+}
+
+
+// DELETE servicecost
+const deleteServiceCost = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such service cost" });
+  }
+
+  const sc = await ServiceCost.findOneAndDelete({ _id: id });
+
+  if (!sc) {
+    return res.status(404).json({ error: "No such service cost" });
+  }
+  res.status(200).json(sc);
 };
 
 
@@ -240,5 +273,7 @@ module.exports = {
   createResidentAccountSummary,
   updateResidentAccountSummary,
   createServiceCost,
-  fetchServiceCost
+  fetchServiceCost,
+  updateServiceCost,
+  deleteServiceCost
 };

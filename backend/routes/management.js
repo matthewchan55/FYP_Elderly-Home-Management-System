@@ -16,6 +16,8 @@ const {
   createServiceCost,
   fetchServiceCost,
   updateResidentAccountSummary,
+  updateServiceCost,
+  deleteServiceCost,
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -66,5 +68,7 @@ router.patch("/finance/ras/:id", updateResidentAccountSummary)
 // 2. Service cost
 router.get("/finance/servicecost", fetchServiceCost)
 router.post("/finance/servicecost", createServiceCost)
+router.patch("/finance/servicecost/:id", updateServiceCost)
+router.delete("/finance/servicecost/:id", deleteServiceCost)
 
 module.exports = router;

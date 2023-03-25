@@ -254,7 +254,7 @@ const ManagementResidents = () => {
       </Stack>
 
       {/* Residents Tab */}
-      <Box sx={{ width: "95%", pl:3, pt:2}}>
+      <Box sx={{ width: "98%", pl:3, pt:2}}>
         <TabContext value={tabValue}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList
@@ -283,7 +283,7 @@ const ManagementResidents = () => {
           </TabPanel>
           <TabPanel value="2" sx={{p:0}}>
             {/* 2. Table */}
-            <Paper sx={{ m: 3 }}>{resInfoData && <CustomDataGrid />}</Paper>
+            <Paper sx={{mt:3}}>{resInfoData && <CustomDataGrid />}</Paper>
           </TabPanel>
           {/* 3. Routine Record */}
           <TabPanel value="3" sx={{p:0}}>Routine Record</TabPanel>

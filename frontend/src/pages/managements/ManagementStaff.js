@@ -230,7 +230,7 @@ const ManagementStaff = () => {
       </Stack>
 
       {/* Table */}
-      <Paper sx={{ m: 3 }}>{staffData && <CustomDataGrid />}</Paper>
+      <Paper sx={{mx:3}}>{staffData && <CustomDataGrid />}</Paper>
 
       {/* pop up */}
       <Popup
