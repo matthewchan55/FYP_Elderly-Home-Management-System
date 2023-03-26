@@ -1,0 +1,960 @@
+[
+    {"routineName": "Shower", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": false},
+        {"residentID": 2, "P": true},
+        {"residentID": 3, "N": true},
+        {"residentID": 4, "A": true},
+        {"residentID": 5, "P": true},
+        {"residentID": 6, "N": false},
+        {"residentID": 7, "A": true},
+        {"residentID": 8, "A": false},
+        {"residentID": 9, "A": true},
+        {"residentID": 10,"P": true},
+        {"residentID": 11,"P": true},
+        {"residentID": 12,"P": true},
+        {"residentID": 13,"P": true},
+        {"residentID": 14,"P": true},
+        {"residentID": 15,"P": false},
+        {"residentID": 16,"A": true},
+        {"residentID": 17,"P": true},
+        {"residentID": 18,"P": false},
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"N": true},
+        {"residentID": 21,"A": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 23,"P": true},
+        {"residentID": 24,"P": true},
+        {"residentID": 25,"A": true},
+        {"residentID": 26,"P": true},
+        {"residentID": 27,"P": false},
+        {"residentID": 28,"P": true},
+        {"residentID": 29,"N": true},
+        {"residentID": 30,"P": true},
+        {"residentID": 35,"P": true},
+        {"residentID": 50,"N": true},
+        {"residentID": 80,"N": false},
+        {"residentID": 89,"P": true},
+        {"residentID": 99,"P": true},
+    ], "routineSpecialNotes": "Elderly 13 is dying", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Shampoo", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": false},   
+        {"residentID": 2, "P": true},
+        {"residentID": 3, "N": true},
+        {"residentID": 4, "A": true},
+        {"residentID": 5, "P": true},
+        {"residentID": 6, "N": false},
+        {"residentID": 7, "A": true},
+        {"residentID": 8, "A": false},
+        {"residentID": 9, "A": true},
+        {"residentID": 10,"P": true},
+        {"residentID": 11,"P": true},
+        {"residentID": 12,"P": true},
+        {"residentID": 13,"P": true},
+        {"residentID": 14,"P": true},
+        {"residentID": 15,"P": false},
+        {"residentID": 16,"A": true},
+        {"residentID": 17,"P": true},
+        {"residentID": 18,"P": false},
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"N": true},
+        {"residentID": 21,"A": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 23,"P": true},
+        {"residentID": 24,"P": true},
+        {"residentID": 25,"A": true},
+        {"residentID": 26,"P": true},
+        {"residentID": 27,"P": false},
+        {"residentID": 28,"P": true},
+        {"residentID": 29,"N": true},
+        {"residentID": 30,"P": true},
+        {"residentID": 35,"P": true},
+        {"residentID": 50,"N": true},
+        {"residentID": 80,"N": false},
+        {"residentID": 89,"P": true},
+        {"residentID": 99,"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Shaving", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": false} ,
+        {"residentID": 2, "P": true},
+        {"residentID": 3, "N": true},
+        {"residentID": 4, "A": true},
+        {"residentID": 5, "P": true},
+        {"residentID": 6, "N": false},
+        {"residentID": 7, "A": true},
+        {"residentID": 8, "A": false},
+        {"residentID": 9, "A": true},
+        {"residentID": 10,"P": true},
+        {"residentID": 11,"P": true},
+        {"residentID": 12,"P": true}
+
+    ], "routineSpecialNotes": "", "routineTotal": 12, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Brushing teeth", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "N": true, "A": true} ,
+        {"residentID": 2,  "N": true, "A": true},
+        {"residentID": 3,  "N": true, "A": true},
+        {"residentID": 4,  "N": true, "A": true},
+        {"residentID": 5,  "N": true, "A": true},
+        {"residentID": 6,  "N": true, "A": true},
+        {"residentID": 7,  "N": true, "A": true},
+        {"residentID": 8,  "N": true, "A": true},
+        {"residentID": 9,  "N": true, "A": true},
+        {"residentID": 10, "N": true, "A": true},
+        {"residentID": 11, "N": true, "A": true},
+        {"residentID": 12, "N": false,"A": false}
+        {"residentID": 13, "N": true, "A": true},
+        {"residentID": 14, "N": true, "A": true},
+        {"residentID": 15, "N": true, "A": true},
+        {"residentID": 16, "N": true, "A": true},
+        {"residentID": 17, "N": true, "A": true},
+        {"residentID": 18, "N": true, "A": true},
+        {"residentID": 19, "N": true, "A": true},
+        {"residentID": 20, "N": true, "A": true},
+        {"residentID": 21, "N": true, "A": true},
+        {"residentID": 22, "N": true, "A": true},
+        {"residentID": 23, "N": false,"A": false},
+        {"residentID": 24, "N": true, "A": true},
+        {"residentID": 25, "N": true, "A": true},
+        {"residentID": 26, "N": true, "A": true},
+        {"residentID": 27, "N": true, "A": true},
+        {"residentID": 28, "N": true, "A": true},
+        {"residentID": 29, "N": true, "A": true},
+        {"residentID": 30, "N": true, "A": true},
+        {"residentID": 35, "N": true, "A": true},
+        {"residentID": 50, "N": true, "A": true},
+        {"residentID": 80, "N": true, "A": true},
+        {"residentID": 89, "N": true, "A": true},
+        {"residentID": 99, "N": true, "A": true} 
+    ], "routineSpecialNotes": "Elderly 12 dont brush, elderly 23 dont brush", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+    {"routineName": "Combing hair", "routinePerformer": "caregivers", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"residentID": 1, "A": false},
+        {"residentID": 2, "A": true},
+        {"residentID": 3, "A": true},
+        {"residentID": 4, "A": true},
+        {"residentID": 5, "A": true},
+        {"residentID": 6, "A": true},
+        {"residentID": 7, "A": true},
+        {"residentID": 8, "A": true},
+        {"residentID": 9, "A": true},
+        {"residentID": 10,"A": true},
+        {"residentID": 11,"A": true},
+        {"residentID": 12,"A": true},
+        {"residentID": 13,"A": true},
+        {"residentID": 14,"A": true},
+        {"residentID": 15,"A": true},
+        {"residentID": 16,"A": true},
+        {"residentID": 17,"A": true},
+        {"residentID": 18,"A": true},
+        {"residentID": 19,"A": true},
+        {"residentID": 20,"A": true},
+        {"residentID": 21,"A": true},
+        {"residentID": 22,"A": false},
+        {"residentID": 23,"A": true},
+        {"residentID": 24,"A": true},
+        {"residentID": 25,"A": true},
+        {"residentID": 26,"A": true},
+        {"residentID": 27,"A": false},
+        {"residentID": 28,"A": true},
+        {"residentID": 29,"A": true},
+        {"residentID": 30,"A": true},
+        {"residentID": 35,"A": true},
+        {"residentID": 50,"A": true},
+        {"residentID": 80,"A": false},
+        {"residentID": 89,"A": true},
+        {"residentID": 99,"A": true} 
+    ], "routineSpecialNotes": "some hair are so long need to cut", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+
+    {"routineName": "Dressing", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "N": true, "A": false},
+        {"residentID": 2,  "N": true, "A": true},
+        {"residentID": 3,  "N": true, "A": true},
+        {"residentID": 4,  "N": true, "A": true},
+        {"residentID": 5,  "N": true, "A": true},
+        {"residentID": 6,  "N": true, "A": false},
+        {"residentID": 7,  "N": true, "A": true},
+        {"residentID": 8,  "N": true, "A": false},
+        {"residentID": 9,  "N": true, "A": true},
+        {"residentID": 10, "N": true, "A": true},
+        {"residentID": 11, "N": true, "A": true},
+        {"residentID": 12, "N": true, "A": true},
+        {"residentID": 13, "N": true, "A": true},
+        {"residentID": 14, "N": true, "A": true},
+        {"residentID": 15, "N": true, "A": false},
+        {"residentID": 16, "N": true, "A": true},
+        {"residentID": 17, "N": true, "A": true},
+        {"residentID": 18, "N": true, "A": false},
+        {"residentID": 19, "N": true, "A": true},
+        {"residentID": 20, "N": true, "A": true},
+        {"residentID": 21, "N": true, "A": true},
+        {"residentID": 22, "N": true, "A": false},
+        {"residentID": 23, "N": true, "A": true},
+        {"residentID": 24, "N": true, "A": true},
+        {"residentID": 25, "N": true, "A": true},
+        {"residentID": 26, "N": true, "A": true},
+        {"residentID": 27, "N": true, "A": false},
+        {"residentID": 28, "N": true, "A": true},
+        {"residentID": 29, "N": true, "A": true},
+        {"residentID": 30, "N": true, "A": true},
+        {"residentID": 35, "N": true, "A": true},
+        {"residentID": 50, "N": true, "A": true},
+        {"residentID": 80, "N": true, "A": false},
+        {"residentID": 89, "N": true, "A": true},
+        {"residentID": 99, "N": true, "A": true} 
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Toileting", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "P": true, "N": true,  "A": false},
+        {"residentID": 2,  "P": true, "N": true,  "A": true},
+        {"residentID": 3,  "P": true, "N": false, "A": true},
+        {"residentID": 4,  "P": true, "N": true,  "A": true},
+        {"residentID": 5,  "P": true, "N": true,  "A": true},
+        {"residentID": 6,  "P": true, "N": true,  "A": false},
+        {"residentID": 7,  "P": false, "N": false,"A": true},
+        {"residentID": 8,  "P": true, "N": true,  "A": false},
+        {"residentID": 9,  "P": true, "N": true,  "A": true},
+        {"residentID": 10, "P": false, "N": true, "A": true},
+        {"residentID": 11, "P": true, "N": true,  "A": true},
+        {"residentID": 12, "P": true, "N": true,  "A": true},
+        {"residentID": 13, "P": true, "N": false, "A": true},
+        {"residentID": 14, "P": false,"N": true,  "A": true},
+        {"residentID": 15, "P": true, "N": true,  "A": false},
+        {"residentID": 16, "P": true, "N": true,  "A": true},
+        {"residentID": 17, "P": true, "N": true,  "A": true},
+        {"residentID": 18, "P": true, "N": true,  "A": false},
+        {"residentID": 19, "P": true, "N": false, "A": true},
+        {"residentID": 20, "P": false, "N": true, "A": true},
+        {"residentID": 21, "P": true, "N": true,  "A": true},
+        {"residentID": 22, "P": true, "N": true,  "A": false},
+        {"residentID": 23, "P": false,"N": true,  "A": true},
+        {"residentID": 24, "P": true, "N": false, "A": true},
+        {"residentID": 25, "P": true, "N": true,  "A": true},
+        {"residentID": 26, "P": true, "N": true,  "A": true},
+        {"residentID": 27, "P": true, "N": true,  "A": false},
+        {"residentID": 28, "P": true, "N": true,  "A": true},
+        {"residentID": 29, "P": false, N: true,   "A": true},
+        {"residentID": 30, "P": true, "N": true,  "A": true},
+        {"residentID": 35, "P": true, "N": true,  "A": true},
+        {"residentID": 50, "P": true, "N": true,  "A": true},
+        {"residentID": 80, "P": true, "N": true,  "A": false},
+        {"residentID": 89, "P": true, "N": true,  "A": true},
+        {"residentID": 99, "P": true, "N": true,  "A": true} 
+    ], "routineSpecialNotes": "Elderly 13 is dying", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Changing incontinence products", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "P": true, "N": true,  "A": false},
+        {"residentID": 2,  "P": true, "N": true,  "A": true},
+        {"residentID": 3,  "P": true, "N": false, "A": true},
+        {"residentID": 4,  "P": true, "N": true,  "A": true},
+        {"residentID": 5,  "P": true, "N": true,  "A": true},
+        {"residentID": 6,  "P": true, "N": true,  "A": false},
+        {"residentID": 7,  "P": false,"N": false, "A": true},
+        {"residentID": 8,  "P": true, "N": true,  "A": false},
+        {"residentID": 9,  "P": true, "N": true,  "A": true},
+        {"residentID": 10, "P": false,"N": true,  "A": true},
+        {"residentID": 11, "P": true, "N": true,  "A": true},
+        {"residentID": 12, "P": true, "N": true,  "A": true},
+        {"residentID": 13, "P": true, "N": false, "A": true},
+        {"residentID": 14, "P": false,"N": true,  "A": true},
+        {"residentID": 15, "P": true, "N": true,  "A": false},
+        {"residentID": 16, "P": true, "N": true,  "A": true},
+        {"residentID": 17, "P": true, "N": true,  "A": true},
+        {"residentID": 18, "P": true, "N": true,  "A": false},
+        {"residentID": 19, "P": true, "N": false, "A": true},
+        {"residentID": 20, "P": false,"N": true,  "A": true},
+        {"residentID": 21, "P": true, "N": true,  "A": true},
+        {"residentID": 22, "P": true, "N": true,  "A": false},
+        {"residentID": 23, "P": false,"N": true,  "A": true},
+        {"residentID": 24, "P": true, "N": false, "A": true},
+        {"residentID": 25, "P": true, "N": true,  "A": true},
+        {"residentID": 26, "P": true, "N": true,  "A": true},
+        {"residentID": 27, "P": true, "N": true,  "A": false},
+        {"residentID": 28, "P": true, "N": true,  "A": true},
+        {"residentID": 29, "P": false,"N": true,  "A": true},
+        {"residentID": 30, "P": true, "N": true,  "A": true},
+        {"residentID": 35, "P": true, "N": true,  "A": true},
+        {"residentID": 50, "P": true, "N": true,  "A": true},
+        {"residentID": 80, "P": true, "N": true,  "A": false},
+        {"residentID": 89, "P": true, "N": true,  "A": true},
+        {"residentID": 99, "P": true, "N": true,  "A": true} 
+    ], "routineSpecialNotes": "Elderly 13 poo poo is strange", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Nails clipping", "routinePerformer": "caregivers", "routineCategory": "cleaning", "routineSingle": true, "routineComplete": [
+        {"residentID": 1,  "N": false} ,
+        {"residentID": 2,  "N": true},
+        {"residentID": 3,  "N": true},
+        {"residentID": 4,  "N": true},
+        {"residentID": 5,  "N": true},
+        {"residentID": 6,  "N": false},
+        {"residentID": 7,  "N": true},
+        {"residentID": 8,  "N": false},
+        {"residentID": 9,  "N": true},
+        {"residentID": 10, "N": true},
+        {"residentID": 11, "N": true},
+        {"residentID": 12, "N": true},
+        {"residentID": 13, "N": true},
+        {"residentID": 14, "N": true},
+        {"residentID": 15, "N": false},
+        {"residentID": 16, "N": true},
+        {"residentID": 17, "N": true},
+        {"residentID": 18, "N": false},
+        {"residentID": 19, "N": true},
+        {"residentID": 20, "N": true},
+        {"residentID": 21, "N": true},
+        {"residentID": 22, "N": false},
+        {"residentID": 23, "N": true},
+        {"residentID": 24, "N": true},
+        {"residentID": 25, "N": true},
+        {"residentID": 26, "N": true},
+        {"residentID": 27, "N": false},
+        {"residentID": 28, "N": true},
+        {"residentID": 29, "N": true},
+        {"residentID": 30, "N": true},
+        {"residentID": 35, "N": true},
+        {"residentID": 50, "N": true},
+        {"residentID": 80, "N": false},
+        {"residentID": 89, "N": true},
+        {"residentID": 99, "N": true} 
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Feeding", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": false, "routineComplete": [
+        {"residentID": 2,  "P": false, "N": false,  "A": true},
+        {"residentID": 1,  "P": false, "N": false,  "A": false},
+        {"residentID": 3,  "P": false, "N": false,  "A": true},
+        {"residentID": 4,  "P": false, "N": false,  "A": true},
+        {"residentID": 5,  "P": false, "N": false,  "A": true},
+        {"residentID": 6,  "P": true,  "N": false,  "A": true},
+        {"residentID": 7,  "P": false, "N": false,  "A": true},
+        {"residentID": 8,  "P": true,  "N": false,  "A": true},
+        {"residentID": 9,  "P": true,  "N": false,  "A": true},
+        {"residentID": 10, "P": false, "N": false,  "A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 10, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Turnover", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "P": false, "N": false,  "A": true},
+        {"residentID": 21, "P": false, "N": false,  "A": true},
+        {"residentID": 3,  "P": false, "N": false,  "A": true},
+        {"residentID": 4,  "P": false, "N": false,  "A": true},
+        {"residentID": 25, "P": false, "N": false,  "A": true},
+        {"residentID": 6,  "P": true,  "N": false,  "A": true},
+        {"residentID": 7,  "P": false, "N": false,  "A": true},
+        {"residentID": 8,  "P": true,  "N": false,  "A": true},
+        {"residentID": 9,  "P": true,  "N": false,  "A": true},
+        {"residentID": 10, "P": false, "N": false,  "A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 10, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Blood pressure measurement", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "N": true, "A": false},
+        {"residentID": 2,  "N": true, "A": true},
+        {"residentID": 3,  "N": true, "A": true},
+        {"residentID": 4,  "N": true, "A": true},
+        {"residentID": 5,  "N": true, "A": true},
+        {"residentID": 6,  "N": false,"A": false},
+        {"residentID": 7,  "N": true, "A": true},
+        {"residentID": 8,  "N": true, "A": false},
+        {"residentID": 9,  "N": true, "A": true},
+        {"residentID": 10, "N": true, "A": true},
+        {"residentID": 11, "N": true, "A": true},
+        {"residentID": 12, "N": false,"A": true},
+        {"residentID": 13, "N": true, "A": true},
+        {"residentID": 14, "N": true, "A": true},
+        {"residentID": 15, "N": true, "A": false},
+        {"residentID": 16, "N": false,"A": true},
+        {"residentID": 17, "N": true, "A": true},
+        {"residentID": 18, "N": true, "A": false},
+        {"residentID": 19, "N": true, "A": true},
+        {"residentID": 20, "N": false,"A": true},
+        {"residentID": 21, "N": true, "A": true},
+        {"residentID": 22, "N": true, "A": false},
+        {"residentID": 23, "N": true, "A": true},
+        {"residentID": 24, "N": true, "A": true},
+        {"residentID": 25, "N": false,"A": true},
+        {"residentID": 26, "N": true, "A": true},
+        {"residentID": 27, "N": true, "A": false},
+        {"residentID": 28, "N": true, "A": true},
+        {"residentID": 29, "N": true, "A": true},
+        {"residentID": 30, "N": true, "A": true},
+        {"residentID": 35, "N": true, "A": true},
+        {"residentID": 50, "N": false,"A": true},
+        {"residentID": 80, "N": true, "A": false},
+        {"residentID": 89, "N": true, "A": true},
+        {"residentID": 99, "N": true, "A": true} 
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Blood glucose measurement", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "N": true, "A": false},
+        {"residentID": 2,  "N": true, "A": true},
+        {"residentID": 3,  "N": true, "A": true},
+        {"residentID": 4,  "N": true, "A": true},
+        {"residentID": 5,  "N": true, "A": true},
+        {"residentID": 6,  "N": false,"A": false},
+        {"residentID": 7,  "N": true, "A": true},
+        {"residentID": 8,  "N": true, "A": false},
+        {"residentID": 9,  "N": true, "A": true},
+        {"residentID": 10, "N": true, "A": true},
+        {"residentID": 11, "N": true, "A": true},
+        {"residentID": 12, "N": false,"A": true},
+        {"residentID": 13, "N": true, "A": true},
+        {"residentID": 14, "N": true, "A": true},
+        {"residentID": 15, "N": true, "A": false},
+        {"residentID": 16, "N": false,"A": true},
+        {"residentID": 17, "N": true, "A": true},
+        {"residentID": 18, "N": true, "A": false},
+        {"residentID": 19, "N": true, "A": true},
+        {"residentID": 20, "N": false,"A": true},
+        {"residentID": 21, "N": true, "A": true},
+        {"residentID": 22, "N": true, "A": false},
+        {"residentID": 23, "N": true, "A": true},
+        {"residentID": 24, "N": true, "A": true},
+        {"residentID": 25, "N": false,"A": true},
+        {"residentID": 26, "N": true, "A": true},
+        {"residentID": 27, "N": true, "A": false},
+        {"residentID": 28, "N": true, "A": true},
+        {"residentID": 29, "N": true, "A": true},
+        {"residentID": 30, "N": true, "A": true},
+        {"residentID": 35, "N": true, "A": true},
+        {"residentID": 50, "N": false,"A": true},
+        {"residentID": 80, "N": true, "A": false},
+        {"residentID": 89, "N": true, "A": true},
+        {"residentID": 99, "N": true, "A": true} 
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Heart rate", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": false, "routineComplete": [
+        {"residentID": 1,  "N": true, "A": false},
+        {"residentID": 2,  "N": true, "A": true},
+        {"residentID": 3,  "N": true, "A": true},
+        {"residentID": 4,  "N": false,"A": true},
+        {"residentID": 5,  "N": false,"A": true},
+        {"residentID": 6,  "N": false,"A": false},
+        {"residentID": 7,  "N": true, "A": true},
+        {"residentID": 8,  "N": true, "A": false},
+        {"residentID": 9,  "N": true, "A": true},
+        {"residentID": 10, "N": false,"A": true},
+        {"residentID": 11, "N": true, "A": true},
+        {"residentID": 12, "N": false,"A": true},
+        {"residentID": 13, "N": true, "A": true},
+        {"residentID": 14, "N": true, "A": true},
+        {"residentID": 15, "N": false,"A": false},
+        {"residentID": 16, "N": false,"A": true},
+        {"residentID": 17, "N": true, "A": true},
+        {"residentID": 18, "N": true, "A": false},
+        {"residentID": 19, "N": true, "A": true},
+        {"residentID": 20, "N": false,"A": true},
+        {"residentID": 21, "N": true, "A": true},
+        {"residentID": 22, "N": true, "A": false},
+        {"residentID": 23, "N": true, "A": true},
+        {"residentID": 24, "N": true, "A": true},
+        {"residentID": 25, "N": false,"A": true},
+        {"residentID": 26, "N": true, "A": true},
+        {"residentID": 27, "N": true, "A": false},
+        {"residentID": 28, "N": true, "A": true},
+        {"residentID": 29, "N": true, "A": true},
+        {"residentID": 30, "N": true, "A": true},
+        {"residentID": 35, "N": true, "A": true},
+        {"residentID": 50, "N": false,"A": true},
+        {"residentID": 80, "N": true, "A": false},
+        {"residentID": 89, "N": true, "A": true},
+        {"residentID": 99, "N": true, "A": true}
+    ], "routineSpecialNotes": "Heart rate of elderly 12 is strange", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Respiratory rate", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": true},
+        {"residentID": 2, "P": true},
+        {"residentID": 3, "N": true},
+        {"residentID": 4, "A": false},
+        {"residentID": 5, "P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 5, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Body temperature", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": false}, 
+        {"residentID": 2, "P": true},
+        {"residentID": 3, "P": true},
+        {"residentID": 4, "P": true},
+        {"residentID": 5, "P": true},
+        {"residentID": 6, "P": false},
+        {"residentID": 7, "P": true},
+        {"residentID": 8, "P": false},
+        {"residentID": 9, "P": true},
+        {"residentID": 10,"P": true},
+        {"residentID": 11,"P": true},
+        {"residentID": 12,"P": true},
+        {"residentID": 13,"P": true},
+        {"residentID": 14,"P": true},
+        {"residentID": 15,"P": false},
+        {"residentID": 16,"P": true},
+        {"residentID": 17,"P": true},
+        {"residentID": 18,"P": false},
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"P": true},
+        {"residentID": 21,"P": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 23,"P": true},
+        {"residentID": 24,"P": true},
+        {"residentID": 25,"P": true},
+        {"residentID": 26,"P": true},
+        {"residentID": 27,"P": false},
+        {"residentID": 28,"P": true},
+        {"residentID": 29,"P": true},
+        {"residentID": 30,"P": true},
+        {"residentID": 35,"P": true},
+        {"residentID": 50,"P": true},
+        {"residentID": 80,"P": false},
+        {"residentID": 89,"P": true},
+        {"residentID": 99,"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Oxygen saturation", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": false},
+        {"residentID": 2, "P": true},
+        {"residentID": 3, "N": true},
+        {"residentID": 4, "A": true},
+        {"residentID": 5, "P": true}
+
+    ], "routineSpecialNotes": "", "routineTotal": 5, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+    {"routineName": "Weight", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": false},
+        {"residentID": 29,"P": true},
+        {"residentID": 30,"P": true},
+        {"residentID": 89,"P": true},
+        {"residentID": 99,"P": true}
+    ], "routineSpecialNotes": "99 Overweight", "routineTotal": 5, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Urine output", "routinePerformer": "caregivers", "routineCategory": "health care", "routineSingle": true, "routineComplete": [
+        {"residentID": 1, "P": false}
+        {"residentID": 2, "P": true}
+        {"residentID": 14,"P": true}
+        {"residentID": 15,"P": false}
+        {"residentID": 16,"A": true}
+        {"residentID": 19,"P": true}
+        {"residentID": 20,"N": true}
+        {"residentID": 21,"A": true}
+        {"residentID": 22,"P": false}
+        {"residentID": 23,"P": true}
+        {"residentID": 30,"P": true}
+        {"residentID": 35,"P": true}
+        {"residentID": 50,"N": true}
+        {"residentID": 80,"N": false}
+        {"residentID": 89,"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 15, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true}]
+
+
+
+
+
+
+
+
+
+[
+    {"routineName": "Urinary catheter care", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": false, "routineComplete": [
+        {"residentID": 1, "P": false},
+        {"residentID": 2, "P": false},
+        {"residentID": 14,"P": true},
+        {"residentID": 15,"P": false},
+        {"residentID": 16,"A": true},
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"N": false},
+        {"residentID": 21,"A": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 23,"P": true},
+        {"residentID": 30,"P": true},
+        {"residentID": 35,"P": true},
+        {"residentID": 50,"N": true},
+        {"residentID": 80,"N": false},
+        {"residentID": 89,"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 15, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+    {"routineName": "Repositioning", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": true, "routineComplete": [
+        {"residentID": 1, "P": false, "A": true},
+        {"residentID": 2, "P": false, "A": true},
+        {"residentID": 14,"P": true,  "A": true},
+        {"residentID": 15,"P": false, "A": true},
+        {"residentID": 16,"P": true,  "A": true},
+        {"residentID": 19,"P": true,  "A": true},
+        {"residentID": 80,"P": false, "A": true},
+        {"residentID": 89,"P": true, "A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 8, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Handle pressure sore", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": false, "routineComplete": [
+        {"residentID": 1, "A": false},
+        {"residentID": 2, "P": false},
+        {"residentID": 14,"P": true},
+    ], "routineSpecialNotes": "", "routineTotal": 3, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Wound care", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": true, "routineComplete": [
+        {"residentID": 1, "P": true, "N": true},
+        {"residentID": 2, "P": true, "N": false},
+        {"residentID": 14,"P": true, "N": true},
+    ], "routineSpecialNotes": "", "routineTotal": 3, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Skin care", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": true, "routineComplete": [
+        {"residentID": 1, "P": false},
+        {"residentID": 2, "P": false},
+        {"residentID": 14,"P": true},
+        {"residentID": 15,"P": false},
+        {"residentID": 16,"P": true},
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"P": false},
+        {"residentID": 21,"P": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 23,"P": true},
+    ], "routineSpecialNotes": "", "routineTotal": 10, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+    {"routineName": "Oral care", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": false, "routineComplete": [
+        {"residentID": 1, "P": true},
+        {"residentID": 2, "P": false},
+        {"residentID": 14,"P": true},
+        {"residentID": 80,"A": false},
+        {"residentID": 89,"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 5, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+
+    {"routineName": "Medical care", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": true, "routineComplete": [
+        {"residentID": 1,  "N": true, "A": false},
+        {"residentID": 2,  "N": true, "A": true},
+        {"residentID": 3,  "N": true, "A": true},
+        {"residentID": 4,  "N": true, "A": true},
+        {"residentID": 5,  "N": true, "A": true},
+        {"residentID": 6,  "N": false,"A": false},
+        {"residentID": 7,  "N": true, "A": true},
+        {"residentID": 8,  "N": true, "A": false},
+        {"residentID": 9,  "N": true, "A": true},
+        {"residentID": 10, "N": true, "A": true},
+        {"residentID": 11, "N": true, "A": true},
+        {"residentID": 12, "N": false,"A": true},
+        {"residentID": 13, "N": true, "A": true},
+        {"residentID": 14, "N": true, "A": true},
+        {"residentID": 15, "N": true, "A": false},
+        {"residentID": 16, "N": false,"A": true},
+        {"residentID": 17, "N": true, "A": true},
+        {"residentID": 18, "N": true, "A": false},
+        {"residentID": 19, "N": true, "A": true},
+        {"residentID": 20, "N": false,"A": true},
+        {"residentID": 21, "N": true, "A": true},
+        {"residentID": 22, "N": true, "A": false},
+        {"residentID": 23, "N": true, "A": true},
+        {"residentID": 24, "N": true, "A": true},
+        {"residentID": 25, "N": false,"A": true},
+        {"residentID": 26, "N": true, "A": true},
+        {"residentID": 27, "N": true, "A": false},
+        {"residentID": 28, "N": true, "A": true},
+        {"residentID": 29, "N": true, "A": true},
+        {"residentID": 30, "N": true, "A": true},
+        {"residentID": 35, "N": true, "A": true},
+        {"residentID": 50, "N": false,"A": true},
+        {"residentID": 80, "N": true, "A": false},
+        {"residentID": 89, "N": false, "A": false},
+        {"residentID": 99, "N": true, "A": true} 
+    ], "routineSpecialNotes": "resident 1 almost choked because of medicine, resident 89 dont want eat drug", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+
+    {"routineName": "Mental health care", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": false, "routineComplete": [
+        {"residentID": 1, "P": false},
+        {"residentID": 2, "P": false},
+        {"residentID": 14,"P": true},
+        {"residentID": 15,"P": false},
+        {"residentID": 16,"A": true},
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"N": false},
+
+    ], "routineSpecialNotes": "", "routineTotal": 7, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Rehabilitation therapy", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": true, "routineComplete": [
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"P": false},
+        {"residentID": 21,"P": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 23,"P": true},
+        {"residentID": 30,"P": true},
+        {"residentID": 35,"P": true},
+        {"residentID": 50,"P": true},
+        {"residentID": 80,"P": false},
+        {"residentID": 89,"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 10, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Transfer to and from bed", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": false, "routineComplete": [
+        {"residentID": 20,"N": false},
+        {"residentID": 21,"A": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 50,"N": true},
+
+    ], "routineSpecialNotes": "", "routineTotal": 4, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+    {"routineName": "Assist with walking", "routinePerformer": "caregivers", "routineCategory": "health care", "fixedTime": false, "routineComplete": [
+        {"residentID": 1, "P": false},
+        {"residentID": 2, "P": false},
+        {"residentID": 14,"P": true},
+        {"residentID": 15,"P": false},
+        {"residentID": 16,"A": true},
+        {"residentID": 19,"P": true},
+        {"residentID": 20,"N": false},
+        {"residentID": 21,"A": true},
+        {"residentID": 22,"P": false},
+        {"residentID": 23,"P": true},
+        {"residentID": 30,"P": true},
+        {"residentID": 35,"P": true},
+        {"residentID": 50,"N": true},
+        {"residentID": 80,"N": false},
+        {"residentID": 89,"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 15, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+    {"routineName": "Medical reminders", "routinePerformer": "pharmacist", "routineCategory": "medication", "fixedTime": false, "routineComplete": [
+        {"residentID": 1,  "P": false, "N": false, "A": false},
+        {"residentID": 2,  "P": false, "N": false, "A": false},
+        {"residentID": 3,  "P": true, "N": true, "A": true},
+        {"residentID": 4,  "P": true, "N": true, "A": true},
+        {"residentID": 5,  "P": true, "N": true, "A": true},
+        {"residentID": 6,  "P": true, "N": false,"A": false},
+        {"residentID": 7,  "P": true, "N": true, "A": true},
+        {"residentID": 8,  "P": false, "N": true, "A": false},
+        {"residentID": 9,  "P": true, "N": true, "A": true},
+        {"residentID": 10, "P": true, "N": true, "A": true},
+        {"residentID": 11, "P": true, "N": true, "A": true},
+        {"residentID": 12, "P": true, "N": false,"A": true},
+        {"residentID": 13, "P": false, "N": true, "A": true},
+        {"residentID": 14, "P": true, "N": true, "A": true},
+        {"residentID": 15, "P": true, "N": true, "A": false},
+        {"residentID": 16, "P": false, "N": false,"A": true},
+        {"residentID": 17, "P": true, "N": true, "A": true},
+        {"residentID": 18, "P": true, "N": true, "A": false},
+        {"residentID": 19, "P": true, "N": true, "A": true},
+        {"residentID": 20, "P": true, "N": false,"A": true},
+        {"residentID": 21, "P": true, "N": true, "A": true},
+        {"residentID": 22, "P": false, "N": true, "A": false},
+        {"residentID": 23, "P": true, "N": true, "A": true},
+        {"residentID": 24, "P": true, "N": true, "A": true},
+        {"residentID": 25, "P": true, "N": false,"A": true},
+        {"residentID": 26, "P": true, "N": true, "A": true},
+        {"residentID": 27, "P": true, "N": true, "A": false},
+        {"residentID": 28, "P": false, "N": true, "A": true},
+        {"residentID": 29, "P": true, "N": true, "A": true},
+        {"residentID": 30, "P": true, "N": true, "A": true},
+        {"residentID": 35, "P": true, "N": true, "A": true},
+        {"residentID": 50, "P": true, "N": false,"A": true},
+        {"residentID": 80, "P": true, "N": true, "A": false},
+        {"residentID": 89, "P": true, "N": false, "A": false},
+        {"residentID": 99, "P": true, "N": true, "A": true} 
+    ], "routineSpecialNotes": "elderly 1, 2 refuse to take medicine", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+    {"routineName": "Distribute medicine", "routinePerformer": "pharmacist", "routineCategory": "medication", "fixedTime": false, "routineComplete": [
+        {"residentID": 1,  "P": true, "N": false, "A": true},
+        {"residentID": 2,  "P": true, "N": false, "A": true},
+        {"residentID": 3,  "P": true, "N": true, "A": true},
+        {"residentID": 4,  "P": true, "N": true, "A": true},
+        {"residentID": 5,  "P": true, "N": true, "A": true},
+        {"residentID": 6,  "P": true, "N": false,"A": true},
+        {"residentID": 7,  "P": true, "N": true, "A": true},
+        {"residentID": 8,  "P": true, "N": true, "A": true},
+        {"residentID": 9,  "P": true, "N": true, "A": true},
+        {"residentID": 10, "P": true, "N": true, "A": true},
+        {"residentID": 11, "P": true, "N": true, "A": true},
+        {"residentID": 12, "P": true, "N": false,"A": true},
+        {"residentID": 13, "P": true, "N": true, "A": true},
+        {"residentID": 14, "P": true, "N": true, "A": true},
+        {"residentID": 15, "P": true, "N": true, "A": true},
+        {"residentID": 16, "P": true, "N": false,"A": true},
+        {"residentID": 17, "P": true, "N": true, "A": true},
+        {"residentID": 18, "P": true, "N": true, "A": true},
+        {"residentID": 19, "P": true, "N": true, "A": true},
+        {"residentID": 20, "P": true, "N": false,"A": true},
+        {"residentID": 21, "P": true, "N": true, "A": true},
+        {"residentID": 22, "P": true, "N": true, "A": false},
+        {"residentID": 23, "P": true, "N": true, "A": true},
+        {"residentID": 24, "P": true, "N": true, "A": true},
+        {"residentID": 25, "P": true, "N": false,"A": true},
+        {"residentID": 26, "P": true, "N": true, "A": true},
+        {"residentID": 27, "P": true, "N": true, "A": false},
+        {"residentID": 28, "P": true, "N": true, "A": true},
+        {"residentID": 29, "P": true, "N": true, "A": true},
+        {"residentID": 30, "P": true, "N": true, "A": true},
+        {"residentID": 35, "P": true, "N": true, "A": true},
+        {"residentID": 50, "P": true, "N": false,"A": true},
+        {"residentID": 80, "P": true, "N": true, "A": false},
+        {"residentID": 89, "P": true, "N": false, "A": false},
+        {"residentID": 99, "P": true, "N": true, "A": true} 
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+
+    {"routineName": "Plan special medication needs", "routinePerformer": "pharmacist", "routineCategory": "medication", "fixedTime": true, "routineComplete": [
+        {"residentID": 22,"A": false},
+        {"residentID": 23,"A": true},
+        {"residentID": 30,"A": true},
+        {"residentID": 35,"A": true},
+        {"residentID": 50,"A": true},
+        {"residentID": 80,"A": false},
+        {"residentID": 89,"A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 7, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+    {"routineName": "Patrolling ", "routinePerformer": "caregivers", "routineCategory": "others", "fixedTime": false, "routineComplete": [
+        {"A": true, "N": true, "P": false},
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+    {"routineName": "Laundry", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+
+    {"routineName": "Changing beddings and pillows", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+    ], "routineSpecialNotes": "", "routineTotal": 0, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+
+    {"routineName": "Changing towels", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true}
+    ], "routineSpecialNotes": "Toilet towels are too dirty", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+    {"routineName": "Floor cleaning (Floor 1, Zone A)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Floor cleaning (Floor 2, Zone A)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Floor cleaning (Floor 3, Zone A)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": false}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Floor cleaning (Floor 1, Zone B)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": false}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Floor cleaning (Floor 2, Zone B)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Floor cleaning (Floor 3, Zone B)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+
+    {"routineName": "Sweeping (Floor 1)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Sweeping (Floor 2)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Sweeping (Floor 3)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"N": false}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+    {"routineName": "Mopping (Floor 1)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Mopping (Floor 2)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+    {"routineName": "Mopping (Floor 3)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+    {"routineName": "Dusting (Floor 1)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Dusting (Floor 2)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"P": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+    {"routineName": "Dusting (Floor 3)", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+    {"routineName": "Bathroom cleaning", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true "N": true}
+    ], "routineSpecialNotes": ""bathroom very clean, "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+    {"routineName": "Disinfection", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+
+    {"routineName": "Emptying trash and recycling bins", "routinePerformer": "cleaners", "routineCategory": "cleaning", "fixedTime": true, "routineComplete": [
+        {"A": true, "N": true}
+    ], "routineSpecialNotes": "", "routineTotal": 1, "routineDate": "2023-03-20T11:39:14.747", "toElderly": false},
+
+
+
+    {"routineName": "Prepare meals", "routinePerformer": "kitchen staff", "routineCategory": "diet", "fixedTime": false, "routineComplete": [
+        {"residentID": 1,  "P": true, "N": false, "A": true},
+        {"residentID": 2,  "P": true, "N": false, "A": true},
+        {"residentID": 3,  "P": true, "N": true, "A": true},
+        {"residentID": 4,  "P": true, "N": true, "A": true},
+        {"residentID": 5,  "P": true, "N": true, "A": true},
+        {"residentID": 6,  "P": true, "N": false,"A": true},
+        {"residentID": 7,  "P": true, "N": true, "A": true},
+        {"residentID": 8,  "P": true, "N": true, "A": true},
+        {"residentID": 9,  "P": true, "N": true, "A": true},
+        {"residentID": 10, "P": true, "N": true, "A": true},
+        {"residentID": 11, "P": true, "N": true, "A": true},
+        {"residentID": 12, "P": true, "N": false,"A": true},
+        {"residentID": 13, "P": true, "N": true, "A": true},
+        {"residentID": 14, "P": true, "N": true, "A": true},
+        {"residentID": 15, "P": true, "N": true, "A": true},
+        {"residentID": 16, "P": true, "N": false,"A": true},
+        {"residentID": 17, "P": true, "N": true, "A": true},
+        {"residentID": 18, "P": true, "N": true, "A": true},
+        {"residentID": 19, "P": true, "N": true, "A": true},
+        {"residentID": 20, "P": true, "N": false,"A": true},
+        {"residentID": 21, "P": true, "N": true, "A": true},
+        {"residentID": 22, "P": true, "N": true, "A": true},
+        {"residentID": 23, "P": true, "N": true, "A": true},
+        {"residentID": 24, "P": true, "N": true, "A": true},
+        {"residentID": 25, "P": true, "N": false,"A": true},
+        {"residentID": 26, "P": true, "N": true, "A": true},
+        {"residentID": 27, "P": true, "N": true, "A": true},
+        {"residentID": 28, "P": true, "N": true, "A": true},
+        {"residentID": 29, "P": true, "N": true, "A": true},
+        {"residentID": 30, "P": true, "N": true, "A": true},
+        {"residentID": 35, "P": true, "N": true, "A": true},
+        {"residentID": 50, "P": true, "N": false,"A": true},
+        {"residentID": 80, "P": true, "N": true, "A": true},
+        {"residentID": 89, "P": true, "N": false, "A": true},
+        {"residentID": 99, "P": true, "N": true, "A": true} 
+    ], "routineSpecialNotes": "", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+    {"routineName": "Distribute meals", "routinePerformer": "kitchen staff", "routineCategory": "diet", "fixedTime": false, "routineComplete": [
+        {"residentID": 1,  "P": true, "N": true, "A": true},
+        {"residentID": 2,  "P": true, "N": true, "A": true},
+        {"residentID": 3,  "P": true, "N": true, "A": true},
+        {"residentID": 4,  "P": true, "N": true, "A": true},
+        {"residentID": 5,  "P": true, "N": true, "A": true},
+        {"residentID": 6,  "P": true, "N": true,"A": true},
+        {"residentID": 7,  "P": true, "N": true, "A": true},
+        {"residentID": 8,  "P": true, "N": true, "A": true},
+        {"residentID": 9,  "P": true, "N": true, "A": true},
+        {"residentID": 10, "P": true, "N": true, "A": true},
+        {"residentID": 11, "P": true, "N": true, "A": true},
+        {"residentID": 12, "P": true, "N": true,"A": true},
+        {"residentID": 13, "P": true, "N": true, "A": true},
+        {"residentID": 14, "P": true, "N": true, "A": true},
+        {"residentID": 15, "P": true, "N": true, "A": true},
+        {"residentID": 16, "P": true, "N": true,"A": true},
+        {"residentID": 17, "P": true, "N": true, "A": true},
+        {"residentID": 18, "P": true, "N": true, "A": true},
+        {"residentID": 19, "P": true, "N": true, "A": true},
+        {"residentID": 20, "P": true, "N": true,"A": true},
+        {"residentID": 21, "P": true, "N": true, "A": true},
+        {"residentID": 22, "P": true, "N": true, "A": true},
+        {"residentID": 23, "P": true, "N": true, "A": true},
+        {"residentID": 24, "P": true, "N": true, "A": true},
+        {"residentID": 25, "P": true, "N": true,"A": true},
+        {"residentID": 26, "P": true, "N": true, "A": true},
+        {"residentID": 27, "P": true, "N": true, "A": true},
+        {"residentID": 28, "P": true, "N": true, "A": true},
+        {"residentID": 29, "P": true, "N": true, "A": true},
+        {"residentID": 30, "P": true, "N": true, "A": true},
+        {"residentID": 35, "P": true, "N": true, "A": true},
+        {"residentID": 50, "P": true, "N": true,"A": true},
+        {"residentID": 80, "P": true, "N": true, "A": true},
+        {"residentID": 89, "P": true, "N": true, "A": true},
+        {"residentID": 99, "P": true, "N": true, "A": true} 
+    ], "routineSpecialNotes": "everyone ate their meals", "routineTotal": 35, "routineDate": "2023-03-20T11:39:14.747", "toElderly": true},
+
+
+
+]
+

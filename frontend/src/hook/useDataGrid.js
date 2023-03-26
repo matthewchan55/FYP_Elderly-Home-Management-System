@@ -9,7 +9,6 @@ import { Stack, Tooltip } from "@mui/material";
 import { useState } from "react";
 
 export default function useDataGrid(apiRef, th, data, exportFileName) {
-
   const customToolbar = (props) => {
     const date = new Date().toLocaleDateString().replaceAll("/", "_");
     return (
@@ -24,7 +23,7 @@ export default function useDataGrid(apiRef, th, data, exportFileName) {
           <Tooltip title="Export as CSV or print data">
             <GridToolbarExport
               csvOptions={{
-                fileName: `${date}${exportFileName}`
+                fileName: `${date}${exportFileName}`,
               }}
               printOptions={{
                 hideFooter: true,
@@ -37,18 +36,29 @@ export default function useDataGrid(apiRef, th, data, exportFileName) {
     );
   };
 
+  function generateRandom() {
+    var length = 8,
+      charset =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+  }
+
   const CustomDataGrid = (props) => {
-    const [pageSize, setPageSize] = useState(10);
+    const [pageSize, setPageSize] = useState(25);
     return (
       data && (
         <DataGrid
           columns={th}
           rows={data}
-          getRowId={(row) => row._id}
+          getRowId={(row) => row._id || generateRandom()}
           pageSize={pageSize}
-          rowsPerPageOptions={[10, 25, 50]}
+          rowsPerPageOptions={[10, 25, 50, 100]}
           getEstimatedRowHeight={() => 100}
-          getRowHeight={() => 'auto'}
+          getRowHeight={() => "auto"}
           labelRowsPerPage
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           apiRef={apiRef}

@@ -18,6 +18,8 @@ const {
   updateResidentAccountSummary,
   updateServiceCost,
   deleteServiceCost,
+  createTodayWork,
+  fetchTodayWork,
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -70,5 +72,13 @@ router.get("/finance/servicecost", fetchServiceCost)
 router.post("/finance/servicecost", createServiceCost)
 router.patch("/finance/servicecost/:id", updateServiceCost)
 router.delete("/finance/servicecost/:id", deleteServiceCost)
+
+
+//WorkManagement
+
+//1. TodayWorkRecords
+router.post("/work/todayworkrecords", createTodayWork)
+router.get("/work/todayworkrecords", fetchTodayWork)
+
 
 module.exports = router;

@@ -3,7 +3,7 @@ const ResInfo = require("../models/residentInfoModel");
 const Facility = require("../models/facility");
 const Ras = require("../models/residentAccountSummary")
 const ServiceCost = require("../models/serviceCostModel")
-
+const TodayWorkRecords = require("../models/todayWorkRecord")
 
 const mongoose = require("mongoose");
 
@@ -160,7 +160,6 @@ const deleteFacility = async (req, res) => {
 
 // Financial Management
 
-
 // GET ras
 const fetchResidentAccountSummary = async(req, res) => {
   const ras = await Ras.find(req.query).sort({ residentID: 1 });
@@ -257,6 +256,34 @@ const deleteServiceCost = async (req, res) => {
 };
 
 
+// Work management
+
+// CREATE todayworkrecords
+const createTodayWork = async (req, res) => {
+  const todayWorkArray = req.body;
+
+  try {
+    const todayWorks = await Promise.all(
+      todayWorkArray.map(async (work) => {
+        const todayWork = await TodayWorkRecords.create(work);
+        return todayWork;
+      })
+    );
+    res.status(200).json(todayWorks);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
+// GET todayworkrecords
+const fetchTodayWork = async(req, res) => {
+  const tw = await TodayWorkRecords.find(req.query).sort({ routinePerformer: 1, routineCategory: 1 });
+  res.status(200).json(tw);
+}
+
+
+
 module.exports = {
   fetchStaff,
   deleteStaff,
@@ -275,5 +302,7 @@ module.exports = {
   createServiceCost,
   fetchServiceCost,
   updateServiceCost,
-  deleteServiceCost
+  deleteServiceCost,
+  createTodayWork,
+  fetchTodayWork
 };

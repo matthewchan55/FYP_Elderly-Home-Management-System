@@ -78,7 +78,7 @@ const ManagementFacility = () => {
   const [clickedPoint, setClickedPoint] = useState();
   const [clickedPointElderly, setClickedPointElderly] = useState();
   // checkbox
-  const [showBedPoints, setShowBedPoints] = useState(false);
+  const [showBedPoints, setShowBedPoints] = useState(true);
   // form
   const [floor, setFloor] = useState(1);
   const [requiredError, setRequiredError] = useState(false);

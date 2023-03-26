@@ -262,7 +262,7 @@ const ResidentAccountSummary = ({ eld }) => {
                     {/* Last Month account summary */}
                     <Grid container direction="row">
                       <Grid item xs={10.35} md={10.35}>
-                        <Controls.GridBox bgcolor=" #607d8b" py={2}>
+                        <Controls.GridBox bgcolor="#607d8b" py={2}>
                           <Controls.Bold>Previous term balance</Controls.Bold>
                         </Controls.GridBox>
                       </Grid>
