@@ -11,7 +11,7 @@ import { useGridApiRef } from "@mui/x-data-grid";
 import { parseISO, format } from "date-fns";
 import { Controls } from "../controls/Controls";
 
-export default function WorkRoutineDetails({ data, resData }) {
+export default function WorkOtherDetail({ data, resData }) {
   const [expanded, setExpanded] = useState("panel1");
   const [routineData, setRoutineData] = useState();
 
@@ -155,16 +155,16 @@ export default function WorkRoutineDetails({ data, resData }) {
 
           const filteredResidentInfo = residentInfo
             ? {
+                residentID: residentID,
                 residentName: `${residentInfo.lastName}, ${residentInfo.firstName}`,
                 bed: `${residentInfo.room}-${residentInfo.bed}`,
               }
-            : {};
+            : { residentID: "N/A", residentName: "N/A", bed: "N/A" };
 
           return Object.entries(rest)
             .filter(([shift]) => shift !== "notes")
             .map(([shift, complete]) => ({
               date: stringDate(routineRecord.routineDate),
-              residentID,
               ...filteredResidentInfo,
               routineName: routineRecord.routineName,
               routineCategory: routineRecord.routineCategory,
@@ -211,8 +211,8 @@ export default function WorkRoutineDetails({ data, resData }) {
   const filterRoutineData = (data) => {
     const filtered = data.filter(
       (d) =>
-        d.routineCategory === "cleaning (elderly)" ||
-        d.routineCategory === "health care"
+        d.routineCategory !== "cleaning (elderly)" &&
+        d.routineCategory !== "health care"
     );
     const result = transformRoutineComplete(filtered);
     setRoutineData(result);

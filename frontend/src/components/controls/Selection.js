@@ -8,8 +8,8 @@ export default function Selection(props) {
       {inputLabelName && <InputLabel>{inputLabelName}</InputLabel>}
       <Select name={name} label={label} value={value} defaultValue={defaultValue} onChange={onChange} {...others}>
 
-        {items.map((item) => (
-          <MenuItem name={item.name} key={item.value} value={item.value}>
+        {items.map((item, idx) => (
+          <MenuItem name={item.name} key={`${item.name}${item.value}${idx}`} value={item.value}>
             {item.label}
           </MenuItem>
         ))}

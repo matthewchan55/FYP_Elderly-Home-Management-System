@@ -17,6 +17,7 @@ import ResidentForm from "../../components/forms/ManagementForm/ResidentForm";
 import ResidentPreview from "../../components/managements/ResidentPreview";
 import TableDelete from "../../components/TableDelete";
 import SmallAlert from "../../components/SmallAlert";
+import ResidentRoutineRecords from "../../components/managements/ResidentRoutineRecords";
 
 const ManagementResidents = () => {
   // Data
@@ -24,14 +25,6 @@ const ManagementResidents = () => {
   const [floorInfo, setFloorInfo] = useState([]);
 
   // Table
-  const {
-    OverviewHeader,
-    openAddPopup,
-    setOpenAddPopup,
-    //openImportPopup,
-    //setOpenImportPopup,
-  } = PageOverviewHeader();
-
   const apiRef = useGridApiRef();
   const tableHeaders = [
     {
@@ -179,6 +172,15 @@ const ManagementResidents = () => {
   } = TableActionButton();
   const { TableDeleteDialog, open, handleClose, error } = TableDelete();
 
+  // table overview
+  const {
+    OverviewHeader,
+    openAddPopup,
+    setOpenAddPopup,
+    //openImportPopup,
+    //setOpenImportPopup,
+  } = PageOverviewHeader();
+
   // Tab
   const [tabValue, setTabValue] = useState("1");
   const handleChange = (event, newValue) => {
@@ -270,9 +272,11 @@ const ManagementResidents = () => {
               }}
             >
               <Tab label="Resident overview" value="1" />
-              <Tab label="Resident records" value="2" />
-              <Tab label="Routine records" value="3" />
-              <Tab label="Medication records" value="4" />
+              <Tab label="Resident details" value="2" />
+              <Tab label="Resident Routine management" value="3" />
+              <Tab label="Routine records" value="4" />
+              <Tab label="Resident Medication management" value="5" />
+              <Tab label="Medication records" value="6" />
             </TabList>
           </Box>
 
@@ -286,7 +290,7 @@ const ManagementResidents = () => {
             <Paper sx={{mt:3}}>{resInfoData && <CustomDataGrid />}</Paper>
           </TabPanel>
           {/* 3. Routine Record */}
-          <TabPanel value="3" sx={{p:0}}>Routine Record</TabPanel>
+          <TabPanel value="3" sx={{p:0}}><ResidentRoutineRecords data={resInfoData}/></TabPanel>
           {/* 4. Medication Record */}
           <TabPanel value="4" sx={{p:0}}>Medication Record</TabPanel>
         </TabContext>

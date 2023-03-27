@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import WorkOverviewToday from "../../components/managements/WorkOverviewToday";
 import WorkRoutineDetail from "../../components/managements/WorkRoutineDetail";
+import WorkOtherDetail from "../../components/managements/WorkOtherDetail";
+import WorkScheduleCaregivers from "../../components/managements/WorkScheduleCaregivers";
 
 
 // 1. Work overview (percentage and the TODAY's table to show how many works are done, not yet done)
@@ -15,6 +17,7 @@ import WorkRoutineDetail from "../../components/managements/WorkRoutineDetail";
 
 const ManagementWork = () => {
   const [records, setRecords] = useState();
+  const [residentsData, setResidentsData] = useState();
 
   // fetch data
   const fetchTodayWork = async () => {
@@ -26,8 +29,18 @@ const ManagementWork = () => {
     }
   };
 
+  const getResidentData = async () => {
+    const resp = await fetch("/api/management/residents");
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      setResidentsData(respData);
+    }
+  };
+
   useEffect(() => {
     fetchTodayWork();
+    getResidentData();
   }, []);
 
   // Tab
@@ -49,6 +62,8 @@ const ManagementWork = () => {
             <TabList
               centered
               onChange={handleChange}
+              textColor="secondary"
+              indicatorColor="secondary"
               sx={{
                 "& .MuiTab-root": {
                   textTransform: "capitalize",
@@ -64,9 +79,9 @@ const ManagementWork = () => {
 
 
             <TabPanel value="1">{records && <WorkOverviewToday data={records}/>}</TabPanel>
-            <TabPanel value="2">{records && <WorkRoutineDetail data={records}/>}</TabPanel>
-            <TabPanel value="3">{3}</TabPanel>
-            <TabPanel value="4">{4}</TabPanel>
+            <TabPanel value="2">{records && <WorkRoutineDetail data={records} resData={residentsData}/>}</TabPanel>
+            <TabPanel value="3">{records && <WorkOtherDetail data={records} resData={residentsData}/>}</TabPanel>
+            <TabPanel value="4">{<WorkScheduleCaregivers/>}</TabPanel>
           </TabContext>
         </Box>
       </Paper>

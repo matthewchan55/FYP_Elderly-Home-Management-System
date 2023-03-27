@@ -36,8 +36,6 @@ const ManagementFinance = () => {
     }
   };
 
-
-
   useEffect(() => {
     fetchElderlyList();
   }, []);
@@ -78,33 +76,34 @@ const ManagementFinance = () => {
               }}
             >
               <Tab label="Statistics" value="1" />
-              <Tab label="Resident account summary" value="2" />
-              <Tab label="Resident cost management" value="3" />
-              <Tab label="Staff payroll" value="4" />
-              <Tab label="Manage inventory cost" value="5" />
-
+              <Tab label="Admission and charges" value="2" />
+              <Tab label="Resident account summary" value="3" />
+              <Tab label="Resident cost management" value="4" />
+              <Tab label="Staff payroll" value="5" />
+              <Tab label="Inventory cost management" value="6" />
             </TabList>
           </Box>
 
           {/* Tab Content */}
           <TabPanel value="1" sx={{ p: 0 }}>
-            {/* 1. Preview */}
             {1}
           </TabPanel>
           <TabPanel value="2" sx={{ p: 0 }}>
-            {/* 2. Table */}
-            <ResidentAccountSummary eld={elderlyList}/>
+            {2}
           </TabPanel>
-          {/* 3. Routine Record */}
+
           <TabPanel value="3" sx={{ p: 0 }}>
-            <ResidentCost eld={elderlyList}/>
+            <ResidentAccountSummary eld={elderlyList} />
           </TabPanel>
-          {/* 4. Medication Record */}
+
           <TabPanel value="4" sx={{ p: 0 }}>
-            <StaffPayroll/>
+            <ResidentCost eld={elderlyList} />
           </TabPanel>
           <TabPanel value="5" sx={{ p: 0 }}>
-            5
+            <StaffPayroll />
+          </TabPanel>
+          <TabPanel value="6" sx={{ p: 0 }}>
+            {6}
           </TabPanel>
         </TabContext>
       </Box>

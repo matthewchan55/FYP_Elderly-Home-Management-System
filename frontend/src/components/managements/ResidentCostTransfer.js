@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { CardActions, CardContent } from "@mui/material";
-import { useState, useMemo, useEffect} from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSubmit } from "../../hook/useSubmit";
 
 import useAlert from "../../hook/useAlert";
@@ -32,13 +32,13 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-const ResidentCostTransfer = ({ subscribedItems, path}) => {
+const ResidentCostTransfer = ({ subscribedItems, path }) => {
   const [checked, setChecked] = useState([]);
   const [left, setLeft] = useState();
   const [right, setRight] = useState(subscribedItems);
   const [createService, setCreateService] = useState(false);
   const [selectedServiceCost, setSelectedServiceCost] = useState("");
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
   const fetchServiceCost = async () => {
     // left items
@@ -47,7 +47,7 @@ const ResidentCostTransfer = ({ subscribedItems, path}) => {
 
     if (resp.ok) {
       setLeft(respData);
-      selectedServiceCost==="" && setSelectedServiceCost(respData[0]);
+      selectedServiceCost === "" && setSelectedServiceCost(respData[0]);
     }
   };
 
@@ -99,14 +99,13 @@ const ResidentCostTransfer = ({ subscribedItems, path}) => {
     setChecked(not(checked, rightChecked));
   };
 
-  const { submit, error } = useSubmit();
-  const { open, setOpen, handleClose } = useAlert();
-
   const handlePenClick = (value) => {
     setSelectedServiceCost(value);
     setCreateService(false);
-
   };
+
+  const { submit, error } = useSubmit();
+  const { open, setOpen, handleClose } = useAlert();
 
   const saveServicesItems = async () => {
     // update servicecost
@@ -115,9 +114,9 @@ const ResidentCostTransfer = ({ subscribedItems, path}) => {
   };
 
   useMemo(() => {
-    saveServicesItems()
-    setShow(true)
-  }, [right])
+    saveServicesItems();
+    setShow(true);
+  }, [right]);
 
   const customList = (title, items) => (
     <Card>
@@ -214,9 +213,9 @@ const ResidentCostTransfer = ({ subscribedItems, path}) => {
       </CardActions>
     </Card>
   );
-
   return (
-    left && right && (
+    left &&
+    right && (
       <>
         <Grid container alignItems={"center"}>
           <Grid item xs={5} md={3}>
@@ -250,7 +249,7 @@ const ResidentCostTransfer = ({ subscribedItems, path}) => {
           <Grid item xs={5} md={3}>
             {customList("Selected services for elderly", right)}
           </Grid>
-          <Divider orientation="vertical"  width="5%" flexItem/>
+          <Divider orientation="vertical" width="5%" flexItem />
           <Grid item xs={12} md={4} ml={3}>
             {createService ? (
               <FinanceServiceCost service={""} />

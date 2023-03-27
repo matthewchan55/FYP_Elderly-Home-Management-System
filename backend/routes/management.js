@@ -20,6 +20,8 @@ const {
   deleteServiceCost,
   createTodayWork,
   fetchTodayWork,
+  createRoutine,
+  fetchRoutine,
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -79,6 +81,10 @@ router.delete("/finance/servicecost/:id", deleteServiceCost)
 //1. TodayWorkRecords
 router.post("/work/todayworkrecords", createTodayWork)
 router.get("/work/todayworkrecords", fetchTodayWork)
+
+//2. Routine
+router.post("/work/routine", createRoutine)
+router.get("/work/routine", fetchRoutine)
 
 
 module.exports = router;

@@ -6,8 +6,7 @@ import FemaleAdmin from "../../assets/female_admin.png";
 import MaleAdmin from "../../assets/male_admin.png";
 import { useEffect, useState } from "react";
 
-const StaffList = ({data, selected, setSelected}) => {
-
+const StaffList = ({ data, selected, setSelected }) => {
   return (
     <>
       <Box
@@ -20,6 +19,41 @@ const StaffList = ({data, selected, setSelected}) => {
           mx: "auto",
         }}
       >
+        {selected && selected.userType === "caregivers" ? (
+          selected.sex === "F" ? (
+            <img
+              key={"fc"}
+              src={FemaleCaregivers}
+              alt="FemaleCaregivers"
+              width="150"
+              height="200"
+            />
+          ) : (
+            <img
+              key={"mc"}
+              src={MaleCaregivers}
+              alt="MaleCaregivers"
+              width="150"
+              height="200"
+            />
+          )
+        ) : selected && selected.sex === "F" ? (
+          <img
+            key={"fa"}
+            src={FemaleAdmin}
+            alt="FemaleAdmin"
+            width="150"
+            height="200"
+          />
+        ) : (
+          <img
+            key={"ma"}
+            src={MaleAdmin}
+            alt="MaleAdmin"
+            width="150"
+            height="200"
+          />
+        )}
       </Box>
 
       <Stack maxHeight="40vh" overflow="auto">

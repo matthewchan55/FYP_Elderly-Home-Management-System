@@ -4,6 +4,7 @@ const Facility = require("../models/facility");
 const Ras = require("../models/residentAccountSummary")
 const ServiceCost = require("../models/serviceCostModel")
 const TodayWorkRecords = require("../models/todayWorkRecord")
+const Routine = require("../models/routineModel")
 
 const mongoose = require("mongoose");
 
@@ -283,6 +284,32 @@ const fetchTodayWork = async(req, res) => {
 }
 
 
+// CREATE routine
+const createRoutine = async (req, res) => {
+  const routineArray = req.body;
+
+  try {
+    const routines = await Promise.all(
+      routineArray.map(async (routine) => {
+        const rt = await Routine.create(routine);
+        return rt;
+      })
+    );
+    res.status(200).json(routines);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+// GET routine
+const fetchRoutine = async(req, res) => {
+  const routines = await Routine.find(req.query).sort({ routineCategory: 1 });
+  res.status(200).json(routines);
+}
+
+
+
+
 
 module.exports = {
   fetchStaff,
@@ -304,5 +331,7 @@ module.exports = {
   updateServiceCost,
   deleteServiceCost,
   createTodayWork,
-  fetchTodayWork
+  fetchTodayWork,
+  createRoutine,
+  fetchRoutine
 };

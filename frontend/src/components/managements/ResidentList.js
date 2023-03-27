@@ -54,9 +54,12 @@ const ResidentList = ({ data, eld, setEld }) => {
                 },
               }}
             >
-              <Icon >
+              {/*  Change to differnt types of Icon
+                done routine, dont medication, paid? ....
+              */}
+              {/* <Icon >
                 <CheckCircleIcon sx={{color: "#26a69a", mb:2, mr:2}}/>
-              </Icon>
+              </Icon> */}
               <Typography noWrap>{`${el.room}-${el.bed} | ${
                 el.sex === "Not available" ? "N/A" : el.sex
               } | ${el.age} | ${el.lastName}, ${el.firstName}`}</Typography>
