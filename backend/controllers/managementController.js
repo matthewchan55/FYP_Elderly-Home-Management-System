@@ -5,6 +5,8 @@ const Ras = require("../models/residentAccountSummary")
 const ServiceCost = require("../models/serviceCostModel")
 const TodayWorkRecords = require("../models/todayWorkRecord")
 const Routine = require("../models/routineModel")
+const Medication = require("../models/medicationModel")
+
 
 const mongoose = require("mongoose");
 
@@ -308,6 +310,31 @@ const fetchRoutine = async(req, res) => {
 }
 
 
+// Medication management
+
+// CREATE med
+const createMed = async (req, res) => {
+  const medArray = req.body;
+
+  try {
+    const meds = await Promise.all(
+      medArray.map(async (medicine) => {
+        const med = await Medication.create(medicine);
+        return med;
+      })
+    );
+    res.status(200).json(meds);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
+// GET med
+const fetchMed = async(req, res) => {
+  const med = await Medication.find(req.query).sort({genericName: 1 });
+  res.status(200).json(med);
+}
 
 
 
@@ -333,5 +360,7 @@ module.exports = {
   createTodayWork,
   fetchTodayWork,
   createRoutine,
-  fetchRoutine
+  fetchRoutine,
+  createMed,
+  fetchMed
 };

@@ -16,7 +16,11 @@ import {
   CardHeader,
   ListItemIcon,
   ListItemText,
+  Avatar,
 } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { Controls } from "../controls/Controls";
 import { useState, useEffect, useMemo } from "react";
 import EditIcon from "@mui/icons-material/Edit";
@@ -33,7 +37,7 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-const ResidentRoutineRecords = ({ data }) => {
+const ResidentRoutineManagement = ({ data }) => {
   // res list
   const [sortedData, setSortedData] = useState();
   // res list onclick
@@ -120,6 +124,59 @@ const ResidentRoutineRecords = ({ data }) => {
       setRight([]);
     }
   };
+
+  function stringToColor(string) {
+    let hash = 0;
+    let i;
+
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    let color = "#";
+
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }
+
+    return color;
+  }
+
+  function stringAvatar(name) {
+    return {
+      sx: {
+        bgcolor: stringToColor(name),
+      },
+      children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+    };
+  }
+
+  function findRes(res) {
+    const eld = sortedData.find((data) => data.residentID === res);
+
+    const { lastName, firstName, room, bed } = eld;
+
+    return (
+      <Box direction="row" display={"flex"} alignItems="center" mt={1}>
+        <Avatar {...stringAvatar(`${lastName} ${firstName}`)} />
+        <Stack ml={2}>
+          <Typography
+            variant="subtitle2"
+            color="#808191"
+          >{`Resident ID: ${res}`}</Typography>
+          <Typography
+            variant="subtitle2"
+            color="#808191"
+          >{`Name: ${lastName}, ${firstName}`}</Typography>
+          <Typography
+            variant="subtitle2"
+            color="#808191"
+          >{`Bed: ${room}-${bed}`}</Typography>
+        </Stack>
+      </Box>
+    );
+  }
 
   useMemo(() => {
     findEldRoutine(routineData);
@@ -373,43 +430,53 @@ const ResidentRoutineRecords = ({ data }) => {
                 >{`Selected routine item: ${selectedRoutine.routineName}`}</Controls.Bold>
                 {selectedRoutine && (
                   <Grid container>
-                    <Grid item md={6}>
+                    <Grid item md={5}>
                       <Stack gap={2}>
-                        <Typography>Routine Name</Typography>
+                        <Controls.Bold>Routine Name</Controls.Bold>
                         <Controls.OutlinedInput
                           variant="standard"
                           name="routineName"
                           value={selectedRoutine.routineName}
                         />
-                        <Typography>Routine Category</Typography>
+                        <Controls.Bold>Routine Category</Controls.Bold>
                         <Controls.OutlinedInput
                           variant="standard"
                           name="routineCategory"
                           value={selectedRoutine.routineCategory}
                         />
-                        <Typography>Fixed Time</Typography>
+                        <Controls.Bold>Fixed Time</Controls.Bold>
                         <Controls.OutlinedInput
                           variant="standard"
                           name="fixedTime"
                           value={selectedRoutine.fixedTime ? "Yes" : "No"}
                         />
 
-                        <Typography>Fixed Time Period</Typography>
+                        {selectedRoutine.fixedTime && (
+                          <Controls.Bold>Fixed Time Period</Controls.Bold>
+                        )}
                         <Stack direction="row" gap={2}>
-                          <Typography>Shift: </Typography>
                           {selectedRoutine.fixedTime &&
                             selectedRoutine.fixedTimePeriod.map((time) => (
-                              <Typography>{time}</Typography>
+                              <Stack direction="row">
+                                <CheckCircleIcon sx={{ color: "#26a69a" }} />
+                                <Typography>{time}</Typography>
+                              </Stack>
                             ))}
                         </Stack>
                       </Stack>
                     </Grid>
                     <Grid item md>
-                      <Typography>Default routine to elderly</Typography>
+                      <Controls.Bold mb={2}>
+                        Default routine to elderly
+                      </Controls.Bold>
 
-                      {selectedRoutine.setDefaultTo.map((res) => (
-                        <Typography width={50}>{res}</Typography>
-                      ))}
+                      {selectedRoutine.setDefaultTo.map((res) => findRes(res))}
+
+                      <Box display={"flex"} justifyContent="center" mt={2}>
+                        <IconButton disableTouchRipple>
+                          <AddCircleOutlineIcon />
+                        </IconButton>
+                      </Box>
                     </Grid>
                   </Grid>
                 )}
@@ -425,4 +492,4 @@ const ResidentRoutineRecords = ({ data }) => {
   );
 };
 
-export default ResidentRoutineRecords;
+export default ResidentRoutineManagement;

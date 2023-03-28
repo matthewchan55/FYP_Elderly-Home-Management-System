@@ -1,0 +1,2949 @@
+[
+    {
+        "genericName": "METRONIDAZOLE",
+        "manufacturer": "Fougera Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "METRONIDAZOLE"
+    },
+    {
+        "genericName": "ZIDOVUDINE",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ZIDOVUDINE"
+    },
+    {
+        "genericName": "SEVOFLURANE",
+        "manufacturer": "Piramal Critical Care Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "SEVOFLURANE"
+    },
+    {
+        "genericName": "PERINDOPRIL ERBUMINE",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PERINDOPRIL ERBUMINE"
+    },
+    {
+        "genericName": "HYDROCORTISONE ACETATE",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "HYDROCORTISONE ACETATE"
+    },
+    {
+        "genericName": "GABAPENTIN",
+        "manufacturer": "TIME CAP LABORATORIES, INC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "GABAPENTIN"
+    },
+    {
+        "genericName": "AMPICILLIN INJECTION",
+        "manufacturer": "Methapharm Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "AMPICILLIN SODIUM"
+    },
+    {
+        "genericName": "DILUENT",
+        "manufacturer": "Eli Lilly and Company",
+        "productType": "HUMAN OTC DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "WATER"
+    },
+    {
+        "genericName": "ERGOCALCIFEROL",
+        "manufacturer": "Rising Pharamceuticals, Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ERGOCALCIFEROL"
+    },
+    {
+        "genericName": "RIBAVIRIN",
+        "manufacturer": "Bausch Health US, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "RIBAVIRIN"
+    },
+    {
+        "genericName": "SUNITINIB MALATE",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SUNITINIB MALATE"
+    },
+    {
+        "genericName": "BIMATOPROST",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "BIMATOPROST"
+    },
+    {
+        "genericName": "DEFLAZACORT",
+        "manufacturer": "PTC Therapeutics, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DEFLAZACORT"
+    },
+    {
+        "genericName": "SORAFENIB",
+        "manufacturer": "Yabao Pharmaceutical Co., Ltd. Beijing",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SORAFENIB"
+    },
+    {
+        "genericName": "BENZTROPINE MESYLATE",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "BENZTROPINE MESYLATE"
+    },
+    {
+        "genericName": "RIZATRIPTAN BENZOATE",
+        "manufacturer": "Rising Health, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RIZATRIPTAN BENZOATE"
+    },
+    {
+        "genericName": "DECITABINE",
+        "manufacturer": "Accord Healthcare Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DECITABINE"
+    },
+    {
+        "genericName": "CYCLOPHOSPHAMIDE",
+        "manufacturer": "West-Ward Pharmaceuticals Corp.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CYCLOPHOSPHAMIDE"
+    },
+    {
+        "genericName": "DUTASTERIDE",
+        "manufacturer": "Strides Pharma Science Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DUTASTERIDE"
+    },
+    {
+        "genericName": "LACOSAMIDE",
+        "manufacturer": "Glenmark Pharmaceuticals Inc. USA",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LACOSAMIDE"
+    },
+    {
+        "genericName": "QUETIAPINE FUMARATE",
+        "manufacturer": "Bluepoint Laboratories",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "QUETIAPINE FUMARATE"
+    },
+    {
+        "genericName": "ARGATROBAN",
+        "manufacturer": "Amneal Pharmaceuticals LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "ARGATROBAN"
+    },
+    {
+        "genericName": "CASPOFUNGIN ACETATE",
+        "manufacturer": "Gland Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CASPOFUNGIN ACETATE"
+    },
+    {
+        "genericName": "BUPRENORPHINE",
+        "manufacturer": "Alvogen Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TRANSDERMAL",
+        "substanceName": "BUPRENORPHINE"
+    },
+    {
+        "genericName": "ADAPALENE AND BENZOYL PEROXIDE",
+        "manufacturer": "Galderma Laboratories, L.P.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "ADAPALENE"
+    },
+    {
+        "genericName": "LIOTHYRONINE SODIUM",
+        "manufacturer": "Pfizer Laboratories Div Pfizer Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LIOTHYRONINE SODIUM"
+    },
+    {
+        "genericName": "PRUCALOPRIDE",
+        "manufacturer": "Takeda Pharmaceuticals America, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PRUCALOPRIDE SUCCINATE"
+    },
+    {
+        "genericName": "NAPROXEN",
+        "manufacturer": "Woodward Pharma Services LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NAPROXEN"
+    },
+    {
+        "genericName": "ESOMEPRAZOLE MAGNESIUM",
+        "manufacturer": "CVS Pharmacy",
+        "productType": "HUMAN OTC DRUG",
+        "route": "ORAL",
+        "substanceName": "ESOMEPRAZOLE MAGNESIUM"
+    },
+    {
+        "genericName": "NEOSTIGMINE METHYLSULFATE",
+        "manufacturer": "BE Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "NEOSTIGMINE METHYLSULFATE"
+    },
+    {
+        "genericName": "DECITABINE",
+        "manufacturer": "Meitheal Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DECITABINE"
+    },
+    {
+        "genericName": "HYDROXYUREA",
+        "manufacturer": "Leading Pharma, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROXYUREA"
+    },
+    {
+        "genericName": "NORELGESTROMIN AND ETHINLY ESTRADIOL",
+        "manufacturer": "Amneal Pharmaceuticals NY LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TRANSDERMAL",
+        "substanceName": "ETHINYL ESTRADIOL"
+    },
+    {
+        "genericName": "MITOMYCIN",
+        "manufacturer": "Meitheal Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "MITOMYCIN"
+    },
+    {
+        "genericName": "FORMOTEROL FUMARATE",
+        "manufacturer": "Lupin Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "FORMOTEROL FUMARATE"
+    },
+    {
+        "genericName": "SOLIFENACIN SUCCINATE",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SOLIFENACIN SUCCINATE"
+    },
+    {
+        "genericName": "SODIUM PHENYLBUTYRATE/TAURURSODIOL",
+        "manufacturer": "Amylyx Pharmaceuticals Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SODIUM PHENYLBUTYRATE"
+    },
+    {
+        "genericName": "AZITHROMYCIN DIHYDRATE",
+        "manufacturer": "Pfizer Laboratories Div Pfizer Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "AZITHROMYCIN DIHYDRATE"
+    },
+    {
+        "genericName": "AMOXICILLIN",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMOXICILLIN"
+    },
+    {
+        "genericName": "LIDOCAINE HYDROCHLORIDE,EPINEPHRINE BITARTRATE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INFILTRATION",
+        "substanceName": "EPINEPHRINE BITARTRATE"
+    },
+    {
+        "genericName": "DILTIAZEM HYDROCHLORIDE",
+        "manufacturer": "Par Pharmaceutical, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DILTIAZEM HYDROCHLORIDE"
+    },
+    {
+        "genericName": "MINOXIDIL",
+        "manufacturer": "Rite Aid Corporation",
+        "productType": "HUMAN OTC DRUG",
+        "route": "TOPICAL",
+        "substanceName": "MINOXIDIL"
+    },
+    {
+        "genericName": "ONDANSETRON HYDROCHLORIDE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "ONDANSETRON HYDROCHLORIDE"
+    },
+    {
+        "genericName": "RIZATRIPTAN BENZOATE",
+        "manufacturer": "Teva Pharmaceuticals USA, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RIZATRIPTAN BENZOATE"
+    },
+    {
+        "genericName": "ZIPRASIDONE HYDROCHLORIDE",
+        "manufacturer": "Dr. Reddy's Laboratories Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ZIPRASIDONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ESCITSLOPRAM",
+        "manufacturer": "Lupin Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ESCITALOPRAM OXALATE"
+    },
+    {
+        "genericName": "QUINAPRIL",
+        "manufacturer": "Cipla USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "QUINAPRIL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "NORTRIPTYLINE HYDROCHLORIDE",
+        "manufacturer": "SpecGx LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NORTRIPTYLINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "NISOLDIPINE",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NISOLDIPINE"
+    },
+    {
+        "genericName": "MISOPROSTOL",
+        "manufacturer": "Novel Laboratories, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MISOPROSTOL"
+    },
+    {
+        "genericName": "TRETINOIN",
+        "manufacturer": "Glenmark Pharmaceuticals Inc., USA",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TRETINOIN"
+    },
+    {
+        "genericName": "MOXIFLOXACIN HYDROCHLORIDE TABLETS, 400 MG",
+        "manufacturer": "Novadoz Pharmaceuticals LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MOXIFLOXACIN HYDROCHLORIDE MONOHYDRATE"
+    },
+    {
+        "genericName": "AZITHROMYCIN MONOHYDRATE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AZITHROMYCIN MONOHYDRATE"
+    },
+    {
+        "genericName": "OSELTAMIVIR PHOSPHATE",
+        "manufacturer": "NorthStar RxLLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "OSELTAMIVIR PHOSPHATE"
+    },
+    {
+        "genericName": "CLOBAZAM",
+        "manufacturer": "Sandoz Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CLOBAZAM"
+    },
+    {
+        "genericName": "LEVETIRACETAM",
+        "manufacturer": "Solco healthcare U.S., LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LEVETIRACETAM"
+    },
+    {
+        "genericName": "ACETYLCYSTEINE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ACETYLCYSTEINE"
+    },
+    {
+        "genericName": "BRINZOLAMIDE/BRIMONIDINE TARTRATE",
+        "manufacturer": "Alcon Laboratories, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "BRIMONIDINE TARTRATE"
+    },
+    {
+        "genericName": "VARDENAFIL HYDROCHLORIDE",
+        "manufacturer": "Macleods Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VARDENAFIL"
+    },
+    {
+        "genericName": "HYDROCODONE BITARTRATE AND ACETAMINOPHEN",
+        "manufacturer": "Novel Laboratories, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ACETAMINOPHEN"
+    },
+    {
+        "genericName": "DICYCLOMINE HYDROCHLORIDE",
+        "manufacturer": "Akorn",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "DICYCLOMINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "EVEROLIMUS",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "EVEROLIMUS"
+    },
+    {
+        "genericName": "IPRATROPIUM BROMIDE",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "IPRATROPIUM BROMIDE"
+    },
+    {
+        "genericName": "ARFORMOTEROL TARTRATE",
+        "manufacturer": "Sunovion Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "ARFORMOTEROL TARTRATE"
+    },
+    {
+        "genericName": "IOBENGUANE I-123",
+        "manufacturer": "Medi-Physics Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "IOBENGUANE I-123"
+    },
+    {
+        "genericName": "BIVALIRUDIN",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "BIVALIRUDIN"
+    },
+    {
+        "genericName": "LEVOTHYROXINE SODIUM",
+        "manufacturer": "Amneal Pharmaceuticals NY LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LEVOTHYROXINE SODIUM"
+    },
+    {
+        "genericName": "MELOXICAM",
+        "manufacturer": "Emerald Therapeutics, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MELOXICAM"
+    },
+    {
+        "genericName": "PATISIRAN",
+        "manufacturer": "Alnylam Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "PATISIRAN SODIUM"
+    },
+    {
+        "genericName": "ISOSULFAN BLUE",
+        "manufacturer": "Somerset Therapeutics, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "ISOSULFAN BLUE"
+    },
+    {
+        "genericName": "NH3N13",
+        "manufacturer": "University of Alabama at Birmingham",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "AMMONIA N-13"
+    },
+    {
+        "genericName": "FENTANYL CITRATE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "FENTANYL CITRATE"
+    },
+    {
+        "genericName": "MEDROXYPROGESTERONE ACETATE",
+        "manufacturer": "Greenstone LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "MEDROXYPROGESTERONE ACETATE"
+    },
+    {
+        "genericName": "PACLITAXEL",
+        "manufacturer": "BluePoint Laboratories",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "PACLITAXEL"
+    },
+    {
+        "genericName": "CARBOPROST TROMETHAMINE",
+        "manufacturer": "Long Grove Pharmaceuticals, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "CARBOPROST TROMETHAMINE"
+    },
+    {
+        "genericName": "FAMOTIDINE",
+        "manufacturer": "Novitium Pharma LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "FAMOTIDINE"
+    },
+    {
+        "genericName": "MITOMYCIN",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "MITOMYCIN"
+    },
+    {
+        "genericName": "CLARITHROMYCIN",
+        "manufacturer": "Chartwell RX, LLC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CLARITHROMYCIN"
+    },
+    {
+        "genericName": "CLOMIPRAMINE HYDROCHLORIDE",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CLOMIPRAMINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "CIMETIDINE HYDROCHLORIDE",
+        "manufacturer": "Akorn",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CIMETIDINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "XENON XE-133",
+        "manufacturer": "Lantheus Medical Imaging, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "XENON XE-133"
+    },
+    {
+        "genericName": "VENLAFAXINE HYDROCHLORIDE",
+        "manufacturer": "Teva Pharmaceuticals USA, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VENLAFAXINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ALCLOMETASONE DIPROPIONATE",
+        "manufacturer": "E. Fougera & Co. a division of Fougera Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "ALCLOMETASONE DIPROPIONATE"
+    },
+    {
+        "genericName": "METRONIDAZOLE",
+        "manufacturer": "Sandoz Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "VAGINAL",
+        "substanceName": "METRONIDAZOLE"
+    },
+    {
+        "genericName": "DIVALPROEX SODIUM",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DIVALPROEX SODIUM"
+    },
+    {
+        "genericName": "DICLOFENAC SODIUM",
+        "manufacturer": "Rising Pharma Holdings, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DICLOFENAC SODIUM"
+    },
+    {
+        "genericName": "METHYLPHENIDATE HYDROCHLORIDE",
+        "manufacturer": "Mayne Pharma",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "METHYLPHENIDATE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "PRIMIDONE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PRIMIDONE"
+    },
+    {
+        "genericName": "NAFCILLIN SODIUM",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "NAFCILLIN SODIUM"
+    },
+    {
+        "genericName": "NIACIN",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NIACIN"
+    },
+    {
+        "genericName": "DESONIDE",
+        "manufacturer": "Galderma Laboratories, L.P.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "DESONIDE"
+    },
+    {
+        "genericName": "MONTELUKAST SODIUM",
+        "manufacturer": "Accord Healthcare Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MONTELUKAST SODIUM"
+    },
+    {
+        "genericName": "EPLERENONE",
+        "manufacturer": "Breckenridge Pharmaceutical, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "EPLERENONE"
+    },
+    {
+        "genericName": "CLINDAMYCIN PHOSPHATE AND BENZOYL PEROXIDE",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "BENZOYL PEROXIDE"
+    },
+    {
+        "genericName": "AMANTADINE HYDROCHLORIDE",
+        "manufacturer": "Strides Pharma Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMANTADINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "BLEOMYCIN",
+        "manufacturer": "Cipla USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "BLEOMYCIN SULFATE"
+    },
+    {
+        "genericName": "PONATINIB HYDROCHLORIDE",
+        "manufacturer": "Takeda Pharmaceuticals America, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PONATINIB HYDROCHLORIDE"
+    },
+    {
+        "genericName": "PAROXETINE HYDROCHLORIDE HEMIHYDRATE",
+        "manufacturer": "Solco Healthcare US, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PAROXETINE HYDROCHLORIDE HEMIHYDRATE"
+    },
+    {
+        "genericName": "QUETIAPINE",
+        "manufacturer": "Macleods Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "QUETIAPINE FUMARATE"
+    },
+    {
+        "genericName": "ACITRETIN",
+        "manufacturer": "Sigmapharm Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ACITRETIN"
+    },
+    {
+        "genericName": "BORTEZOMIB",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "BORTEZOMIB"
+    },
+    {
+        "genericName": "IDELALISIB",
+        "manufacturer": "Gilead Sciences, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "IDELALISIB"
+    },
+    {
+        "genericName": "VENLAFAXINE",
+        "manufacturer": "Cadila Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VENLAFAXINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TADALAFIL",
+        "manufacturer": "Zydus Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TADALAFIL"
+    },
+    {
+        "genericName": "ALBUTEROL SULFATE",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "ALBUTEROL SULFATE"
+    },
+    {
+        "genericName": "HYDROCODONE BITARTRATE AND HOMATROPINE METHYLBROMIDE ORAL SOLUTION",
+        "manufacturer": "KVK-Tech, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HOMATROPINE METHYLBROMIDE"
+    },
+    {
+        "genericName": "NALTREXONE HYDROCHLORIDE",
+        "manufacturer": "Chartwell RX, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NALTREXONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "CIPROFLOXACIN",
+        "manufacturer": "Xspire Pharma, Llc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "AURICULAR (OTIC)",
+        "substanceName": "CIPROFLOXACIN HYDROCHLORIDE"
+    },
+    {
+        "genericName": "SULFADIAZINE",
+        "manufacturer": "Eon Labs, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SULFADIAZINE"
+    },
+    {
+        "genericName": "FOLLITROPIN",
+        "manufacturer": "Merck Sharp & Dohme LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "FOLLITROPIN"
+    },
+    {
+        "genericName": "OLMESARTAN MEDOXOMIL-HYDROCHLOROTHIAZIDE",
+        "manufacturer": "Daiichi Sankyo, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROCHLOROTHIAZIDE"
+    },
+    {
+        "genericName": "LUSUTROMBOPAG",
+        "manufacturer": "SHIONOGI INC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LUSUTROMBOPAG"
+    },
+    {
+        "genericName": "PERPHENAZINE",
+        "manufacturer": "Heritage Pharmaceuticals Inc. d/b/a Avet Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PERPHENAZINE"
+    },
+    {
+        "genericName": "ESOMEPRAZOLE MAGNESIUM DELAYED RELEASE CAPSULES",
+        "manufacturer": "Ascend Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ESOMEPRAZOLE MAGNESIUM"
+    },
+    {
+        "genericName": "BUDESONIDE AND FORMOTEROL FUMARATE",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "BUDESONIDE"
+    },
+    {
+        "genericName": "ISOSORBIDE MONONITRATE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ISOSORBIDE MONONITRATE"
+    },
+    {
+        "genericName": "DICLOFENAC SODIUM",
+        "manufacturer": "Alembic Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "DICLOFENAC SODIUM"
+    },
+    {
+        "genericName": "FOSAPREPITANT",
+        "manufacturer": "Zydus Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "FOSAPREPITANT"
+    },
+    {
+        "genericName": "ALBENDAZOLE",
+        "manufacturer": "MSN LABORATORIES PRIVATE LIMITED",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ALBENDAZOLE"
+    },
+    {
+        "genericName": "FLUTICASONE PROPIONATE AND SALMETEROL",
+        "manufacturer": "Teva Pharmaceuticals USA, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "FLUTICASONE PROPIONATE"
+    },
+    {
+        "genericName": "DICLOFENAC POTASSIUM TABLETS",
+        "manufacturer": "UMEDICA LABORATORIES PRIVATE LIMITED",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DICLOFENAC POTASSIUM"
+    },
+    {
+        "genericName": "TOBRAMYCIN SULFATE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "TOBRAMYCIN SULFATE"
+    },
+    {
+        "genericName": "ERYTHROMYCIN AND BENZOYL PEROXIDE",
+        "manufacturer": "Rising Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "BENZOYL PEROXIDE"
+    },
+    {
+        "genericName": "VINCRISTINE SULFATE",
+        "manufacturer": "Hospira, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "VINCRISTINE SULFATE"
+    },
+    {
+        "genericName": "CLORAZEPATE DIPOTASSIUM",
+        "manufacturer": "Aurolife Pharma, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CLORAZEPATE DIPOTASSIUM"
+    },
+    {
+        "genericName": "ETOPOSIDE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "ETOPOSIDE"
+    },
+    {
+        "genericName": "OFLOXACIN",
+        "manufacturer": "Akorn",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "OFLOXACIN"
+    },
+    {
+        "genericName": "LITHIUM CARBONATE",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LITHIUM CARBONATE"
+    },
+    {
+        "genericName": "ONDANSETRON HYDROCHLORIDE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "ONDANSETRON HYDROCHLORIDE"
+    },
+    {
+        "genericName": "CARBOPLATIN",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CARBOPLATIN"
+    },
+    {
+        "genericName": "CIPROFLOXACIN",
+        "manufacturer": "Leading Pharma, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "CIPROFLOXACIN HYDROCHLORIDE"
+    },
+    {
+        "genericName": "LEVALBUTEROL INHALATION 1.25MG/3ML",
+        "manufacturer": "Dr. Reddys Laboratories, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "LEVALBUTEROL"
+    },
+    {
+        "genericName": "DIVALPROEX SODIUM",
+        "manufacturer": "Dr.Reddy's Laboratories Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DIVALPROEX SODIUM"
+    },
+    {
+        "genericName": "IODINATED I-131 ALBUMIN",
+        "manufacturer": "Iso-Tex Diagnostics, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "IODINATED I-131 SERUM ALBUMIN"
+    },
+    {
+        "genericName": "NAFCILLIN SODIUM",
+        "manufacturer": "Athenex Pharmaceutical Division, LLC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "NAFCILLIN SODIUM"
+    },
+    {
+        "genericName": "ONDANSETRON HYDROCHLORIDE",
+        "manufacturer": "Chartwell RX, LLC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ONDANSETRON HYDROCHLORIDE"
+    },
+    {
+        "genericName": "MEBROFENIN",
+        "manufacturer": "Bracco Diagnostics Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "MEBROFENIN"
+    },
+    {
+        "genericName": "ETOMIDATE",
+        "manufacturer": "Zydus Lifesciences Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "ETOMIDATE"
+    },
+    {
+        "genericName": "DEFLAZACORT",
+        "manufacturer": "PTC Therapeutics, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DEFLAZACORT"
+    },
+    {
+        "genericName": "ASPIRIN AND DIPYRIDAMOLE",
+        "manufacturer": "Dr. Reddy's Laboratories Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ASPIRIN"
+    },
+    {
+        "genericName": "CLOBAZAM",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CLOBAZAM"
+    },
+    {
+        "genericName": "LEVETIRACETAM",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LEVETIRACETAM"
+    },
+    {
+        "genericName": "PRAMIPEXOLE DIHYDROCHLORIDE",
+        "manufacturer": "ScieGen Pharmaceuticals Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PRAMIPEXOLE DIHYDROCHLORIDE"
+    },
+    {
+        "genericName": "TESTOSTERONE",
+        "manufacturer": "Padagis Israel Pharmaceuticals Ltd",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "TESTOSTERONE"
+    },
+    {
+        "genericName": "ETHACRYNIC SODIUM",
+        "manufacturer": "Mylan Institutional LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "ETHACRYNATE SODIUM"
+    },
+    {
+        "genericName": "NITROFURANTOIN MACROCRYSTALS",
+        "manufacturer": "Zydus Pharmaceuticals (USA) Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NITROFURANTOIN"
+    },
+    {
+        "genericName": "AIR",
+        "manufacturer": "NexAir, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "AIR"
+    },
+    {
+        "genericName": "ARIPIPRAZOLE",
+        "manufacturer": "Accord Healthcare, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ARIPIPRAZOLE"
+    },
+    {
+        "genericName": "TAMOXIFEN CITRATE",
+        "manufacturer": "Zydus Lifesciences Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TAMOXIFEN CITRATE"
+    },
+    {
+        "genericName": "METHYLPHENIDATE HYDROCHLORIDE EXTENDED RELEASE",
+        "manufacturer": "KVK-Tech, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "METHYLPHENIDATE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ELTROMBOPAG OLAMINE",
+        "manufacturer": "Novartis Pharmaceuticals Corporation",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ELTROMBOPAG OLAMINE"
+    },
+    {
+        "genericName": "CISATRACURIUM BESYLATE",
+        "manufacturer": "AbbVie Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CISATRACURIUM BESYLATE"
+    },
+    {
+        "genericName": "GABAPENTIN",
+        "manufacturer": "Parke-Davis Div of Pfizer Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "GABAPENTIN"
+    },
+    {
+        "genericName": "ALPROSTADIL",
+        "manufacturer": "Pharmacia & Upjohn Company LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRACAVERNOUS",
+        "substanceName": "ALPROSTADIL"
+    },
+    {
+        "genericName": "CLOBETASOL PROPIONATE",
+        "manufacturer": "Galderma Laboratories, L.P.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "CLOBETASOL PROPIONATE"
+    },
+    {
+        "genericName": "BROMFENAC OPHTHALMIC SOLUTION 0.09%",
+        "manufacturer": "Alembic Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "BROMFENAC SODIUM"
+    },
+    {
+        "genericName": "MYCOPHENOLATE MOFETIL",
+        "manufacturer": "CONCORD BIOTECH LIMITED",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MYCOPHENOLATE MOFETIL"
+    },
+    {
+        "genericName": "ESOMEPRAZOLE MAGNESIUM",
+        "manufacturer": "Camber Consumer Care Inc",
+        "productType": "HUMAN OTC DRUG",
+        "route": "ORAL",
+        "substanceName": "ESOMEPRAZOLE MAGNESIUM"
+    },
+    {
+        "genericName": "BORTEZOMIB",
+        "manufacturer": "BluePoint Laboratories",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "BORTEZOMIB"
+    },
+    {
+        "genericName": "DIHYDROERGOTAMINE MESYLATE",
+        "manufacturer": "Impel Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "NASAL",
+        "substanceName": "DIHYDROERGOTAMINE MESYLATE"
+    },
+    {
+        "genericName": "LAMOTRIGINE EXTENDED-RELEASE",
+        "manufacturer": "Yiling Pharmaceutical, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LAMOTRIGINE"
+    },
+    {
+        "genericName": "TRIENTINE TETRAHYDROCHLORIDE",
+        "manufacturer": "Orphalan SA",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TRIENTINE TETRAHYDROCHLORIDE"
+    },
+    {
+        "genericName": "KETOROLAC TROMETHAMINE",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "KETOROLAC TROMETHAMINE"
+    },
+    {
+        "genericName": "BETHANECHOL CHLORIDE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "BETHANECHOL CHLORIDE"
+    },
+    {
+        "genericName": "DAUNORUBICIN HYDROCHLORIDE",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DAUNORUBICIN HYDROCHLORIDE"
+    },
+    {
+        "genericName": "CEPHALEXIN",
+        "manufacturer": "Belcher Pharmaceuticals, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CEPHALEXIN"
+    },
+    {
+        "genericName": "ERYTHROMYCIN",
+        "manufacturer": "Padagis Israel Pharmaceuticals Ltd",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "ERYTHROMYCIN"
+    },
+    {
+        "genericName": "MUPIROCIN",
+        "manufacturer": "Padagis Israel Pharmaceuticals Ltd",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "MUPIROCIN"
+    },
+    {
+        "genericName": "FLUVOXAMINE MALEATE",
+        "manufacturer": "Upsher-Smith Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "FLUVOXAMINE MALEATE"
+    },
+    {
+        "genericName": "HYDROCORTISONE BUTYRATE",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "HYDROCORTISONE BUTYRATE"
+    },
+    {
+        "genericName": "PILOCARPINE HYDROCHLORIDE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PILOCARPINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ZOLPIDEM TARTRATE",
+        "manufacturer": "NorthStar Rx LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ZOLPIDEM TARTRATE"
+    },
+    {
+        "genericName": "ATOMOXETINE",
+        "manufacturer": "Northstar Rx LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ATOMOXETINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ORPHENADRINE CITRATE",
+        "manufacturer": "Actavis Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "ORPHENADRINE CITRATE"
+    },
+    {
+        "genericName": "HYDROCORTISONE",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "HYDROCORTISONE"
+    },
+    {
+        "genericName": "NITROGLYCERIN TRANSDERMAL SYSTEM",
+        "manufacturer": "Zydus Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TRANSDERMAL",
+        "substanceName": "NITROGLYCERIN"
+    },
+    {
+        "genericName": "CHLORTHALIDONE",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CHLORTHALIDONE"
+    },
+    {
+        "genericName": "LEVALBUTEROL",
+        "manufacturer": "Teva Pharmaceuticals USA, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "LEVALBUTEROL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "NIZATIDINE",
+        "manufacturer": "Glenmark Pharmaceuticals Inc., USA",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NIZATIDINE"
+    },
+    {
+        "genericName": "CAPECITABINE",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CAPECITABINE"
+    },
+    {
+        "genericName": "TROSPIUM CHLORIDE",
+        "manufacturer": "Actavis Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TROSPIUM CHLORIDE"
+    },
+    {
+        "genericName": "CHLOROQUINE PHOSPHATE",
+        "manufacturer": "Rising Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CHLOROQUINE PHOSPHATE"
+    },
+    {
+        "genericName": "LANSOPRAZOLE",
+        "manufacturer": "Rising Pharma Holdings, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LANSOPRAZOLE"
+    },
+    {
+        "genericName": "DEXLANSOPRAZOLE",
+        "manufacturer": "TWI PHARMACEUTICALS, INC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DEXLANSOPRAZOLE"
+    },
+    {
+        "genericName": "SUMATRIPTAN SUCCINATE",
+        "manufacturer": "Upsher-Smith laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "SUMATRIPTAN SUCCINATE"
+    },
+    {
+        "genericName": "MIGALASTAT HYDROCHLORIDE",
+        "manufacturer": "Amicus Therapeutics US, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MIGALASTAT HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TREPROSTINIL",
+        "manufacturer": "Par Pharmaceutical, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "TREPROSTINIL"
+    },
+    {
+        "genericName": "OLOPATADINE HYDROCHLORIDE OPHTHALMIC",
+        "manufacturer": "Strategic Sourcing Specialists, LLC",
+        "productType": "HUMAN OTC DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "OLOPATADINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TOLTERODINE",
+        "manufacturer": "Torrent Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TOLTERODINE TARTRATE"
+    },
+    {
+        "genericName": "TINIDAZOLE",
+        "manufacturer": "Edenbridge Pharmaceuticals LLC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TINIDAZOLE"
+    },
+    {
+        "genericName": "AMILORIDE HYDROCHLORIDE",
+        "manufacturer": "WINDLAS BIOTECH LIMITED",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMILORIDE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TETRABENAZINE",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TETRABENAZINE"
+    },
+    {
+        "genericName": "PHENYLEPHRINE AND KETOROLAC",
+        "manufacturer": "Omeros Corporation",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAOCULAR",
+        "substanceName": "KETOROLAC"
+    },
+    {
+        "genericName": "CARBON DIOXIDE",
+        "manufacturer": "Messer Merchant Production LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "CARBON DIOXIDE"
+    },
+    {
+        "genericName": "SODIUM CHLORIDE, SODIUM GLUCONATE, SODIUM ACETATE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, SODIUM PHOSPHATE, DIBASIC, AND POTASSIUM PHOSPHATE",
+        "manufacturer": "B. Braun Medical Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "MAGNESIUM CHLORIDE"
+    },
+    {
+        "genericName": "SOTALOL HYDROCHLORIDE TABLES AF",
+        "manufacturer": "Bayshore Pharmaceuticals LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SOTALOL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ZIPRASIDONE HYDROCHLORIDE",
+        "manufacturer": "Roerig",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ZIPRASIDONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "CICLOPIROX",
+        "manufacturer": "Bausch Health US, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "CICLOPIROX"
+    },
+    {
+        "genericName": "MEMANTINE HYDROCHLORIDE",
+        "manufacturer": "Actavis Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MEMANTINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "BETHANECHOL CHLORIDE",
+        "manufacturer": "Upsher-Smith Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "BETHANECHOL CHLORIDE"
+    },
+    {
+        "genericName": "DICLOFENAC SODIUM",
+        "manufacturer": "Publix Super Markets Inc",
+        "productType": "HUMAN OTC DRUG",
+        "route": "TOPICAL",
+        "substanceName": "DICLOFENAC SODIUM"
+    },
+    {
+        "genericName": "SODIUM NITROPRUSSIDE",
+        "manufacturer": "Dr.Reddy's Laboratories Inc.,",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "SODIUM NITROPRUSSIDE"
+    },
+    {
+        "genericName": "PROPRANOLOL HYDROCHLORIDE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PROPRANOLOL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "NALOXONE HYDROCHLORIDE",
+        "manufacturer": "AuroMedics Pharma LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "NALOXONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "AMPHETAMINE SULFATE",
+        "manufacturer": "Havix Group Inc d-b-a Aavis Pharmaceuticals",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMPHETAMINE SULFATE"
+    },
+    {
+        "genericName": "DEFERASIROX ORAL",
+        "manufacturer": "Ascend Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DEFERASIROX"
+    },
+    {
+        "genericName": "OXYBUTYNIN CHLORIDE",
+        "manufacturer": "Advagen Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "OXYBUTYNIN CHLORIDE"
+    },
+    {
+        "genericName": "FINGOLIMOD LAURYL SULFATE",
+        "manufacturer": "Cycle Pharmaceuticals Ltd",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "FINGOLIMOD LAURYL SULFATE"
+    },
+    {
+        "genericName": "DORZOLAMIDE HYDROCHLORIDE",
+        "manufacturer": "Gland Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "DORZOLAMIDE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "GENTAMICIN",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "GENTAMICIN SULFATE"
+    },
+    {
+        "genericName": "CYCLOSPORINE",
+        "manufacturer": "Teva Pharmaceuticals USA, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CYCLOSPORINE"
+    },
+    {
+        "genericName": "TRAZODONE HYDROCHLORIDE",
+        "manufacturer": "Oxford Pharmaceuticals, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TRAZODONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TRETINOIN",
+        "manufacturer": "Padagis US LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "TRETINOIN"
+    },
+    {
+        "genericName": "ISOTRETINOIN",
+        "manufacturer": "Teva Pharmaceuticals USA, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ISOTRETINOIN"
+    },
+    {
+        "genericName": "AMIODARONE HYDROCHLORIDE",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMIODARONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TRETINOIN",
+        "manufacturer": "Bausch Health US, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "TRETINOIN"
+    },
+    {
+        "genericName": "MEPIVACAINE HYDROCHLORIDE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "EPIDURAL",
+        "substanceName": "MEPIVACAINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "SULCONAZOLE NITRATE",
+        "manufacturer": "Journey Medical Corporation",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "SULCONAZOLE NITRATE"
+    },
+    {
+        "genericName": "LOSARTAN POTASSIUM AND HYDROCHLOROTHIAZIDE",
+        "manufacturer": "Alembic Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROCHLOROTHIAZIDE"
+    },
+    {
+        "genericName": "AMOXICILLIN AND CLAVULANATE POTASSIUM",
+        "manufacturer": "NorthStar Rx LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMOXICILLIN"
+    },
+    {
+        "genericName": "RIZATRIPTAN BENZOATE",
+        "manufacturer": "Glenmark Pharmaceuticals Inc., USA",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RIZATRIPTAN BENZOATE"
+    },
+    {
+        "genericName": "AZELASTINE HYDROCHLORIDE",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAOCULAR",
+        "substanceName": "AZELASTINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "SILDENAFIL",
+        "manufacturer": "XLCARE Pharmaceuticals INC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SILDENAFIL CITRATE"
+    },
+    {
+        "genericName": "VIGABATRIN",
+        "manufacturer": "Par Pharmaceutical, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VIGABATRIN"
+    },
+    {
+        "genericName": "MONTELUKAST SODIUM",
+        "manufacturer": "Unichem Pharmaceuticals (USA), Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MONTELUKAST SODIUM"
+    },
+    {
+        "genericName": "TADALAFIL",
+        "manufacturer": "Amneal Pharmaceuticals NY LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TADALAFIL"
+    },
+    {
+        "genericName": "TELMISARTAN AND HYDROCHLOROTHIAZIDE",
+        "manufacturer": "Alembic Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROCHLOROTHIAZIDE"
+    },
+    {
+        "genericName": "KETOROLAC TROMETHAMINE",
+        "manufacturer": "Micro Labs Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "KETOROLAC TROMETHAMINE"
+    },
+    {
+        "genericName": "DESVENLAFAXINE SUCCINATE",
+        "manufacturer": "Lupin Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DESVENLAFAXINE SUCCINATE"
+    },
+    {
+        "genericName": "TESTOSTERONE",
+        "manufacturer": "Actavis Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TRANSDERMAL",
+        "substanceName": "TESTOSTERONE"
+    },
+    {
+        "genericName": "FESOTERODINE FUMARATE",
+        "manufacturer": "Zydus Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "FESOTERODINE FUMARATE"
+    },
+    {
+        "genericName": "IOHEXOL",
+        "manufacturer": "Interpharma Praha, a.s.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "IOHEXOL"
+    },
+    {
+        "genericName": "ARIPIPRAZOLE",
+        "manufacturer": "Ajanta Pharma USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ARIPIPRAZOLE"
+    },
+    {
+        "genericName": "DEXMEDETOMIDINE HYDROCHLORIDE",
+        "manufacturer": "WG Critical Care, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DEXMEDETOMIDINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ZOLMITRIPTAN",
+        "manufacturer": "Rising Pharma Holdings, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ZOLMITRIPTAN"
+    },
+    {
+        "genericName": "METFORMIN HYDROCHLORIDE",
+        "manufacturer": "Bayshore Pharmaceuticals LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "METFORMIN HYDROCHLORIDE"
+    },
+    {
+        "genericName": "LEVALBUTEROL INHALATION SOLUTION",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "LEVALBUTEROL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "LOPERAMIDE HYDROCHLORIDE",
+        "manufacturer": "ASSURED / DOLLAR TREE (Greenbrier International, Inc.)",
+        "productType": "HUMAN OTC DRUG",
+        "route": "ORAL",
+        "substanceName": "LOPERAMIDE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TRALOKINUMAB-LDRM",
+        "manufacturer": "LEO Pharma Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "TRALOKINUMAB"
+    },
+    {
+        "genericName": "PARICALCITOL",
+        "manufacturer": "AbbVie Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "PARICALCITOL"
+    },
+    {
+        "genericName": "ESOMEPRAZOLE MAGNESIUM",
+        "manufacturer": "AstraZeneca Pharmaceuticals LP",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ESOMEPRAZOLE MAGNESIUM"
+    },
+    {
+        "genericName": "BETHANECHOL CHLORIDE",
+        "manufacturer": "Upsher-Smith Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "BETHANECHOL CHLORIDE"
+    },
+    {
+        "genericName": "EZETIMIBE",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "EZETIMIBE"
+    },
+    {
+        "genericName": "PAROXETINE",
+        "manufacturer": "Yiling Pharmaceutical, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PAROXETINE HYDROCHLORIDE HEMIHYDRATE"
+    },
+    {
+        "genericName": "TRETINOIN",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "TRETINOIN"
+    },
+    {
+        "genericName": "ISOPROTERENOL HYDROCHLORIDE",
+        "manufacturer": "Amphastar Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRACARDIAC",
+        "substanceName": "ISOPROTERENOL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "DAPTOMYCIN",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DAPTOMYCIN"
+    },
+    {
+        "genericName": "MORPHINE SULFATE",
+        "manufacturer": "Ascend Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MORPHINE SULFATE"
+    },
+    {
+        "genericName": "ENALAPRIL",
+        "manufacturer": "Amneal Pharmaceuticals NY LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ENALAPRIL MALEATE"
+    },
+    {
+        "genericName": "MICAFUNGIN SODIUM",
+        "manufacturer": "Sagent Pharmaceuticals",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "MICAFUNGIN SODIUM"
+    },
+    {
+        "genericName": "TOLTERODINE TARTRATE",
+        "manufacturer": "Slate Run Pharmaceuticals, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TOLTERODINE TARTRATE"
+    },
+    {
+        "genericName": "PEMETREXED DISODIUM",
+        "manufacturer": "Accord Healthcare Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "PEMETREXED DISODIUM HEMIPENTAHYDRATE"
+    },
+    {
+        "genericName": "DEUCRAVACITINIB",
+        "manufacturer": "E.R. Squibb & Sons, L.L.C.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DEUCRAVACITINIB"
+    },
+    {
+        "genericName": "LINCOMYCIN HYDROCHLORIDE",
+        "manufacturer": "Gland Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "LINCOMYCIN HYDROCHLORIDE"
+    },
+    {
+        "genericName": "AMINOCAPROIC ACID",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMINOCAPROIC ACID"
+    },
+    {
+        "genericName": "CEFOTAXIME",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "CEFOTAXIME SODIUM"
+    },
+    {
+        "genericName": "CEFAZOLIN",
+        "manufacturer": "Hospira, Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CEFAZOLIN SODIUM"
+    },
+    {
+        "genericName": "NORTRIPTYLINE HYDROCHLORIDE",
+        "manufacturer": "Mayne Pharma Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NORTRIPTYLINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ALPRAZOLAM",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ALPRAZOLAM"
+    },
+    {
+        "genericName": "RIMANTADINE HYDROCHLORIDE",
+        "manufacturer": "Amneal Pharmaceuticals of New York LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RIMANTADINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "DIGOXIN",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DIGOXIN"
+    },
+    {
+        "genericName": "FLUOROURACIL",
+        "manufacturer": "Mayne Pharma Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "FLUOROURACIL"
+    },
+    {
+        "genericName": "ABACAVIR",
+        "manufacturer": "Cipla USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ABACAVIR SULFATE"
+    },
+    {
+        "genericName": "ATOMOXETINE",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ATOMOXETINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "HYDROCHLOROTHIAZIDE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROCHLOROTHIAZIDE"
+    },
+    {
+        "genericName": "FUROSEMIDE",
+        "manufacturer": "Hospira, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "FUROSEMIDE"
+    },
+    {
+        "genericName": "CHLORZOXAZONE",
+        "manufacturer": "Actavis Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CHLORZOXAZONE"
+    },
+    {
+        "genericName": "METFORMIN HYDROCHLORIDE",
+        "manufacturer": "TIME CAP LABORATORIES, INC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "METFORMIN HYDROCHLORIDE"
+    },
+    {
+        "genericName": "SULFAMETHOXAZOLE AND TRIMETHOPRIM",
+        "manufacturer": "PAI Holdings, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SULFAMETHOXAZOLE"
+    },
+    {
+        "genericName": "DISULFIRAM",
+        "manufacturer": "Sigmapharm Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DISULFIRAM"
+    },
+    {
+        "genericName": "AMOXICILLIN AND CLAVULANATE POTASSIUM",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMOXICILLIN"
+    },
+    {
+        "genericName": "DUTASTERIDE",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DUTASTERIDE"
+    },
+    {
+        "genericName": "LIDOCAINE HYDROCHLORIDE ANHYDROUS AND DEXTROSE MONOHYDRATE",
+        "manufacturer": "B. Braun Medical Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DEXTROSE MONOHYDRATE"
+    },
+    {
+        "genericName": "COLCHICINE",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "COLCHICINE"
+    },
+    {
+        "genericName": "SELENIOUS ACID",
+        "manufacturer": "American Regent, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "SELENIUM"
+    },
+    {
+        "genericName": "SILODOSIN",
+        "manufacturer": "Amneal Pharmaceuticals NY LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SILODOSIN"
+    },
+    {
+        "genericName": "OLMESARTAN MEDOXOMIL",
+        "manufacturer": "Alembic Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "OLMESARTAN MEDOXOMIL"
+    },
+    {
+        "genericName": "NIACIN",
+        "manufacturer": "Amneal Pharmaceuticals LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "NIACIN"
+    },
+    {
+        "genericName": "TESTOSTERONE",
+        "manufacturer": "Actavis Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "TESTOSTERONE"
+    },
+    {
+        "genericName": "FEBUXOSTAT",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "FEBUXOSTAT"
+    },
+    {
+        "genericName": "DOXYLAMINE SUCCINATE AND PYRIDOXINE HYDROCHLORIDE",
+        "manufacturer": "Actavis Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DOXYLAMINE SUCCINATE"
+    },
+    {
+        "genericName": "AMMONIA N-13",
+        "manufacturer": "Massachusetts General Hospital",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "AMMONIA N-13"
+    },
+    {
+        "genericName": "SOTALOL HYDROCHLORIDE",
+        "manufacturer": "Bayshore Pharmaceuticals LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SOTALOL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "FEBUXOSTAT",
+        "manufacturer": "Takeda Pharmaceuticals America, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "FEBUXOSTAT"
+    },
+    {
+        "genericName": "DOCETAXEL",
+        "manufacturer": "Hospira, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DOCETAXEL"
+    },
+    {
+        "genericName": "EVINACUMAB",
+        "manufacturer": "Regeneron Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "EVINACUMAB"
+    },
+    {
+        "genericName": "CITALOPRAM",
+        "manufacturer": "Allergan, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CITALOPRAM HYDROBROMIDE"
+    },
+    {
+        "genericName": "CARBIDOPA, LEVODOPA AND ENTACAPONE",
+        "manufacturer": "Wockhardt USA LLC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CARBIDOPA"
+    },
+    {
+        "genericName": "BETHANECHOL CHLORIDE",
+        "manufacturer": "Upsher-Smith Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "BETHANECHOL CHLORIDE"
+    },
+    {
+        "genericName": "LAROTRECTINIB",
+        "manufacturer": "Loxo Oncology, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LAROTRECTINIB"
+    },
+    {
+        "genericName": "COLCHICINE",
+        "manufacturer": "Ascend Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "COLCHICINE"
+    },
+    {
+        "genericName": "METHYLPHENIDATE HYDROCHLORIDE",
+        "manufacturer": "Ascend Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "METHYLPHENIDATE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "DIMETHYL FUMARATE",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DIMETHYL FUMARATE"
+    },
+    {
+        "genericName": "LEVORPHANOL TARTRATE",
+        "manufacturer": "SpecGx LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LEVORPHANOL TARTRATE"
+    },
+    {
+        "genericName": "URSODIOL",
+        "manufacturer": "Eywa Pharma Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "URSODIOL"
+    },
+    {
+        "genericName": "LEVAMLODIPINE",
+        "manufacturer": "CSPC Ouyi Pharmaceutical Co. Ltd",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LEVAMLODIPINE MALEATE"
+    },
+    {
+        "genericName": "DEXTROAMPHETAMINE SACCHARATE, AMPHETAMINE ASPARTATE MONOHYDRATE, DEXTROAMPHETAMINE SULFATE AND AMPHETAMINE SULFATE",
+        "manufacturer": "Ascent Pharmaceuticals, Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+    },
+    {
+        "genericName": "GANIRELIX ACETATE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "GANIRELIX ACETATE"
+    },
+    {
+        "genericName": "PENICILLIN G BENZATHINE AND PENICILLIN G PROCAINE",
+        "manufacturer": "Pfizer Laboratories Div Pfizer Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "PENICILLIN G BENZATHINE"
+    },
+    {
+        "genericName": "CLINDAMYCIN PHOSPHATE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CLINDAMYCIN PHOSPHATE"
+    },
+    {
+        "genericName": "DILTIAZEM HYDROCHLORIDE",
+        "manufacturer": "Athenex Pharmaceutical Division, LLC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DILTIAZEM HYDROCHLORIDE"
+    },
+    {
+        "genericName": "IBUPROFEN",
+        "manufacturer": "Aldi, Inc",
+        "productType": "HUMAN OTC DRUG",
+        "route": "ORAL",
+        "substanceName": "IBUPROFEN"
+    },
+    {
+        "genericName": "OXAPROZIN",
+        "manufacturer": "Eon Labs, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "OXAPROZIN"
+    },
+    {
+        "genericName": "OLANZAPINE",
+        "manufacturer": "Dr. Reddy's Laboratories Ltd.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "OLANZAPINE"
+    },
+    {
+        "genericName": "CALCITRIOL",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CALCITRIOL"
+    },
+    {
+        "genericName": "IRINOTECAN HYDROCHLORIDE",
+        "manufacturer": "Areva Pharmaceuticals,Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "IRINOTECAN HYDROCHLORIDE"
+    },
+    {
+        "genericName": "GABAPENTIN",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "GABAPENTIN"
+    },
+    {
+        "genericName": "ATOMOXETINE",
+        "manufacturer": "Zydus Pharmaceuticals (USA) Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ATOMOXETINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "HYDROCHLOROTHIAZIDE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROCHLOROTHIAZIDE"
+    },
+    {
+        "genericName": "MEPIVACAINE HYDROCHLORIDE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INFILTRATION",
+        "substanceName": "MEPIVACAINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "PANTOPRAZOLE SODIUM",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "PANTOPRAZOLE SODIUM"
+    },
+    {
+        "genericName": "METOPROLOL SUCCINATE",
+        "manufacturer": "BluePoint Laboratories",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "METOPROLOL SUCCINATE"
+    },
+    {
+        "genericName": "RANITIDINE HYDROCHLORIDE",
+        "manufacturer": "Lannett Company, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RANITIDINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TIGECYCLINE",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "TIGECYCLINE"
+    },
+    {
+        "genericName": "LIDOCAINE HYDROCHLORIDE",
+        "manufacturer": "Sagent Pharmaceuticals",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "LIDOCAINE HYDROCHLORIDE ANHYDROUS"
+    },
+    {
+        "genericName": "OXYCODONE HYDROCHLORIDE",
+        "manufacturer": "Epic Pharma, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "OXYCODONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "LOTEPREDNOL ETABONATE",
+        "manufacturer": "Bausch & Lomb Incorporated",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "LOTEPREDNOL ETABONATE"
+    },
+    {
+        "genericName": "TIZANIDINE HYDROCHLORIDE",
+        "manufacturer": "Cadila Healthcare Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TIZANIDINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "BETIATIDE",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "BETIATIDE"
+    },
+    {
+        "genericName": "BUPROPION HYDROCHLORIDE",
+        "manufacturer": "Alembic Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "BUPROPION HYDROCHLORIDE"
+    },
+    {
+        "genericName": "AZITHROMYCIN DIHYDRATE",
+        "manufacturer": "Slate Run Pharmaceuticals",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "AZITHROMYCIN DIHYDRATE"
+    },
+    {
+        "genericName": "CLOZAPINE",
+        "manufacturer": "Mayne Pharma",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CLOZAPINE"
+    },
+    {
+        "genericName": "RABEPRAZOLE",
+        "manufacturer": "Amneal Pharmaceuticals LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RABEPRAZOLE SODIUM"
+    },
+    {
+        "genericName": "RIVASTIGMINE TARTRATE",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RIVASTIGMINE TARTRATE"
+    },
+    {
+        "genericName": "PARICALCITOL",
+        "manufacturer": "MARKSANS PHARMA LIMITED",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PARICALCITOL"
+    },
+    {
+        "genericName": "MORPHINE SULFATE",
+        "manufacturer": "Mayne Pharma Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MORPHINE SULFATE"
+    },
+    {
+        "genericName": "HYDROMORPHONE HYDROCHLORIDE",
+        "manufacturer": "Aurolife Pharma, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROMORPHONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "AMLODIPINE, VALSARTAN AND HYDROCHLOROTHIAZIDE",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMLODIPINE BESYLATE"
+    },
+    {
+        "genericName": "CALCIUM CHLORIDE, MAGNESIUM CHLORIDE, SODIUM CHLORIDE, SODIUM BICARBONATE, POTASSIUM CHLORIDE AND SODIUM PHOSPHATE DIBASIC DIHYDRATE",
+        "manufacturer": "Baxter Healthcare Corporation",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CALCIUM CHLORIDE"
+    },
+    {
+        "genericName": "AMLODIPINE BESYLATE",
+        "manufacturer": "Marlex Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMLODIPINE BESYLATE"
+    },
+    {
+        "genericName": "TEPLIZUMAB-MZWV",
+        "manufacturer": "Provention Bio, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "TEPLIZUMAB"
+    },
+    {
+        "genericName": "PHENYTOIN",
+        "manufacturer": "VistaPharm, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PHENYTOIN"
+    },
+    {
+        "genericName": "BETHANECHOL CHLORIDE",
+        "manufacturer": "Upsher-Smith Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "BETHANECHOL CHLORIDE"
+    },
+    {
+        "genericName": "TRIENTINE HYDROCHLORIDE",
+        "manufacturer": "Lannett Company Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TRIENTINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "POTASSIUM CHLORIDE",
+        "manufacturer": "Kesin Pharma Corporation",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "POTASSIUM CHLORIDE"
+    },
+    {
+        "genericName": "APOMORPHINE HYDROCHLORIDE",
+        "manufacturer": "TruPharma, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "APOMORPHINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "LEFLUNOMIDE",
+        "manufacturer": "KVK-Tech, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LEFLUNOMIDE"
+    },
+    {
+        "genericName": "CHLORPROMAZINE HYDROCHLORIDE",
+        "manufacturer": "Cadila Healthcare Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CHLORPROMAZINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "FENOFIBRATE",
+        "manufacturer": "Lifestar Pharma LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "FENOFIBRATE"
+    },
+    {
+        "genericName": "VIGABATRIN",
+        "manufacturer": "Elite Laboratories, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VIGABATRIN"
+    },
+    {
+        "genericName": "PENICILLIN G BENZATHINE",
+        "manufacturer": "Pfizer Laboratories Div Pfizer Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "PENICILLIN G BENZATHINE"
+    },
+    {
+        "genericName": "CLINDAMYCIN PHOSPHATE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "CLINDAMYCIN PHOSPHATE"
+    },
+    {
+        "genericName": "TRETINOIN",
+        "manufacturer": "Padagis US LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "TRETINOIN"
+    },
+    {
+        "genericName": "LORATADINE",
+        "manufacturer": "Publix Super Markets Inc",
+        "productType": "HUMAN OTC DRUG",
+        "route": "ORAL",
+        "substanceName": "LORATADINE"
+    },
+    {
+        "genericName": "PERMETHRIN",
+        "manufacturer": "Padagis Israel Pharmaceuticals Ltd",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "PERMETHRIN"
+    },
+    {
+        "genericName": "RIBAVIRIN",
+        "manufacturer": "Zydus Lifesciences Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RIBAVIRIN"
+    },
+    {
+        "genericName": "CARBIDOPA AND LEVODOPA",
+        "manufacturer": "Sun Pharmaceutical Industries, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CARBIDOPA"
+    },
+    {
+        "genericName": "POTASSIUM CHLORIDE, DEXTROSE MONOHYDRATE AND SODIUM CHLORIDE",
+        "manufacturer": "Baxter Healthcare Corporation",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "DEXTROSE MONOHYDRATE"
+    },
+    {
+        "genericName": "PREDNISONE",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PREDNISONE"
+    },
+    {
+        "genericName": "LIDOCAINE HYDROCHLORIDE AND EPINEPHRINE BITARTRATE",
+        "manufacturer": "Benco Dental",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBCUTANEOUS",
+        "substanceName": "EPINEPHRINE BITARTRATE"
+    },
+    {
+        "genericName": "BUPRENORPHINE HYDROCHLORIDE",
+        "manufacturer": "Akorn Operating Company LLC (dba Akorn)",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "SUBLINGUAL",
+        "substanceName": "BUPRENORPHINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "ABACAVIR SULFATE",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ABACAVIR SULFATE"
+    },
+    {
+        "genericName": "ISOSORBIDE MONONITRATE",
+        "manufacturer": "Torrent Pharmaceuticals Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ISOSORBIDE MONONITRATE"
+    },
+    {
+        "genericName": "QUETIAPINE",
+        "manufacturer": "BluePoint Laboratories",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "QUETIAPINE FUMARATE"
+    },
+    {
+        "genericName": "INDIUM IN-111 OXYQUINOLINE",
+        "manufacturer": "Medi-Physics Inc. dba GE Healthcare.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "INDIUM IN-111 OXYQUINOLINE"
+    },
+    {
+        "genericName": "FENTANYL CITRATE",
+        "manufacturer": "Hikma Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "FENTANYL CITRATE"
+    },
+    {
+        "genericName": "ARSENIC TRIOXIDE",
+        "manufacturer": "Fresenius Kabi USA, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "ARSENIC TRIOXIDE"
+    },
+    {
+        "genericName": "AMINOLEVULINIC ACID HYDROCHLORIDE",
+        "manufacturer": "Medexus Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMINOLEVULINIC ACID HYDROCHLORIDE"
+    },
+    {
+        "genericName": "PSEUDOEPHEDRINE HCL",
+        "manufacturer": "Aurohealth LLC",
+        "productType": "HUMAN OTC DRUG",
+        "route": "ORAL",
+        "substanceName": "PSEUDOEPHEDRINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "TESTOSTERONE",
+        "manufacturer": "TWi Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TRANSDERMAL",
+        "substanceName": "TESTOSTERONE"
+    },
+    {
+        "genericName": "CLONIDINE HYDROCHLORIDE",
+        "manufacturer": "Xiamen LP Pharmaceutical Co., Ltd.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CLONIDINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "IRBESARTAN",
+        "manufacturer": "Unichem Pharmaceuticals (USA), Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "IRBESARTAN"
+    },
+    {
+        "genericName": "AMMONIA N-13",
+        "manufacturer": "University of California, Los Angeles",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "AMMONIA N-13"
+    },
+    {
+        "genericName": "BUTALBITAL, ASPIRIN AND CAFFEINE",
+        "manufacturer": "Vensun Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ASPIRIN"
+    },
+    {
+        "genericName": "ACETAMINOPHEN",
+        "manufacturer": "B. Braun Medical Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "ACETAMINOPHEN"
+    },
+    {
+        "genericName": "OLMESARTAN MEDOXOMIL AND HYDROCHLOROTHIAZIDE",
+        "manufacturer": "Aurobindo Pharma Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROCHLOROTHIAZIDE"
+    },
+    {
+        "genericName": "OXYGEN",
+        "manufacturer": "Messer Gas Puerto Rico, Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RESPIRATORY (INHALATION)",
+        "substanceName": "OXYGEN"
+    },
+    {
+        "genericName": "CYTARABINE",
+        "manufacturer": "Meitheal Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CYTARABINE"
+    },
+    {
+        "genericName": "DIFLORASONE DIACETATE",
+        "manufacturer": "Rising Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "DIFLORASONE DIACETATE"
+    },
+    {
+        "genericName": "BENDAMUSTINE HYDROCHLORIDE",
+        "manufacturer": "Cephalon, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "BENDAMUSTINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "EFGARTIGIMOD ALFA",
+        "manufacturer": "argenx US",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "EFGARTIGIMOD ALFA"
+    },
+    {
+        "genericName": "MONTELUKAST SODIUM",
+        "manufacturer": "Organon LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MONTELUKAST SODIUM"
+    },
+    {
+        "genericName": "DESLORATADINE",
+        "manufacturer": "Organon LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DESLORATADINE"
+    },
+    {
+        "genericName": "ISOPROPYL ALCOHOL",
+        "manufacturer": "Zurex Pharma, Inc.",
+        "productType": "HUMAN OTC DRUG",
+        "route": "TOPICAL",
+        "substanceName": "ISOPROPYL ALCOHOL"
+    },
+    {
+        "genericName": "CASPOFUNGIN ACETATE",
+        "manufacturer": "UBI Pharma Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "CASPOFUNGIN ACETATE"
+    },
+    {
+        "genericName": "MESALAMINE",
+        "manufacturer": "Amneal Pharmaceuticals NY LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "RECTAL",
+        "substanceName": "MESALAMINE"
+    },
+    {
+        "genericName": "TIVOZANIB",
+        "manufacturer": "AVEO Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TIVOZANIB HYDROCHLORIDE"
+    },
+    {
+        "genericName": "OLANZAPINE AND SAMIDORPHAN L-MALATE",
+        "manufacturer": "Alkermes, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "OLANZAPINE"
+    },
+    {
+        "genericName": "PROCHLORPERAZINE EDISYLATE",
+        "manufacturer": "AuroMedics Pharma LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "PROCHLORPERAZINE EDISYLATE"
+    },
+    {
+        "genericName": "POTASSIUM CHLORIDE",
+        "manufacturer": "Camber Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "POTASSIUM CHLORIDE"
+    },
+    {
+        "genericName": "PROCHLORPERAZINE MALEATE",
+        "manufacturer": "Zydus Pharmaceuticals (USA) Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "PROCHLORPERAZINE MALEATE"
+    },
+    {
+        "genericName": "MECLOFENAMATE SODIUM",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MECLOFENAMATE SODIUM"
+    },
+    {
+        "genericName": "BUTORPHANOL TARTRATE",
+        "manufacturer": "Hospira, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "BUTORPHANOL TARTRATE"
+    },
+    {
+        "genericName": "SOTALOL HYDROCHLORIDE",
+        "manufacturer": "Oxford Pharmaceuticals, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SOTALOL HYDROCHLORIDE"
+    },
+    {
+        "genericName": "LACTULOSE SOLUTION USP, 10 G/15 ML",
+        "manufacturer": "Bajaj Medical, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LACTULOSE"
+    },
+    {
+        "genericName": "LEVETIRACETAM",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LEVETIRACETAM"
+    },
+    {
+        "genericName": "LAMIVUDINE",
+        "manufacturer": "Cipla USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "LAMIVUDINE"
+    },
+    {
+        "genericName": "RANITIDINE",
+        "manufacturer": "Amneal Pharmaceuticals of New York LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "RANITIDINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "AMLODIPINE BESYLATE",
+        "manufacturer": "Oxford Pharmaceuticals, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "AMLODIPINE BESYLATE"
+    },
+    {
+        "genericName": "TELMISARTAN",
+        "manufacturer": "CELLTRION USA, INC.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TELMISARTAN"
+    },
+    {
+        "genericName": "HYDROCORTISONE",
+        "manufacturer": "E. Fougera & Co. a division of Fougera Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TOPICAL",
+        "substanceName": "HYDROCORTISONE"
+    },
+    {
+        "genericName": "NITROGLYCERIN TRANSDERMAL SYSTEM",
+        "manufacturer": "Zydus Pharmaceuticals USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "TRANSDERMAL",
+        "substanceName": "NITROGLYCERIN"
+    },
+    {
+        "genericName": "SUCRALFATE",
+        "manufacturer": "Greenstone LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "SUCRALFATE"
+    },
+    {
+        "genericName": "IBUPROFEN AND DIPHENHYDRAMINE CITRATE",
+        "manufacturer": "Dr. Reddy's Laboratories Limited",
+        "productType": "HUMAN OTC DRUG",
+        "route": "ORAL",
+        "substanceName": "DIPHENHYDRAMINE CITRATE"
+    },
+    {
+        "genericName": "THIAMINE HYDROCHLORIDE",
+        "manufacturer": "Mylan Institutional LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "THIAMINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "VORICONAZOLE",
+        "manufacturer": "Sandoz Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VORICONAZOLE"
+    },
+    {
+        "genericName": "CARBAMAZEPINE",
+        "manufacturer": "Taro Pharmaceuticals U.S.A., Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CARBAMAZEPINE"
+    },
+    {
+        "genericName": "MINOCYCLINE HYDROCHLORIDE",
+        "manufacturer": "JG Pharma, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MINOCYCLINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "DORZOLAMIDE HYDROCHLORIDE AND TIMOLOL MALEATE",
+        "manufacturer": "Thea Pharma Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "DORZOLAMIDE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "LEVONORGESTREL",
+        "manufacturer": "Bayer HealthCare Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAUTERINE",
+        "substanceName": "LEVONORGESTREL"
+    },
+    {
+        "genericName": "HYDROCHLOROTHIAZIDE",
+        "manufacturer": "ScieGen Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROCHLOROTHIAZIDE"
+    },
+    {
+        "genericName": "ALOGLIPTIN AND METFORMIN HYDROCHLORIDE",
+        "manufacturer": "Takeda Pharmaceuticals America, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ALOGLIPTIN BENZOATE"
+    },
+    {
+        "genericName": "GEMFIBROZIL",
+        "manufacturer": "Cadila Healthcare Limited",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "GEMFIBROZIL"
+    },
+    {
+        "genericName": "GANCICLOVIR",
+        "manufacturer": "Par Pharmaceutical, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAVENOUS",
+        "substanceName": "GANCICLOVIR SODIUM"
+    },
+    {
+        "genericName": "VORICONAZOLE",
+        "manufacturer": "Ajanta Pharma USA Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VORICONAZOLE"
+    },
+    {
+        "genericName": "ZIDOVUDINE",
+        "manufacturer": "ViiV Healthcare Company",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ZIDOVUDINE"
+    },
+    {
+        "genericName": "ELTROMBOPAG OLAMINE",
+        "manufacturer": "Novartis Pharmaceuticals Corporation",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ELTROMBOPAG OLAMINE"
+    },
+    {
+        "genericName": "DESIPRAMINE HYDROCHLORIDE",
+        "manufacturer": "Heritage Pharmaceuticals Inc. d/b/a Avet Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DESIPRAMINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "DOXYLAMINE SUCCINATE AND PYRIDOXINE HYDROCHLORIDE",
+        "manufacturer": "Mylan Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "DOXYLAMINE SUCCINATE"
+    },
+    {
+        "genericName": "ANASTROZOLE",
+        "manufacturer": "ANI Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ANASTROZOLE"
+    },
+    {
+        "genericName": "MICONAZOLE NITRATE",
+        "manufacturer": "Insight Pharmaceuticals LLC",
+        "productType": "HUMAN OTC DRUG",
+        "route": "VAGINAL",
+        "substanceName": "MICONAZOLE NITRATE"
+    },
+    {
+        "genericName": "CALCIUM ACETATE",
+        "manufacturer": "Fresenius Medical Care North America",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "CALCIUM ACETATE"
+    },
+    {
+        "genericName": "MOXIDECTIN",
+        "manufacturer": "Medicines Development for Global Health",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "MOXIDECTIN"
+    },
+    {
+        "genericName": "TACROLIMUS",
+        "manufacturer": "Astellas Pharma US, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TACROLIMUS"
+    },
+    {
+        "genericName": "TALAZOPARIB",
+        "manufacturer": "Pfizer Laboratories Div Pfizer Inc",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "TALAZOPARIB TOSYLATE"
+    },
+    {
+        "genericName": "NALOXONE HYDROCHLORIDE",
+        "manufacturer": "AuroMedics Pharma LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "INTRAMUSCULAR",
+        "substanceName": "NALOXONE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "HYDROXYCHLOROQUINE SULFATE",
+        "manufacturer": "Jubilant Cadista Pharmaceuticals Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "HYDROXYCHLOROQUINE SULFATE"
+    },
+    {
+        "genericName": "VIGABATRIN",
+        "manufacturer": "Ascend Laboratories, LLC",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VIGABATRIN"
+    },
+    {
+        "genericName": "ABROCITINIB",
+        "manufacturer": "U.S. Pharmaceuticals",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "ABROCITINIB"
+    },
+    {
+        "genericName": "VENLAFAXINE",
+        "manufacturer": "XLCare Pharmaceuticals, Inc.",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "ORAL",
+        "substanceName": "VENLAFAXINE HYDROCHLORIDE"
+    },
+    {
+        "genericName": "CYCLOSPORINE",
+        "manufacturer": "Santen Incorporated",
+        "productType": "HUMAN PRESCRIPTION DRUG",
+        "route": "OPHTHALMIC",
+        "substanceName": "CYCLOSPORINE"
+    }
+]

@@ -22,6 +22,8 @@ const {
   fetchTodayWork,
   createRoutine,
   fetchRoutine,
+  fetchMed,
+  createMed,
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -86,5 +88,9 @@ router.get("/work/todayworkrecords", fetchTodayWork)
 router.post("/work/routine", createRoutine)
 router.get("/work/routine", fetchRoutine)
 
+
+//MedicationManagement
+router.post("/medication", createMed)
+router.get("/medication", fetchMed)
 
 module.exports = router;

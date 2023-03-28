@@ -5,6 +5,8 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { useState, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import PageOverviewHeader from "../../components/PageOverviewHeader";
+
+import FinancialStatistic from "../../components/managements/FinancialStatistic";
 import ResidentAccountSummary from "../../components/managements/ResidentAccountSummary";
 import ResidentCost from "../../components/managements/ResidentCost";
 import StaffPayroll from "../../components/managements/StaffPayroll";
@@ -86,7 +88,7 @@ const ManagementFinance = () => {
 
           {/* Tab Content */}
           <TabPanel value="1" sx={{ p: 0 }}>
-            {1}
+            <FinancialStatistic/>
           </TabPanel>
           <TabPanel value="2" sx={{ p: 0 }}>
             {2}

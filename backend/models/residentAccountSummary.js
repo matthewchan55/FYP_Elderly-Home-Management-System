@@ -8,7 +8,7 @@ const rasSchema = new Schema(
       type: Number,
     },
     month: {
-      type: String
+      type: Number
     },
     payDate: {
       type: Date,

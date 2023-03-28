@@ -14,6 +14,8 @@ const Searchbar = ({ title}) => {
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
+
+    // theme.breakpoints.down =]
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
       width: "auto",

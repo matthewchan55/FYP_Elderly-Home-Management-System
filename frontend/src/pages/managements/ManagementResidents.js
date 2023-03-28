@@ -17,7 +17,7 @@ import ResidentForm from "../../components/forms/ManagementForm/ResidentForm";
 import ResidentPreview from "../../components/managements/ResidentPreview";
 import TableDelete from "../../components/TableDelete";
 import SmallAlert from "../../components/SmallAlert";
-import ResidentRoutineRecords from "../../components/managements/ResidentRoutineRecords";
+import ResidentRoutineManagement from "../../components/managements/ResidentRoutineManagement";
 
 const ManagementResidents = () => {
   // Data
@@ -275,8 +275,6 @@ const ManagementResidents = () => {
               <Tab label="Resident details" value="2" />
               <Tab label="Resident Routine management" value="3" />
               <Tab label="Routine records" value="4" />
-              <Tab label="Resident Medication management" value="5" />
-              <Tab label="Medication records" value="6" />
             </TabList>
           </Box>
 
@@ -290,9 +288,9 @@ const ManagementResidents = () => {
             <Paper sx={{mt:3}}>{resInfoData && <CustomDataGrid />}</Paper>
           </TabPanel>
           {/* 3. Routine Record */}
-          <TabPanel value="3" sx={{p:0}}><ResidentRoutineRecords data={resInfoData}/></TabPanel>
+          <TabPanel value="3" sx={{p:0}}><ResidentRoutineManagement data={resInfoData}/></TabPanel>
           {/* 4. Medication Record */}
-          <TabPanel value="4" sx={{p:0}}>Medication Record</TabPanel>
+          <TabPanel value="4" sx={{p:0}}>Resident Routine Record</TabPanel>
         </TabContext>
       </Box>
 

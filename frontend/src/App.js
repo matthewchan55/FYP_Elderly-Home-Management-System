@@ -16,7 +16,7 @@ import MedicationManagement from './pages/managements/ManagementMedication'
 import OthersManagement from './pages/managements/ManagementOthers'
 import ResidentsManagement from './pages/managements/ManagementResidents'
 import WorkManagement from './pages/managements/ManagementWork'
-
+import DrawerCaregivers from "./components/DrawerCaregivers"
 import { useAuthContext } from './hook/useAuthContext';
 
 
@@ -29,7 +29,7 @@ function App() {
       case 'admin':
         return <Drawer main={<AdminHome/>}/>
       case 'caregivers':
-        return <Drawer main={<CaregiversHome/>}/>
+        return <DrawerCaregivers main={<CaregiversHome/>}/>
       case 'relatives':
         return <Drawer main={<RelativesHome/>}/>
       default:
