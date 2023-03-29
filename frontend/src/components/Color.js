@@ -5,7 +5,7 @@ export default function Color() {
     palette: {
       neutral: {
         main: "#64748B",
-        contrastText: "#fff",
+        contrastText: "#263238",
       },
       deepBlue: {
         main: "#3f51b5",
@@ -27,6 +27,10 @@ export default function Color() {
         main: "#4615b2",
         contrastText: "#fff",
       },
+      success: {
+        main: "#357a38",
+        light: "#6fbf73"
+      }
     },
   });
 

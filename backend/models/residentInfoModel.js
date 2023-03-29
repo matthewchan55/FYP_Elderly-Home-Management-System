@@ -63,6 +63,15 @@ const residentInfoSchema = new Schema(
     updatedBy: {
       type: String,
     },
+    //routine & med info
+    todayResidentRoutine: {
+      type: Boolean,
+      default: false,
+    },
+    todayMedicationRoutine: {
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true }
 );

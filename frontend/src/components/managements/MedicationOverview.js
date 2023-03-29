@@ -6,20 +6,26 @@ import {
   Box,
   Avatar,
   IconButton,
+  Divider,
 } from "@mui/material";
 import { Controls } from "../controls/Controls";
 import { Chart } from "react-google-charts";
 import { useEffect, useState } from "react";
-import Searchbar from "../Searchbar"
-
+import Searchbar from "../Searchbar";
+import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import TableActionButton from "../TableActionButton";
 import useDataGrid from "../../hook/useDataGrid";
 import { useGridApiRef } from "@mui/x-data-grid";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import AddIcon from "@mui/icons-material/Add";
+import SearchIcon from "@mui/icons-material/Search";
+import { styled, alpha, InputBase } from "@mui/material";
+
+
 const MedicationOverview = ({ data }) => {
   const [grouped, setGrouped] = useState();
   const [resData, setResData] = useState();
-
+  const [text, setText] = useState("");
   const apiRef = useGridApiRef();
   const { ActionButton } = TableActionButton();
 
@@ -145,7 +151,6 @@ const MedicationOverview = ({ data }) => {
     fetchResident();
   }, []);
 
-  console.log(data && data[0]);
   const { CustomDataGrid } = useDataGrid(
     apiRef,
     tableHeaders,
@@ -153,6 +158,7 @@ const MedicationOverview = ({ data }) => {
     "_MedicationTable"
   );
 
+  console.log(text);
   // later change to component
   function stringToColor(string) {
     let hash = 0;
@@ -205,6 +211,51 @@ const MedicationOverview = ({ data }) => {
       </Box>
     );
   }
+
+  // to be deleted
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    padding: 5,
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.1),
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.15),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: "100%",
+
+    // theme.breakpoints.down =]
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(3),
+      width: "auto",
+    },
+    flexGrow: "1",
+  }));
+
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "85%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        width: "22ch",
+      },
+    },
+  }));
 
   return (
     <Grid container>
@@ -286,7 +337,47 @@ const MedicationOverview = ({ data }) => {
 
       {/* 2. Med table */}
       <Grid item xs={12} md>
-        <Searchbar title={"Search medicine by name..."} />
+        <Paper sx={{ marginBottom: 3 }}>
+
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder={"Search medicine by name..."}
+              inputProps={{ "aria-label": "search" }}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+          </Search>
+
+
+          <Divider />
+          <Stack alignItems={"center"} p={6}>
+            <ContentPasteSearchIcon sx={{ fontSize: 100 }} />
+            <Controls.Bold variant="h6">No medicine found</Controls.Bold>
+            <Typography variant="subtitle2">
+              {`"${text}" did not match any medicine from the OpenFDA.`}
+            </Typography>
+            <Typography variant="subtitle2">
+              Would you like to create a new medicine?
+            </Typography>
+            <Stack direction="row" mt={2}>
+              <Controls.Buttons
+                text="View more medicine"
+                color="neutral"
+                variant="outlined"
+              />
+              <Controls.Buttons
+                startIcon={<AddIcon />}
+                text="Add new medicine"
+                color="success"
+                variant="outlined"
+              />
+            </Stack>
+          </Stack>
+        </Paper>
+
         {data && <CustomDataGrid />}
       </Grid>
     </Grid>
