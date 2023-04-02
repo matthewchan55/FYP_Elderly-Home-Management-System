@@ -58,6 +58,7 @@ export default function ResidentPreview(data, floorInfo) {
       handleFloorOnchange();
     }, [floor]);
 
+
     const icon = [
       <ElderlyIcon />,
       <DataThresholdingOutlinedIcon />,

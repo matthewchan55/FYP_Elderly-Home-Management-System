@@ -20,7 +20,7 @@ import { Controls } from "../controls/Controls";
 import Floorplan from "../../assets/floorplan.png";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-const WorkScheduleCaregivers = () => {
+const WorkScheduleCaregiver = () => {
   const [caregiversList, setCaregiversList] = useState();
   const [selected, setSelected] = useState();
   const [roomData, setRoomData] = useState();
@@ -52,17 +52,7 @@ const WorkScheduleCaregivers = () => {
     }
   };
 
-  const fetchFacility = async () => {
-    const resp = await fetch(`/api/management/facility?roomFloor=${floor}`);
-    const respData = await resp.json();
 
-    if (resp.ok) {
-      const bedData = respData.filter(
-        (item) => typeof item.roomNumber === "string" && isNaN(item.roomNumber)
-      );
-      groupRoom(bedData);
-    }
-  };
 
   const groupRoom = (data) => {
     const groupedData = data.reduce((acc, item) => {
@@ -87,6 +77,20 @@ const WorkScheduleCaregivers = () => {
     fetchStaff();
   }, []);
 
+
+  const fetchFacility = async () => {
+    const resp = await fetch(`/api/management/facility?roomFloor=${floor}`);
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      const bedData = respData.filter(
+        (item) => typeof item.roomNumber === "string" && isNaN(item.roomNumber)
+      );
+      groupRoom(bedData);
+    }
+  };
+
+  
   useMemo(() => {
     fetchFacility();
     setRoom([]);
@@ -249,4 +253,4 @@ const WorkScheduleCaregivers = () => {
   );
 };
 
-export default WorkScheduleCaregivers;
+export default WorkScheduleCaregiver;

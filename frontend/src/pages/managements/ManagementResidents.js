@@ -228,6 +228,7 @@ const ManagementResidents = () => {
       setFloorInfo(roomElderly);
     };
 
+
     fetchResInfoData();
   }, [openAddPopup, openEditPopup, openDeletePopup, openClickElderlyPopup]);
 

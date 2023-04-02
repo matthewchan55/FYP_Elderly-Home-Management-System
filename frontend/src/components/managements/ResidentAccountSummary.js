@@ -22,9 +22,13 @@ const ResidentAccountSummary = ({ eld }) => {
   }
 
   function stringDate(date, f) {
-    const dateFormat = f === "date" ? "dd-MM-yyyy" : "dd-MM-yyyy HH:mm";
-    const dateObj = parseISO(date);
-    return format(dateObj, dateFormat);
+    if(date){
+      const dateFormat = f === "date" ? "dd-MM-yyyy" : "dd-MM-yyyy HH:mm";
+      const dateObj = parseISO(date);
+      return format(dateObj, dateFormat);
+    }
+
+    return "N/A"
   }
 
   function sumUpColumns(obj, field) {

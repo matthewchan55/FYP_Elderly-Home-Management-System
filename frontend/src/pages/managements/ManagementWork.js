@@ -6,7 +6,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import WorkOverviewToday from "../../components/managements/WorkOverviewToday";
 import WorkRoutineDetail from "../../components/managements/WorkRoutineDetail";
 import WorkOtherDetail from "../../components/managements/WorkOtherDetail";
-import WorkScheduleCaregivers from "../../components/managements/WorkScheduleCaregivers";
+import WorkScheduleCaregiver from "../../components/managements/WorkScheduleCaregiver";
 
 
 // 1. Work overview (percentage and the TODAY's table to show how many works are done, not yet done)
@@ -81,7 +81,7 @@ const ManagementWork = () => {
             <TabPanel value="1">{records && <WorkOverviewToday data={records}/>}</TabPanel>
             <TabPanel value="2">{records && <WorkRoutineDetail data={records} resData={residentsData}/>}</TabPanel>
             <TabPanel value="3">{records && <WorkOtherDetail data={records} resData={residentsData}/>}</TabPanel>
-            <TabPanel value="4">{<WorkScheduleCaregivers/>}</TabPanel>
+            <TabPanel value="4">{<WorkScheduleCaregiver/>}</TabPanel>
           </TabContext>
         </Box>
       </Paper>

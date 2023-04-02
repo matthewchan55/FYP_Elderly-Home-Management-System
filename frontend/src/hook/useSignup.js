@@ -14,7 +14,7 @@ export const useSignup = () => {
 
     // /api/user/signup comes from 
     // (server.js => app.use('api/user') +  user.js => '/signup')
-    const resp = await fetch("api/user/signup", {
+    const resp = await fetch("/api/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ account, password, userType, staffID }),

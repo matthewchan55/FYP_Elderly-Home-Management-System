@@ -24,6 +24,17 @@ const {
   fetchRoutine,
   fetchMed,
   createMed,
+  createActivity,
+  createCalendar,
+  createDiet,
+  createGallery,
+  createNote,
+  createNotice,
+  updateRoutine_Add,
+  updateRoutine_Del,
+  updateRoutine,
+  updateResident_Add,
+  updateResident_Del
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -44,6 +55,8 @@ router.post("/residents", createResident);
 
 // fetch resident data
 router.patch("/residents/:id", updateResident);
+router.patch("/residents/routineAdd/:id", updateResident_Add)
+router.patch("/residents/routineDel/:id", updateResident_Del)
 
 // fetch resident data
 router.delete("/residents/:id", deleteResident);
@@ -87,10 +100,22 @@ router.get("/work/todayworkrecords", fetchTodayWork)
 //2. Routine
 router.post("/work/routine", createRoutine)
 router.get("/work/routine", fetchRoutine)
-
+router.patch("/work/routine/:id", updateRoutine)
+router.patch("/work/routine/updateAdd/:id", updateRoutine_Add)
+router.patch("/work/routine/updateDel/:id", updateRoutine_Del)
 
 //MedicationManagement
 router.post("/medication", createMed)
 router.get("/medication", fetchMed)
+
+
+
+//Others
+router.post("/activity", createActivity)
+router.post("/calendar", createCalendar)
+router.post("/diet", createDiet)
+router.post("/gallery", createGallery)
+router.post("/note", createNote)
+router.post("/notice", createNotice)
 
 module.exports = router;

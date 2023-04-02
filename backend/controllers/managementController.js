@@ -6,7 +6,12 @@ const ServiceCost = require("../models/serviceCostModel")
 const TodayWorkRecords = require("../models/todayWorkRecord")
 const Routine = require("../models/routineModel")
 const Medication = require("../models/medicationModel")
-
+const Activity = require("../models/activityModel")
+const Calendar = require("../models/calendarModel")
+const Diet = require("../models/dietModel")
+const Gallery = require("../models/galleryModel")
+const Note = require("../models/noteModel")
+const Notice = require("../models/noticeModel")
 
 const mongoose = require("mongoose");
 
@@ -75,6 +80,55 @@ const updateResident = async (req, res) => {
   }
   res.status(200).json(updatedResident);
 };
+
+
+// UPDATE routine (add)
+const updateResident_Add = async(req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such resident"});
+  }
+
+  const updatedResident = await ResInfo.findOneAndUpdate(
+
+    { _id: id },
+    {
+      $addToSet: {...req.body}
+    },
+    { new: true }
+  );
+
+  if (!updatedResident) {
+    return res.status(404).json({ error: "No such resident"});
+  }
+  res.status(200).json(updatedResident);
+}
+
+// UPDATE routine (del)
+const updateResident_Del = async(req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such resident"});
+  }
+
+  const updatedResident = await ResInfo.findOneAndUpdate(
+
+    { _id: id },
+    {
+      $pull: {...req.body}
+    },
+    { new: true }
+  );
+
+  if (!updatedResident) {
+    return res.status(404).json({ error: "No such resident"});
+  }
+  res.status(200).json(updatedResident);
+}
+
+
 
 const deleteResident = async (req, res) => {
   const { id } = req.params;
@@ -309,6 +363,76 @@ const fetchRoutine = async(req, res) => {
   res.status(200).json(routines);
 }
 
+// UPDATE routine
+const updateRoutine = async(req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such routine"});
+  }
+
+  const updatedRoutine = await Routine.findOneAndUpdate(
+
+    { _id: id },
+    {
+      ...req.body
+    },
+    { new: true }
+  );
+
+  if (!updatedRoutine) {
+    return res.status(404).json({ error: "No such routine"});
+  }
+  res.status(200).json(updatedRoutine);
+}
+
+
+
+// UPDATE routine (add)
+const updateRoutine_Add = async(req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such routine"});
+  }
+
+  const updatedRoutine = await Routine.findOneAndUpdate(
+
+    { _id: id },
+    {
+      $addToSet: {...req.body}
+    },
+    { new: true }
+  );
+
+  if (!updatedRoutine) {
+    return res.status(404).json({ error: "No such routine"});
+  }
+  res.status(200).json(updatedRoutine);
+}
+
+// UPDATE routine (del)
+const updateRoutine_Del = async(req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such routine"});
+  }
+
+  const updatedRoutine = await Routine.findOneAndUpdate(
+
+    { _id: id },
+    {
+      $pull: {...req.body}
+    },
+    { new: true }
+  );
+
+  if (!updatedRoutine) {
+    return res.status(404).json({ error: "No such routine"});
+  }
+  res.status(200).json(updatedRoutine);
+}
 
 // Medication management
 
@@ -337,6 +461,73 @@ const fetchMed = async(req, res) => {
 }
 
 
+// post activity
+const createActivity = async (req, res) => {
+  const activityInfo = { ...req.body };
+
+  try {
+    const act = await Activity.create(activityInfo);
+    res.status(200).json(act);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const createCalendar = async (req, res) => {
+  const calendarInfo = { ...req.body };
+
+  try {
+    const calendar = await Calendar.create(calendarInfo);
+    res.status(200).json(calendar);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const createDiet = async (req, res) => {
+  const dietInfo = { ...req.body };
+
+  try {
+    const diet = await Diet.create(dietInfo);
+    res.status(200).json(diet);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+const createGallery = async (req, res) => {
+  const galleryInfo = { ...req.body };
+
+  try {
+    const ga = await Gallery.create(galleryInfo);
+    res.status(200).json(ga);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+const createNote = async (req, res) => {
+  const noteInfo = { ...req.body };
+
+  try {
+    const note = await Note.create(noteInfo);
+    res.status(200).json(note);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+const createNotice = async (req, res) => {
+  const noticeInfo = { ...req.body };
+
+  try {
+    const notice = await Notice.create(noticeInfo);
+    res.status(200).json(notice);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
+
+
 
 module.exports = {
   fetchStaff,
@@ -344,6 +535,8 @@ module.exports = {
   fetchResident,
   createResident,
   updateResident,
+  updateResident_Add,
+  updateResident_Del,
   deleteResident,
   fetchFacility,
   createFacility,
@@ -361,6 +554,15 @@ module.exports = {
   fetchTodayWork,
   createRoutine,
   fetchRoutine,
+  updateRoutine,
+  updateRoutine_Add,
+  updateRoutine_Del,
   createMed,
-  fetchMed
+  fetchMed,
+  createActivity,
+  createCalendar,
+  createDiet,
+  createGallery,
+  createNote,
+  createNotice
 };

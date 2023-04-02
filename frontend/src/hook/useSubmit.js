@@ -9,7 +9,7 @@ export const useSubmit = () => {
   // for patch and post
   const submit = async (path, data, method) => {
     setError(null);
-
+    
     const resp = await fetch(path, {
       method: method,
       headers: { "Content-Type": "application/json" },
