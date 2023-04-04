@@ -4,7 +4,7 @@ export default function Color() {
   const theme = createTheme({
     palette: {
       neutral: {
-        main: "#64748B",
+        main: "#e0e0e0",
         contrastText: "#263238",
       },
       deepBlue: {

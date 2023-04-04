@@ -76,8 +76,8 @@ export default function ResidentPreview(data, floorInfo) {
     const titleValue = [
       data.filter((d) => d.active === true).length,
       data.filter((d) => Object.keys(d).length < 24).length,
-      data.length,
-      data.length,
+      0,
+      0
     ];
 
     return (

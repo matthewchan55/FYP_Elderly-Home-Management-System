@@ -20,15 +20,16 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha, InputBase } from "@mui/material";
-
+import useAvatar from "../../hook/useAvatar";
 
 const MedicationOverview = ({ data }) => {
   const [grouped, setGrouped] = useState();
   const [resData, setResData] = useState();
   const [text, setText] = useState("");
+  const {stringAvatar} = useAvatar();
+
   const apiRef = useGridApiRef();
   const { ActionButton } = TableActionButton();
-
   const tableHeaders = [
     {
       headerName: "ID",
@@ -157,35 +158,6 @@ const MedicationOverview = ({ data }) => {
     data,
     "_MedicationTable"
   );
-
-  console.log(text);
-  // later change to component
-  function stringToColor(string) {
-    let hash = 0;
-    let i;
-
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = "#";
-
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.slice(-2);
-    }
-
-    return color;
-  }
-
-  function stringAvatar(name) {
-    return {
-      sx: {
-        bgcolor: stringToColor(name),
-      },
-      children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-    };
-  }
 
   function findRes(res) {
     const eld = resData.find((data) => data.residentID === res);

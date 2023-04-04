@@ -23,6 +23,7 @@ import StarIcon from "@mui/icons-material/Star";
 import FemaleElderly from "../assets/female_elderly.png";
 import MaleElderly from "../assets/male_elderly.png";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import useAvatar from "../hook/useAvatar";
 
 const CaregiversHome = () => {
   const todayArea = ["101", "102", "104", "105", "106"];
@@ -38,6 +39,9 @@ const CaregiversHome = () => {
   const [selectedMessage, setSelectedMessage] = useState();
   const [selectedItemList, setSelectedItemList] = useState([]);
 
+  const {stringAvatar} = useAvatar();
+
+  
   const fetchResidentInfo = async () => {
     const resp = await fetch("/api/management/residents");
     const respData = await resp.json();
@@ -120,33 +124,6 @@ const CaregiversHome = () => {
       setScreenSize("lg");
     }
   };
-
-  function stringToColor(string) {
-    let hash = 0;
-    let i;
-
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = "#";
-
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.slice(-2);
-    }
-
-    return color;
-  }
-
-  function stringAvatar(name) {
-    return {
-      sx: {
-        bgcolor: stringToColor(name),
-      },
-      children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-    };
-  }
 
   function percentage(complete, total) {
     return Math.round((complete / total) * 100);

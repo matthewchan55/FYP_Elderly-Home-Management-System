@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { Paper, Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import MedicationOverview from "../../components/managements/MedicationOverview";
+import MedicationMedicalAppointment from "../../components/managements/MedicationMedicalAppointment";
+
+
 // confirmatino Dialog from MUI
 const ManagementMedication = () => {
   const [medList, setMedList] = useState();
@@ -59,7 +62,7 @@ const ManagementMedication = () => {
             <TabPanel value="1">
               {medList && <MedicationOverview data={medList} />}
             </TabPanel>
-            <TabPanel value="2"></TabPanel>
+            <TabPanel value="2"><MedicationMedicalAppointment/></TabPanel>
             <TabPanel value="3"></TabPanel>
             <TabPanel value="4"></TabPanel>
           </TabContext>

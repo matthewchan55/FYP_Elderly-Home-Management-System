@@ -34,7 +34,11 @@ const {
   updateRoutine_Del,
   updateRoutine,
   updateResident_Add,
-  updateResident_Del
+  updateResident_Del,
+  fetchAllTodayWork,
+  fetchActivity,
+  updateActivity,
+  deleteActivity
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -96,6 +100,7 @@ router.delete("/finance/servicecost/:id", deleteServiceCost)
 //1. TodayWorkRecords
 router.post("/work/todayworkrecords", createTodayWork)
 router.get("/work/todayworkrecords", fetchTodayWork)
+router.get("/work/allworkrecords", fetchAllTodayWork)
 
 //2. Routine
 router.post("/work/routine", createRoutine)
@@ -108,10 +113,13 @@ router.patch("/work/routine/updateDel/:id", updateRoutine_Del)
 router.post("/medication", createMed)
 router.get("/medication", fetchMed)
 
-
+//ActivityManagement
+router.get("/activity", fetchActivity)
+router.post("/activity", createActivity)
+router.patch("/activity/:id", updateActivity)
+router.delete("/activity/:id", deleteActivity)
 
 //Others
-router.post("/activity", createActivity)
 router.post("/calendar", createCalendar)
 router.post("/diet", createDiet)
 router.post("/gallery", createGallery)

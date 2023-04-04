@@ -77,6 +77,12 @@ export default function WorkRoutineDetails({ data, resData }) {
       hideable: false,
       headerClassName: "grey",
     },
+    {
+      headerName: "Routine Updated By",
+      field: "routinePerformedBy",
+      hideable: false,
+      headerClassName: "grey",
+    },
 
     {
       headerName: "Status",
@@ -177,6 +183,7 @@ export default function WorkRoutineDetails({ data, resData }) {
       );
     });
     const groupedData = groupByDate(transformedData);
+    console.log(groupedData)
     return groupedData;
   }
 

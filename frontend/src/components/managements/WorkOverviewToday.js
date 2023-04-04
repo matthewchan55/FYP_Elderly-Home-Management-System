@@ -3,16 +3,18 @@ import { useState, useEffect } from "react";
 import { Controls } from "../controls/Controls";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { parseISO, format } from "date-fns";
-import styled from "@emotion/styled";
+
 
 const WorkOverviewToday = ({ data }) => {
   const [todayWorkList, setTodayWorkList] = useState(data);
   const [categoryCount, setCategoryCount] = useState();
   const shift = ["A", "P", "N"];
+  const today = new Date();
 
   useEffect(() => {
     getCategoryTitleAndCount(data);
   }, []);
+
 
   function stringDate(date, f) {
     const dateFormat = "dd-MM-yyyy";
@@ -33,6 +35,7 @@ const WorkOverviewToday = ({ data }) => {
     setCategoryCount(Object.values(result));
   }
 
+  console.log(categoryCount)
   function countComplete(data, field, value, fixedTime) {
     let count = 0;
     let exist = false;
@@ -103,8 +106,8 @@ const WorkOverviewToday = ({ data }) => {
             alignItems="center"
             border={"1px solid grey"}
           >
-            <Controls.Bold variant="h5">
-              {todayWorkList && stringDate(todayWorkList[0].routineDate)}
+           <Controls.Bold variant="h5">
+              {`${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`}
             </Controls.Bold>
           </Box>
           {categoryCount &&

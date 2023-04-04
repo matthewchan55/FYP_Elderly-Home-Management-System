@@ -1,7 +1,6 @@
 import { Typography, Stack } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
 import { Controls } from "./controls/Controls";
 import { useGetOrDelete } from "../hook/useGetOrDelete";
 import useAlert from "../hook/useAlert";

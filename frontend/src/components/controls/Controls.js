@@ -5,7 +5,7 @@ import Buttons from "./Buttons"
 import DateTime from "./DateTime"
 import GridBox from "./GridBox"
 import Bold from "./Bold"
-
+import Avatars from "./Avatars"
 
 export const Controls = {
     DisabledInput,
@@ -15,4 +15,5 @@ export const Controls = {
     DateTime,
     GridBox,
     Bold,
+    Avatars
 }

@@ -10,6 +10,9 @@ const todayWorkRecordsSchema = new Schema(
       routinePerformer: {
         type: String,
       },
+      routinePerformedBy: {
+        type: String,
+      },
       routineCategory: {
         type: String,
       },
