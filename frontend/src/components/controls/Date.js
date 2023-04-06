@@ -1,14 +1,14 @@
-import { DateTimePicker } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers";
 
-export default function DateTime(props) {
+export default function Date(props) {
   const { name, label, value, onChange, ...other } = props;
   return (
-    <DateTimePicker
+    <DatePicker
       name={name}
       label={label}
       value={value}
       orientation="landscape"
-      format="dd-MM-yyyy HH:mm"
+      format="dd-MM-yyyy"
       ampm={false}
       onChange={onChange}
       sx={{ width: "80%", margin: 1 }}

@@ -4,7 +4,6 @@ import { useGridApiRef } from "@mui/x-data-grid";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 import { useEffect } from "react";
-import useAlert from "../../hook/useAlert";
 import SmallAlert from "../../components/SmallAlert";
 import moment from "moment";
 import useDataGrid from "../../hook/useDataGrid";
@@ -14,7 +13,6 @@ import CheckIcon from "@mui/icons-material/Check";
 import Popup from "../Popup";
 import TableDelete from "../TableDelete";
 import ActivityForm from "../forms/ManagementForm/ActivityForm";
-
 
 const ActivityTable = ({ data, fetch }) => {
   const apiRef = useGridApiRef();
@@ -59,8 +57,14 @@ const ActivityTable = ({ data, fetch }) => {
             <span>{moment(params.row.startDate).format("YYYY-MM-DD")}</span>-
             <span>{moment(params.row.endDate).format("YYYY-MM-DD")}</span>
           </Stack>
-        ) : (
+        ) : moment(params.row.startDate).format("YYYY-MM-DD") ===
+          moment(params.row.endDate).format("YYYY-MM-DD") ? (
           moment(params.row.startDate).format("YYYY-MM-DD")
+        ) : (
+          <Stack alignItems={"center"}>
+            <span>{moment(params.row.startDate).format("YYYY-MM-DD")}</span>-
+            <span>{moment(params.row.endDate).format("YYYY-MM-DD")}</span>
+          </Stack>
         ),
     },
     {
@@ -159,7 +163,6 @@ const ActivityTable = ({ data, fetch }) => {
     },
   ];
 
-
   const { CustomDataGrid } = useDataGrid(
     apiRef,
     tableHeaders,
@@ -180,14 +183,11 @@ const ActivityTable = ({ data, fetch }) => {
     deleteID,
   } = TableActionButton();
 
-
   const { TableDeleteDialog, open, handleClose, error } = TableDelete();
 
-  
   useEffect(() => {
     fetch();
-  }, [open])
-  
+  }, [open]);
 
   return (
     <>

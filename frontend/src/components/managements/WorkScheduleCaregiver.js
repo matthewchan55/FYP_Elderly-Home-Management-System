@@ -35,9 +35,6 @@ const WorkScheduleCaregiver = () => {
     
   }
 
-  const menuprops = {
-    PaperProps: { style: { maxHeight: 250 } },
-  };
 
   const fetchStaff = async () => {
     const resp = await fetch("/api/management/staff");
@@ -96,7 +93,7 @@ const WorkScheduleCaregiver = () => {
     setRoom([]);
   }, [floor]);
 
-  console.log(room);
+  console.log(roomData);
 
   const handleChange = (event) => {
     const {
@@ -228,7 +225,7 @@ const WorkScheduleCaregiver = () => {
                           input={<OutlinedInput label="Select room(s)" />}
                           onChange={handleChange}
                           renderValue={(selected) => selected.join(", ")}
-                          MenuProps={menuprops}
+                          MenuProps={{PaperProps: { style: { maxHeight: 250 }}}}
                         >
                           {roomData.map((item) => (
                             <MenuItem key={item.name} value={item.value}>
