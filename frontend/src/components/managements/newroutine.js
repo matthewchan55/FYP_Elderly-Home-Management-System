@@ -18,7 +18,7 @@ import {
   ListItemText,
   Avatar,
   FormControl,
-  FormLabel,
+
   FormGroup,
   FormControlLabel,
   FormHelperText,
@@ -147,25 +147,8 @@ const ResidentRoutineManagement = ({ data }) => {
           : respData[0].setDefaultTo
       );
       // left items
-      const result = respData.reduce(
-        (acc, { routineName, fixedTime, fixedTimePeriod }) => {
-          if (fixedTime) {
-            acc.push(
-              ...fixedTimePeriod.map((t) => (`${routineName}-${t}`))
-            );
-          } else {
-            acc.push(
-              `${routineName}-${"A"}`,
-              `${routineName}-${"P"}`,
-              `${routineName}-${"N"}`
-            );
-          }
-
-          return acc;
-        },
-        []
-      );
-      setLeft(result)
+      const result = respData.map((d) => d.routineName);
+      setLeft(result);
     }
   };
 

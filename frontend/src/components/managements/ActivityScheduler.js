@@ -2,12 +2,11 @@ import Fullcalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment";
-import { Button, Tooltip } from "@mui/material";
+import { Button } from "@mui/material";
 import Popup from "../Popup";
 import ActivityForm from "../forms/ManagementForm/ActivityForm";
-
 
 const ActivityScheduler = ({ data, fetch }) => {
   const [events, setEvents] = useState();
@@ -64,10 +63,12 @@ const ActivityScheduler = ({ data, fetch }) => {
   };
 
   useEffect(() => {
-    fetch()
-    eventsTransform(data);
+    fetch();
   }, [openActivityPopup]);
 
+  useEffect(() => {
+    eventsTransform(data);
+  }, [data]);
 
   return (
     <>
@@ -77,7 +78,7 @@ const ActivityScheduler = ({ data, fetch }) => {
         setOpen={setOpenActivityPopup}
         hideBackdrop
       >
-        <ActivityForm/>
+        <ActivityForm />
       </Popup>
 
       <Button onClick={() => setOpenActivityPopup(true)}>

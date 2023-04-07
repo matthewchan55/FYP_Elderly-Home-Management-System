@@ -22,6 +22,10 @@ const routineSchema = new Schema(
     createdBy: {
       type: String,
     },
+    specialDailyBasis:{
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true }
 );
