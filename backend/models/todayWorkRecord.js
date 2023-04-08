@@ -30,6 +30,10 @@ const todayWorkRecordsSchema = new Schema(
       },
       toElderly: {
         type: Boolean
+      },
+      specialNeeded: {
+        type: Boolean, 
+        default: false,
       }
     },
     { timestamps: true }

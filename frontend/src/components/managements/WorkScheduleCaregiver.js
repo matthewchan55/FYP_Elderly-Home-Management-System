@@ -188,19 +188,11 @@ const WorkScheduleCaregiver = () => {
             </Grid>
 
             <Grid item xs={12} md={4} p={3}>
-              <Paper sx={{p: 3, mb:5}}>
-                <Controls.Bold variant="h6">Previous working area</Controls.Bold>
-                <Controls.OutlinedInput
-                  variant="standard"
-                  name="prevRecords"
-                  value={"Room 103, Room 104, Room 105" || ""}
-                  sx={{margin: 0, width: "100%"}}
-                />
-              </Paper>
+
 
               <Paper sx={{p: 3}}>
                 <Stack display="flex" alignItems="flex-start">
-                  <Controls.Bold variant="h6" mb={2}>Today's working area:</Controls.Bold>
+                  <Controls.Bold variant="h6" mb={2}>Set Today's working area:</Controls.Bold>
                   {roomData && (
                     <>
                       <Controls.Selection

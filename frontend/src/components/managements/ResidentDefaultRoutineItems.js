@@ -16,14 +16,10 @@ import {
   Stack,
   Box,
   FormControl,
-  FormGroup,
-  FormControlLabel,
-  FormHelperText,
   Avatar,
   InputLabel,
   Select,
-  OutlinedInput,
-  MenuItem,
+  OutlinedInput
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
@@ -34,7 +30,6 @@ import useAvatar from "../../hook/useAvatar";
 import { useSubmit } from "../../hook/useSubmit";
 import useAlert from "../../hook/useAlert";
 import SmallAlert from "../SmallAlert";
-
 
 // pass left, right
 const ResidentDefaultRoutineItems = ({
@@ -129,6 +124,29 @@ const ResidentDefaultRoutineItems = ({
     setOpen(true);
   };
 
+  // const [items, setItems] = useState([]);
+  // const handleCheckboxChange = (value, time) => (event) => {
+  //   setItems((prevValues) => {
+  //     const newValues = { ...prevValues };
+  //     if (event.target.checked) {
+  //       // add the time value to the array
+  //       if (newValues[value]) {
+  //         newValues[value] = [...newValues[value], time];
+  //       } else {
+  //         newValues[value] = time;
+  //       }
+  //     } else {
+  //       // remove the time value from the array
+  //       newValues[value] = (newValues[value] || []).filter((t) => t !== time);
+  //       // empty array
+  //       if (newValues[value].length === 0) {
+  //         delete newValues[value];
+  //       }
+  //     }
+  //     return newValues;
+  //   });
+  // };
+
   const saveRoutineItems = async () => {
     // right: routine item add elderly id (one id only)
     const routineUpdate = right.map(async (d) => {
@@ -159,16 +177,8 @@ const ResidentDefaultRoutineItems = ({
     setAddEld(result.setDefaultTo);
   };
 
-  const handleInputChanges = (e) => {
-    const { name, value } = e.target;
-    setSelectedRoutine({
-      ...selectedRoutine,
-      [name]: value,
-    });
-  };
-
   // multiple add
-  const [addEld, setAddEld] = useState();
+  const [addEld, setAddEld] = useState(selectedRoutine.setDefaultTo);
   const { stringAvatar } = useAvatar();
 
   function findRes(res) {
@@ -204,6 +214,11 @@ const ResidentDefaultRoutineItems = ({
     );
   }
 
+  const findTime = (item) => {
+    const routine = routineData.find((d) => d.routineName === item);
+    return routine.fixedTimePeriod;
+  };
+
   const customList = (title, items) => (
     <Card>
       <CardHeader
@@ -231,7 +246,7 @@ const ResidentDefaultRoutineItems = ({
       <CardContent>
         <List
           sx={{
-            width: "295px",
+            width: "290px",
             height: "36vh",
             bgcolor: "background.paper",
             overflow: "auto",
@@ -241,9 +256,9 @@ const ResidentDefaultRoutineItems = ({
           role="list"
         >
           {items.length > 0 &&
+            // value=== routineName
             items.map((value, idx) => {
               const labelId = `transfer-list-all-item-${value}-label`;
-
               return (
                 <ListItem
                   key={value}
@@ -273,12 +288,49 @@ const ResidentDefaultRoutineItems = ({
                     />
                   </ListItemIcon>
                   <ListItemText key={value} id={labelId} primary={`${value}`} />
+                  {/* <Stack>
+                  {items === right && (
+                      <FormControl>
+                        <FormGroup row>
+                          {value && findTime(value).length > 0
+                            ? findTime(value).map((time) => (
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox
+                                      onChange={handleCheckboxChange(
+                                        value,
+                                        time
+                                      )}
+                                    />
+                                  }
+                                  label={time}
+                                  key={time}
+                                />
+                              ))
+                            : ["A", "P", "N"].map((time) => (
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox
+                                      onChange={handleCheckboxChange(
+                                        value,
+                                        time
+                                      )}
+                                    />
+                                  }
+                                  label={time}
+                                  key={time}
+                                />
+                              ))}
+                        </FormGroup>
+                      </FormControl>
+                    )}
+                  </Stack> */}
                 </ListItem>
               );
             })}
         </List>
       </CardContent>
-
+      <Divider />
       <CardActions sx={{ justifyContent: "flex-end" }}>
         {items === right ? (
           <Button onClick={saveRoutineItems}>Save change</Button>
@@ -332,33 +384,42 @@ const ResidentDefaultRoutineItems = ({
         </Grid>
 
         <Grid item xs={5} md={3.3} mr={3}>
-          {right && customList("Total Routines", right)}
+          {right &&
+            customList(
+              `Default Routines to ${selectedEld.lastName}, ${selectedEld.firstName}`,
+              right
+            )}
         </Grid>
 
-        <Divider orientation="vertical" flexItem/>
+        <Divider orientation="vertical" flexItem />
 
         <Grid item xs={12} md>
-          {selectedRoutine && addEld ? (
-            <Stack ml={4} mb={10}>
+          {selectedRoutine && (
+            <Stack ml={4} mb={5}>
               <Controls.Bold mb={4} variant="h6">
                 Routine Information
               </Controls.Bold>
 
               <Grid container>
-                <Grid item xs={6} md={5}>
+                <Grid item xs={6} md={6}>
                   <Stack gap={2}>
                     <Controls.Bold>Routine Name</Controls.Bold>
                     <Controls.OutlinedInput
                       variant="standard"
                       name="routineName"
                       value={selectedRoutine.routineName}
-                      onChange={handleInputChanges}
+                      InputProps={{
+                        readOnly: true,
+                      }}
                     />
                     <Controls.Bold>Routine Category</Controls.Bold>
-                    <Controls.DisabledInput
+                    <Controls.OutlinedInput
                       variant="standard"
                       name="routineCategory"
                       value={selectedRoutine.routineCategory}
+                      InputProps={{
+                        readOnly: true,
+                      }}
                     />
                     <Controls.Bold>Fixed Time</Controls.Bold>
                     <Controls.Selection
@@ -368,7 +429,6 @@ const ResidentDefaultRoutineItems = ({
                       name="fixedTime"
                       defaultValue={selectedRoutine.fixedTime}
                       value={selectedRoutine.fixedTime}
-                      onChange={handleInputChanges}
                       items={[
                         {
                           name: "fixedTime",
@@ -407,7 +467,9 @@ const ResidentDefaultRoutineItems = ({
 
                   <FormControl sx={{ m: 1, width: "80%" }}>
                     <InputLabel id="eld-select">
-                      {addEld.length === 0 ? "No elderly" : "Default To"}
+                      {addEld && addEld.length === 0
+                        ? "No elderly"
+                        : "Default To"}
                     </InputLabel>
                     <Select
                       labelId="eld-select"
@@ -427,8 +489,6 @@ const ResidentDefaultRoutineItems = ({
                 </Grid>
               </Grid>
             </Stack>
-          ) : (
-            <Typography>HI</Typography>
           )}
         </Grid>
       </Grid>

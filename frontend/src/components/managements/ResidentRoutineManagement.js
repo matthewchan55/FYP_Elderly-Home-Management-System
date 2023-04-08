@@ -8,7 +8,8 @@ import {
   Tab,
 } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { useState, useEffect } from "react";
 import { Controls } from "../controls/Controls";
 import ResidentDefaultRoutineItems from "./ResidentDefaultRoutineItems";
@@ -31,7 +32,7 @@ const ResidentRoutineManagement = ({ data }) => {
     setTabValue(newValue);
   };
 
-  // checkboxes
+
 
 
   const fetchRoutine = async (routine) => {
@@ -112,7 +113,7 @@ const ResidentRoutineManagement = ({ data }) => {
               )}
             </Grid>
             <Grid item md xs={12} mb={1}>
-              <Stack>
+              <Stack direction="row" gap={3}>
                 <Box
                   sx={{
                     width: "225px",
@@ -122,7 +123,25 @@ const ResidentRoutineManagement = ({ data }) => {
                     pl: 3,
                   }}
                 >
-                  <Controls.Bold>Total routine items</Controls.Bold>
+                  <Controls.Bold>Finish Today Routines</Controls.Bold>
+
+                    {selectedEld && selectedEld.todayResidentRoutine ?(
+                      <CheckCircleIcon sx={{ color: "#26a69a" }} />
+                    ) : (
+                      <CancelIcon sx={{ color: "#ef5350" }} />
+                    )}
+
+                </Box>
+                <Box
+                  sx={{
+                    width: "225px",
+                    border: "1px solid grey",
+                    borderRadius: "10px",
+                    py: 3,
+                    pl: 3,
+                  }}
+                >
+                  <Controls.Bold>Default Routine Items</Controls.Bold>
                   <Controls.Bold
                     fontSize={30}
                     mr={3}

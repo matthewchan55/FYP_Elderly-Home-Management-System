@@ -15,7 +15,9 @@ import WorkScheduleCaregiver from "../../components/managements/WorkScheduleCare
 // 4. schedule caregivers record
 
 const ManagementWork = () => {
-  const [today, setToday] = useState();
+  const [todayDefault, setTodayDefault] = useState();
+  const [todayNonDefault, setTodayNonDefault] = useState();
+
   const [records, setRecords] = useState();
   const [residentsData, setResidentsData] = useState();
 
@@ -25,9 +27,18 @@ const ManagementWork = () => {
     const respData = await resp.json();
 
     if (resp.ok) {
-      setToday(respData);
+      const special = respData.filter(
+        (item) => item.specialNeeded === true
+      );
+      setTodayDefault(special);
+
+      const nonspecial = respData.filter(
+        (item) => item.specialNeeded === false
+      );
+      setTodayNonDefault(nonspecial);
     }
   };
+
   const fetchTodayWork = async () => {
     const resp = await fetch("/api/management/work/allworkrecords");
     const respData = await resp.json();
@@ -87,7 +98,13 @@ const ManagementWork = () => {
             </TabList>
 
             <TabPanel value="1">
-              {today && <WorkOverviewToday data={today} />}
+              {todayDefault && todayNonDefault && residentsData && (
+                <WorkOverviewToday
+                  defaultData={todayDefault}
+                  nonDefaultData={todayNonDefault}
+                  resData={residentsData}
+                />
+              )}
             </TabPanel>
             <TabPanel value="2">
               {records && (

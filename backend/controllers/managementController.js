@@ -348,7 +348,7 @@ const fetchTodayWork = async (req, res) => {
         $gte: new Date(
           today.getFullYear(),
           today.getMonth(),
-          today.getDate()
+          today.getDate(),
         ),
         $lt: new Date(
           today.getFullYear(),

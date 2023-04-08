@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { styled, Box, Typography, AccordionDetails } from "@mui/material";
+import { Box, Typography, AccordionDetails } from "@mui/material";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import TableActionButton from "../TableActionButton";
-import CheckIcon from "@mui/icons-material/Check";
-import CloseIcon from "@mui/icons-material/Close";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
 import MyDataGrid from "../DataGrid";
 import { useGridApiRef } from "@mui/x-data-grid";
 import { parseISO, format } from "date-fns";
@@ -57,34 +57,36 @@ export default function WorkOtherDetail({ data, resData }) {
       flex: 1,
       headerClassName: "grey",
     },
-    {
-        headerName: "Shift",
-        field: "shift",
-        maxWidth: 50,
-        hideable: false,
-        headerClassName: "grey",
-      },
+
     {
       headerName: "Routine Category",
       field: "routineCategory",
       hideable: false,
-      maxWidth: 80,
+      minWidth: 140,
+      maxWidth: 140,
       headerClassName: "grey",
     },
+
     {
-      headerName: "Routine Performer",
-      field: "routinePerformer",
+      headerName: "Routine Updated By",
+      field: "routinePerformedBy",
       hideable: false,
       headerClassName: "grey",
+      minWidth: 150,
+      maxWidth: 150,
     },
 
     {
       headerName: "Status",
       type: "boolean",
-      field: "complete",
+      field: "status",
       maxWidth: 70,
       headerClassName: "grey",
-      renderCell: (params) => (params.value ? <CheckIcon /> : <CloseIcon />),
+      renderCell: (params) => (params.value ? (
+        <CheckCircleIcon sx={{ color: "#26a69a" }} />
+      ) : (
+        <CancelIcon sx={{ color: "#ef5350" }} />
+      )),
     },
     {
       headerName: "Special Notes",
@@ -145,36 +147,29 @@ export default function WorkOtherDetail({ data, resData }) {
 
   function transformRoutineComplete(routine) {
     const transformedData = routine.flatMap((routineRecord) => {
-      return routineRecord.routineComplete.flatMap(
-        ({ residentID, ...rest }) => {
-          const specialnotes = rest.notes || "";
-
-          const residentInfo =
-            resData &&
-            resData.find((resident) => resident.residentID === residentID);
-
-          const filteredResidentInfo = residentInfo
-            ? {
-                residentID: residentID,
-                residentName: `${residentInfo.lastName}, ${residentInfo.firstName}`,
-                bed: `${residentInfo.room}-${residentInfo.bed}`,
-              }
-            : { residentID: "N/A", residentName: "N/A", bed: "N/A" };
-
-          return Object.entries(rest)
-            .filter(([shift]) => shift !== "notes")
-            .map(([shift, complete]) => ({
-              date: stringDate(routineRecord.routineDate),
-              ...filteredResidentInfo,
-              routineName: routineRecord.routineName,
-              routineCategory: routineRecord.routineCategory,
-              routinePerformer: routineRecord.routinePerformer,
-              shift,
-              complete,
-              specialnotes,
-            }));
-        }
-      );
+      // spread the routine complete (array of objects)
+      return routineRecord.routineComplete.map(({ id, ...rest }) => {
+        const specialnotes = rest.notes || "";
+        // find elderly
+        const residentInfo =
+          resData && resData.find((resident) => resident.residentID === id);
+        const filteredResidentInfo = residentInfo
+          ? {
+              residentName: `${residentInfo.lastName}, ${residentInfo.firstName}`,
+              bed: `${residentInfo.room}-${residentInfo.bed}`,
+            }
+          : {residentName: "/", bed: "/"};
+        return {
+          date: stringDate(routineRecord.routineDate),
+          residentID: id || "/",
+          ...filteredResidentInfo,
+          routineName: routineRecord.routineName,
+          routineCategory: routineRecord.routineCategory,
+          routinePerformer: routineRecord.routinePerformer,
+          status: rest.status,
+          specialnotes,
+        };
+      });
     });
     const groupedData = groupByDate(transformedData);
     return groupedData;
