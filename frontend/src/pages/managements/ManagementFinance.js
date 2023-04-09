@@ -22,9 +22,22 @@ const ManagementFinance = () => {
     const respData = await resp.json();
 
     if (resp.ok) {
-      setElderlyList(respData);
+      const result = sortRoomBed(respData)
+      setElderlyList(result);
     }
   };
+
+  function sortRoomBed(data) {
+    const sortList = data.sort((a, b) => {
+      if (a.room === b.room) {
+        return a.bed > b.bed ? 1 : -1;
+      } else {
+        return a.room > b.room ? 1 : -1;
+      }
+    });
+    return sortList;
+  }
+
 
   useEffect(() => {
     fetchElderlyList();
@@ -66,7 +79,7 @@ const ManagementFinance = () => {
               }}
             >
               <Tab label="Statistics" value="1" />
-              <Tab label="Admission and charges" value="2" />
+              <Tab label="Payment record" value="2" />
               <Tab label="Resident account summary" value="3" />
               <Tab label="Resident cost management" value="4" />
               <Tab label="Staff payroll" value="5" />

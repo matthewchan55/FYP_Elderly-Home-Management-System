@@ -10,7 +10,7 @@ const ResidentCost = ({ eld }) => {
   const [selectedElderlyFinance, setSelectedElderlyFinance] = useState();
 
   const fetchCurrentRas = async (id, month) => {
-    console.log(id, month);
+
     const resp = await fetch(
       // right items
       `/api/management/finance/ras?residentID=${id}&month=${month}`
@@ -28,7 +28,6 @@ const ResidentCost = ({ eld }) => {
     //fetchServiceCost();
     fetchCurrentRas(selectedElderly.residentID, currentDate.getMonth() + 1);
   }, [selectedElderly]);
-
 
 
   function getTotalCost() {

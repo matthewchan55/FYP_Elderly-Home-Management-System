@@ -35,10 +35,10 @@ function union(a, b) {
 const ResidentCostTransfer = ({ subscribedItems, path }) => {
   const [checked, setChecked] = useState([]);
   const [left, setLeft] = useState();
-  const [right, setRight] = useState(subscribedItems);
+  const [right, setRight] = useState();
   const [createService, setCreateService] = useState(false);
   const [selectedServiceCost, setSelectedServiceCost] = useState("");
-  const [show, setShow] = useState(false);
+
 
   const fetchServiceCost = async () => {
     // left items
@@ -54,6 +54,10 @@ const ResidentCostTransfer = ({ subscribedItems, path }) => {
   useEffect(() => {
     fetchServiceCost();
   }, []);
+
+  useMemo(() => {
+    setRight(subscribedItems)
+  }, [subscribedItems])
 
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
@@ -110,13 +114,10 @@ const ResidentCostTransfer = ({ subscribedItems, path }) => {
   const saveServicesItems = async () => {
     // update servicecost
     await submit(path, { itemSubscription: right }, "PATCH");
-    show && setOpen(true);
+    setOpen(true);
   };
 
-  useMemo(() => {
-    saveServicesItems();
-    setShow(true);
-  }, [right]);
+
 
   const customList = (title, items) => (
     <Card>
@@ -249,7 +250,9 @@ const ResidentCostTransfer = ({ subscribedItems, path }) => {
           <Grid item xs={5} md={3}>
             {customList("Selected services for elderly", right)}
           </Grid>
+
           <Divider orientation="vertical" width="5%" flexItem />
+
           <Grid item xs={12} md={4} ml={3}>
             {createService ? (
               <FinanceServiceCost service={""} />

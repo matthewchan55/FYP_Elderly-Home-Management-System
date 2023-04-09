@@ -83,6 +83,7 @@ const ResidentAccountSummary = ({ eld }) => {
           data={eld}
           eld={selectedElderly}
           setEld={setSelectedElderly}
+          sorted
         />
       </Grid>
 
