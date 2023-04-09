@@ -22,12 +22,7 @@ const medicationSchema = new Schema(
     quantity: {
       type: Number,
     },
-    setDefaultTo: {
-      type: Array,
-    },
-    shift: {
-      type: Array,
-    },
+    
   },
   { timestamps: true }
 );

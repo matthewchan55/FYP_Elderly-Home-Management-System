@@ -13,6 +13,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import Popup from "../Popup";
 import TableDelete from "../TableDelete";
 import ActivityForm from "../forms/ManagementForm/ActivityForm";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 
 const ActivityTable = ({ data, fetch }) => {
   const apiRef = useGridApiRef();
@@ -232,6 +233,10 @@ const ActivityTable = ({ data, fetch }) => {
           path={"/api/management/activity/"}
         />
       </Popup>
+      <Stack direction="row" gap={1} mt={2} mb={3}>
+        <EventAvailableIcon sx={{ fontSize: 30, justifyContent: "center" }} />
+        <Controls.Bold variant="h5">Activity Detailed Information</Controls.Bold>
+      </Stack>
 
       <CustomDataGrid />
     </>

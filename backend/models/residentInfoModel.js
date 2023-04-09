@@ -77,6 +77,9 @@ const residentInfoSchema = new Schema(
     },
     defaultMedicationItems: {
       type: Array
+    },
+    medicalAppointmentInfo: {
+      type: Array
     }
   },
   { timestamps: true }

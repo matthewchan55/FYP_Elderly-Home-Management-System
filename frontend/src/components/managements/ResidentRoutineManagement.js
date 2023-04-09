@@ -91,6 +91,7 @@ const ResidentRoutineManagement = ({ data }) => {
             data={sortedResData}
             eld={selectedEld}
             setEld={setSelectedEld}
+            sorted
           />
         </Grid>
 

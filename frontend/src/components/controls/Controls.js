@@ -8,6 +8,7 @@ import Bold from "./Bold";
 import Avatars from "./Avatars";
 import Date from "./Date";
 import Time from "./Time";
+import TodayBox from "./TodayBox";
 
 export const Controls = {
   DisabledInput,
@@ -20,4 +21,5 @@ export const Controls = {
   Avatars,
   Date,
   Time,
+  TodayBox
 };

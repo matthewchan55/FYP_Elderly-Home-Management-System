@@ -12,6 +12,8 @@ const Diet = require("../models/dietModel");
 const Gallery = require("../models/galleryModel");
 const Note = require("../models/noteModel");
 const Notice = require("../models/noticeModel");
+const TodayMedicationRecords = require("../models/todayMedicationRecord")
+
 
 const mongoose = require("mongoose");
 
@@ -40,6 +42,12 @@ const deleteStaff = async (req, res) => {
   }
   res.status(200).json(staff);
 };
+
+
+// update staff
+const updateStaff = async(req, res) => {
+  
+}
 
 // ResidentsManagement
 
@@ -482,6 +490,57 @@ const fetchMed = async (req, res) => {
   res.status(200).json(med);
 };
 
+// CREATE todayworkrecords
+const createTodayMedication = async (req, res) => {
+  const todayMedicationArray = req.body;
+
+  try {
+    const todayMedications = await Promise.all(
+      todayMedicationArray.map(async (tm) => {
+        const todayMedication = await TodayMedicationRecords.create(tm);
+        return todayMedication;
+      })
+    );
+    res.status(200).json(todayMedications);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+// GET todayworkrecords
+const fetchTodayMedication = async (req, res) => {
+  const today = new Date();
+
+  try {
+    const mr = await TodayMedicationRecords.find({
+      medicationDate: {
+        $gte: new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate(),
+        ),
+        $lt: new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate() + 1
+        ),
+      }
+    });
+
+    res.status(200).json(mr);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const fetchAllMedicationRecords = async(req, res) => {
+  try {
+    const mr = await TodayMedicationRecords.find(req.query);
+    res.status(200).json(mr);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}
 
 // Activity Management
 
@@ -628,6 +687,9 @@ module.exports = {
   updateRoutine_Del,
   createMed,
   fetchMed,
+  createTodayMedication,
+  fetchTodayMedication,
+  fetchAllMedicationRecords,
   fetchActivity,
   createActivity,
   updateActivity,

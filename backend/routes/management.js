@@ -38,7 +38,10 @@ const {
   fetchAllTodayWork,
   fetchActivity,
   updateActivity,
-  deleteActivity
+  deleteActivity,
+  fetchTodayMedication,
+  fetchAllMedicationRecords,
+  createTodayMedication
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -110,6 +113,13 @@ router.patch("/work/routine/updateAdd/:id", updateRoutine_Add)
 router.patch("/work/routine/updateDel/:id", updateRoutine_Del)
 
 //MedicationManagement
+
+//1. Medication records
+router.post("/medication/todaymedicationrecords", createTodayMedication)
+router.get("/medication/todaymedicationrecords", fetchTodayMedication)
+router.get("/medication/allmedicationrecords", fetchAllMedicationRecords)
+
+//2. Medicine management
 router.post("/medication", createMed)
 router.get("/medication", fetchMed)
 

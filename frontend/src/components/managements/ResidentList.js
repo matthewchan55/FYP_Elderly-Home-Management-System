@@ -1,9 +1,26 @@
-import { Box, Stack, Button, Typography, Icon } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Box, Stack, Button, Typography } from "@mui/material";
 import FemaleElderly2 from "../../assets/female_elderly2.png";
 import MaleElderly2 from "../../assets/male_elderly2.png";
+import { useEffect } from "react";
 
-const ResidentList = ({ data, eld, setEld }) => {
+
+const ResidentList = ({ data, eld, setEld, sorted}) => {
+
+  function sortRoomBed(data) {
+    const sortList = data.sort((a, b) => {
+      if (a.room === b.room) {
+        return a.bed > b.bed ? 1 : -1;
+      } else {
+        return a.room > b.room ? 1 : -1;
+      }
+    });
+    return sortList;
+  }
+
+  useEffect(() => {
+    !sorted && sortRoomBed(data);
+  })
+
   return (
     <>
       <Box

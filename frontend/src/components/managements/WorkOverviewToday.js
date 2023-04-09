@@ -52,7 +52,7 @@ const WorkOverviewToday = ({ defaultData, nonDefaultData, resData }) => {
     return `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
   }
 
-  console.log(nonSpecialCategoryCount, todayCompletedWorkList);
+  console.log(todayDefaultWorkList);
   return (
     <>
       {/* Default Routine */}
@@ -159,6 +159,7 @@ const WorkOverviewToday = ({ defaultData, nonDefaultData, resData }) => {
                       ))
                     )}
                 </Grid>
+
                 <Grid item xs={6} md={4}>
                   <Box border={"1px solid grey"}>
                     <Controls.Bold
@@ -195,6 +196,7 @@ const WorkOverviewToday = ({ defaultData, nonDefaultData, resData }) => {
             </Grid>
           </Grid>
         </Grid>
+
         <Grid item xs={6} md={5.5}>
           <Grid container>
             {/* Routine Title*/}

@@ -17,24 +17,12 @@ const ManagementFinance = () => {
   const [elderlyList, setElderlyList] = useState();
   //const [rasList, setRasList] = useState();
 
-  function sortRoomBed(data) {
-    const sortList = data.sort((a, b) => {
-      if (a.room === b.room) {
-        return a.bed > b.bed ? 1 : -1;
-      } else {
-        return a.room > b.room ? 1 : -1;
-      }
-    });
-    return sortList;
-  }
-
   const fetchElderlyList = async () => {
     const resp = await fetch("/api/management/residents");
     const respData = await resp.json();
 
     if (resp.ok) {
-      const sortList = sortRoomBed(respData);
-      setElderlyList(sortList);
+      setElderlyList(respData);
     }
   };
 
@@ -88,7 +76,7 @@ const ManagementFinance = () => {
 
           {/* Tab Content */}
           <TabPanel value="1" sx={{ p: 0 }}>
-            <FinancialStatistic/>
+            <FinancialStatistic />
           </TabPanel>
           <TabPanel value="2" sx={{ p: 0 }}>
             {2}

@@ -8,6 +8,7 @@ const Schema = mongoose.Schema;
 //when created, timestamp automatically generate
 const userSchema = new Schema(
   {
+    //personal info
     account: {
       type: String,
       required: true,
@@ -53,6 +54,16 @@ const userSchema = new Schema(
     updatedBy: {
       type: String,
     },
+    // work info
+    workingShift: {
+      type: String
+    },
+    workingArea: {
+      type: Array
+    },
+    present: {
+      type: Boolean,
+    }
   },
   { timestamps: true }
 );
@@ -77,7 +88,7 @@ userSchema.statics.signup = async function (userInfo) {
     throw Error("This staff already owns a account");
   }
 
-  // Hashing (mern authentication #3)
+  // Hashing 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
@@ -106,5 +117,4 @@ userSchema.statics.login = async function (account, password) {
   return user;
 };
 
-// automatically create a new collection in MongoDB
 module.exports = mongoose.model("User", userSchema);

@@ -4,9 +4,12 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { Button } from "@mui/material";
+import {  Stack } from "@mui/material";
 import Popup from "../Popup";
 import ActivityForm from "../forms/ManagementForm/ActivityForm";
+import { Controls } from "../controls/Controls";
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+
 
 const ActivityScheduler = ({ data, fetch }) => {
   const [events, setEvents] = useState();
@@ -81,9 +84,15 @@ const ActivityScheduler = ({ data, fetch }) => {
         <ActivityForm />
       </Popup>
 
-      <Button onClick={() => setOpenActivityPopup(true)}>
-        Add an activity
-      </Button>
+      <Stack direction="row" alignItems={"center"}mb={3} gap={1}>
+      <EventAvailableIcon sx={{ fontSize: 30, justifyContent: "center" }} />
+        <Controls.Bold flexGrow={1} variant="h5">Activity Overview</Controls.Bold>
+        <Controls.Buttons
+          text="Add an activity"
+          size="large"
+          onClick={() => setOpenActivityPopup(true)}
+        />
+      </Stack>
 
       <Fullcalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
