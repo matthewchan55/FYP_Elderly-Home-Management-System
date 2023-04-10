@@ -10,6 +10,7 @@ export default function OutlinedInput(props) {
       value={value}
       onChange={onChange}
       sx={{ width: "80%", margin: 1 }}
+      autoComplete='off'
       {...other}
     />
   );

@@ -55,6 +55,9 @@ const userSchema = new Schema(
       type: String,
     },
     // work info
+    pastWorkingAreaTime: {
+      type: Array
+    },
     workingShift: {
       type: String
     },

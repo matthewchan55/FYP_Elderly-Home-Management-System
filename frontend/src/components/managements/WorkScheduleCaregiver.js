@@ -50,6 +50,7 @@ const WorkScheduleCaregiver = () => {
     setRoom(room);
   };
 
+  console.log(event)
   const fetchStaff = async () => {
     const resp = await fetch("/api/management/staff");
     const respData = await resp.json();
@@ -65,27 +66,56 @@ const WorkScheduleCaregiver = () => {
   };
 
   const gatherEvents = (data) => {
-    const workingData = data.filter(
+    console.log(data)
+    const workingData = data.filter((item) => item.pastWorkingArea);
+    const todayData = data.filter(
       (item) => item.workingArea && item.workingShift
     );
-    const result = workingData.map((d) => {
-      const stringRoom = d.workingArea.join(", ");
-      const staff = `${d.lastName}, ${d.firstName}`;
-      const event = {
-        title: `${staff} - ${stringRoom}`,
-        start: d.workingShift,
-        backgroundColor: getColor(d.workingShift),
-        borderColor: getColor(d.workingShift),
-      };
-      return event;
-    });
-    setEvent(result);
+
+    const pastResult =
+      workingData &&
+      workingData.map((d) => {
+        const result = d.pastWorkingArea.map((item) => {
+          const stringRoom = item.pastArea.join(", ");
+          const staff = `${d.lastName}, ${d.firstName}`;
+          const ent = {
+            title: `${staff} - ${stringRoom}`,
+            start: item.pastShift,
+            backgroundColor: getColor(item.pastShift),
+            borderColor: getColor(item.pastShift),
+          };
+          return ent;
+        });
+        return result;
+      });
+    const res = pastResult.reduce((acc, curr) => [...acc, ...curr], []);
+
+    const todayResult =
+      todayData &&
+      todayData.map((d) => {
+        const stringRoom = d.workingArea.join(", ");
+        const staff = `${d.lastName}, ${d.firstName}`;
+        const ent = {
+          title: `${staff} - ${stringRoom}`,
+          start: d.workingShift,
+          backgroundColor: getColor(d.workingShift),
+          borderColor: getColor(d.workingShift),
+        };
+        return ent;
+      });
+
+    setEvent(res.concat(todayResult));
+  };
+
+  const getDate = () => {
+    const currentDate = new Date().toISOString().slice(0, 10);
+    return currentDate;
   };
 
   function getColor(time) {
-    if (time === "2023-04-09T08:00:00") {
+    if (time.slice(10, 19) === "T08:00:00") {
       return "green";
-    } else if (time === "2023-04-09T14:00:00") {
+    } else if (time.slice(10, 19) === "T14:00:00") {
       return "";
     } else {
       return "brown";
@@ -114,7 +144,7 @@ const WorkScheduleCaregiver = () => {
   };
 
   const handleShift = (e) => {
-    setShift(e.target.value);
+    setShift(e.target.value)
   };
 
   const groupRoom = (data) => {
@@ -251,7 +281,9 @@ const WorkScheduleCaregiver = () => {
 
           <Grid container direction="row">
             <Grid item xs={12} md={8}>
-              <Typography variant="h4" mb={3}>Work schedule</Typography>
+              <Typography variant="h4" mb={3}>
+                Work schedule
+              </Typography>
 
               <Fullcalendar
                 plugins={[listPlugin]}
@@ -304,17 +336,17 @@ const WorkScheduleCaregiver = () => {
                     items={[
                       {
                         name: "todayShift",
-                        value: "2023-04-09T08:00:00",
+                        value: `${getDate()}T08:00:00`,
                         label: "A",
                       },
                       {
                         name: "todayShift",
-                        value: "2023-04-09T14:00:00",
+                        value: `${getDate()}T14:00:00`,
                         label: "P",
                       },
                       {
                         name: "todayShift",
-                        value: "2023-04-09T22:00:00",
+                        value: `${getDate()}T22:00:00`,
                         label: "N",
                       },
                     ]}

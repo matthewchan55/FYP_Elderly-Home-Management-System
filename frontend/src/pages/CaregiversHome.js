@@ -13,42 +13,67 @@ import {
   ListItemButton,
   ListItemIcon,
   Checkbox,
+  Card,
+  CardContent,
+  CardHeader,
+  CardActions,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { Controls } from "../components/controls/Controls";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
+import ShowerIcon from "@mui/icons-material/Shower";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import StarIcon from "@mui/icons-material/Star";
 import FemaleElderly from "../assets/female_elderly.png";
 import MaleElderly from "../assets/male_elderly.png";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import useAvatar from "../hook/useAvatar";
 
-const CaregiversHome = () => {
-  const todayArea = ["101", "102", "104", "105", "106"];
-  const [residents, setResidents] = useState([]);
-  const [screenSize, setScreenSize] = useState("lg");
-  const [selectedResident, setSelectedResident] = useState();
-  const [eldRoutineItems, setEldRoutineItems] = useState();
-  const [eldMedicationItems, setEldMedicationItems] = useState();
-  const [routineList, setRoutineList] = useState();
+import { useAuthContext } from "../hook/useAuthContext";
 
+const CaregiversHome = () => {
+  const { user } = useAuthContext();
+  const [screenSize, setScreenSize] = useState("lg");
+
+  const [residents, setResidents] = useState([]);
+  const [selectedResident, setSelectedResident] = useState();
+
+  const [eldRoutineItems, setEldRoutineItems] = useState();
+  const [selectedItemList, setSelectedItemList] = useState([]);
+  const [eldMedicationItems, setEldMedicationItems] = useState();
+  const [selectedMedicationlist, setSelectedMedicationList] = useState([]);
+
+  const icons = [
+    <ShowerIcon />,
+    <HealthAndSafetyIcon />,
+    <MedicalServicesIcon />,
+  ];
+
+  console.log(selectedItemList);
+  // routine list on the right
+  const [routineList, setRoutineList] = useState();
+  const [medicationList, setMedicationList] = useState();
   const [onClickCategoryItems, setOnClickCategoryItems] = useState();
+  const [selectedItem, setSelectedItem] = useState();
+  const [openItemSpreadup, setOpenItemSpreadup] = useState(false);
   const [selectedError, setSelectedError] = useState();
   const [selectedMessage, setSelectedMessage] = useState();
-  const [selectedItemList, setSelectedItemList] = useState([]);
+  const [notes, setNotes] = useState();
+  const [itemValue, setItemValue] = useState();
 
-  const {stringAvatar} = useAvatar();
+  const { stringAvatar } = useAvatar();
 
-  
   const fetchResidentInfo = async () => {
     const resp = await fetch("/api/management/residents");
     const respData = await resp.json();
 
     if (resp.ok) {
+      // get elderly in today working area
       const filteredResidents = respData.filter((resident) =>
-        todayArea.includes(resident.room)
+        user.workingArea.includes(resident.room)
       );
       const sorted = filteredResidents.sort((a, b) => {
         if (a.room === b.room) {
@@ -57,13 +82,22 @@ const CaregiversHome = () => {
           return a.room > b.room ? 1 : -1;
         }
       });
-      setResidents(sorted);
-      setSelectedResident(sorted[0]);
 
-      fetchRoutine(sorted[0]);
-      fetchMedInfo(sorted[0].residentID);
+      // filtered resident list
+      setResidents(sorted);
+      // first resident
+      setSelectedResident(sorted[0]);
+      // default routine and med (according to shift)
+      setEldRoutineItems(sorted[0].defaultRoutineItems);
+      setEldMedicationItems(
+        getCurrentMedication(sorted[0].defaultMedicationItems)
+      );
     }
   };
+
+  const findDefaultRoutineDetails = (routine) => {};
+
+  console.log(eldRoutineItems);
 
   const fetchRoutine = async (eld) => {
     const resp = await fetch("/api/management/work/routine");
@@ -71,50 +105,39 @@ const CaregiversHome = () => {
 
     if (resp.ok) {
       setRoutineList(respData);
-      const rightData = getRightItems(respData, "routineName");
-
-      const routine =
-        eld &&
-        rightData &&
-        rightData.filter((d) => d.resident === eld.residentID);
-
-      setEldRoutineItems(routine[0].routine);
     }
   };
 
-  const fetchMedInfo = async (id) => {
+  const fetchMedication = async () => {
     const resp = await fetch("/api/management/medication");
     const respData = await resp.json();
 
     if (resp.ok) {
-      const rightData = getRightItems(respData, "genericName");
-
-      const routine =
-        id && rightData && rightData.filter((d) => d.resident === id);
-
-      setEldMedicationItems(routine[0].routine);
+      setMedicationList(respData);
     }
   };
 
-  function getRightItems(data, field) {
-    const residentRoutines = data.reduce((acc, routine) => {
-      routine.setDefaultTo.forEach((resident) => {
-        const residentIndex = acc.findIndex(
-          (item) => item.resident === resident
-        );
-        if (residentIndex === -1) {
-          acc.push({
-            resident: resident,
-            routine: [routine[field]],
-          });
-        } else {
-          acc[residentIndex].routine.push(routine[field]);
-        }
-      });
-      return acc;
-    }, []);
-    return residentRoutines;
-  }
+  const getCurrentMedication = (items) => {
+    const now = new Date();
+    const hour = now.getHours();
+
+    let currentMedication = [];
+    items.forEach((item) => {
+      if (item.A && hour >= 8 && hour < 14) {
+        currentMedication = currentMedication.concat(item.A);
+      }
+      if (item.P && hour >= 14 && hour < 22) {
+        currentMedication = currentMedication.concat(item.P);
+      }
+      if (
+        (item.N && hour >= 22 && hour <= 23) ||
+        (item.N && hour >= 0 && hour < 8)
+      ) {
+        currentMedication = currentMedication.concat(item.N);
+      }
+    });
+    return currentMedication;
+  };
 
   const handleResize = () => {
     const windowWidth = window.innerWidth;
@@ -139,11 +162,10 @@ const CaregiversHome = () => {
     return result;
   }
 
-  function formatString(text) {
-    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
-  }
-
   function getRoutienCategoryItems(category) {
+    if (category === "medication") {
+      setOnClickCategoryItems(medicationList);
+    }
     const result = routineList.filter((r) => r.routineCategory === category);
     setOnClickCategoryItems(result);
   }
@@ -161,11 +183,12 @@ const CaregiversHome = () => {
     }
   };
 
-  const [checked, setChecked] = useState([0]);
+  const [checkedRoutine, setCheckedRoutine] = useState([]);
+  const [checkedMedication, setCheckedMedication] = useState([]);
 
   const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+    const currentIndex = checkedRoutine.indexOf(value);
+    const newChecked = [...checkedRoutine];
 
     if (currentIndex === -1) {
       newChecked.push(value);
@@ -173,13 +196,96 @@ const CaregiversHome = () => {
       newChecked.splice(currentIndex, 1);
     }
 
-    setChecked(newChecked);
+    setCheckedRoutine(newChecked);
+  };
+
+  const handleToggleMedication = (value) => () => {
+    const currentIndex = checkedMedication.indexOf(value);
+    const newChecked = [...checkedMedication];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setCheckedMedication(newChecked);
+  };
+
+  const formatShift = (time) => {
+    if (time.slice(10, 19) === "T08:00:00") {
+      return "A";
+    } else if (time.slice(10, 19) === "T14:00:00") {
+      return "P";
+    } else if (time.slice(10, 19) === "T22:00:00") {
+      return "N";
+    }
+    return "Not assigned";
+  };
+
+  const CustomRoutineList = ({ header, items, title, type }) => {
+    return (
+      <>
+        <ListSubheader component="div" id="nested-list-subheader">
+          {header}
+        </ListSubheader>
+        {items &&
+          items.map((r, idx) => (
+            <ListItem key={idx}>
+              <ListItemButton
+                role={undefined}
+                onClick={
+                  type === "routine"
+                    ? handleToggle(r)
+                    : handleToggleMedication(r)
+                }
+                dense
+              >
+                <ListItemIcon>
+                  <Checkbox
+                    edge="start"
+                    checked={
+                      type === "routine"
+                        ? checkedRoutine.indexOf(r) !== -1
+                        : checkedMedication.indexOf(r) !== -1
+                    }
+                    tabIndex={-1}
+                    disableRipple
+                  />
+                </ListItemIcon>
+                <Stack key={idx} direction="row" alignItems={"center"}>
+                  {title === "default" && (
+                    <StarIcon sx={{ fontSize: 20, color: "#f57c00", mr: 1 }} />
+                  )}
+                  <Typography ml={1}>{r}</Typography>
+                </Stack>
+              </ListItemButton>
+            </ListItem>
+          ))}
+      </>
+    );
   };
 
   useEffect(() => {
     fetchResidentInfo();
+    fetchRoutine();
+    fetchMedication();
     handleResize();
   }, []);
+
+  useMemo(() => {
+    setEldRoutineItems(
+      selectedResident && selectedResident.defaultRoutineItems
+    );
+    setEldMedicationItems(
+      selectedResident &&
+        getCurrentMedication(selectedResident.defaultMedicationItems)
+    );
+    setCheckedRoutine([]);
+    setCheckedMedication([]);
+    setSelectedItemList([]);
+    setSelectedMedicationList([]);
+  }, [selectedResident]);
 
   return (
     <Grid container>
@@ -190,15 +296,13 @@ const CaregiversHome = () => {
               <Controls.Bold variant="h5" mb={2}>
                 Today's Working Area
               </Controls.Bold>
-              <Typography variant="h6" fontStyle={"italic"} color="#808191">
-                Floor: 1
-              </Typography>
-              <Typography variant="h6" fontStyle={"italic"} color="#808191">
-                Zone: A
-              </Typography>
-              <Typography variant="h6" fontStyle={"italic"} color="#808191">
-                Room: 101, 102, 104, 105, 106
-              </Typography>
+              <Controls.Bold variant="h6" fontStyle={"italic"} color="#808191">
+                {`Shift: ${formatShift(user.workingShift)}`}
+              </Controls.Bold>
+
+              <Controls.Bold variant="h6" fontStyle={"italic"} color="#808191">
+                {`Room: ${user.workingArea || "Not assigned"}`}
+              </Controls.Bold>
             </Paper>
           </Grid>
           <Grid item xs={6}>
@@ -243,36 +347,45 @@ const CaregiversHome = () => {
                       md={4}
                       lg={screenSize === "lg" ? 12 : 6}
                     >
-                      <Box
-                        direction="row"
-                        display={"flex"}
-                        alignItems="center"
-                        mt={1}
-                        key={idx}
-                      >
-                        <Box
-                          width="3px"
-                          height="74px"
-                          bgcolor={res.todayResidentRoutine ? "green" : "red"}
-                          mr={2}
-                        />
-                        <Avatar
-                          {...stringAvatar(`${res.lastName} ${res.firstName}`)}
-                        />
-                        <Stack ml={2}>
-                          <Typography
-                            variant="subtitle2"
-                            color="#808191"
-                          >{`Resident ID: ${res.residentID}`}</Typography>
-                          <Typography
-                            variant="subtitle2"
-                            color="#808191"
-                          >{`Name: ${res.lastName}, ${res.firstName}`}</Typography>
-                          <Typography
-                            variant="subtitle2"
-                            color="#808191"
-                          >{`Bed: ${res.room}-${res.bed}`}</Typography>
-                        </Stack>
+                      <Box direction="row" mt={1} key={idx}>
+                        <Button
+                          onClick={() => setSelectedResident(res)}
+                          sx={{
+                            justifyContent: "flex-start",
+                            width: "100%",
+                            "& .MuiTypography-root": {
+                              textTransform: "none",
+                              color: "black",
+                              textAlign: "left",
+                            },
+                          }}
+                        >
+                          <Box
+                            width="3px"
+                            height="74px"
+                            bgcolor={res.todayResidentRoutine ? "green" : "red"}
+                            mr={2}
+                          />
+                          <Avatar
+                            {...stringAvatar(
+                              `${res.lastName} ${res.firstName}`
+                            )}
+                          />
+                          <Stack ml={2}>
+                            <Typography
+                              variant="subtitle2"
+                              color="#808191"
+                            >{`Resident ID: ${res.residentID}`}</Typography>
+                            <Typography
+                              variant="subtitle2"
+                              color="#808191"
+                            >{`Name: ${res.lastName}, ${res.firstName}`}</Typography>
+                            <Typography
+                              variant="subtitle2"
+                              color="#808191"
+                            >{`Bed: ${res.room}-${res.bed}`}</Typography>
+                          </Stack>
+                        </Button>
                       </Box>
                     </Grid>
                   ))}
@@ -286,7 +399,7 @@ const CaregiversHome = () => {
 
       <Grid item xs md>
         {selectedResident && (
-          <Grid container>
+          <Grid container alignItems="center">
             <Grid item md={5}>
               <Stack direction="row">
                 {selectedResident.sex === "F" ? (
@@ -301,24 +414,59 @@ const CaregiversHome = () => {
                 )}
 
                 <Stack gap={2} p={3}>
-                  <Typography>Name: Chan, Tsz (ResidentID: 12)</Typography>
-                  <Typography>Room: 101, Bed: A</Typography>
-                  <Typography>Today routine items: 6</Typography>
-                  <Stack direction="row">
-                    <Typography>Today routine status:</Typography>
-
-                    {selectedResident.todayResidentRoutine ? (
-                      <CheckCircleIcon sx={{ color: "#26a69a" }} />
-                    ) : (
-                      <CancelIcon sx={{ color: "#26a69a" }} />
-                    )}
-                  </Stack>
+                  <Typography>{`Name: ${selectedResident.lastName}, ${selectedResident.firstName} (Resident ID: ${selectedResident.residentID})`}</Typography>
+                  <Typography>{`Bed: ${selectedResident.room}-${selectedResident.bed}`}</Typography>
+                  <Typography>{`Special Routine Items: ${
+                    selectedResident.defaultRoutineItems
+                      ? selectedResident.defaultRoutineItems.length
+                      : 0
+                  }`}</Typography>
+                  <Typography>{`Default Medication Items: ${
+                    selectedResident.defaultMedicationItems
+                      ? getCurrentMedication(
+                          selectedResident.defaultMedicationItems
+                        ).length
+                      : 0
+                  }`}</Typography>
                 </Stack>
               </Stack>
             </Grid>
 
+            <Grid item md={4}>
+              <Stack direction="row" gap={4}>
+                <Box
+                  sx={{
+                    width: "200px",
+                    border: "1px solid grey",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Stack alignItems={"center"} px={3} py={2} gap={1}>
+                    <Controls.Bold>Completed Routine Items</Controls.Bold>
+                    <Controls.Bold color="#009688" variant="h3">
+                      0
+                    </Controls.Bold>
+                  </Stack>
+                </Box>
+                <Box
+                  sx={{
+                    width: "200px",
+                    border: "1px solid grey",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Stack alignItems={"center"} pl={4} py={2} gap={1}>
+                    <Controls.Bold>Completed shift medication</Controls.Bold>
+                    {/* <CheckCircleIcon
+                      sx={{ fontSize: 50, color: "#26a69a", pr: 2 }}
+                    /> */}
+                    <CancelIcon sx={{ fontSize: 50, color: "#ef5350" }} />
+                  </Stack>
+                </Box>
+              </Stack>
+            </Grid>
             <Grid item md>
-              <Stack direction="row" p={5}>
+              <Stack p={5}>
                 <Controls.Buttons
                   variant="outlined"
                   text={`View routine records for elderly ${selectedResident.lastName}, ${selectedResident.firstName}`}
@@ -344,88 +492,47 @@ const CaregiversHome = () => {
               my={1}
             >
               <StarIcon sx={{ fontSize: 40, color: "#f57c00" }} />
-              <Typography>Default</Typography>
+              <Controls.Bold>Default</Controls.Bold>
             </Stack>
+
+            {/* routine list and medication list */}
             <Grid container>
               <Grid item xs={6} md={12}>
                 <Paper sx={{ p: 3, mb: 5, mr: 3 }}>
                   <Controls.Bold variant="h6" mb={1}>
                     Routine List
                   </Controls.Bold>
+                  {eldRoutineItems && selectedItemList && (
+                    <>
+                      <List
+                        dense
+                        component="div"
+                        role="list"
+                        subheader={<li />}
+                        sx={{
+                          width: "105%",
+                          height: "300px",
+                          overflow: "auto",
+                        }}
+                      >
+                        <CustomRoutineList
+                          header={"Default Routine Items"}
+                          items={eldRoutineItems}
+                          title="default"
+                          type="routine"
+                        />
 
-                  <List
-                    dense
-                    component="div"
-                    role="list"
-                    subheader={<li />}
-                    sx={{ height: "300px", overflow: "auto" }}
-                  >
-                    <ListSubheader component="div" id="nested-list-subheader">
-                      Newly added routines
-                    </ListSubheader>
-                    {selectedItemList &&
-                      selectedItemList.map((r, idx) => (
-                        <ListItem key={idx}>
-                          <ListItemButton
-                            role={undefined}
-                            onClick={handleToggle(r)}
-                            dense
-                          >
-                            <ListItemIcon>
-                              <Checkbox
-                                edge="start"
-                                checked={checked.indexOf(r) !== -1}
-                                tabIndex={-1}
-                                disableRipple
-                              />
-                            </ListItemIcon>
-                            <Stack
-                              key={idx}
-                              direction="row"
-                              alignItems={"center"}
-                            >
-                              <Typography ml={1}>{r}</Typography>
-                            </Stack>
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
+                        <Divider />
 
-                    <Divider />
-
-                    <ListSubheader component="div" id="nested-list-subheader">
-                      Default routines
-                    </ListSubheader>
-                    {eldRoutineItems &&
-                      eldRoutineItems.map((r, idx) => (
-                        <ListItem key={idx}>
-                          <ListItemButton
-                            role={undefined}
-                            onClick={handleToggle(r)}
-                            dense
-                          >
-                            <ListItemIcon>
-                              <Checkbox
-                                edge="start"
-                                checked={checked.indexOf(r) !== -1}
-                                tabIndex={-1}
-                                disableRipple
-                              />
-                            </ListItemIcon>
-                            <Stack
-                              key={idx}
-                              direction="row"
-                              alignItems={"center"}
-                            >
-                              <StarIcon
-                                sx={{ fontSize: 20, color: "#f57c00" }}
-                              />
-                              <Typography ml={1}>{r}</Typography>
-                            </Stack>
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
-                  </List>
-                  <Button>Save changes</Button>
+                        <CustomRoutineList
+                          header={"Additional Routine Items"}
+                          items={selectedItemList}
+                          type="routine"
+                        />
+                      </List>
+                      <Button>Save changes</Button>
+                    </>
+                  )}
                 </Paper>
               </Grid>
 
@@ -434,103 +541,77 @@ const CaregiversHome = () => {
                   <Controls.Bold variant="h6" mb={1}>
                     Medication List
                   </Controls.Bold>
-                  <List
-                    dense
-                    component="div"
-                    role="list"
-                    subheader={<li />}
-                    sx={{ height: "300px", overflow: "auto" }}
-                  >
-                    <ListSubheader component="div" id="nested-list-subheader">
-                      Newly added medication
-                    </ListSubheader>
-                    <Divider />
-                    <ListSubheader component="div" id="nested-list-subheader">
-                      Default medication
-                    </ListSubheader>
-                    {eldMedicationItems &&
-                      eldMedicationItems.map((r, idx) => (
-                        <ListItem key={idx}>
-                          <ListItemButton
-                            role={undefined}
-                            onClick={handleToggle(r)}
-                            dense
-                          >
-                            <ListItemIcon>
-                              <Checkbox
-                                edge="start"
-                                checked={checked.indexOf(r) !== -1}
-                                tabIndex={-1}
-                                disableRipple
-                              />
-                            </ListItemIcon>
-                            <Stack
-                              key={idx}
-                              direction="row"
-                              alignItems={"center"}
-                            >
-                              <StarIcon
-                                sx={{ fontSize: 20, color: "#f57c00" }}
-                              />
-                              <Typography ml={1}>{formatString(r)}</Typography>
-                            </Stack>
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
-                  </List>
+
+                  {eldRoutineItems && selectedMedicationlist && (
+                    <>
+                      <List
+                        dense
+                        component="div"
+                        role="list"
+                        subheader={<li />}
+                        sx={{
+                          width: "105%",
+                          height: "300px",
+                          overflow: "auto",
+                        }}
+                      >
+                        <CustomRoutineList
+                          header={"Default Medication Items"}
+                          items={eldMedicationItems}
+                          title="default"
+                          type="medication"
+                        />
+                        <Divider />
+                        <CustomRoutineList
+                          header={"Additional Medication Items"}
+                          items={selectedMedicationlist}
+                          type="medication"
+                        />
+                      </List>
+                    </>
+                  )}
+
                   <Button>Save changes</Button>
                 </Paper>
               </Grid>
             </Grid>
           </Grid>
 
-          <Grid
-            item
-            xs={12}
-            md
-            display="flex"
-            alignItems={"center"}
-            justifyContent="center"
-            maxWidth={"400px"}
-          >
+          <Grid item xs={12} md>
             {onClickCategoryItems === undefined ||
             onClickCategoryItems === "" ? (
-              <>
-                <Stack>
-                  <Box p={15} border={"3px solid orange"}>
-                    <Button
-                      onClick={() =>
-                        getRoutienCategoryItems("cleaning (elderly)")
-                      }
+              <Stack alignItems={"center"} mt={10}>
+                {["cleaning (elderly)", "health care", "medication"].map(
+                  (category, idx) => (
+                    <Box
+                      height="150px"
+                      display="flex"
+                      justifyContent={"center"}
+                      width="50%"
+                      border={"2px solid orange"}
                     >
-                      <Controls.Bold variant="h5">Cleaning </Controls.Bold>
-                    </Button>
-                  </Box>
-                  <Box p={15} border={"3px solid orange"}>
-                    <Button
-                      onClick={() => getRoutienCategoryItems("health care")}
-                    >
-                      <Controls.Bold variant="h5">Health care</Controls.Bold>
-                    </Button>
-                  </Box>
-                </Stack>
-                <Stack>
-                  <Box p={15} border={"3px solid orange"}>
-                    <Button onClick={() => getRoutienCategoryItems()}>
-                      <Controls.Bold variant="h5">Medication</Controls.Bold>
-                    </Button>
-                  </Box>
-                  <Box p={15} border={"3px solid orange"}>
-                    <Button onClick={() => getRoutienCategoryItems()}>
-                      <Controls.Bold variant="h5"> Others</Controls.Bold>
-                    </Button>
-                  </Box>
-                </Stack>
-              </>
+                      <Button onClick={() => getRoutienCategoryItems(category)}>
+                        {icons[idx]}
+                        <Controls.Bold variant="h5" ml={1}>
+                          {category}{" "}
+                        </Controls.Bold>
+                      </Button>
+                    </Box>
+                  )
+                )}
+              </Stack>
             ) : (
               <Stack>
                 <Stack direction="row">
-                  <Button onClick={() => setOnClickCategoryItems("")}>
+                  <Button
+                    onClick={() => {
+                      setOnClickCategoryItems("");
+                      setOpenItemSpreadup(false);
+                      setNotes("");
+                      setSelectedItem("");
+                    }}
+                    sx={{ mb: 2 }}
+                  >
                     <ArrowBackIosIcon />
                     Back to category
                   </Button>
@@ -547,30 +628,54 @@ const CaregiversHome = () => {
                     color="#009688"
                   >{`Item "${selectedMessage}" has already been added to routine list`}</Typography>
                 )}
-                <Grid container spacing={2} mb={3}>
-                  {onClickCategoryItems.map((item, idx) => (
-                    <Grid key={idx} item xs={4}>
-                      <Box p={7} border={"1px solid black"}>
-                        <Button
-                          onClick={() => handleSelectItems(item.routineName)}
+
+                {selectedItem && openItemSpreadup ? (
+                  <>
+                    <Controls.Bold>{`Routine Item: ${selectedItem.routineName}`}</Controls.Bold>
+
+                    <Typography>Value</Typography>
+                    <Controls.OutlinedInput
+                      value={itemValue || ""}
+                      variant="standard"
+                      onChange={(e) => setItemValue(e.target.value)}
+                      sx={{ width: "10%", mb: 3 }}
+                    />
+
+                    <TextField
+                      label="Special Notes"
+                      multiline
+                      rows={4}
+                      defaultValue=""
+                      onChange={(e) => setNotes(e.target.value)}
+                    />
+                    <Stack direction="row">
+                      <Button>Add to list</Button>
+                    </Stack>
+                  </>
+                ) : (
+                  <Grid container spacing={2} mb={3}>
+                    {onClickCategoryItems.map((item, idx) => (
+                      <Grid key={idx} item xs={4}>
+                        <Box
+                          height="80px"
+                          display="flex"
+                          justifyContent={"center"}
+                          border={"1px solid black"}
+                          borderRadius="20px"
                         >
-                          <Controls.Bold>{item.routineName}</Controls.Bold>
-                        </Button>
-                      </Box>
-                    </Grid>
-                  ))}
-                </Grid>
-                <TextField
-                  label="Special Notes"
-                  multiline
-                  rows={4}
-                  defaultValue=""
-                />
-                <Stack direction="row">
-                  <Button onClick={() => setOnClickCategoryItems("")}>
-                    Save changes
-                  </Button>
-                </Stack>
+                          <Button
+                            onClick={() => {
+                              setOpenItemSpreadup(true);
+                              setSelectedItem(item);
+                            }}
+                          >
+                            <Controls.Bold>{item.routineName}</Controls.Bold>
+                          </Button>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                )}
               </Stack>
             )}
           </Grid>

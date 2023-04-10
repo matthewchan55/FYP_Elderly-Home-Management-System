@@ -33,6 +33,7 @@ const ResidentAccountSummary = ({ eld }) => {
 
   function sumUpColumns(obj, field) {
     let totalCost = 0;
+    console.log(obj, field)
     for (let i = 0; i < obj.length; i++) {
       totalCost += obj[i][field];
     }
