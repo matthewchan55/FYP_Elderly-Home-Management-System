@@ -25,6 +25,9 @@ const routineSchema = new Schema(
     specialDailyBasis:{
       type: Boolean,
       default: false,
+    },
+    valueInput: {
+      type: Array
     }
   },
   { timestamps: true }

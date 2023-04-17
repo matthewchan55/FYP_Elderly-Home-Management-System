@@ -6,6 +6,7 @@ import {
   Typography,
   Box,
   Tab,
+  Paper,
 } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -15,7 +16,6 @@ import { Controls } from "../controls/Controls";
 import ResidentDefaultRoutineItems from "./ResidentDefaultRoutineItems";
 
 const ResidentRoutineManagement = ({ data }) => {
-
   // res list
   const [sortedResData, setSortedResData] = useState();
   const [unsortedResData, setUnsortedResData] = useState();
@@ -32,27 +32,23 @@ const ResidentRoutineManagement = ({ data }) => {
     setTabValue(newValue);
   };
 
-
-
-
   const fetchRoutine = async (routine) => {
     const resp = await fetch("/api/management/work/routine");
     const respData = await resp.json();
 
     if (resp.ok) {
       setRoutineData(respData);
-      // routine info 
-      const leftList = respData.filter(d => d.specialDailyBasis===true)
+      // routine info
+      const leftList = respData.filter((d) => d.specialDailyBasis === true);
       setSelectedRoutine(
         routine ? respData.find((r) => r._id === routine._id) : leftList[0]
       );
 
       // left items
-      const leftListItem = leftList.map(d => d.routineName)
+      const leftListItem = leftList.map((d) => d.routineName);
       setLeft(leftListItem);
     }
   };
-
 
   const sortResidentsAsc = (d) => {
     // for multiple select
@@ -77,12 +73,19 @@ const ResidentRoutineManagement = ({ data }) => {
     return sortList;
   }
 
+  const updateEld = (updated) => {
+    setSelectedEld(updated);
+  };
+
+  const updateRoutine = (updated) => {
+    setSelectedRoutine(updated);
+  };
+
   useEffect(() => {
     sortResidentsAsc(data);
     fetchRoutine();
   }, []);
 
-  
   return (
     <>
       <Grid container direction="row">
@@ -126,12 +129,11 @@ const ResidentRoutineManagement = ({ data }) => {
                 >
                   <Controls.Bold>Finish Today Routines</Controls.Bold>
 
-                    {selectedEld && selectedEld.todayResidentRoutine ?(
-                      <CheckCircleIcon sx={{ color: "#26a69a" }} />
-                    ) : (
-                      <CancelIcon sx={{ color: "#ef5350" }} />
-                    )}
-
+                  {selectedEld && selectedEld.todayResidentRoutine ? (
+                    <CheckCircleIcon sx={{ mx: 8, fontSize: 40, color: "#26a69a" }} />
+                  ) : (
+                    <CancelIcon sx={{  mx: 8,fontSize: 40, color: "#ef5350" }} />
+                  )}
                 </Box>
                 <Box
                   sx={{
@@ -191,15 +193,40 @@ const ResidentRoutineManagement = ({ data }) => {
 
               {/* Tab Content */}
               <TabPanel value="1" sx={{ width: "88%" }}>
-                <Typography>hi1</Typography>
+                {selectedEld &&
+                  selectedEld.todayRoutineItems.map((item, idx) => (
+                    <Paper key={idx} sx={{ p: 3, m:1 }}>
+                      <Stack>
+                        <Stack direction="row" alignItems="center">
+                          <CheckCircleIcon
+                            sx={{ fontSize: 40, color: "#26a69a" }}
+                          />
+                          <Controls.Bold ml={1}>{item.routineName}</Controls.Bold>
+                        </Stack>
+                        <Stack ml={6}>
+                          {item.value &&
+                            Object.entries(item.value).map(([key, value]) => (
+                              <Stack key={key} direction="row">
+                                <Typography>{`${key}: `}</Typography>
+                                <Typography>{value}</Typography>
+                              </Stack>
+           
+                            ))}
+                          <Typography>{`Shift: ${item.shift}`}</Typography>
+                          <Typography>{`Notes: ${item.notes}`}</Typography>
+                        </Stack>
+                      </Stack>
+                    </Paper>
+                  ))}
               </TabPanel>
               <TabPanel value="2" sx={{ width: "88%" }}>
                 <ResidentDefaultRoutineItems
                   tabLeft={left}
                   tabRight={right}
                   selectedEld={selectedEld}
+                  setSelectedEld={updateEld}
                   selectedRoutine={selectedRoutine}
-                  setSelectedRoutine={setSelectedRoutine}
+                  setSelectedRoutine={updateRoutine}
                   routineData={routineData}
                   unsortedRes={unsortedResData}
                 />

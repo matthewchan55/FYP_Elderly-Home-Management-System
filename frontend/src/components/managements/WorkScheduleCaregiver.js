@@ -36,6 +36,7 @@ const WorkScheduleCaregiver = () => {
   const [floor, setFloor] = useState(1);
   const [room, setRoom] = useState([]);
   const [shift, setShift] = useState("");
+  const [first, setFirst] = useState(true);
 
   const { open, setOpen, handleClose } = useAlert();
   const { submit, error } = useSubmit();
@@ -43,14 +44,13 @@ const WorkScheduleCaregiver = () => {
   const handleSave = async () => {
     await submit(
       "/api/user/profile/" + selected._id,
-      { workingArea: room, workingShift: shift },
+      { workingArea: room, workingShift: shift, present: true},
       "PATCH"
     );
     setOpen(true);
-    setRoom(room);
   };
 
-  console.log(event)
+
   const fetchStaff = async () => {
     const resp = await fetch("/api/management/staff");
     const respData = await resp.json();
@@ -60,13 +60,22 @@ const WorkScheduleCaregiver = () => {
         (staff) => staff.userType === "caregivers"
       );
       setCaregiversList(filtered);
-      setSelected(filtered[0]);
+      first && setSelected(filtered[0]);
       gatherEvents(respData);
     }
   };
 
+  const fetchSelected = async(user) => {
+    const resp = await fetch(`/api/management/staff?_id=${user._id}`)
+    const respData = await resp.json();
+
+    if(resp.ok){
+      setSelected(...respData)
+    }
+  }
+
   const gatherEvents = (data) => {
-    console.log(data)
+
     const workingData = data.filter((item) => item.pastWorkingArea);
     const todayData = data.filter(
       (item) => item.workingArea && item.workingShift
@@ -185,7 +194,14 @@ const WorkScheduleCaregiver = () => {
     setRoom(selected && selected.workingArea);
     setShift(selected && selected.workingShift);
   }, [selected]);
+  
+  useEffect(() => {
+    fetchSelected(selected)
+    setFirst(false)
+    fetchStaff();
+  }, [open])
 
+  console.log(selected)
   return (
     <>
       <SmallAlert
@@ -272,6 +288,7 @@ const WorkScheduleCaregiver = () => {
                   ) : (
                     <CancelIcon sx={{ color: "#ef5350", fontSize: 50 }} />
                   )}
+                  
                 </Box>
               </Stack>
             </Grid>
@@ -378,7 +395,7 @@ const WorkScheduleCaregiver = () => {
                         <Select
                           labelId="room-select"
                           multiple
-                          value={room}
+                          value={room || []}
                           input={<OutlinedInput label="Select room(s)" />}
                           onChange={handleChange}
                           renderValue={(room) => room.join(", ")}

@@ -21,7 +21,7 @@ const mongoose = require("mongoose");
 
 // fetch staffs data
 const fetchStaff = async (req, res) => {
-  const staffs = await User.find()
+  const staffs = await User.find(req.query)
     .or([{ userType: "admin" }, { userType: "caregivers" }])
     .sort({ staffID: 1 });
   res.status(200).json(staffs);
@@ -318,16 +318,11 @@ const deleteServiceCost = async (req, res) => {
 
 // CREATE todayworkrecords
 const createTodayWork = async (req, res) => {
-  const todayWorkArray = req.body;
+  const work = { ...req.body };
 
   try {
-    const todayWorks = await Promise.all(
-      todayWorkArray.map(async (work) => {
-        const todayWork = await TodayWorkRecords.create(work);
-        return todayWork;
-      })
-    );
-    res.status(200).json(todayWorks);
+    const result = await TodayWorkRecords.create(work);
+    res.status(200).json(result);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -352,6 +347,7 @@ const fetchTodayWork = async (req, res) => {
 
   try {
     const tw = await TodayWorkRecords.find({
+      ...req.query, 
       routineDate: {
         $gte: new Date(
           today.getFullYear(),
@@ -375,6 +371,27 @@ const fetchTodayWork = async (req, res) => {
   }
 };
 
+
+const updateTodayWork = async(req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such work" });
+  }
+
+  const updatedWork = await TodayWorkRecords.findOneAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    },
+    { new: true }
+  );
+
+  if (!updatedWork) {
+    return res.status(404).json({ error: "No such work" });
+  }
+  res.status(200).json(updatedWork);
+}
 
 // CREATE routine
 const createRoutine = async (req, res) => {
@@ -680,6 +697,7 @@ module.exports = {
   createTodayWork,
   fetchAllTodayWork,
   fetchTodayWork,
+  updateTodayWork,
   createRoutine,
   fetchRoutine,
   updateRoutine,

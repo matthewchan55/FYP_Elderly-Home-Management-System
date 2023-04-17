@@ -68,9 +68,21 @@ const residentInfoSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    todayRoutineItems: {
+      type: Array,
+    },
+    pastRoutineItems: {
+      type: Array,
+    },
     todayMedicationRoutine: {
       type: Boolean,
       default: false,
+    },
+    todayMedicationItems: {
+      type: Array,
+    },
+    pastMedicationItems: {
+      type: Array,
     },
     defaultRoutineItems: {
       type: Array

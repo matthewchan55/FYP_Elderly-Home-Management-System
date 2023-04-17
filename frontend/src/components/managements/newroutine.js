@@ -409,7 +409,7 @@ const ResidentRoutineManagement = ({ data }) => {
                     items === left && (
                       <IconButton
                         edge="end"
-                        aria-label="delete"
+                        aria-label="edit"
                         onClick={() => handlePenClick(value)}
                       >
                         <EditIcon />

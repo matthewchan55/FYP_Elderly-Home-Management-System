@@ -41,7 +41,8 @@ const {
   deleteActivity,
   fetchTodayMedication,
   fetchAllMedicationRecords,
-  createTodayMedication
+  createTodayMedication,
+  updateTodayWork
 } = require("../controllers/managementController");
 
 const router = express.Router();
@@ -103,6 +104,7 @@ router.delete("/finance/servicecost/:id", deleteServiceCost)
 //1. TodayWorkRecords
 router.post("/work/todayworkrecords", createTodayWork)
 router.get("/work/todayworkrecords", fetchTodayWork)
+router.patch("/work/todayworkrecords/:id", updateTodayWork)
 router.get("/work/allworkrecords", fetchAllTodayWork)
 
 //2. Routine

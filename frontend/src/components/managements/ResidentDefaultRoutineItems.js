@@ -19,12 +19,12 @@ import {
   Avatar,
   InputLabel,
   Select,
-  OutlinedInput
+  OutlinedInput,
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Controls } from "../controls/Controls";
 import useAvatar from "../../hook/useAvatar";
 import { useSubmit } from "../../hook/useSubmit";
@@ -36,6 +36,7 @@ const ResidentDefaultRoutineItems = ({
   tabLeft,
   tabRight,
   selectedEld,
+  setSelectedEld,
   selectedRoutine,
   setSelectedRoutine,
   routineData,
@@ -123,29 +124,6 @@ const ResidentDefaultRoutineItems = ({
     setChecked(not(checked, rightChecked));
     setOpen(true);
   };
-
-  // const [items, setItems] = useState([]);
-  // const handleCheckboxChange = (value, time) => (event) => {
-  //   setItems((prevValues) => {
-  //     const newValues = { ...prevValues };
-  //     if (event.target.checked) {
-  //       // add the time value to the array
-  //       if (newValues[value]) {
-  //         newValues[value] = [...newValues[value], time];
-  //       } else {
-  //         newValues[value] = time;
-  //       }
-  //     } else {
-  //       // remove the time value from the array
-  //       newValues[value] = (newValues[value] || []).filter((t) => t !== time);
-  //       // empty array
-  //       if (newValues[value].length === 0) {
-  //         delete newValues[value];
-  //       }
-  //     }
-  //     return newValues;
-  //   });
-  // };
 
   const saveRoutineItems = async () => {
     // right: routine item add elderly id (one id only)
@@ -288,43 +266,6 @@ const ResidentDefaultRoutineItems = ({
                     />
                   </ListItemIcon>
                   <ListItemText key={value} id={labelId} primary={`${value}`} />
-                  {/* <Stack>
-                  {items === right && (
-                      <FormControl>
-                        <FormGroup row>
-                          {value && findTime(value).length > 0
-                            ? findTime(value).map((time) => (
-                                <FormControlLabel
-                                  control={
-                                    <Checkbox
-                                      onChange={handleCheckboxChange(
-                                        value,
-                                        time
-                                      )}
-                                    />
-                                  }
-                                  label={time}
-                                  key={time}
-                                />
-                              ))
-                            : ["A", "P", "N"].map((time) => (
-                                <FormControlLabel
-                                  control={
-                                    <Checkbox
-                                      onChange={handleCheckboxChange(
-                                        value,
-                                        time
-                                      )}
-                                    />
-                                  }
-                                  label={time}
-                                  key={time}
-                                />
-                              ))}
-                        </FormGroup>
-                      </FormControl>
-                    )}
-                  </Stack> */}
                 </ListItem>
               );
             })}
@@ -341,9 +282,32 @@ const ResidentDefaultRoutineItems = ({
     </Card>
   );
 
+  const fetchSelectedUser = async (user) => {
+    const resp = await fetch(`/api/management/residents?_id=${user._id}`);
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      setSelectedEld(...respData);
+    }
+  };
+
+  const fetchSelectedRoutine = async (routine) => {
+    const resp = await fetch(`/api/management/work/routine?_id=${routine._id}`);
+    const respData = await resp.json();
+
+    if (resp.ok) {
+      setSelectedRoutine(...respData);
+    }
+  };
+
   useMemo(() => {
     setRight(selectedEld.defaultRoutineItems);
   }, [selectedEld]);
+
+  useEffect(() => {
+    fetchSelectedUser(selectedEld);
+    fetchSelectedRoutine(selectedRoutine);
+  }, [open]);
 
   return (
     <>
@@ -353,42 +317,46 @@ const ResidentDefaultRoutineItems = ({
         onClose={handleClose}
         title="Update service items for elderly successfully!"
       />
-      <Grid container alignItems="center">
-        <Grid item xs={5} md={3.3}>
-          {left && customList("Total Routines", left)}
-        </Grid>
-        <Grid item xs md={1}>
-          <Grid container direction="column" alignItems="center">
-            <Button
-              sx={{ my: 0.5 }}
-              variant="outlined"
-              size="small"
-              onClick={handleCheckedRight}
-              disabled={leftChecked.length === 0 || rightChecked.length > 0}
-              aria-label="move selected right"
-            >
-              &gt;
-            </Button>
-            <Button
-              sx={{ my: 0.5 }}
-              variant="outlined"
-              size="small"
-              color="error"
-              onClick={handleCheckedDelete}
-              disabled={rightChecked.length === 0}
-              aria-label="move selected left"
-            >
-              x
-            </Button>
-          </Grid>
-        </Grid>
+      <Grid container>
+        <Grid item xs={12} md={8}>
+          <Grid container alignItems={"center"} gap={2}>
+            <Grid item xs={5} md={5}>
+              {left && customList("Total Routines", left)}
+            </Grid>
+            <Grid item xs md={1}>
+              <Grid container direction="column" alignItems="center">
+                <Button
+                  sx={{ my: 0.5 }}
+                  variant="outlined"
+                  size="small"
+                  onClick={handleCheckedRight}
+                  disabled={leftChecked.length === 0 || rightChecked.length > 0}
+                  aria-label="move selected right"
+                >
+                  &gt;
+                </Button>
+                <Button
+                  sx={{ my: 0.5 }}
+                  variant="outlined"
+                  size="small"
+                  color="error"
+                  onClick={handleCheckedDelete}
+                  disabled={rightChecked.length === 0}
+                  aria-label="move selected left"
+                >
+                  x
+                </Button>
+              </Grid>
+            </Grid>
 
-        <Grid item xs={5} md={3.3} mr={3}>
-          {right &&
-            customList(
-              `Default Routines to ${selectedEld.lastName}, ${selectedEld.firstName}`,
-              right
-            )}
+            <Grid item xs={5} md={5}>
+              {right &&
+                customList(
+                  `Default Routines to ${selectedEld.lastName}, ${selectedEld.firstName}`,
+                  right
+                )}
+            </Grid>
+          </Grid>
         </Grid>
 
         <Divider orientation="vertical" flexItem />
@@ -396,12 +364,12 @@ const ResidentDefaultRoutineItems = ({
         <Grid item xs={12} md>
           {selectedRoutine && (
             <Stack ml={4} mb={5}>
-              <Controls.Bold mb={4} variant="h6">
-                Routine Information
-              </Controls.Bold>
+              <Typography mb={4} variant="h6">
+                {`Routine: ${selectedRoutine.routineName}`}
+              </Typography>
 
               <Grid container>
-                <Grid item xs={6} md={6}>
+                <Grid item xs={12} md={6}>
                   <Stack gap={2}>
                     <Controls.Bold>Routine Name</Controls.Bold>
                     <Controls.OutlinedInput
@@ -459,8 +427,8 @@ const ResidentDefaultRoutineItems = ({
                     )}
                   </Stack>
                 </Grid>
-
-                <Grid item xs md>
+                   
+                <Grid item xs={12} md={6}>
                   <Controls.Bold mb={2}>
                     Default routine to elderly
                   </Controls.Bold>
@@ -475,7 +443,7 @@ const ResidentDefaultRoutineItems = ({
                       labelId="eld-select"
                       multiple
                       disabled
-                      value={addEld}
+                      value={addEld || []}
                       input={<OutlinedInput label="Default To" />}
                       renderValue={(addEld) => addEld.join(", ")}
                       MenuProps={{
