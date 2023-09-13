@@ -1,1 +1,1 @@
-# FYP2
+# Elderly Home Management System (FYP)
