@@ -34,5 +34,10 @@ and tracking systems are not designed.
 
 System Screenshots:
 ![22CS170_HomepageScreenshot](https://github.com/matthewchan55/FYP_Elderly-Home-Management-System/assets/75091114/f257de8b-0e0d-4cc7-af8d-98bb2432ed5b)
+![elderly](https://github.com/matthewchan55/FYP_Elderly-Home-Management-System/assets/75091114/dab133d6-25db-4756-901a-06034aa9bb1d)
+![activity](https://github.com/matthewchan55/FYP_Elderly-Home-Management-System/assets/75091114/f2e7a60d-8918-42b2-a634-dbf232ef4a13)
+![medical](https://github.com/matthewchan55/FYP_Elderly-Home-Management-System/assets/75091114/8e383b0d-0daa-4078-b984-cec0c21d1371)
+![expenses](https://github.com/matthewchan55/FYP_Elderly-Home-Management-System/assets/75091114/c30d4224-12cb-40e2-a45b-b7687419e107)
+
 
 
