@@ -31,3 +31,8 @@ management system for elderly homes by investigating its purpose and methodology
 literature review. Concepts of “smart elderly home” and other modern technology which can
 also support the caring system such as Internet of Things (IoT) or any real-time monitoring
 and tracking systems are not designed.
+
+System Screenshots:
+![22CS170_HomepageScreenshot](https://github.com/matthewchan55/FYP_Elderly-Home-Management-System/assets/75091114/f257de8b-0e0d-4cc7-af8d-98bb2432ed5b)
+
+
