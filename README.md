@@ -1,4 +1,4 @@
-![image](https://github.com/matthewchan55/FYP_Elderly-Home-Management-System/assets/75091114/4d7acf16-64e4-4755-bcfe-93188d0cd36a)# Elderly Home Management System (FYP)
+# Elderly Home Management System (FYP)
 As the proportion of the population aged 65 and above in Hong Kong has been steadily
 growing. To accommodate the expected increase of residents in elderly homes in the future, a
 web-based elderly home management system is designed in this paper. A modern and robust
