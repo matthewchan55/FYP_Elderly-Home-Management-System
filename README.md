@@ -33,11 +33,13 @@ also support the caring system such as Internet of Things (IoT) or any real-time
 and tracking systems are not designed.
 
 System Screenshots:
-![22CS170_HomepageScreenshot](/screenshot/22CS170_HomepageScreenshot.png)
-![elderly](/screenshot/elderly.PNG)
-![activity](/screenshot/activity.PNG)
-![medical](/screenshot/medical.PNG)
-![expenses](/screenshot/expenses.PNG)
+![22CS170_HomepageScreenshot](/screenshot/22CS170_HomepageScreenshot.png) <br/>
+![elderly](/screenshot/elderly.PNG)<br/>
+![activity](/screenshot/activity.PNG)<br/>
+![medical](/screenshot/medical.PNG)<br/>
+![record](/screenshot/record.PNG)<br/>
+![accountsummary](/screenshot/accountsummary.PNG)<br/>
+![expenses](/screenshot/expenses.PNG)<br/>
 
 
 
